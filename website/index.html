@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FS Business Forum | 13. &amp; 14. November 2026</title>
+    <meta name="description" content="Europe's premier student-led business congress. Join 700+ participants connecting with leaders from business, finance, and politics at Frankfurt School.">
+
+    <!-- Browser UI Color (address bar, status bar) -->
+    <meta name="theme-color" content="#040810">
+    <meta name="msapplication-navbutton-color" content="#040810">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Icons, canonical & social sharing
+         Icons live at the domain root so Google can pick them up as the search-result
+         favicon (it also probes /favicon.ico directly). Keep the paths root-relative. -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="canonical" href="https://fs-businessforum.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FS Business Forum | 13. &amp; 14. November 2026">
+    <meta property="og:description" content="Europe's premier student-led business congress. 13 &amp; 14 November 2026 at Frankfurt School of Finance &amp; Management.">
+    <meta property="og:url" content="https://fs-businessforum.com/">
+    <meta property="og:image" content="https://fs-businessforum.com/assets/picturesdecoration/vp1_poster.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Preload critical assets (fonts self-hosted via styles.css for GDPR compliance) -->
+    <link rel="preload" href="assets/fonts/PlayfairDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/picturesdecoration/vp1_poster.jpg" as="image">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Vendor scripts (deferred, version-pinned, selbst gehostet – kein Drittanbieter-CDN) -->
+    <script defer src="assets/js/gsap.min.js"></script>
+    <script defer src="assets/js/ScrollTrigger.min.js"></script>
+    <script defer src="assets/js/ScrollToPlugin.min.js"></script>
+    <script defer src="assets/js/split-type.min.js"></script>
+    <!-- Lenis (Smooth-Scroll) bewusst deaktiviert: die alte CDN-URL war 404, die Seite lief immer auf nativem Scrollen. script.js faellt ohne Lenis sauber auf natives Scrollen zurueck. -->
+    <script defer src="script.js"></script>
+
+    <!-- Without JS the intro overlay would permanently cover the page -->
+    <noscript><style>.intro-overlay{display:none !important;}</style></noscript>
+
+    <!-- Structured data: helps Google understand the event and pick sensible sitelinks -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://fs-businessforum.com/#organization",
+                "name": "FS Business Forum",
+                "url": "https://fs-businessforum.com/",
+                "logo": "https://fs-businessforum.com/icon-512.png",
+                "email": "info@fs-businessforum.com",
+                "description": "Europe's premier student-led business congress, organised by students of Frankfurt School of Finance & Management."
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://fs-businessforum.com/#website",
+                "url": "https://fs-businessforum.com/",
+                "name": "FS Business Forum",
+                "publisher": { "@id": "https://fs-businessforum.com/#organization" }
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "name": [ "Speakers", "Previous Speakers", "About", "Experience", "Partners", "Team", "Tickets" ],
+                "url": [
+                    "https://fs-businessforum.com/#speakers",
+                    "https://fs-businessforum.com/previous-speakers.html",
+                    "https://fs-businessforum.com/#about",
+                    "https://fs-businessforum.com/#experience",
+                    "https://fs-businessforum.com/#partners",
+                    "https://fs-businessforum.com/#team",
+                    "https://fs-businessforum.com/tickets.html"
+                ]
+            },
+            {
+                "@type": "Event",
+                "name": "FS Business Forum 2026",
+                "url": "https://fs-businessforum.com/",
+                "startDate": "2026-11-13",
+                "endDate": "2026-11-14",
+                "eventStatus": "https://schema.org/EventScheduled",
+                "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                "image": "https://fs-businessforum.com/assets/picturesdecoration/vp1_poster.jpg",
+                "description": "Europe's premier student-led business congress. 700+ participants connecting with leaders from business, finance and politics.",
+                "organizer": { "@id": "https://fs-businessforum.com/#organization" },
+                "location": {
+                    "@type": "Place",
+                    "name": "Frankfurt School of Finance & Management",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "Adickesallee 32-34",
+                        "postalCode": "60322",
+                        "addressLocality": "Frankfurt am Main",
+                        "addressCountry": "DE"
+                    }
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Grain Overlay for Premium Feel -->
+    <div class="grain-overlay"></div>
+
+    <!-- Custom Cursor (desktop pointer devices only) -->
+    <div class="cursor"></div>
+
+    <!-- Intro Video Overlay -->
+    <div class="intro-overlay" id="introOverlay">
+        <video id="introVideo" muted playsinline preload="auto" webkit-playsinline>
+            <source src="assets/picturesdecoration/intro.mp4" type="video/mp4">
+        </video>
+        <div class="intro-skip" id="introSkip">
+            <span>Skip</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 4l10 8-10 8V4zM19 5v14"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Preload Images During Intro (must stay eager: display:none + lazy would never load) -->
+    <div style="display:none;" aria-hidden="true">
+        <img src="assets/picturesdecoration/christianduerrspeaking.jpg" alt="">
+        <img src="assets/picturesdecoration/crowd_clapping.jpg" alt="">
+        <img src="assets/picturesdecoration/happycrowed.jpg" alt="">
+        <img src="assets/picturesdecoration/thyssenkrupp_ceo_receives_present.jpg" alt="">
+        <img src="assets/picturesdecoration/swisschris_hedgefundhenning.jpg" alt="">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <img src="assets/FS_Business_Forum_mit.png" alt="FS Logo" style="height: 48px; width: 210px; position: relative; top: 6px;">
+            </a>
+            <div class="nav-links">
+                <a href="#speakers" class="nav-link">Speakers</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#partners" class="nav-link">Partners</a>
+                <a href="#team" class="nav-link">Team</a>
+                <a href="2025/" class="nav-link">2025</a>
+                <a href="tickets.html" class="nav-link nav-link-cta">Get Tickets</a>
+            </div>
+            <button class="nav-menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="#speakers" class="mobile-link">Speakers</a>
+            <a href="previous-speakers.html" class="mobile-link">Previous Speakers</a>
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#experience" class="mobile-link">Experience</a>
+            <a href="#partners" class="mobile-link">Partners</a>
+            <a href="#team" class="mobile-link">Team</a>
+            <a href="2025/" class="mobile-link">FS Business Forum 2025</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+            <a href="tickets.html" class="mobile-link mobile-link-cta">Get Tickets</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-video-container">
+            <video autoplay muted loop playsinline preload="metadata" poster="assets/picturesdecoration/vp1_poster.jpg" class="hero-video">
+                <source src="assets/picturesdecoration/vp1.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">Connecting Minds</span>
+                <span class="title-line title-accent">Creating Future</span>
+            </h1>
+            <p class="hero-date">13 &amp; 14 November 2026 &middot; Frankfurt am Main</p>
+            <p class="hero-description">
+                Where tomorrow’s leaders meet today’s visionaries.<br>Two transformative days of keynotes, workshops, panels and networking at the<br>Frankfurt School of Finance &amp; Management.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="700">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Participants</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="40">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Speakers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="10">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Universities</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="7">0</span>
+                    <span class="stat-label">Years of Excellence</span>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="tickets.html" class="btn btn-primary btn-shimmer">
+                    <span>Get Tickets</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+                <a href="#speakers" class="btn btn-secondary">
+                    <span>Meet Our Speakers</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            <div class="scroll-line"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Text Marquee - Endless Loop -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span>Innovation</span>
+                <span class="marquee-dot"></span>
+                <span>Leadership</span>
+                <span class="marquee-dot"></span>
+                <span>Excellence</span>
+                <span class="marquee-dot"></span>
+                <span>Networking</span>
+                <span class="marquee-dot"></span>
+                <span>Future</span>
+                <span class="marquee-dot"></span>
+                <span>Finance</span>
+                <span class="marquee-dot"></span>
+                <span>Strategy</span>
+                <span class="marquee-dot"></span>
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+                <span>Innovation</span>
+                <span class="marquee-dot"></span>
+                <span>Leadership</span>
+                <span class="marquee-dot"></span>
+                <span>Excellence</span>
+                <span class="marquee-dot"></span>
+                <span>Networking</span>
+                <span class="marquee-dot"></span>
+                <span>Future</span>
+                <span class="marquee-dot"></span>
+                <span>Finance</span>
+                <span class="marquee-dot"></span>
+                <span>Strategy</span>
+                <span class="marquee-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Speakers Section -->
+    <section id="speakers" class="speakers luxury-section">
+        <!-- Luxury Decorative Elements -->
+        <div class="section-watermark center">SPEAKERS</div>
+        <div class="ambient-glow top-right"></div>
+        <div class="ambient-glow bottom-left"></div>
+        <div class="dots-pattern top-left"></div>
+        <div class="dots-pattern bottom-right"></div>
+
+        <div class="speakers-container">
+            <div class="section-header">
+                <span class="section-tag">Featured Speakers</span>
+                <h2 class="section-title">
+                    <span class="title-reveal">CEOs. Politicians.</span>
+                    <span class="title-reveal">Visionaries.</span>
+                </h2>
+                <p class="section-subtitle">We reveal our 2026 line-up step by step. First up: our partner speakers from DVAG &mdash; many more industry leaders to be unveiled soon.</p>
+                <!-- Standalone, crawlable archive page — gives Google a "Previous Speakers"
+                     target instead of falling back to the legal pages for sitelinks. -->
+                <a href="previous-speakers.html" class="section-header-link">
+                    See all previous speakers
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- 2026 speakers are revealed step by step. First reveal: our DVAG
+                 partner speakers. Remaining slots are blurred "to be revealed"
+                 placeholders that get swapped for real speakers over time. -->
+            <div class="speakers-grid">
+                <div class="speaker-card" data-speaker="stefan">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker2026/stefan_ruehl.jpg" alt="Stefan Rühl">
+                        <div class="speaker-logo-badge speaker-logo-badge--text">DVAG</div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Stefan Rühl</h3>
+                        <p class="speaker-role">Speaker</p>
+                        <p class="speaker-company">Deutsche Vermögensberatung (DVAG)</p>
+                    </div>
+                </div>
+                <div class="speaker-card" data-speaker="kevin">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker2026/kevin_kantert.jpg" alt="Kevin Kantert">
+                        <div class="speaker-logo-badge speaker-logo-badge--text">DVAG</div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Kevin Kantert</h3>
+                        <p class="speaker-role">Speaker</p>
+                        <p class="speaker-company">Deutsche Vermögensberatung (DVAG)</p>
+                    </div>
+                </div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true">
+                    <div class="speaker-image">
+                        <div class="speaker-placeholder-figure"></div>
+                        <span class="speaker-reveal-tag">To be revealed</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Coming soon</h3>
+                        <p class="speaker-role">Speaker 2026</p>
+                        <p class="speaker-company">&nbsp;</p>
+                    </div>
+                </div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true">
+                    <div class="speaker-image">
+                        <div class="speaker-placeholder-figure"></div>
+                        <span class="speaker-reveal-tag">To be revealed</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Coming soon</h3>
+                        <p class="speaker-role">Speaker 2026</p>
+                        <p class="speaker-company">&nbsp;</p>
+                    </div>
+                </div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true">
+                    <div class="speaker-image">
+                        <div class="speaker-placeholder-figure"></div>
+                        <span class="speaker-reveal-tag">To be revealed</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Coming soon</h3>
+                        <p class="speaker-role">Speaker 2026</p>
+                        <p class="speaker-company">&nbsp;</p>
+                    </div>
+                </div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true">
+                    <div class="speaker-image">
+                        <div class="speaker-placeholder-figure"></div>
+                        <span class="speaker-reveal-tag">To be revealed</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Coming soon</h3>
+                        <p class="speaker-role">Speaker 2026</p>
+                        <p class="speaker-company">&nbsp;</p>
+                    </div>
+                </div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true">
+                    <div class="speaker-image">
+                        <div class="speaker-placeholder-figure"></div>
+                        <span class="speaker-reveal-tag">To be revealed</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Coming soon</h3>
+                        <p class="speaker-role">Speaker 2026</p>
+                        <p class="speaker-company">&nbsp;</p>
+                    </div>
+                </div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true">
+                    <div class="speaker-image">
+                        <div class="speaker-placeholder-figure"></div>
+                        <span class="speaker-reveal-tag">To be revealed</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Coming soon</h3>
+                        <p class="speaker-role">Speaker 2026</p>
+                        <p class="speaker-company">&nbsp;</p>
+                    </div>
+                </div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true">
+                    <div class="speaker-image">
+                        <div class="speaker-placeholder-figure"></div>
+                        <span class="speaker-reveal-tag">To be revealed</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Coming soon</h3>
+                        <p class="speaker-role">Speaker 2026</p>
+                        <p class="speaker-company">&nbsp;</p>
+                    </div>
+                </div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true">
+                    <div class="speaker-image">
+                        <div class="speaker-placeholder-figure"></div>
+                        <span class="speaker-reveal-tag">To be revealed</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Coming soon</h3>
+                        <p class="speaker-role">Speaker 2026</p>
+                        <p class="speaker-company">&nbsp;</p>
+                    </div>
+                </div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true">
+                    <div class="speaker-image">
+                        <div class="speaker-placeholder-figure"></div>
+                        <span class="speaker-reveal-tag">To be revealed</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Coming soon</h3>
+                        <p class="speaker-role">Speaker 2026</p>
+                        <p class="speaker-company">&nbsp;</p>
+                    </div>
+                </div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true">
+                    <div class="speaker-image">
+                        <div class="speaker-placeholder-figure"></div>
+                        <span class="speaker-reveal-tag">To be revealed</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Coming soon</h3>
+                        <p class="speaker-role">Speaker 2026</p>
+                        <p class="speaker-company">&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buttons Container -->
+            <div class="speakers-buttons-container">
+                <a href="mailto:speaker@fs-businessforum.com?subject=Speaker%20Inquiry%20%E2%80%94%20FS%20Business%20Forum%202026&amp;body=Hello%20FS%20Business%20Forum%20team%2C%0D%0A%0D%0AI%20would%20like%20to%20speak%20at%20the%20FS%20Business%20Forum%202026.%0D%0A%0D%0AName%3A%0D%0APosition%20%26%20company%3A%0D%0APossible%20topic%3A%0D%0APhone%20%2F%20email%3A%0D%0A%0D%0ABest%20regards%2C%0D%0A" class="nav-link-cta" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 2rem; text-decoration: none;">
+                    Become a Speaker
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Photos -->
+    <section id="about" class="about luxury-section has-photo-bg">
+        <!-- 2025 impression background -->
+        <div class="section-photo-bg" style="background-image:url('assets/backgrounds2026/bg1.jpg')"></div>
+        <!-- Luxury Decorative Elements -->
+        <div class="section-watermark center">FORUM</div>
+        <div class="ambient-glow top-right"></div>
+        <div class="ambient-glow bottom-left"></div>
+        <div class="dots-pattern top-right"></div>
+        <div class="dots-pattern bottom-left"></div>
+
+        <div class="about-container">
+            <!-- Luxury Divider - Above Section Header -->
+            <div class="luxury-divider">
+                <div class="luxury-divider-icon"></div>
+            </div>
+
+            <div class="about-intro">
+                <div class="section-header">
+                    <span class="section-tag">About the Forum</span>
+                    <h2 class="section-title">
+                        <span class="title-reveal">One of Europe's Largest</span>
+                        <span class="title-reveal">Student-Run Conferences</span>
+                    </h2>
+                </div>
+                <div class="about-text-block">
+                    <p class="about-lead">
+                        The FS Business Forum is an annual, student-run, two-day business conference held at the Frankfurt School of Finance & Management. Founded in 2019, we bring together over 700 participants from international universities with leaders from business, finance, and politics.
+                    </p>
+                    <p class="about-text">
+                        As the flagship event of Frankfurt School, we are recognized as one of the largest student-led business congresses in Europe. Our mission is to encourage direct dialogue between students and industry leaders through personal interaction, open discussion, and meaningful networking.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Photo Gallery - Full images -->
+            <div class="about-photo-grid">
+                <div class="photo-grid-item featured">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/3womencoffedrinkingfyeur.jpg" alt="Networking">
+                </div>
+                <div class="photo-grid-item">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/moderatorandsittingcrowd.jpg" alt="Forum session">
+                </div>
+                <div class="photo-grid-item">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/happycrowed.jpg" alt="Event atmosphere">
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="about-features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+                            <path d="M2 17L12 22L22 17"/>
+                            <path d="M2 12L12 17L22 12"/>
+                        </svg>
+                    </div>
+                    <h3>Keynotes & Panels</h3>
+                    <p>Hear from CEOs, politicians, and thought leaders on economics, finance, and geopolitics.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6V12L16 14"/>
+                        </svg>
+                    </div>
+                    <h3>Workshops</h3>
+                    <p>Interactive career workshops and recruiting sessions with top-tier companies.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21V19C17 16.79 15.21 15 13 15H5C2.79 15 1 16.79 1 19V21"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21V19C22.99 17.13 21.79 15.5 20 15"/>
+                            <path d="M16 3C17.79 3.5 18.99 5.13 18.99 7C18.99 8.87 17.79 10.5 16 11"/>
+                        </svg>
+                    </div>
+                    <h3>Networking</h3>
+                    <p>Corporate dinners, wine tastings, and exclusive meet-and-greets with speakers.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 11.08V12C21.99 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2C13.05 2 14.08 2.17 15.05 2.49"/>
+                            <path d="M22 4L12 14.01L9 11.01"/>
+                        </svg>
+                    </div>
+                    <h3>Pitch Battle</h3>
+                    <p>Startups compete to present innovative business ideas to an expert jury.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Panels Section Header -->
+    <section class="section panels-intro">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">Expert Discussions</span>
+                <h2 class="section-title">
+                    <span class="title-reveal">Panel</span>
+                    <span class="title-reveal">Highlights 2025</span>
+                </h2>
+                <p class="section-subtitle">A look back at last year's deep-dive panels &mdash; our 2026 programme will be announced soon.</p>
+                <div class="diamond-line"><span></span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Defense Panel Highlight -->
+    <section class="panel-highlight">
+        <div class="panel-bg">
+            <img loading="lazy" decoding="async" src="assets/picturesdecoration/defensepanelguests.jpg" alt="Defense Panel">
+        </div>
+        <div class="panel-content">
+            <span class="panel-tag">Expert Panel</span>
+            <h2>Defense & Security</h2>
+            <p>Deep discussions on European security, defense industry, and military strategy with industry leaders.</p>
+        </div>
+    </section>
+
+    <!-- Geo Panel Highlight -->
+    <section class="panel-highlight reverse">
+        <div class="panel-bg">
+            <img loading="lazy" decoding="async" src="assets/picturesdecoration/geopanelguestsspeaking.png" alt="Geopolitics Panel">
+        </div>
+        <div class="panel-content">
+            <span class="panel-tag">Expert Panel</span>
+            <h2>Geopolitics & Economy</h2>
+            <p>Global perspectives on economic policy, international relations, and the forces shaping tomorrow's markets.</p>
+        </div>
+    </section>
+
+    <!-- Finance Panel Highlight -->
+    <section class="panel-highlight">
+        <div class="panel-bg">
+            <img loading="lazy" decoding="async" src="assets/picturesdecoration/financepanel.jpg" alt="Finance Panel">
+        </div>
+        <div class="panel-content">
+            <span class="panel-tag">Expert Panel</span>
+            <h2>Finance & Markets</h2>
+            <p>Industry experts discussing market trends, investment strategies, and the future of global finance.</p>
+        </div>
+    </section>
+
+    <!-- Swiss Chris & Hedgefond Henning Live Q&A -->
+    <section class="panel-highlight reverse">
+        <div class="panel-bg">
+            <img loading="lazy" decoding="async" src="assets/picturesdecoration/hedgefondhenning_swisschris_liveqa.jpg" alt="Live Q&A" class="img-position-top">
+        </div>
+        <div class="panel-content">
+            <span class="panel-tag">Live Q&A</span>
+            <h2>Swiss Chris & Hedgefond Henning</h2>
+            <p>An exclusive live Q&A session with two of finance's most popular content creators.</p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience luxury-section">
+        <!-- Luxury Decorative Elements -->
+        <div class="section-watermark center">EXPERIENCE</div>
+        <div class="ambient-glow bottom-left"></div>
+        <div class="ambient-glow top-right"></div>
+        <div class="dots-pattern bottom-right"></div>
+        <div class="dots-pattern top-left"></div>
+
+        <div class="experience-container">
+            <!-- Luxury Divider - Above Section Header -->
+            <div class="luxury-divider">
+                <div class="luxury-divider-icon"></div>
+            </div>
+
+            <div class="section-header center">
+                <span class="section-tag">The Experience</span>
+                <h2 class="section-title">
+                    <span class="title-reveal">Two Days.</span>
+                    <span class="title-reveal">Endless Moments.</span>
+                </h2>
+                <p class="section-subtitle">Keynotes, panels, networking, and unforgettable social events</p>
+                <div class="diamond-line"><span></span></div>
+            </div>
+
+            <div class="experience-gallery">
+                <!-- Row 1: Featured landscape - Social (prominent female) -->
+                <div class="gallery-item featured">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/afterparty_fomo_social_wineglasseds.jpg" alt="Social">
+                </div>
+                <!-- Row 1: Two landscape images -->
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/whinetastingdesk.jpg" alt="Wine Tasting">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/afterpartydj.jpg" alt="Afterparty DJ">
+                </div>
+
+                <!-- Row 2: Two portrait images side by side -->
+                <div class="gallery-item portrait">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/moderator.jpg" alt="Moderator">
+                </div>
+                <div class="gallery-item portrait">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/christianduerrspeaking.jpg" alt="Keynote">
+                </div>
+
+                <!-- Row 2: Two landscape -->
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/crowd_clapping.jpg" alt="Audience">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/happycrowed.jpg" alt="Happy Crowd">
+                </div>
+
+                <!-- Row 3: Featured landscape - VIP Event -->
+                <div class="gallery-item featured">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/alexanderdoll_profstieglitz_andreaorcelpicture.jpg" alt="CEO Event">
+                </div>
+                <!-- Two landscape -->
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/thyssenkrupp_ceo_with_adnreas_grassl.jpg" alt="CEO Meeting">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/guests_oplaying_kicker.jpg" alt="Recreation">
+                </div>
+
+                <!-- Row 4: Two portrait images side by side -->
+                <div class="gallery-item portrait">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/coffebike.jpg" alt="Coffee">
+                </div>
+                <div class="gallery-item portrait">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/companyworkshop.jpg" alt="Workshop">
+                </div>
+
+                <!-- Two landscape -->
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/defensepanelmoderator.jpg" alt="Panel Moderator">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/the_3_chairmen_and_moderator.jpg" alt="Organizers">
+                </div>
+
+                <!-- Row 5: Featured landscape -->
+                <div class="gallery-item featured">
+                    <img loading="lazy" decoding="async" src="assets/picturesdecoration/guest_locked_in.jpg" alt="Engaged Guest">
+                </div>
+
+    <!-- Two portrait images side by side -->
+    <div class="gallery-item portrait">
+        <img loading="lazy" decoding="async" src="assets/picturesdecoration/dj.jpg" alt="DJ">
+    </div>
+    <div class="gallery-item portrait">
+        <img loading="lazy" decoding="async" src="assets/picturesdecoration/thyssenkrupp_ceo_receives_present.jpg" alt="CEO Gift">
+    </div>
+
+    <!-- Two portrait - g1 and g2 side by side -->
+    <div class="gallery-item portrait">
+        <img loading="lazy" decoding="async" src="assets/picturesdecoration/g1.jpg" alt="Guest">
+    </div>
+    <div class="gallery-item portrait">
+        <img loading="lazy" decoding="async" src="assets/picturesdecoration/g2.jpg" alt="Guest">
+    </div>
+
+    <!-- Two more landscape -->
+    <div class="gallery-item">
+        <img loading="lazy" decoding="async" src="assets/picturesdecoration/moderatorandsittingcrowd.jpg" alt="Forum session">
+    </div>
+    <div class="gallery-item">
+        <img loading="lazy" decoding="async" src="assets/picturesdecoration/g3.jpg" alt="Guest">
+    </div>
+</div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="partners luxury-section has-photo-bg">
+        <!-- 2025 impression background -->
+        <div class="section-photo-bg" style="background-image:url('assets/backgrounds2026/bg2.jpg')"></div>
+        <!-- Luxury Decorative Elements -->
+        <div class="section-watermark center">PARTNERS</div>
+        <div class="ambient-glow center"></div>
+        <div class="ambient-glow top-right"></div>
+        <div class="dots-pattern top-left"></div>
+        <div class="dots-pattern bottom-right"></div>
+
+        <div class="partners-container">
+            <!-- Luxury Divider - Above Section Header -->
+            <div class="luxury-divider">
+                <div class="luxury-divider-icon"></div>
+            </div>
+
+        <div class="section-header center">
+            <span class="section-tag">CORPORATE PARTNERS</span>
+            <h2 class="section-title">
+                <span class="title-reveal">Partners</span>
+            </h2>
+            <p class="section-subtitle">Our partners make the FS Business Forum possible</p>
+            <div class="diamond-line"><span></span></div>
+        </div>
+
+            <!-- SPONSORING WALL — partners grouped by package tier. Delivered logo:
+                 Schwarz. Others use the FSBF placeholder logo until official logos
+                 arrive (sponsor-card-logo--placeholder). Descriptions are provisional
+                 (TODO: replace with official partner copy). -->
+            <div class="sponsor-wall">
+                <div class="sponsor-tier sponsor-tier--platinum">
+                    <div class="sponsor-tier-head">
+                        <span class="sponsor-tier-label">Platinum Partners</span>
+                        <span class="sponsor-tier-line"></span>
+                    </div>
+                    <div class="sponsor-grid sponsor-grid--lg">
+                        <a class="sponsor-card" href="https://www.frankfurter-sparkasse.de" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-card-logo"><img loading="lazy" decoding="async" src="assets/corporates/Frankfurter_Sparkasse.png" alt="Frankfurter Sparkasse"></div>
+                            <h3 class="sponsor-card-name">Frankfurter Sparkasse</h3>
+                            <p class="sponsor-card-desc">One of Germany's largest savings banks and a pillar of the Frankfurt financial community.</p>
+                            <span class="sponsor-card-link">Visit website &rarr;</span>
+                        </a>
+                        <a class="sponsor-card" href="https://www.dvag.de" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-card-logo sponsor-card-logo--placeholder"><img loading="lazy" decoding="async" src="assets/FS_Business_Forum_mit.png" alt="Deutsche Vermögensberatung (DVAG) (logo to follow)"></div>
+                            <h3 class="sponsor-card-name">Deutsche Vermögensberatung (DVAG)</h3>
+                            <p class="sponsor-card-desc">Germany's largest independent financial advisory firm, guiding people towards all-round financial security.</p>
+                            <span class="sponsor-card-link">Visit website &rarr;</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="sponsor-tier sponsor-tier--gold">
+                    <div class="sponsor-tier-head">
+                        <span class="sponsor-tier-label">Gold Partner</span>
+                        <span class="sponsor-tier-line"></span>
+                    </div>
+                    <div class="sponsor-grid sponsor-grid--lg">
+                        <a class="sponsor-card" href="https://gruppe.schwarz" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-card-logo"><img loading="lazy" decoding="async" src="assets/corporates2026/Schwarz_Gruppe.png" alt="Unternehmen der Schwarz Gruppe"></div>
+                            <h3 class="sponsor-card-name">Unternehmen der Schwarz Gruppe</h3>
+                            <p class="sponsor-card-desc">From production and retail to recycling and digitization, we create solutions that make life more sustainable, healthier and more secure &mdash; the companies of Schwarz Group.</p>
+                            <span class="sponsor-card-link">Visit website &rarr;</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="sponsor-tier sponsor-tier--silver">
+                    <div class="sponsor-tier-head">
+                        <span class="sponsor-tier-label">Silver Partners</span>
+                        <span class="sponsor-tier-line"></span>
+                    </div>
+                    <div class="sponsor-grid">
+                        <a class="sponsor-card" href="https://www.oddo-bhf.com" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-card-logo"><img loading="lazy" decoding="async" src="assets/corporates/ODDO_BHF.png" alt="ODDO BHF"></div>
+                            <h3 class="sponsor-card-name">ODDO BHF</h3>
+                            <p class="sponsor-card-desc">A leading independent Franco-German financial services group and private bank.</p>
+                            <span class="sponsor-card-link">Visit website &rarr;</span>
+                        </a>
+                        <a class="sponsor-card" href="https://www.analysysmason.com" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-card-logo sponsor-card-logo--placeholder"><img loading="lazy" decoding="async" src="assets/FS_Business_Forum_mit.png" alt="Analysys Mason (logo to follow)"></div>
+                            <h3 class="sponsor-card-name">Analysys Mason</h3>
+                            <p class="sponsor-card-desc">The global specialist adviser on telecoms, media and technology (TMT).</p>
+                            <span class="sponsor-card-link">Visit website &rarr;</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="sponsor-tier sponsor-tier--further">
+                    <div class="sponsor-tier-head">
+                        <span class="sponsor-tier-label">Further Partners</span>
+                        <span class="sponsor-tier-line"></span>
+                    </div>
+                    <div class="sponsor-grid">
+                        <a class="sponsor-card" href="https://www.blackrock.com" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-card-logo"><img loading="lazy" decoding="async" src="assets/corporates/BlackRock.png" alt="BlackRock"></div>
+                            <h3 class="sponsor-card-name">BlackRock</h3>
+                            <p class="sponsor-card-desc">Joining the FS Business Forum 2026 with a hands-on workshop for our participants.</p>
+                            <span class="sponsor-card-link">Visit website &rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Become a Partner Button -->
+            <div class="partners-button-container">
+                <a href="mailto:corporate@fs-businessforum.com?subject=Partnership%20Inquiry%20%E2%80%94%20FS%20Business%20Forum%202026&amp;body=Hello%20FS%20Business%20Forum%20team%2C%0D%0A%0D%0Awe%20are%20interested%20in%20partnering%20with%20the%20FS%20Business%20Forum%202026.%0D%0A%0D%0ACompany%3A%0D%0AContact%20person%20%26%20position%3A%0D%0AArea%20of%20interest%20%28sponsoring%20%2F%20booth%20%2F%20workshop%20%2F%20other%29%3A%0D%0APhone%20%2F%20email%3A%0D%0A%0D%0ABest%20regards%2C%0D%0A" class="nav-link-cta" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 2rem; text-decoration: none;">
+                    Become a Partner
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+  
+
+
+
+    <!-- Team Section -->
+    <section id="team" class="team luxury-section">
+        <!-- Luxury Decorative Elements -->
+        <div class="section-watermark center">TEAM</div>
+        <div class="ambient-glow top-right"></div>
+        <div class="ambient-glow bottom-left"></div>
+        <div class="dots-pattern top-left"></div>
+        <div class="dots-pattern bottom-right"></div>
+
+        <div class="team-container">
+            <div class="section-header center">
+                <span class="section-tag">Leadership</span>
+                <h2 class="section-title">
+                    <span class="title-reveal">Meet Our Team</span>
+                </h2>
+                <div class="diamond-line"><span></span></div>
+            </div>
+
+            <div class="chairmen-grid chairmen-grid--pair">
+                <div class="chairman-card">
+                    <div class="chairman-avatar"><img loading="lazy" decoding="async" src="assets/teamlead/team_leaders/jakob_final.jpg" alt="Jakob Brötz"></div>
+                    <h3>Jakob Brötz</h3>
+                    <p>Chairman</p>
+                    <div class="chairman-social">
+                        <a href="https://www.linkedin.com/in/jakob-broetz/" target="_blank" rel="noopener noreferrer" class="social-link">LINKEDIN</a>
+                        <a href="mailto:jakob.broetz@fs-businessforum.com" class="social-link">EMAIL</a>
+                    </div>
+                </div>
+
+                <div class="chairman-card">
+                    <div class="chairman-avatar"><img loading="lazy" decoding="async" src="assets/teamlead/team_leaders/sarah_final.jpg" alt="Sarah Münker"></div>
+                    <h3>Sarah Münker</h3>
+                    <p>Chairwoman</p>
+                    <div class="chairman-social">
+                        <a href="https://www.linkedin.com/in/sarah-münker/" target="_blank" rel="noopener noreferrer" class="social-link">LINKEDIN</a>
+                        <a href="mailto:sarah.muenker@fs-businessforum.com" class="social-link">EMAIL</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="diamond-line team-divider"><span></span></div>
+
+            <div class="chairmen-grid chairmen-grid--trio">
+                <div class="chairman-card">
+                    <div class="chairman-avatar"><img loading="lazy" decoding="async" src="assets/teamlead/team_leaders/Cedrik_final.jpg" alt="Cedrik Eggers"></div>
+                    <h3>Cedrik Eggers</h3>
+                    <p>Head of Corporate Relations &amp; IT</p>
+                    <div class="chairman-social">
+                        <a href="https://www.linkedin.com/in/cedrikeggers/" target="_blank" rel="noopener noreferrer" class="social-link">LINKEDIN</a>
+                        <a href="mailto:cedrik.eggers@fs-businessforum.com" class="social-link">EMAIL</a>
+                    </div>
+                </div>
+
+                <div class="chairman-card">
+                    <div class="chairman-avatar"><img loading="lazy" decoding="async" src="assets/teamlead/team_leaders/Jakub_final.jpg" alt="Jakub Sommer"></div>
+                    <h3>Jakub Sommer</h3>
+                    <p>Head of Speaker Relations</p>
+                    <div class="chairman-social">
+                        <a href="https://www.linkedin.com/in/jakub-sommer-6949b7204/" target="_blank" rel="noopener noreferrer" class="social-link">LINKEDIN</a>
+                        <a href="mailto:jakub.sommer@fs-businessforum.com" class="social-link">EMAIL</a>
+                    </div>
+                </div>
+
+                <div class="chairman-card">
+                    <div class="chairman-avatar"><img loading="lazy" decoding="async" src="assets/teamlead/team_leaders/Nele_final.jpg" alt="Nele Noelani Weber"></div>
+                    <h3>Nele Noelani Weber</h3>
+                    <p>Head of Event Management</p>
+                    <div class="chairman-social">
+                        <a href="https://www.linkedin.com/in/nele-noelani-weber-268bb132a/" target="_blank" rel="noopener noreferrer" class="social-link">LINKEDIN</a>
+                        <a href="mailto:nele.weber@fs-businessforum.com" class="social-link">EMAIL</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stats-bg-text">FSBF</div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number-large">2019</span>
+                    <span class="stat-label-large">Founded</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number-large" data-count="30">0</span>
+                    <span class="stat-label-large">Student Organizers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number-large" data-count="2">2</span>
+                    <span class="stat-label-large">Days of Content</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number-large" data-count="10">0</span><span class="stat-plus-large">+</span>
+                    <span class="stat-label-large">Universities</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact/CTA Section -->
+    <section id="contact" class="contact luxury-section has-photo-bg">
+        <!-- 2025 impression background -->
+        <div class="section-photo-bg" style="background-image:url('assets/backgrounds2026/bg4.jpg')"></div>
+        <!-- Luxury Decorative Elements -->
+        <div class="ambient-glow center"></div>
+        <div class="gold-ring"></div>
+        <div class="gold-ring"></div>
+        <div class="gold-ring"></div>
+
+        <div class="contact-container">
+            <div class="contact-content">
+                <span class="section-tag light">Join the Movement</span>
+                <h2 class="contact-title">
+                    Be Part of Something<br>
+                    <span class="title-gradient">Extraordinary</span>
+                </h2>
+                <p class="contact-description">
+                    Join 700+ ambitious students and industry leaders at Frankfurt School. Network, learn, and shape the future of business together.
+                </p>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <span class="info-label">Date</span>
+                        <span class="info-value">13 & 14 November 2026</span>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="info-label">Location</span>
+                        <span class="info-value">Frankfurt School of Finance & Management</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">City</span>
+                        <span class="info-value">Frankfurt am Main, Germany</span>
+                    </div>
+                </div>
+                <div class="contact-cta">
+                    <a href="tickets.html" class="btn btn-primary btn-large">
+                        Get Your Ticket
+                    </a>
+                </div>
+                <div class="contact-form-wrapper">
+                    <h3 class="contact-form-title">Contact Us</h3>
+                    <form class="contact-form" action="https://formsubmit.co/info@fs-businessforum.com" method="POST">
+                        <!-- FormSubmit config: CC to Sarah & Jakob, table layout, spam honeypot.
+                             NOTE: the endpoint only works after info@fs-businessforum.com has
+                             confirmed FormSubmit's one-time activation email (check spam folder). -->
+                        <input type="hidden" name="_subject" value="Contact form — fs-businessforum.com">
+                        <input type="hidden" name="_cc" value="sarah.muenker@fs-businessforum.com,jakob.broetz@fs-businessforum.com">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://fs-businessforum.com/#contact">
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <div class="form-row">
+                            <input type="text" name="name" placeholder="Name" aria-label="Name" autocomplete="name" required>
+                            <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" required>
+                        </div>
+                        <textarea name="message" placeholder="Message" aria-label="Message" rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="contact-visual">
+                <div class="visual-circle"></div>
+                <div class="visual-circle"></div>
+                <div class="visual-circle"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <span class="footer-logo">FS Business Forum</span>
+                    <p class="footer-tagline">Connecting Minds, Creating Future</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Navigate</h4>
+                        <a href="#speakers">Speakers</a>
+                        <a href="previous-speakers.html">Previous Speakers</a>
+                        <a href="#about">About</a>
+                        <a href="#experience">Experience</a>
+                        <a href="#partners">Partners</a>
+                        <a href="#team">Team</a>
+                        <a href="2025/">FS Business Forum 2025</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="https://fs-businessforum.com" target="_blank" rel="noopener noreferrer">Official Website</a>
+                        <a href="https://www.frankfurt-school.de" target="_blank" rel="noopener noreferrer">Frankfurt School</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="imprint.html">Imprint (EN)</a>
+                        <a href="impressum.html">Impressum (DE)</a>
+                        <a href="privacy.html">Privacy Policy (EN)</a>
+                        <a href="datenschutz.html">Datenschutz (DE)</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FS Business Forum. A student initiative of Frankfurt School of Finance & Management.</p>
+                <p class="footer-credit">.</p> <!-- Website developed by Maximilian Enzinger -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    
+</body>
+</html>

@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previous Speakers | FS Business Forum</title>
+    <meta name="description" content="CEOs, federal ministers and investors who have spoken at the FS Business Forum &mdash; from UniCredit, Morgan Stanley, thyssenkrupp, BlackRock, Airbus, KPMG and the German Bundestag.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#040810">
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="canonical" href="https://fs-businessforum.com/previous-speakers.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Previous Speakers | FS Business Forum">
+    <meta property="og:description" content="CEOs, federal ministers and investors who have spoken at the FS Business Forum at Frankfurt School.">
+    <meta property="og:url" content="https://fs-businessforum.com/previous-speakers.html">
+    <meta property="og:image" content="https://fs-businessforum.com/assets/picturesdecoration/vp1_poster.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preload" href="assets/fonts/PlayfairDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- This page is intentionally script-free: it must render without the intro
+         overlay / GSAP timeline, so it stays fast and fully crawlable. -->
+    <style>
+        .ps-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 0 3rem;
+            background: rgba(4, 8, 16, 0.92);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .ps-nav-inner {
+            max-width: 1600px; margin: 0 auto; height: var(--nav-height);
+            display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+        }
+        .ps-nav-actions { display: flex; align-items: center; gap: 1.75rem; }
+        .ps-nav-actions a {
+            color: var(--color-text-secondary); text-decoration: none;
+            font-size: 0.9rem; letter-spacing: 0.02em; transition: color 0.3s;
+            white-space: nowrap;
+        }
+        .ps-nav-actions a:hover { color: var(--color-accent); }
+        .ps-nav-actions a.nav-link-cta { color: var(--color-bg); }
+
+        .ps-main { padding: calc(var(--nav-height) + 5rem) 3rem 6rem; position: relative; }
+        .ps-container { max-width: 1600px; margin: 0 auto; position: relative; z-index: 2; }
+        .ps-header { text-align: center; margin-bottom: 4rem; }
+        .ps-header .section-subtitle { margin: 1.25rem auto 0; max-width: 640px; }
+        .ps-count {
+            display: block; margin-top: 2rem;
+            font-family: var(--font-display); font-size: 1.05rem; color: var(--color-accent-light);
+        }
+        .ps-badge {
+            position: absolute; top: 0.9rem; left: 0.9rem; z-index: 3;
+            padding: 0.3rem 0.75rem; border-radius: 100px;
+            background: rgba(4, 8, 16, 0.75);
+            border: 1px solid rgba(201, 169, 98, 0.4);
+            color: var(--color-accent-light);
+            font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+        }
+        .ps-cta {
+            margin-top: 5rem; display: flex; flex-wrap: wrap;
+            justify-content: center; align-items: center; gap: 1.25rem;
+        }
+        .ps-cta a { text-decoration: none; }
+        @media (max-width: 768px) {
+            /* Mobile turns the cards into compact rows — the badge would sit on the name */
+            .ps-badge { display: none; }
+            .ps-nav { padding: 0 1.25rem; }
+            .ps-main { padding: calc(var(--nav-height) + 3rem) 1.25rem 4rem; }
+            .ps-nav-actions { gap: 1rem; }
+            .ps-nav-actions a.ps-hide-sm { display: none; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Previous speakers at the FS Business Forum",
+    "description": "Leaders from business, finance and politics who have spoken at the FS Business Forum at Frankfurt School of Finance & Management.",
+    "numberOfItems": 27,
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@type": "Person",
+                "name": "Andrea Orcel",
+                "jobTitle": "CEO",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "UniCredit"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/01_andrea_orcel_ceo_unicredit.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@type": "Person",
+                "name": "André Munkelt",
+                "jobTitle": "CEO",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Morgan Stanley Europe"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/02_andre_munkelt_ceo_morganstanley.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@type": "Person",
+                "name": "Miguel Ángel López Borrego",
+                "jobTitle": "CEO",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "thyssenkrupp"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/04_miguel_borrego_ceo_thyssenkrupp.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+                "@type": "Person",
+                "name": "Frank Vogel",
+                "jobTitle": "CEO",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "BNP Paribas CIB Germany"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/03_frank_vogel_ceo_bnpparibas.svg"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+                "@type": "Person",
+                "name": "Jens B. Koch",
+                "jobTitle": "CEO",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Heckler & Koch"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/05_jens_koch_ceo_hk.svg"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+                "@type": "Person",
+                "name": "Brian Heath",
+                "jobTitle": "Consul General",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "United States, Frankfurt"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/06_brian_heath_generalconsul_usa.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+                "@type": "Person",
+                "name": "Christian Dürr",
+                "jobTitle": "Parliamentary Group Leader",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "FDP, German Bundestag"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/07_christian_duerr_fdp_chef.svg"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+                "@type": "Person",
+                "name": "Christian W. Röhl",
+                "jobTitle": "Chief Economist, Investor",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Scalable Capital"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/10_christian_roehl_chiefeconomist_scalablecapital.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+                "@type": "Person",
+                "name": "Swiss Chris",
+                "jobTitle": "Content Creator",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Finance Influencer"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/08_swiss_chris_influencer.svg"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+                "@type": "Person",
+                "name": "Hedgefonds Henning",
+                "jobTitle": "Content Creator",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Finance Influencer"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/09_hedgefond_henning_influencer.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+                "@type": "Person",
+                "name": "Bettina Stark-Watzinger",
+                "jobTitle": "Former Federal Minister for Education and Research",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "FDP"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/11Bettina_Stark-Watzinger_Former_Federal_Minister_for_Education_and_Research_FDP.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+                "@type": "Person",
+                "name": "Thomas de Maizière",
+                "jobTitle": "Former Federal Minister of the Interior and Defense",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "CDU"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/12_thomas_de_maiziere_former_federal_minister_cdu.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+                "@type": "Person",
+                "name": "Marco Buschmann",
+                "jobTitle": "Former Federal Minister of Justice",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "FDP"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/13Marco_Buschmann_Former_Federal_Minister_of_Justice_of_Germany_FDP.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+                "@type": "Person",
+                "name": "Franz Josef Jung",
+                "jobTitle": "Former Federal Minister of Defence",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "CDU"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/14Franz_Josef_Jung_Former_Federal_Minister_of_Defence_of_Germany_CDU.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+                "@type": "Person",
+                "name": "Jack Nasher",
+                "jobTitle": "Negotiation Advisor & Author",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Bestselling Author"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/15Jack_Nasher_Negotiation_Advisor_and_Author.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 16,
+            "item": {
+                "@type": "Person",
+                "name": "Claudia Oeking",
+                "jobTitle": "Supervisory Board Member, Head of Public Affairs Germany",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Airbus Defence & Space"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/16Claudia_Oeking_Member_of_the_supervisory_board_Airbus_Defence_and_Space_head_public_affairs_airbus_germany.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 17,
+            "item": {
+                "@type": "Person",
+                "name": "Andreas Grassl",
+                "jobTitle": "Geopolitical Analyst",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Security Expert"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/17Andreas_Grassl_Geopolitical_Analyst.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 18,
+            "item": {
+                "@type": "Person",
+                "name": "Maika Jahn",
+                "jobTitle": "COO, Member of Management Board",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "BlackRock"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/18_Maika_Jahn_COO_Member_of_management_board_BlackRocksvg.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 19,
+            "item": {
+                "@type": "Person",
+                "name": "Dr. Katharina Seiler",
+                "jobTitle": "Representative of the Supervisory Board",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "DWS"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/19_Dr_Katharina_Seiler_Representative_of_the_Supervisory_Board_DWS.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 20,
+            "item": {
+                "@type": "Person",
+                "name": "Maren Schmitz",
+                "jobTitle": "Head of Asset Management",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "KPMG"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/20_Maren_Schmitz_Head_of_Asset_Management_KPMG.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 21,
+            "item": {
+                "@type": "Person",
+                "name": "Harald Christ",
+                "jobTitle": "CEO & Founder, Supervisory Board Member",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Christ Capital, Commerzbank"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/21_Harald_Christ_CEO_and_Founder_Christ_Capital_Supervisory_Board_Member_Commerzbank_Vorsitzender_des_Investitions-_und_Innovationsbeirats_Bundesministerium_der_Finanzen.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 22,
+            "item": {
+                "@type": "Person",
+                "name": "Ulrich Thiem",
+                "jobTitle": "Managing Director",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Porsche Ventures"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/22_Ulrich_Thiem_Managing_Director_Porsche_Ventures.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 23,
+            "item": {
+                "@type": "Person",
+                "name": "Holger Kneisel",
+                "jobTitle": "Member of Executive Board",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "KPMG"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/23_Holger_Kneisel_Member_of_Executive_Board_KPMG.svg"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 24,
+            "item": {
+                "@type": "Person",
+                "name": "Wilhelm Schmid",
+                "jobTitle": "CEO",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "A. Lange & Söhne"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/24_Wilhelm_Schmid_CEO_A_Lange_Soehne.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 25,
+            "item": {
+                "@type": "Person",
+                "name": "Kerstin Erbe",
+                "jobTitle": "CEO",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "dm-drogerie markt"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/25_Kerstin_Erbe_CEO_DM.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 26,
+            "item": {
+                "@type": "Person",
+                "name": "Jaqueline Kabuth",
+                "jobTitle": "Vice President Equity Derivatives & Cross Asset Solutions",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Citi"
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/26_Jaqueline_Kabuth_Vice_President_Equity_Derivatives_and_Cross_Asset_Solutions_Citi.png"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 27,
+            "item": {
+                "@type": "Person",
+                "name": "Clemens Graf von Hoyos",
+                "jobTitle": "Business Owner, Chairman of the Board",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Knigge Akademie, Deutsche Knigge Gesellschaft e.V."
+                },
+                "image": "https://fs-businessforum.com/assets/speaker/27_Clemes_Graf_von_Hoyos_Unternehmensinhaber_KniggeAkademie_Vorstandsvorsitzender_Deutsche-Knigge-Gesellschafte_e_V_.png"
+            }
+        }
+    ]
+}
+    </script>
+</head>
+<body>
+
+    <div class="grain-overlay"></div>
+
+    <nav class="ps-nav">
+        <div class="ps-nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/FS_Business_Forum_mit.png" alt="FS Business Forum" style="height: 40px; width: 175px; position: relative; top: 4px;">
+            </a>
+            <div class="ps-nav-actions">
+                <a href="index.html" class="ps-hide-sm">&larr; Back to Home</a>
+                <a href="index.html#partners" class="ps-hide-sm">Partners</a>
+                <a href="tickets.html" class="nav-link-cta">Get Tickets</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="ps-main">
+        <div class="ambient-glow top-right"></div>
+        <div class="ambient-glow bottom-left"></div>
+        <div class="dots-pattern top-left"></div>
+
+        <div class="ps-container">
+            <header class="ps-header section-header">
+                <span class="section-tag">Past Editions</span>
+                <h1 class="section-title">
+                    <span class="title-reveal">Previous Speakers</span>
+                </h1>
+                <p class="section-subtitle">CEOs, federal ministers, investors and thought leaders who have taken the stage at the FS Business Forum at Frankfurt School of Finance &amp; Management.</p>
+                <span class="ps-count">27 speakers &middot; Frankfurt am Main</span>
+                <div class="diamond-line"><span></span></div>
+            </header>
+
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/01_andrea_orcel_ceo_unicredit.png" alt="Andrea Orcel">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/UniCredit.png" alt="UniCredit">
+                        </div>
+                        <span class="ps-badge">Keynote Speaker</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Andrea Orcel</h3>
+                        <p class="speaker-role">CEO</p>
+                        <p class="speaker-company">UniCredit</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/02_andre_munkelt_ceo_morganstanley.png" alt="André Munkelt">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/Morgan_Stanley.png" alt="Morgan Stanley Europe">
+                        </div>
+                        <span class="ps-badge">Keynote Speaker</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">André Munkelt</h3>
+                        <p class="speaker-role">CEO</p>
+                        <p class="speaker-company">Morgan Stanley Europe</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/04_miguel_borrego_ceo_thyssenkrupp.png" alt="Miguel Ángel López Borrego">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/thyssenkrupp.png" alt="thyssenkrupp">
+                        </div>
+                        <span class="ps-badge">Keynote Speaker</span>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Miguel Ángel López Borrego</h3>
+                        <p class="speaker-role">CEO</p>
+                        <p class="speaker-company">thyssenkrupp</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/03_frank_vogel_ceo_bnpparibas.svg" alt="Frank Vogel">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/BNP_Paribas.png" alt="BNP Paribas">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Frank Vogel</h3>
+                        <p class="speaker-role">CEO</p>
+                        <p class="speaker-company">BNP Paribas CIB Germany</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/05_jens_koch_ceo_hk.svg" alt="Jens B. Koch">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/Heckler_and_Koch.png" alt="Heckler &amp; Koch">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Jens B. Koch</h3>
+                        <p class="speaker-role">CEO</p>
+                        <p class="speaker-company">Heckler &amp; Koch</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/06_brian_heath_generalconsul_usa.png" alt="Brian Heath">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/US_Flagge.png" alt="United States">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Brian Heath</h3>
+                        <p class="speaker-role">Consul General</p>
+                        <p class="speaker-company">United States, Frankfurt</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/07_christian_duerr_fdp_chef.svg" alt="Christian Dürr">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/FDP.png" alt="FDP">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Christian Dürr</h3>
+                        <p class="speaker-role">Parliamentary Group Leader</p>
+                        <p class="speaker-company">FDP, German Bundestag</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/10_christian_roehl_chiefeconomist_scalablecapital.png" alt="Christian W. Röhl">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/Scalable_Capital.png" alt="Scalable Capital">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Christian W. Röhl</h3>
+                        <p class="speaker-role">Chief Economist, Investor</p>
+                        <p class="speaker-company">Scalable Capital</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/08_swiss_chris_influencer.svg" alt="Swiss Chris">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Swiss Chris</h3>
+                        <p class="speaker-role">Content Creator</p>
+                        <p class="speaker-company">Finance Influencer</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/09_hedgefond_henning_influencer.png" alt="Hedgefonds Henning">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Hedgefonds Henning</h3>
+                        <p class="speaker-role">Content Creator</p>
+                        <p class="speaker-company">Finance Influencer</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/11Bettina_Stark-Watzinger_Former_Federal_Minister_for_Education_and_Research_FDP.png" alt="Bettina Stark-Watzinger">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/FDP.png" alt="FDP">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Bettina Stark-Watzinger</h3>
+                        <p class="speaker-role">Former Federal Minister for Education and Research</p>
+                        <p class="speaker-company">FDP</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/12_thomas_de_maiziere_former_federal_minister_cdu.png" alt="Thomas de Maizière">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/CDU.png" alt="CDU">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Thomas de Maizière</h3>
+                        <p class="speaker-role">Former Federal Minister of the Interior and Defense</p>
+                        <p class="speaker-company">CDU</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/13Marco_Buschmann_Former_Federal_Minister_of_Justice_of_Germany_FDP.png" alt="Marco Buschmann">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/FDP.png" alt="FDP">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Marco Buschmann</h3>
+                        <p class="speaker-role">Former Federal Minister of Justice</p>
+                        <p class="speaker-company">FDP</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/14Franz_Josef_Jung_Former_Federal_Minister_of_Defence_of_Germany_CDU.png" alt="Franz Josef Jung">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/CDU.png" alt="CDU">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Franz Josef Jung</h3>
+                        <p class="speaker-role">Former Federal Minister of Defence</p>
+                        <p class="speaker-company">CDU</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/15Jack_Nasher_Negotiation_Advisor_and_Author.png" alt="Jack Nasher">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/Jack_Nasher.png" alt="Jack Nasher">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Jack Nasher</h3>
+                        <p class="speaker-role">Negotiation Advisor &amp; Author</p>
+                        <p class="speaker-company">Bestselling Author</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/16Claudia_Oeking_Member_of_the_supervisory_board_Airbus_Defence_and_Space_head_public_affairs_airbus_germany.png" alt="Claudia Oeking">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/Airbus.png" alt="Airbus">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Claudia Oeking</h3>
+                        <p class="speaker-role">Supervisory Board Member, Head of Public Affairs Germany</p>
+                        <p class="speaker-company">Airbus Defence &amp; Space</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/17Andreas_Grassl_Geopolitical_Analyst.png" alt="Andreas Grassl">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Andreas Grassl</h3>
+                        <p class="speaker-role">Geopolitical Analyst</p>
+                        <p class="speaker-company">Security Expert</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/18_Maika_Jahn_COO_Member_of_management_board_BlackRocksvg.png" alt="Maika Jahn">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Maika Jahn</h3>
+                        <p class="speaker-role">COO, Member of Management Board</p>
+                        <p class="speaker-company">BlackRock</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/19_Dr_Katharina_Seiler_Representative_of_the_Supervisory_Board_DWS.png" alt="Dr. Katharina Seiler">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Katharina Seiler</h3>
+                        <p class="speaker-role">Representative of the Supervisory Board</p>
+                        <p class="speaker-company">DWS</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/20_Maren_Schmitz_Head_of_Asset_Management_KPMG.png" alt="Maren Schmitz">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/KPMG_Logo.png" alt="KPMG">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Maren Schmitz</h3>
+                        <p class="speaker-role">Head of Asset Management</p>
+                        <p class="speaker-company">KPMG</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/21_Harald_Christ_CEO_and_Founder_Christ_Capital_Supervisory_Board_Member_Commerzbank_Vorsitzender_des_Investitions-_und_Innovationsbeirats_Bundesministerium_der_Finanzen.png" alt="Harald Christ">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/Christ_Capital_Logo.png" alt="Christ Capital">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Harald Christ</h3>
+                        <p class="speaker-role">CEO &amp; Founder, Supervisory Board Member</p>
+                        <p class="speaker-company">Christ Capital, Commerzbank</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/22_Ulrich_Thiem_Managing_Director_Porsche_Ventures.png" alt="Ulrich Thiem">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/Porsche_Ventures_Logo.png" alt="Porsche Ventures">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Ulrich Thiem</h3>
+                        <p class="speaker-role">Managing Director</p>
+                        <p class="speaker-company">Porsche Ventures</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/23_Holger_Kneisel_Member_of_Executive_Board_KPMG.svg" alt="Holger Kneisel">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/KPMG_Logo.png" alt="KPMG">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Holger Kneisel</h3>
+                        <p class="speaker-role">Member of Executive Board</p>
+                        <p class="speaker-company">KPMG</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/24_Wilhelm_Schmid_CEO_A_Lange_Soehne.png" alt="Wilhelm Schmid">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/A_Lange_Soehne_Logo.png" alt="A. Lange &amp; Söhne">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Wilhelm Schmid</h3>
+                        <p class="speaker-role">CEO</p>
+                        <p class="speaker-company">A. Lange &amp; Söhne</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/25_Kerstin_Erbe_CEO_DM.png" alt="Kerstin Erbe">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/dm_Logo.png" alt="dm">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Kerstin Erbe</h3>
+                        <p class="speaker-role">CEO</p>
+                        <p class="speaker-company">dm-drogerie markt</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/26_Jaqueline_Kabuth_Vice_President_Equity_Derivatives_and_Cross_Asset_Solutions_Citi.png" alt="Jaqueline Kabuth">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/citi_Logo.png" alt="Citi">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Jaqueline Kabuth</h3>
+                        <p class="speaker-role">Vice President Equity Derivatives &amp; Cross Asset Solutions</p>
+                        <p class="speaker-company">Citi</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="assets/speaker/27_Clemes_Graf_von_Hoyos_Unternehmensinhaber_KniggeAkademie_Vorstandsvorsitzender_Deutsche-Knigge-Gesellschafte_e_V_.png" alt="Clemens Graf von Hoyos">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="assets/companiesofspeakers/Deutsche_Knigge_Gesellschaft_e.V._Logo.png" alt="Deutsche Knigge Gesellschaft e.V.">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Clemens Graf von Hoyos</h3>
+                        <p class="speaker-role">Business Owner, Chairman of the Board</p>
+                        <p class="speaker-company">Knigge Akademie, Deutsche Knigge Gesellschaft e.V.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ps-cta">
+                <a href="mailto:speaker@fs-businessforum.com" class="btn btn-primary">Become a Speaker</a>
+                <a href="index.html#speakers" class="btn btn-secondary">Back to the Forum</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <span class="footer-logo">FS Business Forum</span>
+                    <p class="footer-tagline">Connecting Minds, Creating Future</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Navigate</h4>
+                        <a href="index.html#speakers">Speakers</a>
+                        <a href="previous-speakers.html">Previous Speakers</a>
+                        <a href="index.html#about">About</a>
+                        <a href="index.html#experience">Experience</a>
+                        <a href="index.html#partners">Partners</a>
+                        <a href="index.html#team">Team</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="tickets.html">Tickets</a>
+                        <a href="https://www.frankfurt-school.de" target="_blank" rel="noopener noreferrer">Frankfurt School</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="imprint.html">Imprint (EN)</a>
+                        <a href="impressum.html">Impressum (DE)</a>
+                        <a href="privacy.html">Privacy Policy (EN)</a>
+                        <a href="datenschutz.html">Datenschutz (DE)</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FS Business Forum. A student initiative of Frankfurt School of Finance &amp; Management.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FS Business Forum 2026 · Layout B (Preview)</title>
+    <meta name="description" content="Layout draft B for the FS Business Forum 2026 — minimal, image-led, bento overview.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#040810">
+
+    <!-- Reveal gate: set before first paint so content only hides when JS runs. -->
+    <script>document.documentElement.classList.add('has-js-reveal');</script>
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="stylesheet" href="styles.css?v=20260919c">
+
+    <script defer src="assets/js/gsap.min.js"></script>
+    <script defer src="assets/js/ScrollTrigger.min.js"></script>
+    <script defer src="assets/js/ScrollToPlugin.min.js"></script>
+    <script defer src="assets/js/split-type.min.js"></script>
+    <script defer src="script.js?v=20260919c"></script>
+</head>
+<body class="vb">
+
+    <div class="scroll-progress"></div>
+    <div class="grain-overlay"></div>
+    <div class="cursor"></div>
+
+    <!-- Preview switcher (test only) -->
+    <div style="position:fixed;bottom:16px;right:16px;z-index:200;display:flex;gap:.35rem;background:rgba(4,8,16,.85);border:1px solid rgba(201,169,98,.4);border-radius:999px;padding:.4rem;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-family:'Inter',sans-serif;font-size:.75rem">
+        <a href="index.html" style="color:#a0a0a5;text-decoration:none;padding:.35rem .8rem;border-radius:999px">Original</a>
+        <a href="variant-a.html" style="color:#a0a0a5;text-decoration:none;padding:.35rem .8rem;border-radius:999px">A</a>
+        <a href="variant-b.html" style="color:#0b0b0b;background:#c9a962;text-decoration:none;padding:.35rem .8rem;border-radius:999px;font-weight:600">B</a>
+        <a href="variant-c.html" style="color:#a0a0a5;text-decoration:none;padding:.35rem .8rem;border-radius:999px">C</a>
+        <a href="variant-e.html" style="color:#a0a0a5;text-decoration:none;padding:.35rem .7rem;border-radius:999px">E</a>
+        <a href="variant-f.html" style="color:#a0a0a5;text-decoration:none;padding:.35rem .7rem;border-radius:999px">F</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <img src="assets/FS_Business_Forum_mit.png" alt="FS Logo" style="height: 48px; width: 210px; position: relative; top: 6px;">
+            </a>
+            <div class="nav-links">
+                <a href="#partners" class="nav-link">Partners</a>
+                <a href="#speakers" class="nav-link">Speakers</a>
+                <a href="2025/" class="nav-link">2025</a>
+                <a href="tickets.html" class="nav-link nav-link-cta">Get Tickets</a>
+            </div>
+            <button class="nav-menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="#partners" class="mobile-link">Partners</a>
+            <a href="#speakers" class="mobile-link">Speakers</a>
+            <a href="2025/" class="mobile-link">FS Business Forum 2025</a>
+            <a href="tickets.html" class="mobile-link mobile-link-cta">Get Tickets</a>
+        </div>
+    </div>
+
+    <!-- Split image hero (no video) -->
+    <section id="hero" class="vb-hero">
+        <div class="vb-hero-text">
+            <span class="vb-eyebrow">13 &amp; 14 November 2026 · Frankfurt am Main</span>
+            <h1>Connecting Minds,<br><em>Creating Future</em></h1>
+            <p class="vb-sub">Europe's premier student-led business congress. Two days of keynotes, workshops, panels and networking at the Frankfurt School of Finance &amp; Management.</p>
+            <div class="vb-cta-row">
+                <a href="tickets.html" class="btn btn-primary btn-shimmer">
+                    <span>Get Tickets</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                </a>
+                <a href="#partners" class="btn btn-secondary"><span>Our Partners</span></a>
+            </div>
+        </div>
+        <div class="vb-hero-media" style="background-image:url('assets/backgrounds2026/bg3.jpg')"></div>
+    </section>
+
+    <!-- Bento overview: everything important surfaces immediately -->
+    <div class="vb-bento">
+        <a href="tickets.html" class="vb-card vb-card--tickets" data-reveal>
+            <div>
+                <span class="vb-tag">Tickets</span>
+                <h3>Secure your seat</h3>
+                <p>Join 700+ ambitious students and industry leaders. Limited seats — early birds first.</p>
+                <span class="vb-date">13 &amp; 14 November 2026</span>
+            </div>
+            <span class="btn btn-primary btn-shimmer vb-btn-lg"><span>Get Tickets</span></span>
+        </a>
+
+        <a href="#partners" class="vb-card vb-card--partners" data-reveal>
+            <span class="vb-tag">Corporate Partners</span>
+            <h3>Backed by leaders</h3>
+            <div class="vb-logos">
+                <span><img loading="lazy" src="assets/corporates/Frankfurter_Sparkasse.png" alt="Frankfurter Sparkasse"></span>
+                <span><img loading="lazy" src="assets/corporates2026/Schwarz_Gruppe.png" alt="Schwarz Gruppe"></span>
+                <span><img loading="lazy" src="assets/corporates/ODDO_BHF.png" alt="ODDO BHF"></span>
+                <span><img loading="lazy" src="assets/corporates/BlackRock.png" alt="BlackRock"></span>
+            </div>
+            <span class="vb-more">See all partners &amp; tiers &rarr;</span>
+        </a>
+
+        <div class="vb-card vb-card--facts" data-reveal>
+            <div class="vb-fact"><div class="n">700+</div><div class="l">Participants</div></div>
+            <div class="vb-fact"><div class="n">40+</div><div class="l">Speakers</div></div>
+            <div class="vb-fact"><div class="n">10+</div><div class="l">Universities</div></div>
+            <div class="vb-fact"><div class="n">2</div><div class="l">Days</div></div>
+        </div>
+
+        <a href="#speakers" class="vb-card vb-card--speakers" data-reveal>
+            <span class="vb-tag">Speakers</span>
+            <h3>Revealed step by step</h3>
+            <p>First up: our DVAG partner speakers — more unveiled soon.</p>
+            <div class="vb-spk">
+                <figure><img loading="lazy" src="assets/speaker2026/stefan_ruehl.jpg" alt="Stefan Rühl"></figure>
+                <figure><img loading="lazy" src="assets/speaker2026/kevin_kantert.jpg" alt="Kevin Kantert"></figure>
+                <figure><span class="vb-blur">soon</span></figure>
+                <figure><span class="vb-blur">soon</span></figure>
+            </div>
+            <span class="vb-more">Meet the line-up &rarr;</span>
+        </a>
+
+        <a href="2025/" class="vb-card" data-reveal>
+            <span class="vb-tag">Rewind</span>
+            <h3>Forum 2025</h3>
+            <p>Relive last year's edition — kept as a memory.</p>
+            <span class="vb-more">Open the 2025 archive &rarr;</span>
+        </a>
+
+        <div class="vb-card" data-reveal>
+            <span class="vb-tag">Venue</span>
+            <h3>Frankfurt School</h3>
+            <p>Frankfurt School of Finance &amp; Management, Frankfurt am Main, Germany.</p>
+        </div>
+    </div>
+
+    <!-- Full partners wall (detail target) -->
+    <section id="partners" class="partners luxury-section">
+        <div class="ambient-glow center"></div>
+        <div class="partners-container">
+            <div class="section-header center" data-reveal>
+                <span class="section-tag">CORPORATE PARTNERS</span>
+                <h2 class="section-title"><span class="title-reveal">Our Partners</span></h2>
+                <p class="section-subtitle">Grouped by partnership tier.</p>
+                <div class="diamond-line"><span></span></div>
+            </div>
+            <div class="sponsor-wall" data-reveal>
+                <div class="sponsor-tier sponsor-tier--platinum">
+                    <div class="sponsor-tier-head"><span class="sponsor-tier-label">Platinum Partners</span><span class="sponsor-tier-line"></span></div>
+                    <div class="sponsor-grid sponsor-grid--lg">
+                        <a class="sponsor-card" href="https://www.frankfurter-sparkasse.de" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-card-logo"><img loading="lazy" decoding="async" src="assets/corporates/Frankfurter_Sparkasse.png" alt="Frankfurter Sparkasse"></div>
+                            <h3 class="sponsor-card-name">Frankfurter Sparkasse</h3>
+                            <p class="sponsor-card-desc">One of Germany's largest savings banks and a pillar of the Frankfurt financial community.</p>
+                            <span class="sponsor-card-link">Visit website &rarr;</span>
+                        </a>
+                        <a class="sponsor-card" href="https://www.dvag.de" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-card-logo sponsor-card-logo--placeholder"><img loading="lazy" decoding="async" src="assets/FS_Business_Forum_mit.png" alt="Deutsche Vermögensberatung (DVAG) (logo to follow)"></div>
+                            <h3 class="sponsor-card-name">Deutsche Vermögensberatung (DVAG)</h3>
+                            <p class="sponsor-card-desc">Germany's largest independent financial advisory firm, guiding people towards all-round financial security.</p>
+                            <span class="sponsor-card-link">Visit website &rarr;</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="sponsor-tier sponsor-tier--gold">
+                    <div class="sponsor-tier-head"><span class="sponsor-tier-label">Gold Partner</span><span class="sponsor-tier-line"></span></div>
+                    <div class="sponsor-grid sponsor-grid--lg">
+                        <a class="sponsor-card" href="https://gruppe.schwarz" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-card-logo"><img loading="lazy" decoding="async" src="assets/corporates2026/Schwarz_Gruppe.png" alt="Unternehmen der Schwarz Gruppe"></div>
+                            <h3 class="sponsor-card-name">Unternehmen der Schwarz Gruppe</h3>
+                            <p class="sponsor-card-desc">From production and retail to recycling and digitization, we create solutions that make life more sustainable, healthier and more secure &mdash; the companies of Schwarz Group.</p>
+                            <span class="sponsor-card-link">Visit website &rarr;</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="sponsor-tier sponsor-tier--silver">
+                    <div class="sponsor-tier-head"><span class="sponsor-tier-label">Silver Partners</span><span class="sponsor-tier-line"></span></div>
+                    <div class="sponsor-grid">
+                        <a class="sponsor-card" href="https://www.oddo-bhf.com" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-card-logo"><img loading="lazy" decoding="async" src="assets/corporates/ODDO_BHF.png" alt="ODDO BHF"></div>
+                            <h3 class="sponsor-card-name">ODDO BHF</h3>
+                            <p class="sponsor-card-desc">A leading independent Franco-German financial services group and private bank.</p>
+                            <span class="sponsor-card-link">Visit website &rarr;</span>
+                        </a>
+                        <a class="sponsor-card" href="https://www.analysysmason.com" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-card-logo sponsor-card-logo--placeholder"><img loading="lazy" decoding="async" src="assets/FS_Business_Forum_mit.png" alt="Analysys Mason (logo to follow)"></div>
+                            <h3 class="sponsor-card-name">Analysys Mason</h3>
+                            <p class="sponsor-card-desc">The global specialist adviser on telecoms, media and technology (TMT).</p>
+                            <span class="sponsor-card-link">Visit website &rarr;</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="sponsor-tier sponsor-tier--further">
+                    <div class="sponsor-tier-head"><span class="sponsor-tier-label">Further Partners</span><span class="sponsor-tier-line"></span></div>
+                    <div class="sponsor-grid">
+                        <a class="sponsor-card" href="https://www.blackrock.com" target="_blank" rel="noopener noreferrer">
+                            <div class="sponsor-card-logo"><img loading="lazy" decoding="async" src="assets/corporates/BlackRock.png" alt="BlackRock"></div>
+                            <h3 class="sponsor-card-name">BlackRock</h3>
+                            <p class="sponsor-card-desc">Joining the FS Business Forum 2026 with a hands-on workshop for our participants.</p>
+                            <span class="sponsor-card-link">Visit website &rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full speakers reveal (detail target) -->
+    <section id="speakers" class="speakers luxury-section">
+        <div class="ambient-glow top-right"></div>
+        <div class="speakers-container">
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Featured Speakers</span>
+                <h2 class="section-title"><span class="title-reveal">The 2026 line-up.</span></h2>
+                <p class="section-subtitle">Unveiled step by step — placeholders update as speakers are confirmed.</p>
+            </div>
+            <div class="speakers-grid" data-reveal>
+                <div class="speaker-card"><div class="speaker-image"><img loading="lazy" decoding="async" src="assets/speaker2026/stefan_ruehl.jpg" alt="Stefan Rühl"><div class="speaker-logo-badge speaker-logo-badge--text">DVAG</div></div><div class="speaker-info"><h3 class="speaker-name">Stefan Rühl</h3><p class="speaker-role">Speaker</p><p class="speaker-company">Deutsche Vermögensberatung (DVAG)</p></div></div>
+                <div class="speaker-card"><div class="speaker-image"><img loading="lazy" decoding="async" src="assets/speaker2026/kevin_kantert.jpg" alt="Kevin Kantert"><div class="speaker-logo-badge speaker-logo-badge--text">DVAG</div></div><div class="speaker-info"><h3 class="speaker-name">Kevin Kantert</h3><p class="speaker-role">Speaker</p><p class="speaker-company">Deutsche Vermögensberatung (DVAG)</p></div></div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true"><div class="speaker-image"><div class="speaker-placeholder-figure"></div><span class="speaker-reveal-tag">To be revealed</span></div><div class="speaker-info"><h3 class="speaker-name">Coming soon</h3><p class="speaker-role">Speaker 2026</p><p class="speaker-company">&nbsp;</p></div></div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true"><div class="speaker-image"><div class="speaker-placeholder-figure"></div><span class="speaker-reveal-tag">To be revealed</span></div><div class="speaker-info"><h3 class="speaker-name">Coming soon</h3><p class="speaker-role">Speaker 2026</p><p class="speaker-company">&nbsp;</p></div></div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true"><div class="speaker-image"><div class="speaker-placeholder-figure"></div><span class="speaker-reveal-tag">To be revealed</span></div><div class="speaker-info"><h3 class="speaker-name">Coming soon</h3><p class="speaker-role">Speaker 2026</p><p class="speaker-company">&nbsp;</p></div></div>
+                <div class="speaker-card speaker-card--placeholder" aria-hidden="true"><div class="speaker-image"><div class="speaker-placeholder-figure"></div><span class="speaker-reveal-tag">To be revealed</span></div><div class="speaker-info"><h3 class="speaker-name">Coming soon</h3><p class="speaker-role">Speaker 2026</p><p class="speaker-company">&nbsp;</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <span class="footer-logo">FS Business Forum</span>
+                    <p class="footer-tagline">Connecting Minds, Creating Future</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Navigate</h4>
+                        <a href="#partners">Partners</a>
+                        <a href="#speakers">Speakers</a>
+                        <a href="tickets.html">Tickets</a>
+                        <a href="2025/">FS Business Forum 2025</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="https://fs-businessforum.com" target="_blank" rel="noopener noreferrer">Official Website</a>
+                        <a href="https://www.frankfurt-school.de" target="_blank" rel="noopener noreferrer">Frankfurt School</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="imprint.html">Imprint (EN)</a>
+                        <a href="impressum.html">Impressum (DE)</a>
+                        <a href="privacy.html">Privacy Policy (EN)</a>
+                        <a href="datenschutz.html">Datenschutz (DE)</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FS Business Forum. A student initiative of Frankfurt School of Finance &amp; Management.</p>
+                <p class="footer-credit">Layout draft B · internal preview</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+</body>
+</html>

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets Coming Soon - FS Business Forum</title>
+    <meta name="description" content="Ticket sales for the FS Business Forum 2026 open soon. Leave your email to get notified first.">
+    <meta name="theme-color" content="#040810">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="canonical" href="https://fs-businessforum.com/tickets.html">
+    <style>
+        /* Self-hosted fonts (GDPR: no Google Fonts request) */
+        @font-face {
+            font-family: 'Playfair Display';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url('assets/fonts/PlayfairDisplay-Medium.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('assets/fonts/Inter-Regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('assets/fonts/Inter-SemiBold.woff2') format('woff2');
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #040810;
+            --bg-secondary: #0a1018;
+            --accent: #c9a962;
+            --accent-light: #e8d5a3;
+            --text: #ffffff;
+            --text-secondary: #a0a0a5;
+            --error: #e07070;
+            --success: #7dc98f;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: radial-gradient(ellipse at top, #0a1018 0%, #040810 60%);
+            color: var(--text);
+            min-height: 100vh; /* fallback for older Safari */
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.25rem;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient gold glow */
+        .glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 169, 98, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .container {
+            text-align: center;
+            max-width: 620px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .container { animation: none; }
+            * { transition-duration: 0.01ms !important; }
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 .accent {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-style: italic;
+        }
+
+        p.lead {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .details {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .detail-item .label {
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .detail-item .value {
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 0 auto 2.5rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .back-btn,
+        .notify-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .back-btn {
+            border: 1px solid rgba(201, 169, 98, 0.4);
+            background: transparent;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .back-btn:hover {
+            background: var(--accent);
+            color: var(--bg);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.3);
+        }
+
+        .notify-btn {
+            background: var(--accent);
+            color: var(--bg);
+            border: 1px solid var(--accent);
+            font-weight: 600;
+        }
+
+        .notify-btn:hover:not(:disabled) {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.4);
+        }
+
+        .notify-btn:disabled {
+            opacity: 0.6;
+            cursor: wait;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible {
+            outline: 2px solid var(--accent-light);
+            outline-offset: 3px;
+        }
+
+        /* ===== Notify form ===== */
+        .notify-form-wrapper {
+            margin-top: 2.5rem;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(201, 169, 98, 0.25);
+            border-radius: 16px;
+            padding: 1.75rem;
+        }
+
+        .notify-form-wrapper[hidden] { display: none; }
+
+        .form-intro {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            text-align: center;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .field.wide { grid-column: 1 / -1; }
+
+        .field label {
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            transition: border-color 0.2s ease;
+            min-height: 48px; /* touch target */
+        }
+
+        .field input:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        .field input[aria-invalid="true"] {
+            border-color: var(--error);
+        }
+
+        .field-error {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--error);
+            margin-top: 0.35rem;
+            min-height: 1em;
+        }
+
+        .consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin: 1.25rem 0;
+        }
+
+        .consent input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .consent label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .consent label a { color: var(--accent); }
+
+        .form-actions { text-align: center; }
+
+        .form-actions .notify-btn { width: 100%; justify-content: center; }
+
+        .form-status {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            text-align: center;
+            min-height: 1.2em;
+        }
+
+        .form-status.error { color: var(--error); }
+        .form-status.success { color: var(--success); }
+
+        .success-panel {
+            margin-top: 2.5rem;
+            border: 1px solid rgba(125, 201, 143, 0.4);
+            background: rgba(125, 201, 143, 0.07);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+        }
+
+        .success-panel h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--success);
+        }
+
+        .success-panel p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Honeypot: visually removed, still in the DOM for bots */
+        .hp-field {
+            position: absolute !important;
+            left: -9999px !important;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .legal-note {
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .legal-note a { color: var(--accent); text-decoration: none; }
+        .legal-note a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            body { padding: 2rem 1rem; align-items: flex-start; }
+            .details { gap: 1.5rem; }
+            p.lead { font-size: 1rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .btn-group .back-btn, .btn-group .notify-btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow" aria-hidden="true"></div>
+    <main class="container">
+        <span class="tag">FS Business Forum 2026</span>
+
+        <h1>Tickets Launching<br><span class="accent">Very Soon</span></h1>
+
+        <p class="lead">
+            We're preparing an exceptional experience for you.<br>
+            Ticket sales open shortly &mdash; be the first to secure your seat.
+        </p>
+
+        <div class="details">
+            <div class="detail-item">
+                <span class="label">Date</span>
+                <span class="value">13 &amp; 14 November 2026</span>
+            </div>
+            <div class="detail-item">
+                <span class="label">Location</span>
+                <span class="value">Frankfurt School of Finance &amp; Management</span>
+            </div>
+        </div>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <div class="btn-group">
+            <a href="index.html" class="back-btn">&larr; Back to Home</a>
+            <button type="button" class="notify-btn" id="notifyToggle" aria-expanded="false" aria-controls="notifyFormWrapper">Notify Me</button>
+        </div>
+
+        <!-- Notify form (revealed by the button above) -->
+        <div class="notify-form-wrapper" id="notifyFormWrapper" hidden>
+            <p class="form-intro" id="notifyFormIntro">Leave your details and we'll email you the moment ticket sales open.</p>
+            <form id="notifyForm" novalidate aria-describedby="notifyFormIntro">
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="nf-first">First Name</label>
+                        <input type="text" id="nf-first" name="firstName" autocomplete="given-name" required maxlength="60" aria-describedby="nf-first-error">
+                        <span class="field-error" id="nf-first-error" aria-live="polite"></span>
+                    </div>
+                    <div class="field">
+                        <label for="nf-last">Last Name</label>
+                        <input type="text" id="nf-last" name="lastName" autocomplete="family-name" required maxlength="60" aria-describedby="nf-last-error">
+                        <span class="field-error" id="nf-last-error" aria-live="polite"></span>
+                    </div>
+                    <div class="field wide">
+                        <label for="nf-email">Email</label>
+                        <input type="email" id="nf-email" name="email" autocomplete="email" required maxlength="120" inputmode="email" aria-describedby="nf-email-error">
+                        <span class="field-error" id="nf-email-error" aria-live="polite"></span>
+                    </div>
+                </div>
+
+                <!-- Honeypot field: humans never see it, bots fill it -->
+                <div class="hp-field" aria-hidden="true">
+                    <label for="nf-company">Company (leave blank)</label>
+                    <input type="text" id="nf-company" name="company" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div class="consent">
+                    <input type="checkbox" id="nf-consent" name="consent" required>
+                    <label for="nf-consent">I consent to get notified about ticket sales. My data is stored for this purpose only and I can withdraw consent anytime (<a href="privacy.html">privacy policy</a>).</label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="notify-btn" id="notifySubmit">Request Notification</button>
+                </div>
+                <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+
+        <!-- Success panel (replaces the form after successful signup) -->
+        <div class="success-panel" id="successPanel" hidden tabindex="-1">
+            <h2>You're on the list!</h2>
+            <p>We'll email you as soon as ticket sales open. See you in November!</p>
+        </div>
+
+        <p class="legal-note">
+            <a href="privacy.html">Privacy Policy</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="imprint.html">Imprint</a>
+        </p>
+    </main>
+
+    <script>
+    (function () {
+        'use strict';
+
+        // ============================================================
+        // CONFIG: paste the deployed Google Apps Script Web App URL here.
+        // See notify-backend/SETUP-NOTIFY-FORM.md for the 5-minute setup.
+        // While this is empty, the form falls back to a prefilled email.
+        // ============================================================
+        var APPS_SCRIPT_URL = '';
+
+        var toggle = document.getElementById('notifyToggle');
+        var wrapper = document.getElementById('notifyFormWrapper');
+        var form = document.getElementById('notifyForm');
+        var submitBtn = document.getElementById('notifySubmit');
+        var statusEl = document.getElementById('formStatus');
+        var successPanel = document.getElementById('successPanel');
+        var openedAt = 0;
+
+        var fields = {
+            firstName: { input: document.getElementById('nf-first'), error: document.getElementById('nf-first-error'), label: 'first name' },
+            lastName:  { input: document.getElementById('nf-last'),  error: document.getElementById('nf-last-error'),  label: 'last name' },
+            email:     { input: document.getElementById('nf-email'), error: document.getElementById('nf-email-error'), label: 'email address' }
+        };
+
+        var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+        toggle.addEventListener('click', function () {
+            var open = wrapper.hidden;
+            wrapper.hidden = !open;
+            toggle.setAttribute('aria-expanded', String(open));
+            if (open) {
+                openedAt = Date.now();
+                fields.firstName.input.focus();
+            }
+        });
+
+        function setFieldError(field, message) {
+            field.error.textContent = message || '';
+            field.input.setAttribute('aria-invalid', message ? 'true' : 'false');
+        }
+
+        function validate() {
+            var ok = true;
+            var firstInvalid = null;
+
+            Object.keys(fields).forEach(function (key) {
+                var f = fields[key];
+                var value = f.input.value.trim();
+                var msg = '';
+
+                if (!value) {
+                    msg = 'Please enter your ' + f.label + '.';
+                } else if (key === 'email' && !EMAIL_RE.test(value)) {
+                    msg = 'Please enter a valid email address.';
+                }
+
+                setFieldError(f, msg);
+                if (msg && !firstInvalid) firstInvalid = f.input;
+                if (msg) ok = false;
+            });
+
+            var consent = document.getElementById('nf-consent');
+            if (!consent.checked) {
+                setStatus('Please confirm the consent checkbox so we may email you.', 'error');
+                if (!firstInvalid) firstInvalid = consent;
+                ok = false;
+            } else if (ok) {
+                setStatus('', '');
+            }
+
+            if (firstInvalid) firstInvalid.focus();
+            return ok;
+        }
+
+        function setStatus(msg, kind) {
+            statusEl.textContent = msg;
+            statusEl.className = 'form-status' + (kind ? ' ' + kind : '');
+        }
+
+        function showSuccess() {
+            wrapper.hidden = true;
+            toggle.hidden = true;
+            successPanel.hidden = false;
+            successPanel.focus();
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Spam protection 1: honeypot must stay empty
+            if (document.getElementById('nf-company').value) {
+                showSuccess(); // silently drop bot submissions
+                return;
+            }
+
+            // Spam protection 2: humans need a moment to type
+            if (Date.now() - openedAt < 3000) {
+                setStatus('That was quick! Please check your details and try again.', 'error');
+                return;
+            }
+
+            if (!validate()) return;
+
+            var data = {
+                firstName: fields.firstName.input.value.trim(),
+                lastName: fields.lastName.input.value.trim(),
+                email: fields.email.input.value.trim(),
+                consent: 'yes',
+                source: 'tickets-page'
+            };
+
+            // Fallback while no backend is configured: prefilled email
+            if (!APPS_SCRIPT_URL) {
+                var subject = encodeURIComponent('Notify me about ticket sales');
+                var body = encodeURIComponent(
+                    'Please notify me when ticket sales open.\n\n' +
+                    'First name: ' + data.firstName + '\n' +
+                    'Last name: ' + data.lastName + '\n' +
+                    'Email: ' + data.email + '\n' +
+                    'I consent to get notified about ticket sales.'
+                );
+                window.location.href = 'mailto:info@fs-businessforum.com?subject=' + subject + '&body=' + body;
+                setStatus('Your email app should open now. Send the prepared email to join the list.', 'success');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
+            setStatus('', '');
+
+            var params = new URLSearchParams(data);
+
+            fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Apps Script does not send CORS headers; response is opaque
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: params.toString()
+            }).then(function () {
+                showSuccess();
+            }).catch(function () {
+                setStatus('Something went wrong. Please check your connection and try again.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Request Notification';
+            });
+        });
+
+        // Clear field errors while typing
+        Object.keys(fields).forEach(function (key) {
+            fields[key].input.addEventListener('input', function () {
+                setFieldError(fields[key], '');
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
