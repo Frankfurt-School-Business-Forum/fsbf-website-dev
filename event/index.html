@@ -1,0 +1,1637 @@
+<!doctype html>
+<html lang="en" data-theme="navygold">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--FSBF-PARAMS--><!-- Einhängepunkt: die gebündelte Einzeldatei schiebt hier die
+     Rahmen-Parameter rein, weil eingebettete Ansichten keine eigene URL haben. -->
+<title>FS Business Forum 2026 — Event App</title>
+<link rel="icon" href="assets/Favicon-removebg-preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,650&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   FSBF Design-Tokens — identisch zu mockups/gaeste-portal.html
+   und assets/crm-theme-referenz.css
+   ========================================================= */
+/* ---------- themeunabhängige Tokens ---------- */
+:root{
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px;
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-pill:22px;
+  --shadow:0 1px 2px rgba(20,20,26,.04), 0 8px 24px rgba(20,20,26,.05);
+  --shadow-lg:0 2px 6px rgba(20,20,26,.06), 0 18px 48px rgba(20,20,26,.12);
+
+  --serif:'Fraunces','Iowan Old Style',Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;
+
+  --wrap:1120px;
+}
+
+/* =========================================================
+   Hausfarbe · „Business Forum Navy"
+   Akzentfarbe ist #35417d — das Navyblau des runden Logos, Pixel für Pixel aus
+   Favicon-removebg-preview.png ausgelesen (Cedrik, 08.09.: „Die Designfarbe ist
+   das Navyblau"). Sie trägt alles, was die App hervorhebt.
+   Das Gold bleibt dort, wo es vorher stand: auf dem dunklen Hero und an der
+   Workshop-Kennzeichnung — dunkles Navy auf dunklem Hero wäre nicht lesbar.
+   Navy #35417d · Gold #c4a35a · Hero-Untergrund #1a1a2e
+   ========================================================= */
+[data-theme="navygold"]{
+  --brand:#35417d; --brand-ink:#ffffff; --brand-soft:#eef0f7; --brand-line:#c5cbe2;
+  --brand-deep:#28315f;
+  --navy:#1a1a2e; --navy-2:#2b2b47;
+
+  --bg:#f5f5f8; --surface:#ffffff; --surface-2:#fafafb;
+  --ink:#1c1c28; --ink-2:#3d3d4e; --muted:#6b6b7b;
+  --line:#e6e6ec; --line-2:#dcdce4; --row-hover:#fcfbf7;
+
+  --hero-img-op:.55; --hero-img-filter:saturate(.8);
+  --hero-top:rgba(16,16,32,.58); --hero-mid:rgba(16,16,32,.20); --hero-bot:rgba(16,16,32,.90);
+  --hero-tint:rgba(196,163,90,.34);
+  --hero-em:#e3c98d;
+  --hero-bg:#0d0d1c;
+  --hero-btn-bg:#c4a35a; --hero-btn-ink:#1a1a2e; --hero-btn-bg-hover:#d8bb79;
+  /* Radialer Scrim — 1:1 die Werte der Apply-Landingpage */
+  --hero-rad-a:rgba(16,16,36,.42); --hero-rad-b:rgba(10,10,24,.72);
+  --wash-op:.15; --wash-sat:.62;
+  --hs-a:#2f2f4d; --hs-b:#15152a;
+
+  --t-speech:#3f3f66;   --t-speech-bg:#eeeef4;  --t-speech-line:#d3d3e2;
+  --t-work:#a9863f;     --t-work-bg:#faf3e4;    --t-work-line:#e7d7b2;
+  --t-pause:#8a8a95;    --t-pause-bg:#f1f1f4;   --t-pause-line:#e2e2e8;
+  --t-net:#1f8a5c;      --t-net-bg:#e6f5ec;     --t-net-line:#c4e7d5;
+
+  --st-won:#1f8a5c;     --st-won-bg:#e6f5ec;
+  --st-wait-us:#a8791f; --st-wait-us-bg:#fbf2dc;
+  --st-lost:#b2503f;    --st-lost-bg:#fbe9e6;
+}
+
+/* =========================================================
+   VARIANTE B · „Cream + Slate"
+   Farbton der Bewerbungs-Kachel: warmes Off-White + tiefes Slate-Navy.
+   Cream #f2f1ed · Slate #22323f
+   ========================================================= */
+[data-theme="cream"]{
+  --brand:#22323f; --brand-ink:#f4f3ef; --brand-soft:#e6eaee; --brand-line:#c2ccd4;
+  --brand-deep:#16242e;
+  --navy:#22323f; --navy-2:#33475a;
+
+  --bg:#f2f1ed; --surface:#fbfaf7; --surface-2:#f6f5f1;
+  --ink:#1b2830; --ink-2:#3c4a54; --muted:#6d7883;
+  --line:#e2e0d9; --line-2:#d5d2c9; --row-hover:#f7f6f2;
+
+  --hero-img-op:.42; --hero-img-filter:saturate(.55) sepia(.12);
+  --hero-top:rgba(24,36,46,.62); --hero-mid:rgba(24,36,46,.28); --hero-bot:rgba(24,36,46,.93);
+  --hero-tint:rgba(120,146,166,.34);
+  --hero-em:#b9c8d3;
+  --hero-bg:#16242e;
+  --hero-btn-bg:#f4f3ef; --hero-btn-ink:#1b2830; --hero-btn-bg-hover:#ffffff;
+  --hero-rad-a:rgba(24,36,46,.44); --hero-rad-b:rgba(14,24,32,.76);
+  --wash-op:.13; --wash-sat:.42;
+  --hs-a:#33475a; --hs-b:#1a2833;
+
+  --t-speech:#2f5068;   --t-speech-bg:#e7edf1;  --t-speech-line:#c9d7e0;
+  --t-work:#7a5c2e;     --t-work-bg:#f4eddf;    --t-work-line:#e0d2b6;
+  --t-pause:#6d7883;    --t-pause-bg:#eceae4;   --t-pause-line:#ddd9d0;
+  --t-net:#3f6b52;      --t-net-bg:#e6efe8;     --t-net-line:#c6dccf;
+
+  --st-won:#3f6b52;     --st-won-bg:#e6efe8;
+  --st-wait-us:#7a5c2e; --st-wait-us-bg:#f4eddf;
+  --st-lost:#9d4f3f;    --st-lost-bg:#f6e7e2;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:14px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.012em;line-height:1.14}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;font-size:inherit;color:inherit}
+::selection{background:var(--brand-soft)}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--s5)}
+.muted{color:var(--muted)}
+.kicker{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--muted)}
+
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:var(--r-sm);padding:10px 16px;
+  font-size:13px;font-weight:600;cursor:pointer;color:var(--ink);white-space:nowrap;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn:hover{border-color:var(--muted)}
+.btn svg{width:15px;height:15px;flex:none}
+.btn.pri{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.btn.pri:hover{background:var(--brand-deep);border-color:var(--brand-deep)}
+.btn.ghost{background:transparent}
+.btn.big{padding:13px 22px;font-size:14px}
+.btn.sm{padding:7px 12px;font-size:12.5px}
+.btn.block{width:100%}
+.hero .btn.pri{background:var(--hero-btn-bg);border-color:var(--hero-btn-bg);color:var(--hero-btn-ink)}
+.hero .btn.pri:hover{background:var(--hero-btn-bg-hover);border-color:var(--hero-btn-bg-hover)}
+.btn.onart{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.32);color:#fff;backdrop-filter:blur(6px)}
+.btn.onart:hover{background:rgba(255,255,255,.2);border-color:#fff}
+/* Apply-Buttons — Maße 1:1 aus assessment-tool/app/page.tsx (.landing .btn):
+   15px/34px, radius 8, 15px, 700, letter-spacing .3px. Outline dort 1.5px
+   rgba(255,255,255,.42), im Hover auf Gold umschlagend. */
+.btn.apply{padding:15px 34px;border-radius:8px;font-size:15px;font-weight:700;letter-spacing:.3px;
+  gap:10px;transition:background .2s,border-color .2s,color .2s,transform .2s}
+.btn.apply:hover{transform:translateY(-1px)}
+.btn.out{background:transparent;border:1.5px solid rgba(255,255,255,.42);color:#fff}
+.btn.out:hover{border-color:var(--hero-em);color:var(--hero-em)}
+
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:var(--r-pill);
+  font-size:11.5px;font-weight:650;white-space:nowrap}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.pill.keynote{color:var(--t-speech);background:var(--t-speech-bg)}
+.pill.workshop{color:var(--t-work);background:var(--t-work-bg)}
+.pill.networking{color:var(--t-net);background:var(--t-net-bg)}
+.pill.break{color:var(--t-pause);background:var(--t-pause-bg)}
+.pill.free{color:var(--st-won);background:var(--st-won-bg)}
+.pill.tight{color:var(--st-wait-us);background:var(--st-wait-us-bg)}
+.pill.full{color:var(--st-lost);background:var(--st-lost-bg)}
+
+/* ---------- Mockup-Hinweisleiste (nicht Teil des Produkts) ---------- */
+.mockbar{background:#111116;color:#c9c9d4;font-size:12px;padding:8px 22px;display:flex;
+  align-items:center;gap:var(--s3);flex-wrap:wrap}
+.mockbar .tag{background:var(--brand);color:#fff;border-radius:5px;padding:2px 8px;font-weight:800;
+  font-size:10px;letter-spacing:.07em;text-transform:uppercase}
+.mockbar b{color:#fff;font-weight:600}
+.mockbar .x{background:none;border:1px solid #33333e;color:#9a9aa8;border-radius:var(--r-pill);
+  padding:3px 12px;font-size:11.5px;font-weight:600;cursor:pointer}
+.mockbar .x:hover{color:#fff;border-color:#5a5a6a}
+.mockbar .themes{margin-left:auto;display:flex;align-items:center;gap:6px}
+.mockbar .themes span{color:#7a7a88;font-size:11px;text-transform:uppercase;letter-spacing:.07em;font-weight:700}
+.mockbar .th{background:none;border:1px solid #33333e;color:#c9c9d4;border-radius:var(--r-pill);
+  padding:3px 12px;font-size:11.5px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px}
+.mockbar .th i{width:9px;height:9px;border-radius:50%;display:block}
+.mockbar .th:hover{border-color:#5a5a6a}
+.mockbar .th.on{background:#fff;color:#111116;border-color:#fff}
+
+/* =========================================================
+   Kopfzeile
+   ========================================================= */
+/* --safetop/--safebot: echte Geräte liefern env(safe-area-inset-*);
+   die Geräte-Ansicht setzt sie per URL-Parameter, weil ein iframe keine hat. */
+.site{padding-top:var(--safetop,env(safe-area-inset-top,0px));
+  position:sticky;top:0;z-index:120;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)}
+.site .in{max-width:var(--wrap);margin:0 auto;padding:0 var(--s5);height:64px;display:flex;align-items:center;gap:var(--s5)}
+.brand{display:flex;align-items:center;gap:10px;flex:none;min-width:0}
+.brand .mark{width:32px;height:32px;object-fit:contain;flex:none}
+/* Gesetzter Name statt Bilddatei (Cedrik, 08.09.: „das neue Logo raus").
+   Farbe ist das Navy des Kreises, der Trennstrich bleibt wie gehabt. */
+.brand .bt{padding-left:10px;border-left:1px solid var(--line-2);
+  font-family:var(--sans);font-size:14.5px;font-weight:700;line-height:1.2;
+  letter-spacing:-.005em;color:var(--brand);white-space:nowrap}
+/* Auf dem Tablet stehen Name, Navigation und Datum nebeneinander in einer
+   64px-Zeile. Damit die Navigation nicht umbricht, wird der Name dort zweizeilig
+   („Frankfurt School" / „Business Forum") und etwas kleiner. */
+@media (min-width:700px) and (max-width:1000px){
+  .brand .bt{white-space:normal;font-size:13px;line-height:1.15;max-width:130px}
+}
+
+.mainnav{display:flex;gap:2px;margin-left:var(--s4)}
+.mainnav a{padding:8px 14px;border-radius:var(--r-pill);font-size:13.5px;font-weight:600;color:var(--muted);
+  white-space:nowrap}
+.mainnav a:hover{color:var(--ink);background:var(--surface-2)}
+.mainnav a.on{color:var(--brand);background:var(--brand-soft)}
+.site .right{margin-left:auto;display:flex;align-items:center;gap:var(--s3);flex:none}
+.datechip{font-size:12px;font-weight:650;color:var(--ink-2);background:var(--surface-2);
+  border:1px solid var(--line);border-radius:var(--r-pill);padding:6px 13px}
+.burger{display:none;width:38px;height:38px;border:1px solid var(--line);background:var(--surface);
+  border-radius:var(--r-sm);cursor:pointer;align-items:center;justify-content:center}
+
+.page{display:none;padding-bottom:var(--s7)}
+.page.on{display:block}
+
+/* =========================================================
+   Landing
+   ========================================================= */
+/* Hero — Aufbau wie die Apply-Landingpage: bildschirmhoch, mittig zentriert,
+   goldene Zeile über der Überschrift, darunter die Buttons. */
+.hero{position:relative;min-height:min(100svh,780px);display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;background:var(--hero-bg);padding:var(--s7) var(--s5)}
+.hero .bgimg{position:absolute;inset:0;background:url('assets/HintergrundBFForum.jpeg') center/cover no-repeat;
+  opacity:var(--hero-img-op);filter:var(--hero-img-filter);transform:scale(1.03)}
+.hero .scrim{position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 34%, var(--hero-rad-a), var(--hero-rad-b) 78%)}
+.hero .in{position:relative;z-index:2;max-width:840px;width:100%;color:#fff}
+/* Die goldene Kopfzeile bei apply heißt dort .brand: 13px, 3px Laufweite, Versal. */
+.hero .brandline{font-size:13px;letter-spacing:.23em;text-transform:uppercase;font-weight:700;
+  color:var(--hero-em);margin-bottom:22px}
+/* apply setzt die H1 in der System-Sans, nicht in der Serife — hier bewusst gleich. */
+.hero h1{font-family:var(--sans);font-size:clamp(33px,6.2vw,72px);font-weight:700;line-height:1.04;
+  letter-spacing:-.02em;margin:0;text-shadow:0 2px 24px rgba(9,9,22,.4)}
+.hero .cta{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:38px}
+.hero .cta .top{min-width:min(340px,100%)}
+.hero .cta .split{display:flex;gap:14px;width:min(340px,100%)}
+.hero .cta .split .btn{flex:1;min-width:0;padding-left:14px;padding-right:14px}
+.scrollhint{position:absolute;left:50%;transform:translateX(-50%);z-index:2;
+  bottom:calc(24px + var(--safebot,env(safe-area-inset-bottom,0px)));
+  color:rgba(255,255,255,.66);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
+
+/* =========================================================
+   Foto-Wash — damit die Seite hinter dem Hero nicht auf flaches Grau
+   zurückfällt. Dasselbe Motiv, stark weichgezeichnet und weit heruntergezogen,
+   liegt als fixe Ebene hinter allem. Bewusst KEIN background-attachment:fixed:
+   das rastert WebKit pro Scroll-Frame neu und hat auf der Apply-Seite schon
+   einmal Safari zum Ruckeln gebracht (dort dokumentiert, 25.08.2026). Eine
+   position:fixed-Ebene wird dagegen einmal gerastert und nur komponiert.
+   ========================================================= */
+.pagewash{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg)}
+.pagewash::before{content:"";position:absolute;inset:-8%;
+  background:url('assets/HintergrundBFForum.jpeg') center/cover no-repeat;
+  opacity:var(--wash-op);filter:blur(46px) saturate(var(--wash-sat))}
+.pagewash::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 0%,var(--bg) 88%);opacity:.55}
+/* Nur die Inhaltsebenen anheben. .site (sticky, z 120) und .tabbar (fixed, z 200)
+   liegen ohnehin darüber und dürfen ihre position hier NICHT verlieren. */
+.page,.foot,.mockbar{position:relative;z-index:1}
+
+.sect{padding:var(--s7) 0 0}
+.secthead{display:flex;align-items:flex-end;gap:var(--s4);flex-wrap:wrap;margin-bottom:var(--s5)}
+.secthead h2{font-size:26px}
+.secthead p{color:var(--muted);font-size:13.5px;margin-top:6px;max-width:56ch}
+.secthead .spacer{margin-left:auto}
+
+.navcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4)}
+.navcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s5);
+  cursor:pointer;text-align:left;transition:border-color .15s,transform .15s,box-shadow .15s;box-shadow:var(--shadow)}
+.navcard:hover{border-color:var(--brand-line);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+/* Außen blauer Rand, innen weiß, Symbol blau (Cedrik, 08.09.). */
+.navcard .ic{width:40px;height:40px;border-radius:var(--r-sm);background:var(--surface);
+  border:1.5px solid var(--brand);color:var(--brand);
+  display:grid;place-items:center;flex:none}
+/* Icon steht neben dem Titel, nicht darüber (Feedback Sarah, 07.09.). */
+.navcard .ch{display:flex;align-items:center;gap:var(--s3);margin-bottom:var(--s3)}
+.navcard h3{font-size:18px;margin-bottom:5px}
+.navcard .ch h3{margin:0}
+.navcard p{font-size:13px;color:var(--muted);line-height:1.55}
+.navcard .go{margin-top:var(--s4);font-size:12.5px;font-weight:700;color:var(--brand);display:flex;align-items:center;gap:6px}
+
+.nextup{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:var(--shadow)}
+.nextup .nh{padding:var(--s4) var(--s5);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:var(--s3)}
+.nextup .nh b{font-size:13.5px;font-weight:650}
+.nextup .nh .live{font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--brand);
+  background:var(--brand-soft);border:1px solid var(--brand-line);border-radius:var(--r-pill);padding:2px 9px}
+
+/* =========================================================
+   Timetable
+   ========================================================= */
+.pagehead{padding:var(--s6) 0 var(--s5)}
+.pagehead h1{font-size:34px}
+.pagehead p{color:var(--muted);font-size:14px;margin-top:8px;max-width:60ch}
+
+.toolbar{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s5)}
+.daytabs{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-pill);
+  padding:3px;gap:3px;box-shadow:var(--shadow)}
+.daytabs button{border:0;background:transparent;border-radius:var(--r-pill);padding:8px 18px;font-size:13px;
+  font-weight:650;color:var(--muted);cursor:pointer;white-space:nowrap}
+.daytabs button:hover{color:var(--ink)}
+.daytabs button.on{background:var(--brand);color:#fff}
+.daytabs button small{display:block;font-size:10.5px;font-weight:500;color:var(--muted)}
+.daytabs button.on small{color:rgba(255,255,255,.72)}
+
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:var(--r-pill);padding:7px 14px;
+  font-size:12.5px;color:var(--muted);cursor:pointer;font-weight:600}
+.chip:hover{border-color:var(--muted);color:var(--ink)}
+.chip.on{border-color:var(--brand);color:var(--brand);background:var(--brand-soft)}
+
+.slotgroup{margin-bottom:var(--s2)}
+.slottime{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  padding:var(--s5) 0 var(--s3);display:flex;align-items:center;gap:var(--s3)}
+.slottime::after{content:"";flex:1;height:1px;background:var(--line)}
+
+.row{width:100%;text-align:left;display:grid;grid-template-columns:88px minmax(0,1fr) auto;gap:var(--s4);
+  align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:var(--s4) var(--s5);margin-bottom:9px;cursor:pointer;
+  transition:border-color .14s,box-shadow .14s,transform .14s}
+.row:hover{border-color:var(--brand-line);box-shadow:var(--shadow-lg);transform:translateY(-1px)}
+.row .tm{flex:none}
+.row .tm b{font-size:15px;font-weight:700;display:block;letter-spacing:-.01em}
+.row .tm span{font-size:11.5px;color:var(--muted)}
+.row .ti{min-width:0}
+/* Im Timetable steht die PERSON oben, das Thema darunter als Nebenzeile
+   (Feedback Sarah, 07.09.). Sessions ohne Person behalten den Titel als H3. */
+.row .ti h3{font-size:16.5px;line-height:1.25;margin-bottom:3px}
+.row .ti .sub{font-size:13.5px;color:var(--ink-2);line-height:1.4;margin-bottom:5px}
+.row .ti .meta{font-size:12.5px;color:var(--muted);display:flex;gap:var(--s3);flex-wrap:wrap;align-items:center}
+.row .ti .meta b{color:var(--ink-2);font-weight:650}
+.row .rt{display:flex;align-items:center;gap:var(--s3);flex:none}
+.row.isbreak{background:var(--surface-2);border-style:dashed;cursor:default}
+.row.isbreak:hover{transform:none;box-shadow:none;border-color:var(--line-2)}
+.row.isbreak .ti h3{font-size:14.5px;font-family:var(--sans);font-weight:650;color:var(--ink-2)}
+
+/* =========================================================
+   Speaker-Liste
+   ========================================================= */
+.splist{display:flex;flex-direction:column;gap:10px}
+.sprow{width:100%;text-align:left;display:flex;align-items:center;gap:var(--s5);background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s4) var(--s5);cursor:pointer;
+  transition:border-color .14s,box-shadow .14s,transform .14s}
+.sprow:hover{border-color:var(--brand-line);box-shadow:var(--shadow-lg);transform:translateY(-1px)}
+.hs{width:72px;height:72px;border-radius:50%;flex:none;overflow:hidden;position:relative;
+  background:linear-gradient(150deg,var(--hs-a),var(--hs-b));display:grid;place-items:center;
+  border:1px solid var(--line-2)}
+.hs img{width:100%;height:100%;object-fit:cover}
+.hs .mono{font-family:var(--serif);font-size:23px;font-weight:600;color:#fff;letter-spacing:.01em;opacity:.94}
+.hs.lg{width:112px;height:112px}
+.hs.lg .mono{font-size:36px}
+.sprow .who{min-width:0;flex:1}
+.sprow .who h3{font-size:19px;margin-bottom:3px}
+.sprow .who .pos{font-size:13.5px;color:var(--ink-2);font-weight:600}
+.sprow .who .org{font-size:12.5px;color:var(--muted);margin-top:2px}
+.sprow .rt{display:flex;align-items:center;gap:var(--s3);flex:none;margin-left:auto}
+.sprow .arw{color:var(--muted);flex:none}
+.sprow:hover .arw{color:var(--brand)}
+
+/* Vierte Kachel „More" — schließt auf der Startseite das 2x2-Raster und führt
+   auf die vollständige Liste (Cedrik, 08.09.). Gestrichelter Rand, damit sie
+   sichtbar kein Datensatz ist, sondern ein Weg. */
+.morerow{width:100%;display:flex;align-items:center;justify-content:center;gap:var(--s3);
+  background:transparent;border:1.5px dashed var(--line-2);border-radius:var(--r-lg);
+  padding:var(--s4) var(--s5);cursor:pointer;color:var(--ink-2);font-family:var(--sans);
+  font-size:15px;font-weight:650;min-height:106px;
+  transition:border-color .14s,color .14s,background .14s}
+.morerow:hover{border-color:var(--brand-line);color:var(--brand);background:var(--brand-soft)}
+.morerow svg{width:15px;height:15px;flex:none}
+
+/* =========================================================
+   Corporates-Liste
+   ========================================================= */
+.colist{display:flex;flex-direction:column;gap:10px}
+.corow{width:100%;text-align:left;display:flex;align-items:center;gap:var(--s5);background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s4) var(--s5);cursor:pointer;
+  transition:border-color .14s,box-shadow .14s,transform .14s}
+.corow:hover{border-color:var(--brand-line);box-shadow:var(--shadow-lg);transform:translateY(-1px)}
+.logo{width:96px;height:72px;border-radius:var(--r-sm);flex:none;background:var(--surface-2);
+  border:1px solid var(--line-2);display:grid;place-items:center;position:relative;overflow:hidden;padding:8px}
+.logo img{max-height:100%;max-width:100%;object-fit:contain}
+.logo .wm{font-size:15px;font-weight:800;letter-spacing:-.02em;text-align:center;line-height:1.1}
+.logo .bar{position:absolute;left:0;top:0;bottom:0;width:5px}
+.logo.lg{width:132px;height:96px}
+.logo.lg .wm{font-size:20px}
+/* Logos mit eigener Vollfläche (DVAG) randlos in die Kachel legen */
+.logo.cover{padding:0;background:none}
+.logo.cover img{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover}
+.corow .co{min-width:0;flex:1}
+.corow .co h3{font-size:19px;margin-bottom:3px}
+.corow .co .branche{font-size:12.5px;color:var(--muted);font-weight:600}
+.corow .co .ws{display:inline-flex;align-items:center;gap:7px;margin-top:9px;font-size:12.5px;
+  background:var(--t-work-bg);border:1px solid var(--t-work-line);color:var(--t-work);
+  border-radius:var(--r-pill);padding:4px 12px;font-weight:650}
+.corow .co .ws svg{width:13px;height:13px;flex:none}
+.corow .arw{color:var(--muted);flex:none}
+.corow:hover .arw{color:var(--brand)}
+
+/* =========================================================
+   Popup / Detail-Overlay
+   ========================================================= */
+.ov{position:fixed;inset:0;z-index:300;background:rgba(12,12,26,.52);backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center;padding:var(--s5);overflow-y:auto}
+.ov.on{display:flex}
+.sheet{background:var(--surface);border-radius:var(--r-lg);width:100%;max-width:660px;box-shadow:var(--shadow-lg);
+  overflow:hidden;margin:auto;animation:pop .18s ease}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+.sheet .sh{padding:var(--s5) var(--s5) var(--s4);border-bottom:1px solid var(--line);display:flex;
+  align-items:flex-start;gap:var(--s5)}
+.sheet .sh .grow{min-width:0;flex:1}
+.sheet .sh h2{font-size:25px;line-height:1.14;margin:8px 0 5px}
+.sheet .sh .pos{font-size:14px;font-weight:600;color:var(--ink-2)}
+.sheet .sh .org{font-size:13px;color:var(--muted);margin-top:3px}
+/* Wer spricht, soll im Session-Popup sofort ins Auge fallen — vorher stand der
+   Name in derselben stillen Grauzeile wie der Raum. */
+.sheet .sh .by{font-family:var(--serif);font-size:17.5px;font-weight:600;color:var(--ink);margin-top:9px}
+.sheet .sh .by small{display:block;font-family:var(--sans);font-size:12.5px;font-weight:500;
+  color:var(--muted);margin-top:2px}
+/* Website-Zeile im Corporate-Popup */
+.weblink{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:650;color:var(--brand);
+  margin-top:var(--s3);text-decoration:none}
+.weblink:hover{text-decoration:underline}
+.weblink svg{width:13px;height:13px}
+/* Das LinkedIn-Zeichen ist eine Fläche, keine Linie — deshalb etwas größer. */
+.weblink svg.li{width:15px;height:15px}
+.closex{width:34px;height:34px;border:1px solid var(--line);background:var(--surface);border-radius:var(--r-sm);
+  display:grid;place-items:center;cursor:pointer;color:var(--muted);flex:none}
+.closex:hover{border-color:var(--muted);color:var(--ink)}
+.sheet .sb{padding:var(--s5)}
+.sheet .sf{padding:var(--s4) var(--s5);border-top:1px solid var(--line);background:var(--surface-2);
+  display:flex;gap:var(--s3);flex-wrap:wrap;align-items:center}
+.sheet .sf .spacer{margin-left:auto}
+
+.deflist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4) var(--s5);
+  padding-bottom:var(--s5);margin-bottom:var(--s5);border-bottom:1px solid var(--line)}
+/* Statt der Wörter WHEN/WHERE/SEATS/FORMAT steht links ein kleines Zeichen in
+   der Hausfarbe (Cedrik, 08.09.). Der Sinn bleibt über title/aria-label
+   abrufbar — für Vorlesesoftware und beim Draufzeigen. */
+.deflist .d{display:flex;align-items:flex-start;gap:9px}
+.deflist .d .di{color:var(--brand);flex:none;margin-top:1px}
+.deflist .d .di svg{width:17px;height:17px;display:block}
+.deflist .d .v{font-size:14px;font-weight:600;line-height:1.4;min-width:0}
+.sublabel{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--muted);
+  margin:var(--s5) 0 var(--s3)}
+.sublabel:first-child{margin-top:0}
+.prose{font-size:14px;line-height:1.68;color:var(--ink-2)}
+.prose + .prose{margin-top:var(--s3)}
+
+/* .taglist/.tg entfernt — trugen nur die „Focus areas", die raus sind. */
+
+/* Gekürzter Fließtext im Popup: sechs Zeilen, darunter „More".
+   Der weiche Verlauf über der letzten Zeile zeigt, dass der Text weitergeht. */
+.clamp{position:relative}
+.clamp.clamped{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;
+  line-clamp:6;overflow:hidden}
+.clamp.clamped::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.7em;
+  background:linear-gradient(to bottom,rgba(255,255,255,0),var(--surface) 82%);pointer-events:none}
+.moretxt{margin-top:8px;background:none;border:0;padding:0;cursor:pointer;
+  font-family:var(--sans);font-size:13px;font-weight:700;color:var(--brand)}
+.moretxt:hover{text-decoration:underline}
+
+.linkrow{display:flex;align-items:center;gap:var(--s3);background:var(--surface-2);border:1px solid var(--line);
+  border-radius:var(--r-sm);padding:11px 14px;margin-bottom:8px;font-size:13px}
+.linkrow .lt{min-width:0;flex:1}
+.linkrow .lt b{display:block;font-weight:650;font-size:13.5px}
+.linkrow .lt small{color:var(--muted);font-size:12px}
+.linkrow .badge{flex:none}
+/* Anklickbare Zeile: Zeiger, Pfeil und ein Rand, der auf Berührung reagiert —
+   damit man ihr ansieht, dass sie weiterführt. */
+.linkrow.tap{cursor:pointer;transition:border-color .14s,background .14s}
+.linkrow.tap:hover{border-color:var(--brand-line);background:var(--brand-soft)}
+.linkrow.tap:hover .arw{color:var(--brand)}
+.linkrow .arw{flex:none;color:var(--muted)}
+
+/* =========================================================
+   Merken (Herz) + Mitgliedsbereich
+   Das Herz sitzt IN einer Zeile, die selbst klickbar ist — deshalb sind
+   .sprow/.corow/.row keine <button> mehr (verschachtelte Buttons sind
+   ungültiges HTML), sondern div[role=button]; der Klick wird gestoppt.
+   ========================================================= */
+.fav{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);
+  display:grid;place-items:center;cursor:pointer;color:var(--muted);flex:none;
+  transition:color .15s,border-color .15s,background .15s;-webkit-tap-highlight-color:transparent}
+.fav svg{width:18px;height:18px}
+.fav:hover{border-color:#e0b0b8;color:#c84a5a;background:#fdf5f6}
+.fav.on{color:#c84a5a;border-color:#f0c9ce;background:#fdf0f2}
+/* Im Popup steht das Herz neben dem eckigen Schließkreuz — dort trägt es
+   dieselbe Form (Cedrik, 08.09.). In den Listen bleibt es rund, da steht es
+   allein. */
+.fav.big{width:44px;height:44px;border-radius:var(--r-sm)}
+.fav.big svg{width:21px;height:21px}
+
+/* Eckiger Knopf für einen Link nach außen (LinkedIn) — gleiche Maße wie das
+   Herz, damit die beiden übereinander eine saubere Kante bilden. */
+.iconbtn{width:44px;height:44px;border-radius:var(--r-sm);border:1px solid var(--line);
+  background:var(--surface);display:grid;place-items:center;cursor:pointer;color:var(--brand);
+  flex:none;transition:color .15s,border-color .15s,background .15s}
+.iconbtn:hover{border-color:var(--brand);background:var(--brand-soft)}
+.iconbtn svg{width:20px;height:20px}
+/* Herz, Kreuz und LinkedIn stehen als Block rechts im Kopf: oben Herz und
+   Kreuz nebeneinander, LinkedIn genau unter dem Herz. */
+.shbtns{display:grid;grid-template-columns:auto auto;gap:8px;flex:none;justify-items:end}
+@keyframes bump{0%{transform:scale(1)}42%{transform:scale(1.3)}100%{transform:scale(1)}}
+.fav.bump svg{animation:bump .34s ease}
+
+.mecard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:var(--s6);box-shadow:var(--shadow);text-align:center;max-width:520px;margin:0 auto}
+.mecard .ic{width:56px;height:56px;border-radius:50%;background:#fdf0f2;color:#c84a5a;
+  display:grid;place-items:center;margin:0 auto var(--s4)}
+.mecard .ic svg{width:26px;height:26px}
+.mecard h3{font-size:21px;margin-bottom:8px}
+.mecard p{font-size:13.5px;color:var(--muted);line-height:1.6;max-width:40ch;margin:0 auto var(--s5)}
+.mebar{display:flex;align-items:center;gap:var(--s3);background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:var(--s4) var(--s5);box-shadow:var(--shadow);margin-bottom:var(--s5)}
+.mebar .av{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:linear-gradient(150deg,var(--hs-a),var(--hs-b));color:#fff;font-weight:700;font-size:14px}
+.mebar .mt{min-width:0;flex:1}
+.mebar .mt b{display:block;font-size:14px;font-weight:650}
+.mebar .mt small{color:var(--muted);font-size:12px}
+.empty{border:1px dashed var(--line-2);border-radius:var(--r-md);padding:var(--s5);text-align:center;
+  color:var(--muted);font-size:13px;background:var(--surface-2)}
+
+.tabbar a .ic{position:relative}
+.tabbar .cnt{position:absolute;top:-1px;right:8px;min-width:15px;height:15px;border-radius:8px;
+  background:#c84a5a;color:#fff;font-size:9px;font-weight:800;display:none;place-items:center;
+  padding:0 4px;line-height:1;letter-spacing:0}
+.tabbar .cnt.on{display:grid}
+
+/* =========================================================
+   Tab-Leiste unten — nur Handy. Daumenreichweite statt Burger.
+   ========================================================= */
+.tabbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:200;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line);
+  padding:5px 4px calc(5px + var(--safebot,env(safe-area-inset-bottom,0px)));
+  box-shadow:0 -2px 16px rgba(20,20,26,.07)}
+.tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 2px;
+  color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.01em;min-height:46px;
+  -webkit-tap-highlight-color:transparent}
+.tabbar a .ic{width:52px;height:26px;border-radius:var(--r-pill);display:grid;place-items:center;
+  transition:background .17s ease}
+.tabbar a svg{width:20px;height:20px}
+.tabbar a.on{color:var(--brand)}
+.tabbar a.on .ic{background:var(--brand-soft)}
+
+/* =========================================================
+   Fußzeile
+   ========================================================= */
+.foot{border-top:1px solid var(--line);background:var(--surface);margin-top:var(--s7)}
+.foot .in{max-width:var(--wrap);margin:0 auto;padding:var(--s6) var(--s5);display:flex;gap:var(--s5);
+  flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--muted)}
+.foot .in .spacer{margin-left:auto}
+.foot a:hover{color:var(--ink)}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width:980px){ .datechip{display:none} }
+
+/* ---------------------------------------------------------
+   TABLET / iPad — 700 bis 1100px
+   Oben Navigation (kein Burger), Listen zweispaltig als Karten.
+   --------------------------------------------------------- */
+@media (min-width:700px) and (max-width:1100px){
+  .wrap,.site .in,.hero .in,.foot .in{padding-left:var(--s5);padding-right:var(--s5)}
+  .hero{min-height:min(640px,74vh)}
+  .hero h1{font-size:clamp(38px,5.6vw,56px)}
+  .navcards{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3)}
+  .navcard{padding:var(--s4)}
+  .navcard h3{font-size:16.5px}
+
+  /* Speaker + Corporates als zweispaltiges Kartenraster */
+  .splist,.colist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3);align-items:stretch}
+  .sprow,.corow{flex-direction:column;align-items:flex-start;gap:var(--s3);height:100%;padding:var(--s5);
+    position:relative}
+  .sprow .arw,.corow .arw{display:none}
+  /* Im Kartenlayout gehört das Herz in die Ecke, nicht ans Kartenende —
+     sonst hängt es unter dem Text und zieht die Karte unnötig auseinander. */
+  .sprow .rt{position:absolute;top:var(--s4);right:var(--s4);margin:0}
+  .sprow .who h3,.corow .co h3{font-size:18px}
+
+  .row{grid-template-columns:76px minmax(0,1fr) auto;gap:var(--s3)}
+  .row .ti h3{font-size:15.5px}
+  .sheet{max-width:600px}
+}
+
+/* ---------------------------------------------------------
+   HANDY — bis 699px
+   Tab-Leiste unten, Bottom-Sheet, klebende Filterzeile.
+   --------------------------------------------------------- */
+@media (max-width:699px){
+  body{padding-bottom:calc(60px + var(--safebot,env(safe-area-inset-bottom,0px)))}
+  .wrap,.hero .in,.foot .in,.site .in{padding-left:var(--s4);padding-right:var(--s4)}
+
+  /* Kopfzeile schrumpft, Navigation wandert nach unten */
+  .site .in{height:56px;gap:var(--s3)}
+  .mainnav,.burger{display:none}
+  .tabbar{display:flex}
+  .brand .mark{width:28px;height:28px}
+  /* Auf dem Handy passt der Name nicht in eine Zeile — er bricht nach
+     „Frankfurt School" um und bleibt damit vollständig lesbar. */
+  .brand .bt{padding-left:8px;font-size:12px;line-height:1.15;white-space:normal;
+    max-width:150px}
+
+  /* Hero: knapp unter Bildschirmhöhe, damit die Tab-Leiste nicht draufsteht */
+  .hero{min-height:calc(100svh - 116px);padding:var(--s7) var(--s4) 64px}
+  /* Hochkant schneidet center/cover die Bühne weg und zeigt den Boden —
+     Fokus nach oben ziehen, damit Pult und Traversen im Bild bleiben. */
+  .hero .bgimg{background-position:50% 28%}
+  .hero .brandline{font-size:11.5px;letter-spacing:.2em;margin-bottom:16px}
+  .hero h1{font-size:clamp(30px,8.2vw,40px)}
+  .hero .cta{margin-top:30px;gap:11px;width:100%}
+  .hero .cta .top,.hero .cta .split{width:100%;min-width:0}
+  .btn.apply{padding:14px 22px;font-size:14.5px}
+  .sect{padding-top:var(--s6)}
+  .pagehead{padding:var(--s5) 0 var(--s4)}
+  .pagehead h1{font-size:28px}
+  .pagehead p{font-size:13.5px}
+  .secthead h2{font-size:22px}
+  .navcards{grid-template-columns:1fr;gap:var(--s3)}
+  /* Wann/Wo/Plätze/Format bleiben auch auf dem Handy zweispaltig — einspaltig
+     schoben die vier Angaben allein schon alles Übrige aus dem Bild
+     (Cedrik, 08.09.: nicht scrollen müssen). */
+  .deflist{gap:var(--s4)}
+  /* Etwas engere Zwischenüberschriften — damit auch das längste Popup ohne
+     Scrollen aufs Display passt. */
+  .sublabel{margin:var(--s4) 0 var(--s2)}
+
+  /* Tag- und Typfilter bleiben beim Scrollen oben kleben */
+  .toolbar{position:sticky;top:calc(56px + var(--safetop,env(safe-area-inset-top,0px)));
+    z-index:90;background:var(--bg);flex-direction:column;
+    align-items:stretch;gap:var(--s3);margin:0 calc(-1 * var(--s4)) var(--s4);
+    padding:var(--s3) var(--s4);border-bottom:1px solid var(--line)}
+  .daytabs{width:100%}
+  .daytabs button{flex:1;padding:8px 10px}
+  /* Die Filterzeile bricht um, statt seitwärts zu scrollen — damit ist jeder
+     Filter sichtbar und nichts hängt über der Kante.
+     Vorher: nowrap + negative Ränder. Dadurch wurde die ganze SEITE breiter als
+     das Display und ließ sich wegschieben — daher die abgeschnittene
+     „Break"-Kachel und der verrutschte Kopf (Cedrik, 08.09.). */
+  .chips{flex-wrap:wrap;width:100%;min-width:0;max-width:100%;margin:0;padding:0;
+    row-gap:6px}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;padding:8px 15px}
+
+  /* Programmzeile: Uhrzeit über dem Titel */
+  .row{grid-template-columns:1fr;gap:var(--s2);align-items:flex-start;padding:var(--s4)}
+  .row .tm{display:flex;align-items:baseline;gap:8px}
+  .row .tm b{font-size:14px}
+  .row .ti h3{font-size:15.5px}
+  .row .rt{width:100%;flex-wrap:wrap;gap:var(--s2);margin-top:2px}
+  .row .rt .arw{display:none}
+
+  /* Listen einspaltig: Bild oben, Text darunter, Chevron weg */
+  .splist,.colist{gap:var(--s2)}
+  .sprow,.corow{align-items:flex-start;gap:var(--s3);padding:var(--s4)}
+  .sprow .arw,.corow .arw{display:none}
+  .hs{width:54px;height:54px}
+  .hs .mono{font-size:18px}
+  .sprow .who h3{font-size:17px}
+  .sprow .who .pos{font-size:13px}
+  .corow{flex-direction:column}
+  .corow .logo{width:86px;height:62px}
+  .logo .wm{font-size:13px}
+  .corow .co h3{font-size:17px}
+  .corow .co .ws{margin-top:8px;white-space:normal;text-align:left}
+
+  /* Popup wird zum Bottom-Sheet */
+  .ov{padding:0;align-items:flex-end}
+  .sheet{max-width:none;width:100%;margin:0;border-radius:20px 20px 0 0;max-height:92vh;
+    display:flex;flex-direction:column;animation:slideup .24s cubic-bezier(.32,.72,0,1)}
+  .sheet::before{content:"";width:38px;height:4px;border-radius:2px;background:var(--line-2);
+    margin:9px auto 2px;flex:none}
+  .sheet .sh{flex-wrap:wrap;padding:var(--s4) var(--s4) var(--s3);gap:var(--s4);flex:none}
+  .sheet .sh h2{font-size:21px}
+  .sheet .sb{padding:var(--s4);overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;min-height:0}
+  .sheet .sf{flex:none;flex-direction:column;align-items:stretch;gap:var(--s2);
+    padding:var(--s3) var(--s4) calc(var(--s3) + var(--safebot,env(safe-area-inset-bottom,0px)))}
+  .sheet .sf .btn{width:100%;justify-content:center;padding:12px 16px}
+  .sheet .sf .spacer{display:none}
+
+  /* Mockup-Leiste kompakt halten — sie klaut sonst den halben Screen */
+  .mockbar{padding:7px var(--s4);gap:var(--s2);font-size:11px}
+  .mockbar > span:nth-child(2),.mockbar > span:nth-child(3){display:none}
+  .mockbar .themes{margin-left:0;flex:1;justify-content:flex-end}
+  .mockbar .themes > span{display:none}
+  .mockbar .th{padding:3px 10px;font-size:11px}
+  .mockbar .x{padding:3px 10px}
+  .hs.lg{width:76px;height:76px}
+  .hs.lg .mono{font-size:25px}
+  .logo.lg{width:104px;height:76px}
+  .logo.lg .wm{font-size:16px}
+  .foot .in{padding:var(--s5) var(--s4);gap:var(--s3);font-size:12px}
+  .foot .in .spacer{margin-left:0}
+}
+@keyframes slideup{from{transform:translateY(100%)}to{transform:none}}
+
+/* Sehr schmale Geräte (iPhone SE) */
+@media (max-width:360px){
+  .hero h1{font-size:28px}
+  .tabbar a{font-size:9.5px}
+  .tabbar a .ic{width:44px}
+}
+</style>
+</head>
+<body>
+
+<!-- Foto-Wash: liegt hinter allem, damit die Seite nach dem Hero nicht auf
+     flaches Grau kippt. Details im CSS bei .pagewash. -->
+<div class="pagewash" aria-hidden="true"></div>
+
+<div class="mockbar" id="mockbar">
+  <span class="tag">Mockup</span>
+  <span><b>FSBF Event App</b> · attendee view · Home · Timetable · Speakers · Corporates · My Forum</span>
+  <span style="opacity:.6">Every card opens a detail popup. Heart = save (requires sign-in).</span>
+  <!-- Design-Umschalter entfernt: Navy + Gold ist gesetzt (Entscheidung 07.09.).
+       Das Cream-Theme bleibt im CSS liegen — über setTheme('cream') in der
+       Konsole jederzeit wieder sichtbar, falls wir es doch vergleichen wollen. -->
+  <button class="x" onclick="document.getElementById('mockbar').remove()">hide</button>
+</div>
+
+<header class="site">
+  <div class="in">
+    <a class="brand" href="#home">
+      <img class="mark" src="assets/Favicon-removebg-preview.png" alt="">
+      <!-- Name gesetzt statt als Bild, im Navy des Kreises (Cedrik, 08.09.). -->
+      <span class="bt">Frankfurt School Business&nbsp;Forum</span>
+    </a>
+    <nav class="mainnav" id="mainnav">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#timetable" data-nav="timetable">Timetable</a>
+      <a href="#speakers" data-nav="speakers">Speakers</a>
+      <a href="#corporates" data-nav="corporates">Corporates</a>
+      <a href="#saved" data-nav="saved">My Forum</a>
+    </nav>
+    <div class="right">
+      <span class="datechip">12–13 March 2026</span>
+      <button class="burger" onclick="document.getElementById('mainnav').classList.toggle('open')" aria-label="Menu">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================================================================
+     LANDING
+     =================================================================== -->
+<main class="page on" id="page-home">
+  <section class="hero">
+    <div class="bgimg"></div><div class="scrim"></div>
+    <div class="in">
+      <div class="brandline">12–13 March 2026</div>
+      <h1>Welcome to the Frankfurt School Business Forum</h1>
+      <div class="cta">
+        <button class="btn apply pri top" onclick="go('timetable')">Timetable</button>
+        <div class="split">
+          <button class="btn apply out" onclick="go('speakers')">Speakers</button>
+          <button class="btn apply out" onclick="go('corporates')">Corporates</button>
+        </div>
+      </div>
+    </div>
+    <div class="scrollhint">Scroll ↓</div>
+  </section>
+
+  <div class="wrap">
+    <!-- Zahlenband entfernt (Cedrik, 08.09.): die Zahlen sagen dem Besucher
+         nichts, was er nicht ohnehin sieht. Die Navigation kommt direkt. -->
+    <section class="sect">
+      <div class="secthead">
+        <div>
+          <div class="kicker">Where to start</div>
+          <h2 style="margin-top:8px">Three ways through the Forum</h2>
+          <p>Every overview is a list. One tap opens the details — time, room, people, content.</p>
+        </div>
+      </div>
+      <div class="navcards">
+        <button class="navcard" onclick="go('timetable')">
+          <div class="ch">
+            <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg></div>
+            <h3>Timetable</h3>
+          </div>
+          <p>The full programme for both days — keynotes, workshops, networking and breaks, sorted by time.</p>
+          <div class="go">View the programme <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </button>
+        <button class="navcard" onclick="go('speakers')">
+          <div class="ch">
+            <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.6-4 3.7-6 7.5-6s6.9 2 7.5 6"/></svg></div>
+            <h3>Speakers</h3>
+          </div>
+          <p>Who is on stage: portrait, role and company — plus biography and their sessions in the detail view.</p>
+          <div class="go">Meet the speakers <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </button>
+        <button class="navcard" onclick="go('corporates')">
+          <div class="ch">
+            <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 20.5h18M5 20.5V7l7-4 7 4v13.5"/><path d="M10 20.5v-5h4v5"/></svg></div>
+            <h3>Corporates</h3>
+          </div>
+          <p>All partner companies with their logo, industry and workshop topic.</p>
+          <div class="go">See the companies <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </button>
+      </div>
+    </section>
+
+    <section class="sect">
+      <div class="secthead">
+        <div><div class="kicker">On stage</div><h2 style="margin-top:8px">Programme highlights</h2></div>
+        <div class="spacer"></div>
+        <button class="btn sm ghost" onclick="go('speakers')">All speakers</button>
+      </div>
+      <div class="splist" id="homeSpeakers"></div>
+    </section>
+
+    <section class="sect">
+      <div class="secthead">
+        <div><div class="kicker">Partners</div><h2 style="margin-top:8px">Companies &amp; workshops</h2></div>
+        <div class="spacer"></div>
+        <button class="btn sm ghost" onclick="go('corporates')">All companies</button>
+      </div>
+      <div class="colist" id="homeCorps"></div>
+    </section>
+  </div>
+</main>
+
+<!-- ===================================================================
+     TIMETABLE
+     =================================================================== -->
+<main class="page" id="page-timetable">
+  <div class="wrap">
+    <div class="pagehead">
+      <div class="kicker">Programme</div>
+      <h1 style="margin-top:8px">Timetable</h1>
+      <p>Every session across both days. Tap a session for the description, room and remaining seats.</p>
+    </div>
+    <div class="toolbar">
+      <div class="daytabs" id="dayTabs"></div>
+      <div class="chips" id="typeChips"></div>
+    </div>
+    <div id="agenda"></div>
+  </div>
+</main>
+
+<!-- ===================================================================
+     SPEAKER
+     =================================================================== -->
+<main class="page" id="page-speakers">
+  <div class="wrap">
+    <div class="pagehead">
+      <div class="kicker">On stage</div>
+      <h1 style="margin-top:8px">Speakers</h1>
+      <p>The voices of Forum 2026. One tap opens their biography, their sessions and their LinkedIn profile.</p>
+    </div>
+    <div class="splist" id="speakerList"></div>
+  </div>
+</main>
+
+<!-- ===================================================================
+     CORPORATES
+     =================================================================== -->
+<main class="page" id="page-corporates">
+  <div class="wrap">
+    <div class="pagehead">
+      <div class="kicker">Partners</div>
+      <h1 style="margin-top:8px">Corporates</h1>
+      <p>Our partner companies with their industry and workshop topic. One tap opens the company
+        portrait — who they are, where to find them at the Forum, and their website.</p>
+    </div>
+    <div class="colist" id="corpList"></div>
+  </div>
+</main>
+
+<!-- ===================================================================
+     MITGLIEDSBEREICH — gemerkte Speaker und Sessions
+     =================================================================== -->
+<main class="page" id="page-saved">
+  <div class="wrap">
+    <div class="pagehead">
+      <div class="kicker">Member area</div>
+      <h1 style="margin-top:8px">My Forum</h1>
+      <p>Everything you saved — speakers and sessions in one place. You need to be signed in to save.</p>
+    </div>
+    <div id="savedBody"></div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="in">
+    <span>© 2026 Frankfurt School Business Forum e.&nbsp;V.</span>
+    <div class="spacer"></div>
+    <a href="#home">fs-businessforum.com</a>
+    <a href="#home">Legal notice</a>
+    <a href="#home">Privacy</a>
+  </div>
+</footer>
+
+<!-- Tab-Leiste unten — erscheint nur auf dem Handy (Kommentar bleibt DE) -->
+<nav class="tabbar" id="tabbar">
+  <a href="#home" data-tab="home">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.2 12 3.5l9 6.7V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>
+    <span>Home</span>
+  </a>
+  <a href="#timetable" data-tab="timetable">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+    <span>Timetable</span>
+  </a>
+  <a href="#speakers" data-tab="speakers">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3z"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/></svg></span>
+    <span>Speakers</span>
+  </a>
+  <a href="#corporates" data-tab="corporates">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V6.5A1.5 1.5 0 0 1 6.5 5h5A1.5 1.5 0 0 1 13 6.5V21M13 11h4.5A1.5 1.5 0 0 1 19 12.5V21"/><path d="M8 9h2M8 13h2M8 17h2M16 15h0M16 18h0"/></svg></span>
+    <span>Corporates</span>
+  </a>
+  <a href="#saved" data-tab="saved">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.4 4.7 13.1a4.75 4.75 0 0 1 6.7-6.7l.6.6.6-.6a4.75 4.75 0 0 1 6.7 6.7z"/></svg><span class="cnt" id="favCount">0</span></span>
+    <span>My Forum</span>
+  </a>
+</nav>
+
+<div class="ov" id="ov" onclick="if(event.target===this)closeSheet()">
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true"></div>
+</div>
+
+<script>
+/* =========================================================
+   Beispieldaten
+   ========================================================= */
+/* li = LinkedIn-Adresse hinter dem Knopf im Popup (Cedrik, 08.09.).
+   ACHTUNG: Das sind Personensuchen auf LinkedIn, KEINE echten Profil-Adressen —
+   die kenne ich nicht und rate sie auch nicht. Sobald die richtigen
+   linkedin.com/in/…-Links vorliegen, hier eintragen, sonst ändert sich nichts. */
+const SPEAKERS = [
+  {
+    id:'orcel', name:'Andrea Orcel', initials:'AO',
+    photo:'assets/orcel.webp', focus:'54% 22%',
+    pos:'Chief Executive Officer', org:'UniCredit S.p.A.',
+    li:'https://www.linkedin.com/search/results/people/?keywords=Andrea%20Orcel%20UniCredit',
+    bio:[
+      'Andrea Orcel has led UniCredit since 2021, turning the bank from a restructuring case into one of the most profitable institutions in Europe. Before that he ran UBS’s global capital markets business as President of the Investment Bank.',
+      'He is regarded as one of the defining M&A bankers in Europe and was involved in several of the largest banking mergers of the past two decades. At the Forum he talks about how a fragmented European banking market will consolidate over the coming years — and what that means for graduates.'
+    ],
+    sessions:['k2']
+  },
+  {
+    id:'stieglitz', name:'Nils Stieglitz', initials:'NS',
+    photo:'assets/stieglitz.webp', focus:'59% 26%',
+    pos:'President &amp; Managing Director', org:'Frankfurt School of Finance &amp; Management',
+    li:'https://www.linkedin.com/search/results/people/?keywords=Nils%20Stieglitz%20Frankfurt%20School',
+    bio:[
+      'Nils Stieglitz has been President of Frankfurt School since 2018 and, as Managing Director, is responsible for the strategic direction of the school. As Professor of Strategic Management he researches organisational design and decision-making under uncertainty.',
+      'He opens Business Forum 2026 and explains why direct exchange between students and companies matters more to a business school education today than any curriculum.'
+    ],
+    sessions:['k1']
+  },
+  {
+    id:'bezos', name:'Jeff Bezos', initials:'JB',
+    photo:'assets/bezos.jpg', focus:'49% 20%',
+    pos:'Founder &amp; Executive Chairman', org:'Amazon · Blue Origin',
+    li:'https://www.linkedin.com/search/results/people/?keywords=Jeff%20Bezos',
+    bio:[
+      'Jeff Bezos founded Amazon in a Seattle garage in 1994 and grew it into one of the largest companies in the world. He has been Executive Chairman since 2021 and focuses on Blue Origin and the Bezos Earth Fund.',
+      'In the fireside chat closing day one he talks about decisions with a long time horizon, about mistakes that cost him dearly, and about why “Day 1” is still more than a slogan to him.'
+    ],
+    sessions:['k3']
+  }
+];
+
+const CORPORATES = [
+  {
+    id:'dvag', name:'DVAG', full:'Deutsche Vermögensberatung AG',
+    branche:'Financial services · Integrated financial advice',
+    color:'#c8a622', wm:'DVAG', logo:'assets/dvag.gif', fit:'cover',
+    web:'https://www.dvag.de', webLabel:'dvag.de',
+    booth:'Foyer · Stand 04', hq:'Frankfurt am Main', size:'approx. 5,000 employees',
+    workshop:{
+      id:'w3', title:'From first meeting to a full wealth concept',
+      topic:'Financial Planning &amp; Advisory',
+      time:'Thu · 15:30–17:00', room:'Room 2.03', spots:'8 of 24 seats left', state:'tight',
+      desc:'You get a real client case on the table: a family, two incomes, plans to buy property, a pension gap. In teams of three you build a concept and present it to an adviser who actually handled the case.'
+    },
+    about:'DVAG is Germany’s largest independent financial advisory firm. Around 19,000 advisers look after more than eight million clients — with an approach that treats pensions, insurance and wealth building as one picture instead of selling products separately.',
+    contact:'Talent Acquisition team · available at the stand'
+  },
+  {
+    id:'schwarz', name:'Schwarz Corporate Solutions', full:'Schwarz Corporate Solutions KG',
+    branche:'Retail · Corporate services &amp; investments',
+    color:'#3c3c3c', wm:'SCHWARZ', logo:'assets/schwarz.png', fit:'contain',
+    web:'https://www.schwarz-corporate-solutions.com', webLabel:'schwarz-corporate-solutions.com',
+    booth:'Foyer · Stand 11', hq:'Neckarsulm', size:'Schwarz Group: more than 575,000 employees',
+    workshop:{
+      id:'w1', title:'M&A in a retail group: how an acquisition really runs',
+      topic:'Mergers &amp; Acquisitions',
+      time:'Thu · 11:45–13:00', room:'Room 2.05', spots:'3 of 20 seats left', state:'tight',
+      desc:'Using an anonymised deal from the group you walk through what actually happens between screening and signing: longlist, valuation logic, red flags in due diligence, room to negotiate. At the end your team decides whether you would buy the target — and at what price.'
+    },
+    about:'Schwarz Corporate Solutions brings together the central functions of the Schwarz Group — the network behind Lidl, Kaufland, PreZero and Schwarz Digits. Investments, group financing and M&A for one of the largest retail groups in the world are steered from Frankfurt and Neckarsulm.',
+    contact:'Corporate Development · recruiting slots bookable'
+  },
+  {
+    id:'oddo', name:'ODDO BHF', full:'ODDO BHF SE',
+    branche:'Investment banking · Asset &amp; private banking',
+    color:'#e6272f', wm:'ODDO<br>BHF', logo:'assets/oddo.svg', fit:'contain',
+    web:'https://www.oddo-bhf.com', webLabel:'oddo-bhf.com',
+    booth:'Foyer · Stand 07', hq:'Frankfurt am Main / Paris', size:'approx. 2,600 employees',
+    workshop:{
+      id:'w2', title:'Corporate finance: company valuation in practice',
+      topic:'Corporate Finance &amp; Valuation',
+      time:'Thu · 11:45–13:00', room:'Room 1.14', spots:'11 of 24 seats left', state:'free',
+      desc:'You value a mid-sized industrial company — first on multiples, then by DCF. The analysts show you where models break in practice: working capital assumptions, terminal value, and the question of which peer set anyone will actually accept.'
+    },
+    about:'ODDO BHF is a French-German financial group with more than 175 years of history. The bank combines corporate &amp; investment banking with asset management and private wealth — one of the few European players supporting the Mittelstand from financing through to succession.',
+    contact:'Campus recruiting · conversations after the workshop'
+  }
+];
+
+const DAYS = [
+  {id:'d1', label:'Day 1', date:'Thu · 12 March'},
+  {id:'d2', label:'Day 2', date:'Fri · 13 March'}
+];
+
+const SESSIONS = [
+  // ---------- Day 1 ----------
+  {id:'b0', day:'d1', from:'08:30', to:'09:30', type:'break', title:'Check-in &amp; arrival', room:'Foyer',
+   desc:'Scan your ticket at the entrance, pick up your badge, grab a first coffee. The exhibitor stands in the foyer are staffed from 08:30.'},
+  {id:'k1', day:'d1', from:'09:30', to:'10:00', type:'keynote', title:'Opening: Welcome to the FS Business Forum',
+   room:'Audimax', speaker:'stieglitz', spots:'Open to all', state:'free',
+   desc:'Nils Stieglitz opens the Forum and sets out where Frankfurt School stands between research, practice and the job market — and what he hopes these two days will achieve.'},
+  {id:'k2', day:'d1', from:'10:15', to:'11:15', type:'keynote', title:'Banking in a Fragmented Europe',
+   room:'Audimax', speaker:'orcel', spots:'Open to all', state:'free',
+   desc:'Why Europe needs more cross-border banking consolidation, which political hurdles stand in the way, and how UniCredit is positioning itself. Followed by 15 minutes of audience Q&A.'},
+  {id:'b1', day:'d1', from:'11:15', to:'11:45', type:'break', title:'Coffee &amp; networking', room:'Foyer',
+   desc:'Time for the exhibitor stands. Many companies hand out spontaneous conversation slots for the afternoon here.'},
+  {id:'w1', day:'d1', from:'11:45', to:'13:00', type:'workshop', title:'M&A in a retail group: how an acquisition really runs',
+   room:'Room 2.05', corp:'schwarz', spots:'3 of 20 seats left', state:'tight',
+   desc:'Using an anonymised deal from the Schwarz Group you walk through the steps between screening and signing: longlist, valuation logic, red flags in due diligence, room to negotiate.'},
+  {id:'w2', day:'d1', from:'11:45', to:'13:00', type:'workshop', title:'Corporate finance: company valuation in practice',
+   room:'Room 1.14', corp:'oddo', spots:'11 of 24 seats left', state:'free',
+   desc:'Valuing a mid-sized industrial company — first on multiples, then by DCF. Bring a laptop with Excel.'},
+  {id:'b2', day:'d1', from:'13:00', to:'14:00', type:'break', title:'Lunch break', room:'Canteen &amp; foyer',
+   desc:'Hot lunch, vegetarian and vegan options available. Included in your ticket.'},
+  {id:'p1', day:'d1', from:'14:00', to:'15:15', type:'keynote', title:'Panel: The Next Decade of European Capital Markets',
+   room:'Audimax', spots:'Open to all', state:'free',
+   desc:'Four perspectives on the same question: a bank, an asset manager, a regulator and a founder discuss where European capital will come from in ten years. Moderated by Frankfurt School.'},
+  {id:'w3', day:'d1', from:'15:30', to:'17:00', type:'workshop', title:'From first meeting to a full wealth concept',
+   room:'Room 2.03', corp:'dvag', spots:'8 of 24 seats left', state:'tight',
+   desc:'A real client case, teams of three, your own concept — and feedback at the end from the adviser who actually handled it.'},
+  {id:'k3', day:'d1', from:'17:15', to:'18:30', type:'keynote', title:'Fireside Chat: Building for the Long Term',
+   room:'Audimax', speaker:'bezos', spots:'Limited seating', state:'tight',
+   desc:'A conversation about decisions on a ten-year horizon, about expensive mistakes, and about why “Day 1” is still more than a slogan to Jeff Bezos. Questions can be submitted in advance through the app.'},
+  {id:'n1', day:'d1', from:'19:00', to:'23:00', type:'networking', title:'Networking Dinner', room:'Skyloft, 8th floor',
+   spots:'Dinner ticket required', state:'full',
+   desc:'Finger food, drinks and conversation in small groups. Every table is hosted by a partner company — the seating plan arrives as a push notification in the afternoon.'},
+
+  // ---------- Day 2 ----------
+  {id:'b3', day:'d2', from:'08:30', to:'09:00', type:'break', title:'Arrival &amp; coffee', room:'Foyer',
+   desc:'A later start after the dinner. The entrance stays open all day.'},
+  {id:'k4', day:'d2', from:'09:00', to:'09:45', type:'keynote', title:'Morning Briefing: what stuck from yesterday',
+   room:'Audimax', spots:'Open to all', state:'free',
+   desc:'The organising team summarises the key points from day one and sets out the plan for day two.'},
+  {id:'c1', day:'d2', from:'10:00', to:'12:30', type:'workshop', title:'Case Challenge: final', room:'Rooms 1.01 – 1.06',
+   spots:'Registered teams only', state:'full',
+   desc:'Six teams, one case, 90 minutes of work and a 15-minute pitch to a jury of partner companies. Spectators welcome.'},
+  {id:'r1', day:'d2', from:'10:00', to:'12:30', type:'networking', title:'Recruiting speed dating', room:'Foyer &amp; room 0.09',
+   spots:'Slots bookable in the app', state:'free',
+   desc:'15-minute conversations with the partner companies. Slots open in the morning and are usually gone within the hour.'},
+  {id:'b4', day:'d2', from:'12:30', to:'13:30', type:'break', title:'Lunch break', room:'Canteen &amp; foyer',
+   desc:'Hot lunch, vegetarian and vegan options available. Included in your ticket.'},
+  {id:'w4', day:'d2', from:'13:30', to:'15:00', type:'workshop', title:'Workshop round 2', room:'Rooms 1.14 / 2.03 / 2.05',
+   spots:'Remaining seats in the app', state:'tight',
+   desc:'The day-one workshops repeated in shortened form. If you missed out on Thursday, this is your second chance.'},
+  {id:'n2', day:'d2', from:'15:30', to:'16:30', type:'networking', title:'Closing &amp; Awards', room:'Audimax',
+   spots:'Open to all', state:'free',
+   desc:'The winning Case Challenge team, thanks to our partners, a look ahead to 2027 — and a drink in the foyer afterwards.'}
+];
+
+const TYPES = {
+  keynote:{label:'Keynote'}, workshop:{label:'Workshop'},
+  networking:{label:'Networking'}, break:{label:'Break'}
+};
+
+/* =========================================================
+   Hilfsfunktionen
+   ========================================================= */
+const $  = (s,r=document)=>r.querySelector(s);
+const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
+const speakerById = id => SPEAKERS.find(s=>s.id===id);
+const corpById    = id => CORPORATES.find(c=>c.id===id);
+const esc = s => String(s);
+
+/* focus = object-position. Die drei Porträts sind unterschiedlich beschnitten
+   (Orcel quer, Bezos hoch); ohne den Wert rutschen Gesichter aus dem Kreis. */
+function headshot(sp, big){
+  const inner = sp.photo
+    ? `<img src="${sp.photo}" alt="${sp.name}" style="object-position:${sp.focus||'50% 50%'}">`
+    : `<span class="mono">${sp.initials}</span>`;
+  return `<div class="hs${big?' lg':''}">${inner}</div>`;
+}
+/* fit:'cover' für Logos, die ihre eigene Fläche mitbringen (DVAG ist ein
+   goldenes Vollquadrat) — die füllen die Kachel randlos und brauchen den
+   farbigen Balken links dann nicht. fit:'contain' für freigestellte Wortmarken. */
+function corpLogo(c, big){
+  const cover = c.fit === 'cover';
+  const inner = c.logo
+    ? `<img src="${c.logo}" alt="${c.name}">`
+    : `<span class="wm" style="color:${c.color}">${c.wm}</span>`;
+  const bar = cover ? '' : `<span class="bar" style="background:${c.color}"></span>`;
+  return `<div class="logo${big?' lg':''}${cover?' cover':''}">${bar}${inner}</div>`;
+}
+const arrow = `<svg class="arw" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg>`;
+/* Kasten-mit-Pfeil: markiert jeden Link, der die App verlässt. */
+const extLinkIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>`;
+/* LinkedIn-Zeichen als Fläche, damit es auch klein noch erkennbar ist. */
+const liIcon = `<svg class="li" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.03-3.07-1.94-3.07-1.94 0-2.24 1.46-2.24 2.97V21h-4V9z"/></svg>`;
+
+/* Eckiger LinkedIn-Knopf im Kopf des Speaker-Popups. */
+const liBtn = url => `<a class="iconbtn" href="${url}" target="_blank" rel="noopener"
+  title="LinkedIn profile" aria-label="LinkedIn profile">${liIcon}</a>`;
+
+/* Zeichen der vier Angaben im Session-Popup: Uhr, Ortsnadel, Sitzplatz, Format. */
+const stroke = 'fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"';
+const DEF_ICONS = {
+  when:  `<svg viewBox="0 0 24 24" ${stroke}><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 2"/></svg>`,
+  where: `<svg viewBox="0 0 24 24" ${stroke}><path d="M12 21s7-5.3 7-11a7 7 0 1 0-14 0c0 5.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>`,
+  seats: `<svg viewBox="0 0 24 24" ${stroke}><path d="M6 10V6.5A2.5 2.5 0 0 1 8.5 4h7A2.5 2.5 0 0 1 18 6.5V10"/><path d="M4.5 10h15a1.5 1.5 0 0 1 1.5 1.5V16H3v-4.5A1.5 1.5 0 0 1 4.5 10z"/><path d="M5 16v3M19 16v3"/></svg>`,
+  format:`<svg viewBox="0 0 24 24" ${stroke}><path d="M4 6h16M4 12h16M4 18h9"/></svg>`
+};
+/* Eine Zeile der Angabenliste: Zeichen links, Wert rechts. */
+const defItem = (kind, label, value) =>
+  `<div class="d"><span class="di" title="${label}" aria-label="${label}" role="img">${DEF_ICONS[kind]}</span>
+    <div class="v">${value}</div></div>`;
+
+/* =========================================================
+   Mitgliedsbereich: Anmeldung + Merkliste
+   Reiner Mockup-Zustand im localStorage — kein echtes Login.
+   ========================================================= */
+let ME = null, FAVS = {sp:[], se:[]};
+try{ ME = JSON.parse(localStorage.getItem('fsbf-user') || 'null'); }catch(e){}
+try{ const f = JSON.parse(localStorage.getItem('fsbf-favs') || 'null');
+     if(f && Array.isArray(f.sp) && Array.isArray(f.se)) FAVS = f; }catch(e){}
+
+/* Abgemeldet zählt nichts als gemerkt — die Liste bleibt aber gespeichert und
+   ist nach dem nächsten Login wieder da. Sonst blieben die Herzen nach dem
+   Abmelden gefüllt, obwohl ein Klick darauf nur den Login-Dialog öffnet. */
+const isFav    = (k,id) => !!ME && FAVS[k].includes(id);
+const favTotal = () => ME ? FAVS.sp.length + FAVS.se.length : 0;
+
+const heartPath = `<path d="M12 20.4 4.7 13.1a4.75 4.75 0 0 1 6.7-6.7l.6.6.6-.6a4.75 4.75 0 0 1 6.7 6.7z"/>`;
+
+function heartBtn(k, id, big){
+  const on = isFav(k,id);
+  return `<button class="fav${on?' on':''}${big?' big':''}" data-k="${k}" data-i="${id}"
+    aria-pressed="${on}" aria-label="Save"
+    onclick="event.stopPropagation();toggleFav('${k}','${id}',this)">
+    <svg viewBox="0 0 24 24" fill="${on?'currentColor':'none'}" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round">${heartPath}</svg>
+  </button>`;
+}
+
+function toggleFav(k, id, el){
+  if(!ME){ openLogin(); return; }                 // Merken geht nur angemeldet
+  const i = FAVS[k].indexOf(id);
+  if(i >= 0) FAVS[k].splice(i,1); else FAVS[k].push(id);
+  try{ localStorage.setItem('fsbf-favs', JSON.stringify(FAVS)); }catch(e){}
+  syncHearts(); renderSaved(); syncSheetFav();
+  if(el && isFav(k,id)){ el.classList.add('bump'); setTimeout(()=>el.classList.remove('bump'), 340); }
+}
+
+/* Dasselbe Herz steht in mehreren Listen gleichzeitig (Start, Unterseite,
+   Popup, Merkliste) — deshalb wird der Zustand überall nachgezogen. */
+function syncHearts(){
+  $$('.fav[data-k]').forEach(b=>{
+    const on = isFav(b.dataset.k, b.dataset.i);
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-pressed', on);
+    b.querySelector('svg').setAttribute('fill', on ? 'currentColor' : 'none');
+  });
+  const c = $('#favCount');
+  if(c){ c.textContent = favTotal(); c.classList.toggle('on', !!ME && favTotal() > 0); }
+}
+
+function doLogin(){
+  ME = {name:'Cedrik Meyer', mail:'cedrik@fs-students.de', initials:'CM'};
+  try{ localStorage.setItem('fsbf-user', JSON.stringify(ME)); }catch(e){}
+  closeSheet(); syncHearts(); renderSaved();
+}
+function doLogout(){
+  ME = null;
+  try{ localStorage.removeItem('fsbf-user'); }catch(e){}
+  syncHearts(); renderSaved();
+}
+
+/* =========================================================
+   Listen rendern
+   ========================================================= */
+function speakerRow(sp){
+  return `<div class="sprow" role="button" tabindex="0" onclick="openSpeaker('${sp.id}')"
+    onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSpeaker('${sp.id}')}">
+    ${headshot(sp)}
+    <div class="who">
+      <h3>${sp.name}</h3>
+      <div class="pos">${sp.pos}</div>
+      <div class="org">${sp.org}</div>
+    </div>
+    <div class="rt">${heartBtn('sp',sp.id)}${arrow}</div></div>`;
+}
+function corpRow(c){
+  return `<div class="corow" role="button" tabindex="0" onclick="openCorp('${c.id}')"
+    onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCorp('${c.id}')}">
+    ${corpLogo(c)}
+    <div class="co">
+      <h3>${c.name}</h3>
+      <div class="branche">${c.branche}</div>
+      <span class="ws">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        Workshop: ${c.workshop.title}
+      </span>
+    </div>${arrow}</div>`;
+}
+
+/* Abschluss-Kachel der Startseiten-Raster: dieselbe Größe wie eine Karte,
+   aber sichtbar kein Datensatz — sie führt auf die vollständige Liste. */
+function moreRow(page, label){
+  return `<div class="morerow" role="button" tabindex="0" onclick="go('${page}')"
+    onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();go('${page}')}">
+    ${label}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </div>`;
+}
+
+$('#speakerList').innerHTML = SPEAKERS.map(speakerRow).join('');
+$('#homeSpeakers').innerHTML = SPEAKERS.map(speakerRow).join('') + moreRow('speakers','More speakers');
+$('#corpList').innerHTML = CORPORATES.map(corpRow).join('');
+$('#homeCorps').innerHTML = CORPORATES.map(corpRow).join('') + moreRow('corporates','More companies');
+
+/* =========================================================
+   Timetable
+   ========================================================= */
+let curDay = 'd1';
+let curType = 'all';
+
+$('#dayTabs').innerHTML = DAYS.map(d=>
+  `<button data-day="${d.id}" class="${d.id===curDay?'on':''}" onclick="setDay('${d.id}')">
+     ${d.label}<small>${d.date}</small></button>`).join('');
+
+$('#typeChips').innerHTML =
+  `<button class="chip on" data-type="all" onclick="setType('all')">All</button>` +
+  Object.keys(TYPES).map(t=>
+    `<button class="chip" data-type="${t}" onclick="setType('${t}')">${TYPES[t].label}</button>`).join('');
+
+function setDay(d){ curDay=d; $$('#dayTabs button').forEach(b=>b.classList.toggle('on',b.dataset.day===d)); renderAgenda(); }
+function setType(t){ curType=t; $$('#typeChips .chip').forEach(b=>b.classList.toggle('on',b.dataset.type===t)); renderAgenda(); }
+
+function renderAgenda(){
+  const list = SESSIONS.filter(s=>s.day===curDay && (curType==='all'||s.type===curType));
+  if(!list.length){ $('#agenda').innerHTML = `<p class="muted" style="padding:var(--s6) 0">No sessions match this filter.</p>`; return; }
+
+  // nach Startzeit gruppieren, damit parallele Workshops zusammenstehen
+  const slots = [];
+  list.forEach(s=>{
+    let g = slots.find(x=>x.from===s.from);
+    if(!g){ g={from:s.from, items:[]}; slots.push(g); }
+    g.items.push(s);
+  });
+  slots.sort((a,b)=>a.from.localeCompare(b.from));
+
+  $('#agenda').innerHTML = slots.map(g=>`
+    <div class="slotgroup">
+      <div class="slottime">${g.from}${g.items.length>1?` · ${g.items.length} in parallel`:''}</div>
+      ${g.items.map(sessionRow).join('')}
+    </div>`).join('');
+}
+
+function sessionRow(s){
+  const isBreak = s.type==='break';
+  const sp = s.speaker ? speakerById(s.speaker) : null;
+  const co = s.corp ? corpById(s.corp) : null;
+  const open = `openSession('${s.id}')`;
+
+  /* Wer auftritt, ist die Überschrift — das Thema steht als Nebenzeile darunter
+     (Feedback Sarah, 07.09.). Sessions ohne Person oder Firma (Panels, Pausen,
+     Closing) behalten ihren Titel als Überschrift, sonst stünde dort nichts. */
+  const head = sp ? sp.name : (co ? co.name : s.title);
+  const sub  = (sp || co) ? s.title : '';
+  const org  = sp ? sp.org : '';
+  return `<div class="row${isBreak?' isbreak':''}" ${isBreak?'':
+      `role="button" tabindex="0" onclick="${open}" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();${open}}"`}>
+    <div class="tm"><b>${s.from}</b><span>to ${s.to}</span></div>
+    <div class="ti">
+      <h3>${head}</h3>
+      ${sub?`<div class="sub">${sub}</div>`:''}
+      <div class="meta">
+        ${org?`<span>${org}</span>`:''}
+        <span>${s.room}</span>
+      </div>
+    </div>
+    <div class="rt">
+      ${s.state?`<span class="pill ${s.state}">${s.spots}</span>`:''}
+      <span class="pill ${s.type}">${TYPES[s.type].label}</span>
+      ${isBreak?'':heartBtn('se',s.id)+arrow}
+    </div>
+  </div>`;
+}
+renderAgenda();
+
+/* =========================================================
+   Popup
+   ========================================================= */
+const ov = $('#ov'), sheet = $('#sheet');
+/* Reihenfolge zählt: erst sichtbar schalten, dann messen — ein verstecktes
+   Element hat keine Höhe, die Kürzung ließe sich sonst nicht prüfen. */
+function showSheet(html){
+  sheet.innerHTML = html;
+  ov.classList.add('on');
+  document.body.style.overflow='hidden';
+  initClamps();
+}
+
+/* Lange Fließtexte im Popup kurz halten — aber NUR, wenn es sonst wirklich
+   Scrollen kosten würde (Cedrik, 08.09.: „das More oder Less NUR wenn der
+   Beschreibungstext scrollen erfordert"). Der Text steht deshalb erst einmal
+   vollständig da; gekürzt wird erst, wenn das Popup nicht mehr auf den Schirm
+   passt. Ein unterschiedlich hohes Popup ist ausdrücklich in Ordnung. */
+let clampN = 0;
+function clampBlock(html){
+  const id = 'cl' + (++clampN);
+  return `<div class="clampwrap">
+    <div class="clamp" id="${id}">${html}</div>
+    <button class="moretxt" type="button" hidden
+      onclick="toggleClamp('${id}',this)" aria-expanded="true" aria-controls="${id}">More</button>
+  </div>`;
+}
+function toggleClamp(id, btn){
+  const el = document.getElementById(id);
+  const stillShort = el.classList.toggle('clamped');
+  btn.textContent = stillShort ? 'More' : 'Less';
+  btn.setAttribute('aria-expanded', stillShort ? 'false' : 'true');
+}
+
+/* Muss der Besucher gerade scrollen, um alles zu sehen?
+   Zwei Fälle: am Handy scrollt der Rumpf des Popups, am Rechner die Fläche
+   dahinter, weil das Popup höher als das Fenster wird. */
+function sheetNeedsScroll(){
+  const sb = sheet.querySelector('.sb');
+  if(sb && sb.scrollHeight > sb.clientHeight + 1) return true;
+  return sheet.offsetHeight + 48 > ov.clientHeight;
+}
+function initClamps(){
+  const blocks = [...sheet.querySelectorAll('.clamp')];
+  blocks.forEach(el => { el.classList.remove('clamped'); el.nextElementSibling.hidden = true; });
+  for(const el of blocks){
+    if(!sheetNeedsScroll()) break;      /* passt — kein Knopf, keine Kürzung */
+    el.classList.add('clamped');
+    el.nextElementSibling.hidden = false;
+    el.nextElementSibling.textContent = 'More';
+    el.nextElementSibling.setAttribute('aria-expanded','false');
+  }
+}
+function closeSheet(){ ov.classList.remove('on'); document.body.style.overflow=''; }
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeSheet(); });
+
+const closeBtn = `<button class="closex" onclick="closeSheet()" aria-label="Close">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>`;
+
+function openSpeaker(id){
+  const sp = speakerById(id);
+  const mine = SESSIONS.filter(s=>s.speaker===id);
+  showSheet(`
+    <div class="sh">
+      ${headshot(sp,true)}
+      <div class="grow">
+        <div class="kicker">Speaker</div>
+        <h2>${sp.name}</h2>
+        <div class="pos">${sp.pos}</div>
+        <div class="org">${sp.org}</div>
+      </div>
+      <!-- Merken, Schließen und LinkedIn als Knopfblock rechts im Kopf; der
+           LinkedIn-Link stand vorher als Textzeile im Fließtext (Cedrik, 08.09.). -->
+      <div class="shbtns">
+        ${heartBtn('sp',sp.id,true)}
+        ${closeBtn}
+        ${sp.li?liBtn(sp.li):''}
+      </div>
+    </div>
+    <div class="sb">
+      <div class="sublabel">About</div>
+      <!-- „Focus areas" raus (Cedrik, 08.09.) — die Schlagworte standen unter der
+           Biografie und sagten nichts, was dort nicht schon stand. -->
+      ${clampBlock(sp.bio.map(p=>`<p class="prose">${p}</p>`).join(''))}
+      <div class="sublabel">Sessions at the Forum</div>
+      <!-- Der Sitzungseintrag ist selbst anklickbar und öffnet die Sitzung
+           (Cedrik, 08.09.: vorher führte nur der Knopf unten irgendwohin). -->
+      ${mine.map(s=>`
+        <div class="linkrow tap" role="button" tabindex="0" onclick="openSession('${s.id}')"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSession('${s.id}')}">
+          <div class="lt"><b>${s.title}</b>
+            <small>${DAYS.find(d=>d.id===s.day).date} · ${s.from}–${s.to} · ${s.room}</small></div>
+          <span class="badge pill ${s.type}">${TYPES[s.type].label}</span>
+          ${arrow}
+        </div>`).join('') || '<p class="prose muted">No session listed yet.</p>'}
+    </div>
+    <div class="sf">
+      <button class="btn pri" id="sheetFav" data-k="sp" data-i="${sp.id}" onclick="toggleFav('sp','${sp.id}')">${favLabel('sp',sp.id)}</button>
+      <div class="spacer"></div>
+      <button class="btn ghost" onclick="closeSheet();go('timetable')">Show in programme</button>
+    </div>`);
+}
+
+function openCorp(id){
+  const c = corpById(id);
+  showSheet(`
+    <div class="sh">
+      ${corpLogo(c,true)}
+      <div class="grow">
+        <div class="kicker">Partner company</div>
+        <h2>${c.name}</h2>
+        <div class="pos">${c.branche}</div>
+        <div class="org">${c.full}</div>
+      </div>
+      ${closeBtn}
+    </div>
+    <div class="sb">
+      <!-- Workshop-Kasten raus (Cedrik, 08.09.): die Plätze werden ohnehin
+           anders vergeben, deshalb soll die Firmenkarte den Workshop nicht
+           bewerben. Der Knopf zur Bewerbung bleibt unten stehen. -->
+      <div class="sublabel">About the company</div>
+      ${clampBlock(`<p class="prose">${c.about}</p>
+        <p class="prose muted" style="margin-top:var(--s3)">Headquarters ${c.hq} · ${c.size}.
+          At the Forum you will find them at ${c.booth}. Contact: ${c.contact}.</p>`)}
+      ${c.web?`<a class="weblink" href="${c.web}" target="_blank" rel="noopener">${c.webLabel}
+        ${extLinkIcon}</a>`:''}
+      <!-- „Who they are looking for" raus (Cedrik, 08.09.). -->
+    </div>
+    <div class="sf">
+      <a class="btn pri" href="${APPLY_URL}" target="_blank" rel="noopener">Request a workshop seat
+        ${extLinkIcon}</a>
+      <div class="spacer"></div>
+      ${c.web?`<a class="btn ghost" href="${c.web}" target="_blank" rel="noopener">Visit website ${extLinkIcon}</a>`:''}
+    </div>`);
+}
+
+function openSession(id){
+  const s = SESSIONS.find(x=>x.id===id);
+  const sp = s.speaker ? speakerById(s.speaker) : null;
+  const co = s.corp ? corpById(s.corp) : null;
+  const day = DAYS.find(d=>d.id===s.day);
+  showSheet(`
+    <div class="sh">
+      <div class="grow">
+        <span class="pill ${s.type}">${TYPES[s.type].label}</span>
+        <h2>${s.title}</h2>
+        <!-- Name in der Serife statt in der stillen Grauzeile — er soll im Kopf
+             des Popups genauso tragen wie in der Liste (Feedback Sarah). -->
+        ${sp?`<div class="by">${sp.name}<small>${sp.pos} · ${sp.org}</small></div>`:''}
+        ${co?`<div class="by">${co.name}<small>${co.branche}</small></div>`:''}
+      </div>
+      <div class="shbtns">
+        ${heartBtn('se',s.id,true)}
+        ${closeBtn}
+      </div>
+    </div>
+    <div class="sb">
+      <div class="deflist">
+        ${defItem('when','When',`${day.date} · ${s.from}–${s.to}`)}
+        ${defItem('where','Where',s.room)}
+        ${s.spots?defItem('seats','Seats',s.spots):''}
+        ${defItem('format','Format',TYPES[s.type].label)}
+      </div>
+      <div class="sublabel">What it covers</div>
+      ${clampBlock(`<p class="prose">${s.desc}</p>`)}
+      ${sp?`<div class="sublabel">Speaker</div>
+        <div class="linkrow" onclick="openSpeaker('${sp.id}')" style="cursor:pointer">
+          ${headshot(sp).replace('class="hs"','class="hs" style="width:40px;height:40px"').replace('class="mono"','class="mono" style="font-size:14px"')}
+          <div class="lt"><b>${sp.name}</b><small>${sp.pos} · ${sp.org}</small></div>
+          ${arrow}
+        </div>`:''}
+      ${co?`<div class="sublabel">Company</div>
+        <div class="linkrow" onclick="openCorp('${co.id}')" style="cursor:pointer">
+          <div class="lt"><b>${co.name}</b><small>${co.branche}</small></div>
+          ${arrow}
+        </div>`:''}
+    </div>
+    <div class="sf">
+      <button class="btn pri" id="sheetFav" data-k="se" data-i="${s.id}" onclick="toggleFav('se','${s.id}')">${favLabel('se',s.id)}</button>
+      <div class="spacer"></div>
+      <button class="btn ghost" onclick="closeSheet()">Close</button>
+    </div>`);
+}
+
+/* =========================================================
+   Anmeldung + Merkliste
+   ========================================================= */
+const APPLY_URL = 'https://apply.fs-businessforum.com';
+const favLabel = (k,id) => isFav(k,id) ? 'Saved ✓' : 'Save to My Forum';
+
+/* Der Merk-Button im Popup traegt seinen Zustand im Text — der muss beim
+   Umschalten mitziehen, auch wenn das Herz oben im Kopf geklickt wurde. */
+function syncSheetFav(){
+  const b = document.getElementById('sheetFav');
+  if(!b) return;
+  const on = isFav(b.dataset.k, b.dataset.i);
+  b.textContent = favLabel(b.dataset.k, b.dataset.i);
+  b.classList.toggle('pri', !on);
+  b.classList.toggle('ghost', on);
+}
+
+function openLogin(){
+  showSheet(`
+    <div class="sh">
+      <div class="grow">
+        <div class="kicker">Member area</div>
+        <h2>Sign in to save</h2>
+        <div class="pos">My Forum</div>
+      </div>
+      ${closeBtn}
+    </div>
+    <div class="sb">
+      <p class="prose">Speakers and sessions can only be saved once you are signed in — your list is tied to your
+        account so it is still there on another device.</p>
+      <p class="prose muted" style="margin-top:var(--s3)">In this mockup it is a single click with no real authentication. Later the login will use the
+        same FS account as the application portal.</p>
+    </div>
+    <div class="sf">
+      <button class="btn pri" onclick="doLogin()">Sign in with FS account</button>
+      <div class="spacer"></div>
+      <button class="btn ghost" onclick="closeSheet()">Not now</button>
+    </div>`);
+}
+
+function renderSaved(){
+  const box = $('#savedBody');
+  if(!box) return;
+
+  if(!ME){
+    box.innerHTML = `
+      <div class="mecard">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">${heartPath}</svg></div>
+        <h3>Not signed in yet</h3>
+        <p>Sign in to save speakers and sessions. Your selection appears here — and on the day you get
+          a reminder before each one starts.</p>
+        <button class="btn pri apply" onclick="openLogin()">Sign in with FS account</button>
+      </div>`;
+    syncHearts();
+    return;
+  }
+
+  const sps = FAVS.sp.map(speakerById).filter(Boolean);
+  const ses = FAVS.se.map(id => SESSIONS.find(s=>s.id===id)).filter(Boolean)
+                     .sort((a,b)=> (a.day+a.from).localeCompare(b.day+b.from));
+
+  box.innerHTML = `
+    <div class="mebar">
+      <div class="av">${ME.initials}</div>
+      <div class="mt"><b>${ME.name}</b><small>${ME.mail}</small></div>
+      <button class="btn sm ghost" onclick="doLogout()">Sign out</button>
+    </div>
+    <div class="sect" style="padding-top:0">
+      <div class="secthead"><div><h2>Saved speakers</h2></div></div>
+      ${sps.length ? `<div class="splist">${sps.map(speakerRow).join('')}</div>`
+                   : `<div class="empty">No speakers saved yet — tap the heart in the speaker list.</div>`}
+    </div>
+    <div class="sect">
+      <div class="secthead"><div><h2>My sessions</h2></div></div>
+      ${ses.length ? ses.map(s=>`
+          <div class="slotgroup">
+            <div class="slottime">${DAYS.find(d=>d.id===s.day).date}</div>
+            ${sessionRow(s)}
+          </div>`).join('')
+        : `<div class="empty">No sessions saved yet — tap the heart in the timetable.</div>`}
+    </div>`;
+  syncHearts();
+}
+
+/* =========================================================
+   Routing über den Hash
+   ========================================================= */
+const PAGES = ['home','timetable','speakers','corporates','saved'];
+function go(p){ location.hash = '#'+p; }
+function route(){
+  const p = PAGES.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'home';
+  PAGES.forEach(x=>$('#page-'+x).classList.toggle('on', x===p));
+  $$('.mainnav a').forEach(a=>a.classList.toggle('on', a.dataset.nav===p));
+  $$('.tabbar a').forEach(a=>a.classList.toggle('on', a.dataset.tab===p));
+  $('#mainnav').classList.remove('open');
+  closeSheet();
+  window.scrollTo({top:0});
+}
+window.addEventListener('hashchange', route);
+
+/* Sprungmarken-Klicks selbst abfangen.
+   Grund: In der Versanddatei steckt die App per srcdoc im Geräterahmen und hat
+   keine eigene Adresse (about:srcdoc). Der Browser rechnet ein href="#timetable"
+   dann gegen die Adresse der HÜLLE aus — der Klick landet nirgends und die App
+   bleibt auf der Startseite stehen. location.hash direkt zu setzen funktioniert
+   dagegen überall. Im Normalfall (eigene Datei, eigener Server) ändert sich
+   nichts, wir nehmen dem Browser nur denselben Sprung ab. */
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if(!a) return;
+  const p = a.getAttribute('href').slice(1);
+  if(!PAGES.includes(p)) return;
+  e.preventDefault();
+  if(location.hash.slice(1) === p) route(); else location.hash = '#'+p;
+});
+
+renderSaved();
+syncHearts();
+route();
+
+/* =========================================================
+   Design-Umschalter (nur Mockup — im Produkt fällt das weg)
+   ========================================================= */
+const THEMES = ['navygold','cream'];
+function setTheme(t, persist){
+  if(!THEMES.includes(t)) return;
+  document.documentElement.dataset.theme = t;
+  $$('.mockbar .th').forEach(b=>b.classList.toggle('on', b.dataset.th===t));
+  if(persist !== false){ try{ localStorage.setItem('fsbf-theme', t); }catch(e){} }
+}
+
+/* Startzustand: URL-Parameter schlagen den gespeicherten Wert.
+   ?bare=1 blendet die Mockup-Leiste aus (für die Geräte-Ansicht). */
+/* Normalfall: Parameter stehen in der URL. In der gebündelten Einzeldatei
+   steckt die App per srcdoc im Rahmen und hat gar keine eigene URL — dann
+   liefert die Hülle die Parameter über window.FSBF_QP nach. */
+const QP = new URLSearchParams(location.search || window.FSBF_QP || '');
+if(QP.has('bare')) $('#mockbar')?.remove();
+['safetop','safebot'].forEach(k=>{
+  const v = parseInt(QP.get(k), 10);
+  if(!isNaN(v)) document.documentElement.style.setProperty('--'+k, v+'px');
+});
+if(THEMES.includes(QP.get('theme'))){
+  setTheme(QP.get('theme'), false);
+}else{
+  try{
+    const saved = localStorage.getItem('fsbf-theme');
+    if(THEMES.includes(saved)) setTheme(saved);
+  }catch(e){}
+}
+
+/* Steuerung von außen — die Geräte-Ansicht spricht per postMessage rein,
+   damit Theme- und Seitenwechsel ohne Neuladen ankommen. */
+window.addEventListener('message', e=>{
+  const d = e.data;
+  if(!d || d.fsbf !== 'ctl') return;
+  if(d.theme) setTheme(d.theme, false);
+  if(d.page && PAGES.includes(d.page)) location.hash = '#'+d.page;
+});
+</script>
+</body>
+</html>
