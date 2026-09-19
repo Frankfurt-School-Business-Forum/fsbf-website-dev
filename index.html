@@ -4,31 +4,150 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>FSBF Website – Dev-Sandbox</title>
+  <link rel="icon" href="favicon.ico">
+  <title>FSBF · Dev Sandbox</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-           max-width: 640px; margin: 10vh auto; padding: 0 24px; color: #1a1a2e; line-height: 1.5; }
-    h1 { font-size: 1.5rem; }
-    .note { background: #fff3cd; border: 1px solid #ffe08a; padding: 12px 16px; border-radius: 8px; font-size: .9rem; }
-    ul { list-style: none; padding: 0; }
-    li { margin: 12px 0; }
-    a.card { display: block; padding: 16px 20px; border: 1px solid #d9d9e3; border-radius: 10px;
-             text-decoration: none; color: inherit; }
-    a.card:hover { border-color: #1a1a2e; }
-    a.card b { display: block; font-size: 1.05rem; }
-    a.card span { color: #666; font-size: .9rem; }
+    :root {
+      --navy-900: #070a1f;
+      --navy-800: #0c1130;
+      --navy-700: #141b45;
+      --navy-500: #2b3a7a;
+      --gold: #e0b84c;
+      --gold-soft: rgba(224,184,76,.16);
+      --text: #eef1ff;
+      --muted: #9aa3c7;
+      --line: rgba(255,255,255,.09);
+      --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--navy-900);
+      overflow-x: hidden;
+      position: relative;
+    }
+    /* animierter Farbverlauf-Hintergrund */
+    body::before {
+      content: "";
+      position: fixed; inset: 0; z-index: -3;
+      background:
+        radial-gradient(1200px 600px at 15% -10%, rgba(43,58,122,.55), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(224,184,76,.10), transparent 55%),
+        linear-gradient(160deg, var(--navy-900), var(--navy-800) 55%, #05070f);
+    }
+    /* schwebende Glow-Blobs */
+    .blob { position: fixed; z-index: -2; filter: blur(90px); opacity: .5; border-radius: 50%; }
+    .blob.b1 { width: 460px; height: 460px; background: #2b3a7a; top: -120px; left: -80px; animation: float1 18s ease-in-out infinite; }
+    .blob.b2 { width: 380px; height: 380px; background: rgba(224,184,76,.5); bottom: -140px; right: -60px; animation: float2 22s ease-in-out infinite; }
+    @keyframes float1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(60px,40px); } }
+    @keyframes float2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-50px,-30px); } }
+    /* feines Grid-Overlay */
+    body::after {
+      content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 90% 70% at 50% 20%, #000 40%, transparent 100%);
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 8vh 24px 64px; }
+
+    header { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .logo { height: 46px; width: auto; }
+    .env-pill {
+      font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--gold); background: var(--gold-soft); border: 1px solid rgba(224,184,76,.35);
+      padding: 6px 12px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #37d67a; box-shadow: 0 0 0 0 rgba(55,214,122,.6); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(55,214,122,.55); } 70% { box-shadow: 0 0 0 8px rgba(55,214,122,0); } 100% { box-shadow: 0 0 0 0 rgba(55,214,122,0); } }
+
+    .hero { margin: 56px 0 12px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.05; margin: 0 0 14px; letter-spacing: -.02em; }
+    .hero h1 .accent { background: linear-gradient(90deg, #fff, var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .term {
+      font-family: var(--mono); font-size: .95rem; color: var(--muted);
+      background: rgba(0,0,0,.35); border: 1px solid var(--line); border-radius: 10px;
+      padding: 12px 16px; display: inline-flex; align-items: center; gap: 10px; max-width: 100%;
+    }
+    .term .prompt { color: var(--gold); }
+    .cursor { display: inline-block; width: 9px; height: 1.05em; background: var(--gold); vertical-align: -2px; animation: blink 1.1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; margin-top: 40px; }
+    .card {
+      position: relative; display: block; text-decoration: none; color: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border: 1px solid var(--line); border-radius: 16px; padding: 22px;
+      backdrop-filter: blur(6px); transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+      overflow: hidden;
+    }
+    .card::after {
+      content: ""; position: absolute; inset: 0; border-radius: 16px; pointer-events: none;
+      background: radial-gradient(400px 200px at var(--mx,50%) var(--my,0%), rgba(224,184,76,.14), transparent 60%);
+      opacity: 0; transition: opacity .25s ease;
+    }
+    a.card:hover { transform: translateY(-4px); border-color: rgba(224,184,76,.5); box-shadow: 0 18px 40px -18px rgba(0,0,0,.7); }
+    a.card:hover::after { opacity: 1; }
+    .card .tag { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); display: inline-flex; align-items: center; gap: 7px; margin-bottom: 14px; }
+    .card .tag .s { width: 7px; height: 7px; border-radius: 50%; }
+    .s.live { background: #37d67a; }
+    .s.plan { background: var(--gold); }
+    .card h3 { margin: 0 0 6px; font-size: 1.18rem; letter-spacing: -.01em; }
+    .card p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.45; }
+    .card .go { margin-top: 16px; font-family: var(--mono); font-size: .8rem; color: var(--gold); display: inline-flex; align-items: center; gap: 6px; }
+    .card.locked { opacity: .62; }
+    .card.locked .go { color: var(--muted); }
+
+    footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; gap: 18px; flex-wrap: wrap; justify-content: space-between; color: var(--muted); font-size: .8rem; font-family: var(--mono); }
+    footer .warn { color: var(--gold); }
   </style>
 </head>
 <body>
-  <h1>FSBF Website – Dev-Sandbox</h1>
-  <p class="note">Interne Entwurfsumgebung. Nicht öffentlich beworben, per <code>robots.txt</code> aus Suchmaschinen ausgeschlossen. Nur Dummy-Daten.</p>
-  <ul>
-    <li>
-      <a class="card" href="website/">
-        <b>Website-Redesign (Entwurf)</b>
-        <span>Neuer Entwurf der fs-businessforum.com inkl. Varianten A–F</span>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+
+  <div class="wrap">
+    <header>
+      <img class="logo" src="assets/fsbf-logo-white.png" alt="Frankfurt School Business Forum">
+      <span class="env-pill"><span class="dot"></span> Dev · Sandbox</span>
+    </header>
+
+    <section class="hero">
+      <h1>Baustelle mit <span class="accent">System.</span></h1>
+      <div class="term">
+        <span class="prompt">fsbf@dev</span> ~ % deploy --preview<span class="cursor"></span>
+      </div>
+    </section>
+
+    <div class="grid">
+      <a class="card" href="website/" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
+        <span class="tag"><span class="s live"></span> Live · Preview</span>
+        <h3>Website-Redesign</h3>
+        <p>Neuer Entwurf der fs-businessforum.com, inklusive Varianten A bis F zum Durchklicken.</p>
+        <span class="go">öffnen →</span>
       </a>
-    </li>
-  </ul>
+
+      <div class="card locked">
+        <span class="tag"><span class="s plan"></span> Geplant · Intern</span>
+        <h3>Event-App</h3>
+        <p>Gästeportal und Schichtplanung. Bleibt intern, kommt erst rein, wenn die Umgebung geschlossen ist.</p>
+        <span class="go">gesperrt</span>
+      </div>
+
+      <div class="card locked">
+        <span class="tag"><span class="s plan"></span> Idee</span>
+        <h3>Workshop-Bewerbung</h3>
+        <p>Öffentliche Bewerbungsseite mit Ticket-Abgleich. Konzept in Arbeit.</p>
+        <span class="go">bald</span>
+      </div>
+    </div>
+
+    <footer>
+      <span><span class="warn">noindex</span> · nicht beworben · nur Dummy-Daten</span>
+      <span>fsbf-website-dev</span>
+    </footer>
+  </div>
 </body>
 </html>
