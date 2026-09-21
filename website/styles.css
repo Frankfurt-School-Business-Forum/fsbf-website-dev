@@ -896,6 +896,13 @@ section {
     margin-top: 1rem;
     max-width: 600px;
 }
+/* Softer, more understated subtitle variant */
+.section-subtitle--soft {
+    font-size: 0.95rem;
+    color: var(--color-text-tertiary, rgba(255,255,255,.55));
+    letter-spacing: 0.01em;
+    line-height: 1.65;
+}
 
 /* Text link under a section subtitle (e.g. "See all previous speakers") */
 .section-header-link {
@@ -5821,14 +5828,14 @@ body.ve .vcd-card:hover .vcd-link,body.vf .vcd-card:hover .vcd-link{color:#fff}
     mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .logo-marquee-track{display:flex;width:max-content;align-items:center;gap:1.6rem;animation:logo-scroll 70s linear infinite}
 .logo-marquee:hover .logo-marquee-track{animation-play-state:paused}
-.logo-marquee-track span{flex:0 0 auto;background:#fff;border-radius:12px;height:82px;width:180px;
-    display:flex;align-items:center;justify-content:center;padding:.8rem 1.2rem}
-.logo-marquee-track img{max-height:52px;max-width:84%;object-fit:contain;display:block}
+.logo-marquee-track span{flex:0 0 auto;background:#fff;border-radius:14px;height:112px;width:232px;
+    display:flex;align-items:center;justify-content:center;padding:.5rem .8rem}
+.logo-marquee-track img{max-height:88px;max-width:88%;object-fit:contain;display:block}
 @keyframes logo-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.logo-marquee-track{animation:none}}
 @media(max-width:760px){
-    .logo-marquee-track span{height:64px;width:140px;padding:.6rem .9rem}
-    .logo-marquee-track img{max-height:40px}
+    .logo-marquee-track span{height:88px;width:172px;padding:.45rem .7rem}
+    .logo-marquee-track img{max-height:64px}
 }
 
 /* ============ VARIANT C (rebuilt) — "Interactive" (click a logo to expand its description) ============ */
@@ -5868,4 +5875,104 @@ body.vc .vg-link:hover{color:#fff;border-color:#fff}
     body.vc .vg-bar{flex-wrap:wrap;gap:1rem}
     body.vc .vg-bar-logo{width:100%;height:110px}
     body.vc .vg-bar-name{flex:1 0 auto}
+}
+
+/* =========================================================
+   HOME 2026 — new homepage additions (index.html body.home2026)
+   Hero year eyebrow · speaker-wave countdown · corporate tier
+   colours · event-partner block
+   ========================================================= */
+
+/* Hero kicker carrying the 2026 theme (no pill) */
+body.home2026 .hero-theme-tag{display:inline-block;max-width:680px;font-family:var(--font-body);
+    font-size:clamp(.72rem,1.4vw,.85rem);letter-spacing:.2em;text-transform:uppercase;color:var(--color-accent);
+    margin:0 0 1.5rem;padding-bottom:1.1rem;position:relative;line-height:1.7}
+body.home2026 .hero-theme-tag::after{content:'';position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+    width:72px;height:1px;background:linear-gradient(90deg,transparent,var(--color-accent),transparent)}
+
+/* Date line — a touch larger & more present than the base */
+body.home2026 .hero-date{font-size:clamp(.95rem,1.5vw,1.2rem);letter-spacing:.22em}
+
+/* Speaker-wave countdown */
+.speaker-countdown{max-width:640px;margin:3.5rem auto 0;text-align:center;padding:2.2rem 2rem;
+    border:1px solid var(--color-border);border-radius:20px;
+    background:linear-gradient(160deg,rgba(201,169,98,.08),rgba(255,255,255,0))}
+.countdown-label{display:block;font-family:var(--font-body);font-size:.74rem;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--color-accent);margin:0 0 1.4rem}
+.countdown-timer{display:flex;align-items:flex-start;justify-content:center;gap:.6rem}
+.countdown-unit{display:flex;flex-direction:column;align-items:center;min-width:64px}
+.countdown-num{font-family:var(--font-display);font-size:clamp(2rem,5vw,3rem);line-height:1;color:#fff;
+    font-variant-numeric:tabular-nums}
+.countdown-cap{font-family:var(--font-body);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--color-text-secondary);margin-top:.55rem}
+.countdown-sep{font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.4rem);line-height:1;
+    color:rgba(201,169,98,.5);padding-top:.15rem}
+.countdown-hint{font-family:var(--font-body);font-size:.9rem;line-height:1.6;color:var(--color-text-secondary);
+    margin:1.6rem 0 0}
+
+/* Corporate partnership tier colours (the booked colours) */
+.tier-platin{--tier:#4fc0dc}
+.tier-gold{--tier:#e0a92e}
+.tier-silver{--tier:#9fb3c2}
+.tier-bronze{--tier:#c49a5c}
+
+/* Tier legend chips */
+.tier-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin:0 auto 3rem}
+.tier-chip{font-family:var(--font-body);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--tier);border:1px solid var(--tier);border-radius:999px;padding:.42rem 1rem}
+.tier-chip::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--tier);
+    margin-right:.55rem;vertical-align:middle}
+
+/* Tier accent applied to corporate rows */
+body.home2026 .va-ptier .va-ptier-label{color:var(--tier,var(--color-accent))}
+body.home2026 .va-ptier .va-ptier-line{background:linear-gradient(90deg,var(--tier,var(--color-border)),transparent)}
+body.home2026 .va-ptier .va-plogo{border-top:4px solid var(--tier,var(--color-border))}
+
+/* Faint atmospheric photos behind the dark content sections — only ~6% visible,
+   a heavy near-opaque overlay keeps text fully readable and the base tone uniform. */
+body.home2026 #speakers{
+    background-image:
+        linear-gradient(rgba(4,8,16,.93), rgba(4,8,16,.955)),
+        url('assets/picturesdecoration/financepanel.jpg');
+    background-size:cover;background-position:center;background-repeat:no-repeat}
+body.home2026 #corporates{
+    background-image:
+        linear-gradient(rgba(4,8,16,.945), rgba(4,8,16,.945)),
+        url('assets/picturesdecoration/companyworkshop.jpg');
+    background-size:cover;background-position:center;background-repeat:no-repeat}
+
+/* Event-partner block (separate from corporate sponsors).
+   Seam-fade to --color-bg at top/bottom kept; a faint photo peeks through the middle. */
+.event-partners{position:relative;
+    background:
+        linear-gradient(180deg,
+            var(--color-bg) 0%,
+            rgba(10,16,24,.93) 22%,
+            rgba(10,16,24,.93) 78%,
+            var(--color-bg) 100%),
+        url('assets/picturesdecoration/afterparty_fomo_social_wineglasseds.jpg');
+    background-size:auto, cover;
+    background-position:center, center;
+    background-repeat:no-repeat}
+.ep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.6rem;max-width:1100px;margin:0 auto}
+.ep-card{display:flex;flex-direction:column;align-items:flex-start;gap:.9rem;padding:2rem 1.8rem;
+    border:1px solid var(--color-border);border-radius:18px;
+    background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,0));
+    transition:border-color .35s,transform .35s var(--ease-out-quart)}
+.ep-card:hover{border-color:rgba(201,169,98,.4);transform:translateY(-4px)}
+.ep-card--it{border-color:rgba(79,192,220,.4)}
+.ep-role{font-family:var(--font-body);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--color-accent)}
+.ep-card--it .ep-role{color:#4fc0dc}
+.ep-logo{background:#fff;border-radius:12px;height:96px;width:100%;display:flex;align-items:center;justify-content:center;padding:1rem 1.4rem}
+.ep-logo img{max-height:64px;max-width:82%;object-fit:contain;display:block}
+.ep-logo--placeholder{background:rgba(255,255,255,.04);border:1px dashed var(--color-border)}
+.ep-logo-text{font-family:var(--font-display);font-size:1.3rem;color:var(--color-text-secondary)}
+.ep-card--it .ep-logo-text{color:#4fc0dc}
+.ep-name{font-family:var(--font-display);font-size:1.3rem;color:#fff;margin:0}
+.ep-desc{font-family:var(--font-body);font-size:.94rem;line-height:1.65;color:var(--color-text-secondary);margin:0}
+.ep-card .va-plink{margin-top:.2rem}
+
+@media(max-width:640px){
+    .countdown-unit{min-width:52px}
+    .countdown-timer{gap:.3rem}
 }
