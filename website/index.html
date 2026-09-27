@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FS Business Forum 2026 · Connecting Minds, Creating Future</title>
-    <meta name="description" content="FS Business Forum 2026 — 13 & 14 November, Frankfurt am Main. Europe's premier student-led business congress: keynotes, workshops, panels and networking.">
+    <title>Event information</title>
+    <meta name="description" content="Europe's premier student-led business congress: keynotes, workshops, panels and networking.">
     <meta name="theme-color" content="#040810">
 
     <!-- Reveal gate: set before first paint so content only hides when JS runs. -->
@@ -72,8 +72,8 @@
                 <span class="title-line">Connecting Minds</span>
                 <span class="title-line title-accent">Creating Future</span>
             </h1>
-            <p class="hero-date">FS Business Forum &middot; 13 &amp; 14 November 2026 &middot; Frankfurt am Main</p>
-            <p class="hero-description">Join FS Business Forum 2026 and find the edge of equilibrium &mdash; where leaders balance freedom, growth and security across two days of keynotes, workshops and networking.</p>
+            <p class="hero-date" data-cms-event hidden></p>
+            <p class="hero-description" data-cms-description hidden>Join <span data-cms-name></span> and find the edge of equilibrium &mdash; where leaders balance freedom, growth and security across two days of keynotes, workshops and networking.</p>
             <div class="hero-cta">
                 <a href="tickets.html" class="btn btn-primary btn-shimmer">
                     <span>Get Tickets</span>
@@ -140,9 +140,9 @@
             </div>
 
             <!-- Countdown to the next speaker wave -->
-            <div class="speaker-countdown" data-reveal>
-                <span class="countdown-label">Next speaker wave reveals in</span>
-                <div class="countdown-timer" id="speakerCountdown" data-target="2026-09-23T12:00:00">
+            <div class="speaker-countdown" data-reveal hidden>
+                <span class="countdown-label"></span>
+                <div class="countdown-timer" id="speakerCountdown">
                     <div class="countdown-unit"><span class="countdown-num" data-cd="days">--</span><span class="countdown-cap">Days</span></div>
                     <span class="countdown-sep">:</span>
                     <div class="countdown-unit"><span class="countdown-num" data-cd="hours">--</span><span class="countdown-cap">Hours</span></div>
@@ -367,30 +367,113 @@
             track.innerHTML += track.innerHTML;
         });
 
-        var el = document.getElementById('speakerCountdown');
-        if(!el) return;
-        var target = new Date(el.getAttribute('data-target')).getTime();
-        var nums = {};
-        el.querySelectorAll('[data-cd]').forEach(function(n){ nums[n.getAttribute('data-cd')] = n; });
-        function pad(n){ return (n < 10 ? '0' : '') + n; }
-        function tick(){
-            var diff = target - Date.now();
-            if(diff <= 0){
-                nums.days.textContent = '00'; nums.hours.textContent = '00';
-                nums.minutes.textContent = '00'; nums.seconds.textContent = '00';
-                var hint = document.querySelector('.countdown-hint');
-                if(hint) hint.textContent = 'The next wave of speakers is being revealed right now.';
-                clearInterval(timer);
-                return;
+    })();
+    </script>
+
+    <!-- Published CMS settings run independently of marquee and shared animations. -->
+    <script>
+    (function(){
+        function startEventSettings(){
+            var wrapper = document.querySelector('.speaker-countdown');
+            var el = document.getElementById('speakerCountdown');
+            var eventLine = document.querySelector('[data-cms-event]');
+            var description = document.querySelector('[data-cms-description]');
+            var timer = null;
+            var controller = new AbortController();
+            var timeout = setTimeout(function(){ controller.abort(); }, 5000);
+            var query = '*[_type == "eventSettings" && _id == "eventSettings"][0]{eventName,eventStartDate,eventEndDate,eventLocation,countdownEnabled,countdownTitle,countdownTarget,countdownExpiredMessage}';
+            var url = 'https://m3oobx03.apicdn.sanity.io/v2025-02-19/data/query/production?perspective=published&query=' + encodeURIComponent(query);
+            function text(value){ return typeof value === 'string' && value.trim().length > 0; }
+            function date(value){
+                return typeof value === 'string' && /(?:Z|[+-]\d{2}:\d{2})$/i.test(value) ? Date.parse(value) : NaN;
             }
-            var s = Math.floor(diff / 1000);
-            nums.days.textContent = pad(Math.floor(s / 86400));
-            nums.hours.textContent = pad(Math.floor((s % 86400) / 3600));
-            nums.minutes.textContent = pad(Math.floor((s % 3600) / 60));
-            nums.seconds.textContent = pad(s % 60);
+            function eventDateRange(start, end){
+                if(!Number.isFinite(start) || !Number.isFinite(end) || end < start) return '';
+                var formatter = new Intl.DateTimeFormat('en-GB', {
+                    day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Berlin'
+                });
+                function parts(value){
+                    var result = {};
+                    formatter.formatToParts(new Date(value)).forEach(function(part){ result[part.type] = part.value; });
+                    return result;
+                }
+                var first = parts(start), last = parts(end);
+                if(first.year === last.year && first.month === last.month){
+                    return first.day + (first.day === last.day ? '' : ' & ' + last.day) + ' ' + first.month + ' ' + first.year;
+                }
+                if(first.year === last.year){
+                    return first.day + ' ' + first.month + ' & ' + last.day + ' ' + last.month + ' ' + first.year;
+                }
+                return formatter.format(new Date(start)) + ' & ' + formatter.format(new Date(end));
+            }
+            function refreshLayout(){
+                requestAnimationFrame(function(){
+                    if(window.ScrollTrigger) window.ScrollTrigger.refresh();
+                });
+            }
+            function hide(){
+                clearInterval(timer);
+                timer = null;
+                wrapper.hidden = true;
+                eventLine.hidden = true;
+                description.hidden = true;
+                document.title = 'Event information';
+                refreshLayout();
+            }
+            fetch(url, {credentials: 'omit', signal: controller.signal})
+                .then(function(response){
+                    if(!response.ok) throw new Error('Settings request failed');
+                    return response.json();
+                })
+                .then(function(payload){
+                    if(controller.signal.aborted) return;
+                    var settings = payload && payload.result;
+                    if(!settings || typeof settings !== 'object') return;
+                    var formatted = eventDateRange(date(settings.eventStartDate), date(settings.eventEndDate));
+                    if(text(settings.eventName) && text(settings.eventLocation)){
+                        eventLine.textContent = settings.eventName + ' · ' + (formatted ? formatted + ' · ' : '') + settings.eventLocation;
+                        description.querySelector('[data-cms-name]').textContent = settings.eventName;
+                        document.title = settings.eventName + ' · Connecting Minds, Creating Future';
+                        eventLine.hidden = false;
+                        description.hidden = false;
+                    }
+                    var target = date(settings.countdownTarget);
+                    if(settings.countdownEnabled === true && Number.isFinite(target)
+                        && text(settings.countdownTitle) && text(settings.countdownExpiredMessage)){
+                        var nums = {};
+                        el.querySelectorAll('[data-cd]').forEach(function(n){ nums[n.getAttribute('data-cd')] = n; });
+                        wrapper.querySelector('.countdown-label').textContent = settings.countdownTitle;
+                        function pad(n){ return (n < 10 ? '0' : '') + n; }
+                        function tick(){
+                            var diff = target - Date.now();
+                            var seconds = Math.floor(Math.max(0, diff) / 1000);
+                            nums.days.textContent = pad(Math.floor(seconds / 86400));
+                            nums.hours.textContent = pad(Math.floor((seconds % 86400) / 3600));
+                            nums.minutes.textContent = pad(Math.floor((seconds % 3600) / 60));
+                            nums.seconds.textContent = pad(seconds % 60);
+                            if(diff <= 0){
+                                wrapper.querySelector('.countdown-hint').textContent = settings.countdownExpiredMessage;
+                                clearInterval(timer);
+                                timer = null;
+                                return false;
+                            }
+                            return true;
+                        }
+                        // An already-expired target never creates an interval.
+                        if(tick()) timer = setInterval(tick, 1000);
+                        wrapper.hidden = false;
+                    }
+                    refreshLayout();
+                })
+                .catch(hide)
+                .finally(function(){ clearTimeout(timeout); });
         }
-        tick();
-        var timer = setInterval(tick, 1000);
+        // Allow deferred scripts to attach existing reveal observers first.
+        if(document.readyState === 'loading'){
+            document.addEventListener('DOMContentLoaded', startEventSettings, {once: true});
+        } else {
+            startEventSettings();
+        }
     })();
     </script>
 </body>
