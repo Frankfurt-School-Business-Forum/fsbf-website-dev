@@ -58,7 +58,7 @@
     <!-- P1-8: hero poster per viewport (it is the container background; the <video> has no poster attribute) -->
     <link rel="preload" href="assets/img/hero/poster-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
     <link rel="preload" href="assets/img/hero/poster-1280.webp" as="image" type="image/webp" media="(min-width: 768px)">
-    <link rel="stylesheet" href="styles.css?v=20260928j">
+    <link rel="stylesheet" href="styles.css?v=20260928k">
 
     <!-- P1-9: Event schema (Google Event rich result).
          TODO(Team): Uhrzeiten bestaetigen – startDate 09:00 und endDate 18:00 sind Annahmen (Offset +01:00 = MEZ im November);
@@ -101,7 +101,7 @@
 
     <!-- P2-9: the home page needs no GSAP/ScrollTrigger/SplitType (≈ 52 KB gz) – script.js runs without them.
          (/2025/ still loads them for its legacy effects.) -->
-    <script defer src="assets/js/ticket-link.js?v=20260928a"></script>
+    <script defer src="assets/js/ticket-link.js?v=20260928b"></script>
     <script defer src="script.js?v=20260928b"></script>
 </head>
 <body class="home2026 va">
@@ -292,6 +292,17 @@
                     </div>
                 </li>
             </ul>
+
+            <!-- Workshop-Bewerbung: Link kommt spaeter. URL zentral in assets/js/ticket-link.js (WORKSHOP_URL) eintragen –
+                 dann wird der Button ueberall zu "Apply now" (Startseite: hier, Ticket-Karte und FAQ verweisen auf #workshops). -->
+            <div id="workshops" class="ws-apply" data-reveal>
+                <div class="ws-apply-text">
+                    <p class="label-sm ws-apply-k">Workshops &amp; small-group formats</p>
+                    <p class="ws-apply-title">Workshops, alumni roundtable, coffee chats and wine tasting have limited seats.</p>
+                    <p class="ws-apply-sub">Ticket holders apply separately – we’ll share all details in advance.</p>
+                </div>
+                <a class="btn btn--secondary ws-apply-btn" data-workshop-link data-cta="workshops" data-label-live="Apply now" aria-disabled="true"><span class="ws-label">Applications open soon</span> <span class="ws-arrow" aria-hidden="true">→</span></a>
+            </div>
         </div>
     </section>
 
@@ -550,7 +561,7 @@
                         <li>Access to all keynotes and panels on both days</li>
                         <li>Catering and networking formats</li>
                         <li>Goodie bag</li>
-                        <li>Apply for workshops, the alumni roundtable, coffee chats and the wine tasting (limited seats)</li>
+                        <li><a href="#workshops">Apply for workshops</a>, the alumni roundtable, coffee chats and the wine tasting (limited seats)</li>
                     </ul>
                     <!-- Entscheidung Team (27.09.): Preissteigerungen/Deadlines NICHT vorab kommunizieren – nur den aktuellen Preis zeigen. -->
                     <p class="ticket-price"><span class="todo" data-todo="Aktuellen Ticketpreis eintragen (inkl. MwSt.)">€&nbsp;–</span></p>
@@ -755,7 +766,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>What’s included in my ticket?</summary>
-                        <div class="faq-a"><p>Your ticket includes access to all keynotes and panels on both days, plus catering and networking formats, and a goodie bag. Workshops, the alumni roundtable, coffee chats and the wine tasting have limited capacity and require a separate application – ticket holders will receive details in advance.</p></div>
+                        <div class="faq-a"><p>Your ticket includes access to all keynotes and panels on both days, plus catering and networking formats, and a goodie bag. Workshops, the alumni roundtable, coffee chats and the wine tasting have limited capacity and require a <a href="#workshops">separate application</a> – ticket holders will receive details in advance.</p></div>
                     </details>
                     <details class="faq-item">
                         <summary>How do I buy tickets?</summary>

@@ -12,7 +12,12 @@
  * (gleicher Tab) – mit ?aff=<data-cta> als Eventbrite-Tracking-Code (P0-1, P2-3, P2-14).
  * Zusaetzlich: <html data-tickets-live="true"> fuer CSS/Seitenzustaende (tickets.html).
  *
- * Einbinden:  <script defer src="assets/js/ticket-link.js?v=20260928a"></script>
+ * Workshop-Bewerbung (gleiches Prinzip):
+ *   <a data-workshop-link data-cta="workshops" data-label-live="Apply now" aria-disabled="true">Applications open soon</a>
+ *   - ohne href/mit aria-disabled = Zustand "kommt bald" (auch ohne JS)
+ *   - ist WORKSHOP_URL gesetzt: href = WORKSHOP_URL, Text = data-label-live, <html data-workshops-live="true">
+ *
+ * Einbinden:  <script defer src="assets/js/ticket-link.js?v=20260928b"></script>
  * Vanilla ES5, keine Abhaengigkeiten, fehlerfrei auch ohne passende Links.
  */
 (function (window, document) {
@@ -20,6 +25,10 @@
 
     // Vollstaendige URL inkl. https:// (sonst wird sie ignoriert und alle Links bleiben bei tickets.html).
     var TICKET_URL = ''; // TODO(Launch): Eventbrite-URL eintragen
+
+    // Bewerbungsseite fuer Workshops, Alumni Roundtable, Coffee Chats, Wine Tasting (vollstaendige URL inkl. https://).
+    // Leer = "Applications open soon" auf der ganzen Site.
+    var WORKSHOP_URL = ''; // TODO(Launch): URL der Workshop-Bewerbung eintragen, sobald die Seite existiert
 
     /* P2-14: eingehende utm_*-Parameter (Kampagnen-Links) an den Shop durchreichen.
        Nur Parameter der aktuellen Seite, kein Speichern (keine Cookies/Storage). */
@@ -30,6 +39,22 @@
 
     if (live) {
         root.setAttribute('data-tickets-live', 'true'); // == html.dataset.ticketsLive = 'true'
+    }
+
+    var workshopsLive = typeof WORKSHOP_URL === 'string' && /^https?:\/\//i.test(WORKSHOP_URL);
+    if (workshopsLive) root.setAttribute('data-workshops-live', 'true');
+
+    function activateWorkshopLinks() {
+        if (!workshopsLive) return;
+        var list = document.querySelectorAll('[data-workshop-link]');
+        for (var i = 0; i < list.length; i++) {
+            var el = list[i];
+            el.setAttribute('href', WORKSHOP_URL);
+            el.removeAttribute('aria-disabled');
+            var label = el.getAttribute('data-label-live');
+            var slot = el.querySelector('.ws-label') || el;
+            if (label) slot.textContent = label;
+        }
     }
 
     function getCta(el) {
@@ -108,6 +133,7 @@
         href: ticketHref,
         refresh: rewriteAll
     };
+    window.fsbfWorkshops = { url: WORKSHOP_URL, live: workshopsLive };
 
     /* Delegierter Listener: zaehlt jeden [data-cta]-Klick und stellt sicher,
        dass auch nachtraeglich eingefuegte Ticket-Links korrekt zeigen. */
@@ -132,8 +158,9 @@
     }, true);
 
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function () { rewriteAll(); });
+        document.addEventListener('DOMContentLoaded', function () { rewriteAll(); activateWorkshopLinks(); });
     } else {
         rewriteAll();
+        activateWorkshopLinks();
     }
 })(window, document);
