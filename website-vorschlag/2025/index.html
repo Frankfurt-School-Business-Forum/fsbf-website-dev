@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <!-- P2-13: the archive is clearly labelled as 2025 (title, H1, OG) – no 2026 date, no 2026 event schema -->
+    <title>2025 Recap · FS Business Forum Archive</title>
+    <meta name="description" content="A look back at FS Business Forum 2025 at Frankfurt School: keynotes by CEOs such as Andrea Orcel (UniCredit) and André Munkelt (Morgan Stanley Europe), expert panels, workshops and 700+ participants.">
+
+    <!-- Browser UI Color (address bar, status bar) -->
+    <meta name="theme-color" content="#040810">
+    <meta name="msapplication-navbutton-color" content="#040810">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- P3-17: no-js -> js before first paint (archive.css keeps the header usable without JS) -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+
+    <!-- Icons live at the domain root (Google probes /favicon.ico directly) -->
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <!-- P2-17: bewusst INDEXIERBAR (vorher noindex + Canonical = widerspruechlich).
+         Grund: das Archiv ist die staerkste Proof-Seite (Speaker 2025, 700+ Teilnehmende), ist jetzt eindeutig
+         als 2025 gekennzeichnet (Title/H1/OG, kein 2026-Event-Schema) und fuehrt per CTA zu den Tickets 2026.
+         previous-speakers.html dupliziert nur #speakers dieser Seite – sie sollte hierher kanonisieren/umleiten.
+         TODO(Launch): /2025/ in sitemap.xml aufnehmen und die noindex-Kommentare in sitemap.xml/robots.txt korrigieren
+         (A-1, Dateien von Track SUBPAGES); previous-speakers.html -> Canonical auf /2025/ oder eigenstaendig lassen. -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://fs-businessforum.com/2025/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FS Business Forum">
+    <meta property="og:title" content="FS Business Forum 2025 Recap">
+    <meta property="og:description" content="Highlights of the 2025 edition at Frankfurt School: CEOs, policymakers and 700+ participants. The next edition takes place in 2026.">
+    <meta property="og:url" content="https://fs-businessforum.com/2025/">
+    <meta property="og:image" content="https://fs-businessforum.com/assets/og/fsbf-2025-recap-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="FS Business Forum 2025 Highlights – archive">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- P1-7: complete variable fonts (H1 uses Playfair roman + italic) · P1-8: hero is a poster only -->
+    <link rel="preload" href="../assets/fonts/PlayfairDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/PlayfairDisplay-Italic-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/img/hero/poster-1280.webp" as="image" type="image/webp" media="(min-width: 768px)">
+    <link rel="preload" href="../assets/img/hero/poster-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
+
+    <!-- P3-15: one cache-busting version on every page -->
+    <link rel="stylesheet" href="../styles.css?v=20260928a">
+    <link rel="stylesheet" href="archive.css?v=20260928a">
+
+    <!-- Vendor scripts (deferred, version-pinned, self-hosted – no third-party CDN) -->
+    <script defer src="../assets/js/ticket-link.js?v=20260928a"></script>
+    <script defer src="../assets/js/gsap.min.js"></script>
+    <script defer src="../assets/js/ScrollTrigger.min.js"></script>
+    <script defer src="../assets/js/ScrollToPlugin.min.js"></script>
+    <script defer src="../assets/js/split-type.min.js"></script>
+    <script defer src="../script.js?v=20260928a"></script>
+    <!-- Archive-only enhancements (counters without intro, modal menu, motion toggle, failsafes) -->
+    <script defer src="archive.js?v=20260928a"></script>
+
+    <!-- Structured data: this page is a recap, not an event. The Event schema for 2026 lives on the home page (P1-9). -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://fs-businessforum.com/2025/#webpage",
+                "url": "https://fs-businessforum.com/2025/",
+                "name": "FS Business Forum 2025 Recap",
+                "inLanguage": "en",
+                "isPartOf": { "@type": "WebSite", "@id": "https://fs-businessforum.com/#website", "url": "https://fs-businessforum.com/", "name": "FS Business Forum" },
+                "breadcrumb": { "@id": "https://fs-businessforum.com/2025/#breadcrumb" },
+                "primaryImageOfPage": "https://fs-businessforum.com/assets/og/fsbf-2025-recap-og.jpg"
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://fs-businessforum.com/2025/#breadcrumb",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "FS Business Forum", "item": "https://fs-businessforum.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "2025 Recap", "item": "https://fs-businessforum.com/2025/" }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="archive2025">
+
+    <!-- P2-13: Intro only once per session, never with reduced motion and never on deep links (#speakers …).
+         The overlay lives in a <template>: it is only inserted (and intro.mp4 only requested) when it plays.
+         Without JS it never appears. "Skip" is a real <button> (same id/class, script.js keeps working). -->
+    <template id="introTpl">
+        <div class="intro-overlay" id="introOverlay">
+            <video id="introVideo" muted playsinline preload="auto" webkit-playsinline aria-hidden="true">
+                <source src="../assets/picturesdecoration/intro.mp4" type="video/mp4">
+            </video>
+            <button type="button" class="intro-skip" id="introSkip">
+                <span>Skip intro</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                    <path d="M5 4l10 8-10 8V4zM19 5v14"/>
+                </svg>
+            </button>
+        </div>
+    </template>
+    <script>
+    (function (d, w) {
+        var root = d.documentElement, tpl = d.getElementById('introTpl');
+        var KEY = 'fsbf-archive-intro', seen = false, reduced = false;
+        try { seen = w.sessionStorage.getItem(KEY) === 'seen'; } catch (e) {}
+        try { reduced = w.matchMedia('(prefers-reduced-motion: reduce)').matches || w.localStorage.getItem('fsbf-motion') === 'paused'; } catch (e) {}
+        if (!tpl || !('content' in tpl) || seen || reduced || w.location.hash) {
+            root.classList.add('archive-no-intro');
+            return;
+        }
+        d.body.insertBefore(tpl.content.cloneNode(true), d.body.firstChild);
+        root.classList.add('archive-intro');
+        try { w.sessionStorage.setItem(KEY, 'seen'); } catch (e) {}
+        // P2-9 failsafe: if script.js never starts (blocked/failed), never leave the page covered
+        w.setTimeout(function () {
+            var o = d.getElementById('introOverlay'), b = d.body.classList;
+            if (o && !b.contains('intro-playing') && !b.contains('intro-complete')) {
+                o.parentNode.removeChild(o);
+                root.classList.remove('archive-intro');
+                root.classList.add('archive-no-intro');
+            }
+        }, 6000);
+    })(document, window);
+    </script>
+
+    <!-- P3-5: skip link -->
+    <a class="ar-skip-link" href="#main">Skip to content</a>
+
+    <!-- P2-13: archive banner – one line, max. 48 px, in the normal flow (scrolls away), no longer fixed -->
+    <aside class="ar-banner" aria-label="Archive notice">
+        <p class="ar-banner-inner">
+            <span class="ar-banner-tag">Archive 2025</span>
+            <span class="ar-banner-sep" aria-hidden="true">·</span>
+            <a class="ar-banner-link" href="../tickets.html" data-ticket-link data-cta="archive-banner">Tickets 2026 <span aria-hidden="true">→</span></a>
+        </p>
+    </aside>
+
+    <!-- Scroll Progress Bar + Grain Overlay (decorative). P2-8: no custom cursor on the archive. -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- Header – same navigation as the 2026 home page (Abschnitt 6); logo leads home (P2-13, P3-3) -->
+    <header class="nav">
+        <div class="nav-container">
+            <a href="../" class="nav-logo">
+                <img src="../assets/img/logo-362.png" srcset="../assets/img/logo-362.png 1x, ../assets/img/logo-724.png 2x" width="181" height="48" alt="FS Business Forum – home">
+            </a>
+            <nav class="nav-links" aria-label="Main">
+                <a href="../#speakers" class="nav-link">Speakers</a>
+                <a href="../#programme" class="nav-link">Programme</a>
+                <a href="../#tickets" class="nav-link">Tickets</a>
+                <a href="../#partners" class="nav-link">Partners</a>
+                <a href="../#faq" class="nav-link">FAQ</a>
+                <a href="../tickets.html" class="nav-link nav-link-cta" data-ticket-link data-cta="archive-nav">Get Tickets</a>
+            </nav>
+            <!-- P1-1 / Abschnitt 6: ticket pill next to the menu button below 900 px -->
+            <a href="../tickets.html" class="ar-nav-pill" data-ticket-link data-cta="archive-nav">Get Tickets</a>
+            <button class="nav-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile menu: identical entries to the desktop navigation (P2-13); modal behaviour in archive.js (P2-5) -->
+    <nav id="mobileMenu" class="mobile-menu" aria-label="Menu">
+        <div class="mobile-menu-content">
+            <ul class="ar-menu-list">
+                <li><a href="../#speakers" class="mobile-link">Speakers</a></li>
+                <li><a href="../#programme" class="mobile-link">Programme</a></li>
+                <li><a href="../#tickets" class="mobile-link">Tickets</a></li>
+                <li><a href="../#partners" class="mobile-link">Partners</a></li>
+                <li><a href="../#faq" class="mobile-link">FAQ</a></li>
+            </ul>
+            <a href="../tickets.html" class="mobile-link mobile-link-cta" data-ticket-link data-cta="archive-menu">Get Tickets <span aria-hidden="true">→</span></a>
+        </div>
+    </nav>
+
+    <main id="main" tabindex="-1">
+
+    <!-- Hero (P2-13): Archive eyebrow, 2025 heading, primary CTA to the 2026 tickets -->
+    <section id="hero" class="hero ar-hero" aria-labelledby="hero-title">
+        <div class="hero-video-container" aria-hidden="true">
+            <!-- P1-8 / P2-13: poster only – the 25.6 MB vp1.mp4 is no longer loaded on the archive -->
+            <picture>
+                <source media="(max-width: 767px)" srcset="../assets/img/hero/poster-mobile.webp" width="540" height="960">
+                <img class="ar-hero-poster" src="../assets/img/hero/poster-1280.webp" width="1280" height="720" alt="" fetchpriority="high" decoding="async">
+            </picture>
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <p class="ar-eyebrow">Archive <span aria-hidden="true">·</span> FS Business Forum 2025</p>
+            <h1 class="hero-title" id="hero-title">
+                <span class="title-line">2025</span>
+                <span class="title-line title-accent">Highlights</span>
+            </h1>
+            <p class="hero-date"><span class="todo" data-todo="Veranstaltungsdatum der Ausgabe 2025 eintragen (Tage + Monat) – in keiner Quelle belegt">[Date]</span> 2025 <span aria-hidden="true">·</span> Frankfurt School<span class="ar-hide-sm">, Frankfurt am Main</span></p>
+            <p class="hero-description">Keynotes, panels, workshops and networking with leaders from business, finance and politics &ndash; a look back at the 2025 edition.</p>
+            <div class="hero-cta">
+                <a href="../tickets.html" class="btn btn-primary btn-shimmer ar-btn-ticket" data-ticket-link data-cta="archive-hero">
+                    <span>Get your 2026 ticket</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#speakers" class="btn btn-secondary">
+                    <span>Explore 2025 speakers</span>
+                </a>
+            </div>
+            <!-- Figures of the 2025 edition; final values in the markup (no "0" without JS) -->
+            <ul class="hero-stats" aria-label="FS Business Forum 2025 in numbers">
+                <li class="stat">
+                    <span class="stat-number" data-count="700">700</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Participants</span>
+                </li>
+                <li class="stat">
+                    <span class="stat-number" data-count="40">40</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Speakers</span>
+                </li>
+                <li class="stat">
+                    <span class="stat-number" data-count="10">10</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Universities</span>
+                </li>
+                <li class="stat">
+                    <span class="stat-number" data-count="7">7</span>
+                    <span class="stat-label">Years of Excellence</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- P2-7: pause all decorative motion (state remembered per browser) -->
+        <button class="ar-motion-toggle" type="button" aria-pressed="false">
+            <span class="ar-motion-icon" aria-hidden="true"></span>
+            <span class="ar-motion-label">Pause animations</span>
+        </button>
+
+        <div class="hero-scroll" aria-hidden="true">
+            <div class="scroll-line"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- In-page navigation for the long recap (replaces the decorative text marquee, P2-7 / P3-2) -->
+    <nav class="ar-jump" aria-label="In this recap">
+        <div class="ar-jump-inner">
+            <span class="ar-jump-label" aria-hidden="true">In this recap</span>
+            <a href="#speakers">Speakers</a>
+            <a href="#about">About</a>
+            <a href="#panels">Panels</a>
+            <a href="#experience">Experience</a>
+            <a href="#partners">Partners</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Featured Speakers Section -->
+    <section id="speakers" class="speakers luxury-section" aria-labelledby="speakers-title">
+        <!-- Luxury Decorative Elements -->
+        <div class="section-watermark center" aria-hidden="true">SPEAKERS</div>
+        <div class="ambient-glow top-right"></div>
+        <div class="ambient-glow bottom-left"></div>
+        <div class="dots-pattern top-left"></div>
+        <div class="dots-pattern bottom-right"></div>
+
+        <div class="speakers-container">
+            <div class="section-header">
+                <span class="section-tag">Speakers 2025</span>
+                <h2 class="section-title" id="speakers-title">
+                    <span class="title-reveal">CEOs. Politicians.</span>
+                    <span class="title-reveal">Visionaries.</span>
+                </h2>
+                <p class="section-subtitle">Industry titans and thought leaders who spoke at FS Business Forum 2025</p>
+            </div>
+
+            <!-- Top 3 Speaker Highlights -->
+            <div class="speaker-highlights">
+                <!-- Andrea Orcel Highlight -->
+                <div class="speaker-highlight-card corner-accent">
+                    <div class="highlight-card-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/01_andrea_orcel_ceo_unicredit.webp" width="480" height="480" alt="Andrea Orcel">
+                        <div class="highlight-card-logo">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/UniCredit.webp" width="480" height="480" alt="UniCredit">
+                        </div>
+                        <span class="highlight-card-tag">Keynote Speaker</span>
+                    </div>
+                    <div class="highlight-card-content">
+                        <h3 class="highlight-card-name">Andrea Orcel</h3>
+                        <p class="highlight-card-role">CEO</p>
+                        <p class="highlight-card-company">UniCredit</p>
+                    </div>
+                </div>
+
+                <!-- Andre Munkelt Highlight -->
+                <div class="speaker-highlight-card corner-accent">
+                    <div class="highlight-card-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/02_andre_munkelt_ceo_morganstanley.webp" width="480" height="480" alt="Andre Munkelt">
+                        <div class="highlight-card-logo">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/Morgan_Stanley.webp" width="480" height="480" alt="Morgan Stanley">
+                        </div>
+                        <span class="highlight-card-tag">Keynote Speaker</span>
+                    </div>
+                    <div class="highlight-card-content">
+                        <h3 class="highlight-card-name">André Munkelt</h3>
+                        <p class="highlight-card-role">CEO</p>
+                        <p class="highlight-card-company">Morgan Stanley Europe</p>
+                    </div>
+                </div>
+
+                <!-- Miguel Borrego (thyssenkrupp) Highlight -->
+                <div class="speaker-highlight-card corner-accent">
+                    <div class="highlight-card-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/04_miguel_borrego_ceo_thyssenkrupp.webp" width="480" height="480" alt="Miguel Borrego">
+                        <div class="highlight-card-logo">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/thyssenkrupp.webp" width="480" height="480" alt="thyssenkrupp">
+                        </div>
+                        <span class="highlight-card-tag">Keynote Speaker</span>
+                    </div>
+                    <div class="highlight-card-content">
+                        <h3 class="highlight-card-name">Miguel Ángel López Borrego</h3>
+                        <p class="highlight-card-role">CEO</p>
+                        <p class="highlight-card-company">thyssenkrupp</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- All Other Speakers Grid (P3-14: WebP instead of SVGs with embedded Base64 PNGs) -->
+            <div class="speakers-grid">
+                <!-- Speaker: Frank Vogel -->
+                <div class="speaker-card" data-speaker="3">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/03_frank_vogel_ceo_bnpparibas.webp" width="480" height="480" alt="Frank Vogel">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/BNP_Paribas.webp" width="480" height="480" alt="BNP Paribas">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Frank Vogel</h3>
+                        <p class="speaker-role">CEO</p>
+                        <p class="speaker-company">BNP Paribas CIB Germany</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Jens Koch -->
+                <div class="speaker-card" data-speaker="5">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/05_jens_koch_ceo_hk.webp" width="480" height="480" alt="Jens Koch">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/Heckler_and_Koch.webp" width="480" height="480" alt="Heckler &amp; Koch">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Jens B. Koch</h3>
+                        <p class="speaker-role">CEO</p>
+                        <p class="speaker-company">Heckler &amp; Koch</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Brian Heath -->
+                <div class="speaker-card" data-speaker="6">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/06_brian_heath_generalconsul_usa.webp" width="480" height="480" alt="Brian Heath">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/US_Flagge.webp" width="480" height="480" alt="United States">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Brian Heath</h3>
+                        <p class="speaker-role">Consul General</p>
+                        <p class="speaker-company">United States, Frankfurt</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Christian Duerr -->
+                <div class="speaker-card" data-speaker="7">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/07_christian_duerr_fdp_chef.webp" width="480" height="480" alt="Christian Duerr">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/FDP.webp" width="480" height="480" alt="FDP">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Christian Dürr</h3>
+                        <p class="speaker-role">Parliamentary Group Leader</p>
+                        <p class="speaker-company">FDP, German Bundestag</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Christian Roehl -->
+                <div class="speaker-card" data-speaker="10">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/10_christian_roehl_chiefeconomist_scalablecapital.webp" width="480" height="480" alt="Christian Roehl">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/Scalable_Capital.webp" width="480" height="480" alt="Scalable Capital">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Christian W. Röhl</h3>
+                        <p class="speaker-role">Chief Economist, Investor</p>
+                        <p class="speaker-company">Scalable Capital</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Swiss Chris -->
+                <div class="speaker-card" data-speaker="8">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/08_swiss_chris_influencer.webp" width="480" height="480" alt="Swiss Chris">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Swiss Chris</h3>
+                        <p class="speaker-role">Content Creator</p>
+                        <p class="speaker-company">Finance Influencer</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Hedgefonds Henning (P3-8: creator name is a German proper noun – kept, marked lang="de";
+                     spelling unified with the Q&A panel below. TODO(Team): exakte Schreibweise des Creator-Namens bestaetigen) -->
+                <div class="speaker-card" data-speaker="9">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/09_hedgefond_henning_influencer.webp" width="480" height="480" alt="Hedgefonds Henning" lang="de">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name"><span lang="de">Hedgefonds</span> Henning</h3>
+                        <p class="speaker-role">Content Creator</p>
+                        <p class="speaker-company">Finance Influencer</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Bettina Stark-Watzinger -->
+                <div class="speaker-card" data-speaker="11">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/11Bettina_Stark-Watzinger_Former_Federal_Minister_for_Education_and_Research_FDP.webp" width="480" height="480" alt="Bettina Stark-Watzinger">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/FDP.webp" width="480" height="480" alt="FDP">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Bettina Stark-Watzinger</h3>
+                        <p class="speaker-role">Former Federal Minister for Education and Research</p>
+                        <p class="speaker-company">FDP</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Thomas de Maizière -->
+                <div class="speaker-card" data-speaker="12">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/12_thomas_de_maiziere_former_federal_minister_cdu.webp" width="480" height="480" alt="Thomas de Maizière">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/CDU.webp" width="480" height="480" alt="CDU">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Thomas de Maizière</h3>
+                        <p class="speaker-role">Former Federal Minister of the Interior and Defence</p>
+                        <p class="speaker-company">CDU</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Marco Buschmann -->
+                <div class="speaker-card" data-speaker="13">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/13Marco_Buschmann_Former_Federal_Minister_of_Justice_of_Germany_FDP.webp" width="480" height="480" alt="Marco Buschmann">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/FDP.webp" width="480" height="480" alt="FDP">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Marco Buschmann</h3>
+                        <p class="speaker-role">Former Federal Minister of Justice</p>
+                        <p class="speaker-company">FDP</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Franz Josef Jung -->
+                <div class="speaker-card" data-speaker="14">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/14Franz_Josef_Jung_Former_Federal_Minister_of_Defence_of_Germany_CDU.webp" width="480" height="480" alt="Franz Josef Jung">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/CDU.webp" width="480" height="480" alt="CDU">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Franz Josef Jung</h3>
+                        <p class="speaker-role">Former Federal Minister of Defence</p>
+                        <p class="speaker-company">CDU</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Jack Nasher -->
+                <div class="speaker-card" data-speaker="15">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/15Jack_Nasher_Negotiation_Advisor_and_Author.webp" width="480" height="480" alt="Jack Nasher">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/Jack_Nasher.webp" width="480" height="480" alt="Jack Nasher">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Jack Nasher</h3>
+                        <p class="speaker-role">Negotiation Advisor &amp; Author</p>
+                        <p class="speaker-company">Bestselling Author</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Claudia Oeking -->
+                <div class="speaker-card" data-speaker="16">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/16Claudia_Oeking_Member_of_the_supervisory_board_Airbus_Defence_and_Space_head_public_affairs_airbus_germany.webp" width="480" height="480" alt="Claudia Oeking">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/Airbus.webp" width="480" height="480" alt="Airbus">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Claudia Oeking</h3>
+                        <p class="speaker-role">Supervisory Board Member, Head of Public Affairs Germany</p>
+                        <p class="speaker-company">Airbus Defence &amp; Space</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Andreas Grassl -->
+                <div class="speaker-card" data-speaker="17">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/17Andreas_Grassl_Geopolitical_Analyst.webp" width="480" height="480" alt="Andreas Grassl">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Andreas Grassl</h3>
+                        <p class="speaker-role">Geopolitical Analyst</p>
+                        <p class="speaker-company">Security Expert</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Maika Jahn -->
+                <div class="speaker-card" data-speaker="18">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/18_Maika_Jahn_COO_Member_of_management_board_BlackRocksvg.webp" width="480" height="480" alt="Maika Jahn">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/BlackRock.webp" width="480" height="480" alt="BlackRock">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Maika Jahn</h3>
+                        <p class="speaker-role">COO, Member of Management Board</p>
+                        <p class="speaker-company">BlackRock</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Dr. Katharina Seiler -->
+                <div class="speaker-card" data-speaker="19">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/19_Dr_Katharina_Seiler_Representative_of_the_Supervisory_Board_DWS.webp" width="480" height="480" alt="Dr. Katharina Seiler">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/DWS_Logo.webp" width="400" height="400" alt="DWS">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Katharina Seiler</h3>
+                        <p class="speaker-role">Representative of the Supervisory Board</p>
+                        <p class="speaker-company">DWS</p>
+                    </div>
+                </div>
+
+                <!-- Hidden speakers (revealed on "Show More" click) -->
+                <!-- Speaker: Maren Schmitz -->
+                <div class="speaker-card speaker-card-hidden" data-speaker="20">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/20_Maren_Schmitz_Head_of_Asset_Management_KPMG.webp" width="480" height="480" alt="Maren Schmitz">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/KPMG_Logo.webp" width="400" height="400" alt="KPMG">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Maren Schmitz</h3>
+                        <p class="speaker-role">Head of Asset Management</p>
+                        <p class="speaker-company">KPMG</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Harald Christ -->
+                <div class="speaker-card speaker-card-hidden" data-speaker="21">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/21_Harald_Christ_CEO_and_Founder_Christ_Capital_Supervisory_Board_Member_Commerzbank_Vorsitzender_des_Investitions-_und_Innovationsbeirats_Bundesministerium_der_Finanzen.webp" width="480" height="480" alt="Harald Christ">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/Christ_Capital_Logo.webp" width="400" height="400" alt="Christ Capital">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Harald Christ</h3>
+                        <p class="speaker-role">CEO &amp; Founder, Supervisory Board Member</p>
+                        <p class="speaker-company">Christ Capital, Commerzbank</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Ulrich Thiem -->
+                <div class="speaker-card speaker-card-hidden" data-speaker="22">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/22_Ulrich_Thiem_Managing_Director_Porsche_Ventures.webp" width="480" height="480" alt="Ulrich Thiem">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/Porsche_Ventures_Logo.webp" width="400" height="400" alt="Porsche Ventures">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Ulrich Thiem</h3>
+                        <p class="speaker-role">Managing Director</p>
+                        <p class="speaker-company">Porsche Ventures</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Holger Kneisel -->
+                <div class="speaker-card speaker-card-hidden" data-speaker="23">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/23_Holger_Kneisel_Member_of_Executive_Board_KPMG.webp" width="480" height="480" alt="Holger Kneisel">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/KPMG_Logo.webp" width="400" height="400" alt="KPMG">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Holger Kneisel</h3>
+                        <p class="speaker-role">Member of Executive Board</p>
+                        <p class="speaker-company">KPMG</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Wilhelm Schmid -->
+                <div class="speaker-card speaker-card-hidden" data-speaker="24">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/24_Wilhelm_Schmid_CEO_A_Lange_Soehne.webp" width="480" height="480" alt="Wilhelm Schmid">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/A_Lange_Soehne_Logo.webp" width="400" height="400" alt="A. Lange &amp; Söhne">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Wilhelm Schmid</h3>
+                        <p class="speaker-role">CEO</p>
+                        <p class="speaker-company">A. Lange &amp; Söhne</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Kerstin Erbe -->
+                <div class="speaker-card speaker-card-hidden" data-speaker="25">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/25_Kerstin_Erbe_CEO_DM.webp" width="480" height="480" alt="Kerstin Erbe">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/dm_Logo.webp" width="400" height="400" alt="dm">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Kerstin Erbe</h3>
+                        <p class="speaker-role">CEO</p>
+                        <p class="speaker-company">dm-drogerie markt</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Jaqueline Kabuth -->
+                <div class="speaker-card speaker-card-hidden" data-speaker="26">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/26_Jaqueline_Kabuth_Vice_President_Equity_Derivatives_and_Cross_Asset_Solutions_Citi.webp" width="480" height="480" alt="Jaqueline Kabuth">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/citi_Logo.webp" width="400" height="400" alt="Citi">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Jaqueline Kabuth</h3>
+                        <p class="speaker-role">Vice President Equity Derivatives &amp; Cross Asset Solutions</p>
+                        <p class="speaker-company">Citi</p>
+                    </div>
+                </div>
+
+                <!-- Speaker: Clemens Graf von Hoyos -->
+                <div class="speaker-card speaker-card-hidden" data-speaker="27">
+                    <div class="speaker-image">
+                        <img loading="lazy" decoding="async" src="../assets/img/speakers2025/27_Clemes_Graf_von_Hoyos_Unternehmensinhaber_KniggeAkademie_Vorstandsvorsitzender_Deutsche-Knigge-Gesellschafte_e_V_.webp" width="480" height="480" alt="Clemens Graf von Hoyos">
+                        <div class="speaker-logo-badge">
+                            <img loading="lazy" decoding="async" src="../assets/img/logos/Deutsche_Knigge_Gesellschaft_e.V._Logo.webp" width="400" height="400" alt="Deutsche Knigge Gesellschaft e.V.">
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Clemens Graf von Hoyos</h3>
+                        <p class="speaker-role">Business Owner, Chairman of the Board</p>
+                        <p class="speaker-company">Knigge Akademie, Deutsche Knigge Gesellschaft e.V.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buttons: "Show more" stays the only button here; the B2B request is a secondary text link (P2-2) -->
+            <div class="speakers-buttons-container">
+                <button type="button" class="btn btn-secondary show-more-btn" id="showMoreSpeakers">
+                    <span>Show More Speakers</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                        <path d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+            </div>
+            <p class="ar-b2b-line">Want to speak at FS Business Forum 2026? <a href="mailto:speaker@fs-businessforum.com?subject=Speaker%20Inquiry%20%E2%80%94%20FS%20Business%20Forum%202026&amp;body=Hello%20FS%20Business%20Forum%20team%2C%0D%0A%0D%0AI%20would%20like%20to%20speak%20at%20the%20FS%20Business%20Forum%202026.%0D%0A%0D%0AName%3A%0D%0APosition%20%26%20company%3A%0D%0APossible%20topic%3A%0D%0APhone%20%2F%20email%3A%0D%0A%0D%0ABest%20regards%2C%0D%0A" data-cta="archive-speaker-mail">speaker@fs-businessforum.com <span aria-hidden="true">→</span></a></p>
+        </div>
+    </section>
+
+    <!-- P2-13: inline ticket CTA after a large section (A-2: plain div, not a landmark; own data-cta per position for aff tracking) -->
+    <div class="ar-inline-cta">
+        <p class="ar-inline-cta-inner">
+            <span class="ar-inline-cta-text">This was 2025. Be there in 2026</span>
+            <a href="../tickets.html" class="ar-inline-cta-link" data-ticket-link data-cta="archive-inline-speakers">Get Tickets <span aria-hidden="true">→</span></a>
+        </p>
+    </div>
+
+    <!-- About Section with Photos -->
+    <section id="about" class="about luxury-section" aria-labelledby="about-title">
+        <!-- Luxury Decorative Elements -->
+        <div class="section-watermark center" aria-hidden="true">FORUM</div>
+        <div class="ambient-glow top-right"></div>
+        <div class="ambient-glow bottom-left"></div>
+        <div class="dots-pattern top-right"></div>
+        <div class="dots-pattern bottom-left"></div>
+
+        <div class="about-container">
+            <!-- Luxury Divider - Above Section Header -->
+            <div class="luxury-divider" aria-hidden="true">
+                <div class="luxury-divider-icon"></div>
+            </div>
+
+            <div class="about-intro">
+                <div class="section-header">
+                    <span class="section-tag">About the Forum</span>
+                    <h2 class="section-title" id="about-title">
+                        <span class="title-reveal">One of Europe's Largest</span>
+                        <span class="title-reveal">Student-Run Conferences</span>
+                    </h2>
+                </div>
+                <div class="about-text-block">
+                    <p class="about-lead">
+                        The FS Business Forum is an annual, student-run, two-day business conference held at the Frankfurt School of Finance &amp; Management. Founded in 2019, we bring together over 700 participants from international universities with leaders from business, finance, and politics.
+                    </p>
+                    <p class="about-text">
+                        As the flagship event of Frankfurt School, we are recognised as one of the largest student-led business congresses in Europe. Our mission is to encourage direct dialogue between students and industry leaders through personal interaction, open discussion, and meaningful networking.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Photo Gallery (P3-14: WebP with srcset, intrinsic size against layout shift) -->
+            <div class="about-photo-grid">
+                <div class="photo-grid-item featured">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/3womencoffedrinkingfyeur-640.webp" srcset="../assets/img/photos/3womencoffedrinkingfyeur-640.webp 640w, ../assets/img/photos/3womencoffedrinkingfyeur-1280.webp 1280w" sizes="(min-width: 1024px) 60vw, 100vw" width="640" height="427" alt="Networking">
+                </div>
+                <div class="photo-grid-item">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/moderatorandsittingcrowd-640.webp" srcset="../assets/img/photos/moderatorandsittingcrowd-640.webp 640w, ../assets/img/photos/moderatorandsittingcrowd-1280.webp 1280w" sizes="(min-width: 1024px) 40vw, 100vw" width="640" height="427" alt="Forum session">
+                </div>
+                <div class="photo-grid-item">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/happycrowed-640.webp" srcset="../assets/img/photos/happycrowed-640.webp 640w, ../assets/img/photos/happycrowed-1280.webp 1280w" sizes="(min-width: 1024px) 40vw, 100vw" width="640" height="427" alt="Event atmosphere">
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="about-features">
+                <div class="feature">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+                            <path d="M2 17L12 22L22 17"/>
+                            <path d="M2 12L12 17L22 12"/>
+                        </svg>
+                    </div>
+                    <h3>Keynotes &amp; Panels</h3>
+                    <p>Hear from CEOs, politicians, and thought leaders on economics, finance, and geopolitics.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6V12L16 14"/>
+                        </svg>
+                    </div>
+                    <h3>Workshops</h3>
+                    <p>Interactive career workshops and recruiting sessions with top-tier companies.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21V19C17 16.79 15.21 15 13 15H5C2.79 15 1 16.79 1 19V21"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21V19C22.99 17.13 21.79 15.5 20 15"/>
+                            <path d="M16 3C17.79 3.5 18.99 5.13 18.99 7C18.99 8.87 17.79 10.5 16 11"/>
+                        </svg>
+                    </div>
+                    <h3>Networking</h3>
+                    <p>Corporate dinners, wine tastings, and exclusive meet-and-greets with speakers.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 11.08V12C21.99 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2C13.05 2 14.08 2.17 15.05 2.49"/>
+                            <path d="M22 4L12 14.01L9 11.01"/>
+                        </svg>
+                    </div>
+                    <h3>Pitch Battle</h3>
+                    <p>Start-ups compete to present innovative business ideas to an expert jury.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Panels Section Header -->
+    <section id="panels" class="section panels-intro" aria-labelledby="panels-title">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">Expert Discussions</span>
+                <h2 class="section-title" id="panels-title">
+                    <span class="title-reveal">Our Panels</span>
+                    <span class="title-reveal">in 2025</span>
+                </h2>
+                <p class="section-subtitle">Deep-dive discussions with industry experts on critical topics</p>
+                <div class="diamond-line" aria-hidden="true"><span></span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Defence Panel Highlight (P3-8: British English) -->
+    <section class="panel-highlight" aria-labelledby="panel-defence">
+        <div class="panel-bg">
+            <img loading="lazy" decoding="async" src="../assets/img/photos/defensepanelguests-640.webp" srcset="../assets/img/photos/defensepanelguests-640.webp 640w, ../assets/img/photos/defensepanelguests-1280.webp 1280w" sizes="100vw" width="640" height="427" alt="Defence panel">
+        </div>
+        <div class="panel-content">
+            <span class="panel-tag">Expert Panel</span>
+            <h2 id="panel-defence">Defence &amp; Security</h2>
+            <p>Deep discussions on European security, the defence industry and military strategy with industry leaders.</p>
+        </div>
+    </section>
+
+    <!-- Geo Panel Highlight -->
+    <section class="panel-highlight reverse" aria-labelledby="panel-geo">
+        <div class="panel-bg">
+            <img loading="lazy" decoding="async" src="../assets/img/photos/geopanelguestsspeaking-640.webp" srcset="../assets/img/photos/geopanelguestsspeaking-640.webp 640w, ../assets/img/photos/geopanelguestsspeaking-1280.webp 1280w" sizes="100vw" width="640" height="391" alt="Geopolitics panel">
+        </div>
+        <div class="panel-content">
+            <span class="panel-tag">Expert Panel</span>
+            <h2 id="panel-geo">Geopolitics &amp; Economy</h2>
+            <p>Global perspectives on economic policy, international relations, and the forces shaping tomorrow's markets.</p>
+        </div>
+    </section>
+
+    <!-- Finance Panel Highlight -->
+    <section class="panel-highlight" aria-labelledby="panel-finance">
+        <div class="panel-bg">
+            <img loading="lazy" decoding="async" src="../assets/img/photos/financepanel-640.webp" srcset="../assets/img/photos/financepanel-640.webp 640w, ../assets/img/photos/financepanel-1280.webp 1280w" sizes="100vw" width="640" height="427" alt="Finance panel">
+        </div>
+        <div class="panel-content">
+            <span class="panel-tag">Expert Panel</span>
+            <h2 id="panel-finance">Finance &amp; Markets</h2>
+            <p>Industry experts discussing market trends, investment strategies, and the future of global finance.</p>
+        </div>
+    </section>
+
+    <!-- Swiss Chris & Hedgefonds Henning Live Q&A -->
+    <section class="panel-highlight reverse" aria-labelledby="panel-qa">
+        <div class="panel-bg">
+            <img loading="lazy" decoding="async" src="../assets/img/photos/hedgefondhenning_swisschris_liveqa-640.webp" srcset="../assets/img/photos/hedgefondhenning_swisschris_liveqa-640.webp 640w, ../assets/img/photos/hedgefondhenning_swisschris_liveqa-1280.webp 1280w" sizes="100vw" width="640" height="427" alt="Live Q&amp;A" class="img-position-top">
+        </div>
+        <div class="panel-content">
+            <span class="panel-tag">Live Q&amp;A</span>
+            <h2 id="panel-qa">Swiss Chris &amp; <span lang="de">Hedgefonds</span> Henning</h2>
+            <p>An exclusive live Q&amp;A session with two of finance's most popular content creators.</p>
+        </div>
+    </section>
+
+    <!-- P2-13: inline ticket CTA -->
+    <div class="ar-inline-cta">
+        <p class="ar-inline-cta-inner">
+            <span class="ar-inline-cta-text">This was 2025. Be there in 2026</span>
+            <a href="../tickets.html" class="ar-inline-cta-link" data-ticket-link data-cta="archive-inline-panels">Get Tickets <span aria-hidden="true">→</span></a>
+        </p>
+    </div>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience luxury-section" aria-labelledby="experience-title">
+        <!-- Luxury Decorative Elements -->
+        <div class="section-watermark center" aria-hidden="true">EXPERIENCE</div>
+        <div class="ambient-glow bottom-left"></div>
+        <div class="ambient-glow top-right"></div>
+        <div class="dots-pattern bottom-right"></div>
+        <div class="dots-pattern top-left"></div>
+
+        <div class="experience-container">
+            <!-- Luxury Divider - Above Section Header -->
+            <div class="luxury-divider" aria-hidden="true">
+                <div class="luxury-divider-icon"></div>
+            </div>
+
+            <div class="section-header center">
+                <span class="section-tag">The Experience</span>
+                <h2 class="section-title" id="experience-title">
+                    <span class="title-reveal">Two Days.</span>
+                    <span class="title-reveal">Endless Moments.</span>
+                </h2>
+                <p class="section-subtitle">Keynotes, panels, networking, and unforgettable social events</p>
+                <div class="diamond-line" aria-hidden="true"><span></span></div>
+            </div>
+
+            <!-- P3-14: WebP 640/1280 with srcset, width/height, lazy -->
+            <div class="experience-gallery">
+                <div class="gallery-item featured">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/afterparty_fomo_social_wineglasseds-640.webp" srcset="../assets/img/photos/afterparty_fomo_social_wineglasseds-640.webp 640w, ../assets/img/photos/afterparty_fomo_social_wineglasseds-1280.webp 1280w" sizes="(min-width: 769px) 50vw, 100vw" width="640" height="427" alt="Social">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/whinetastingdesk-640.webp" srcset="../assets/img/photos/whinetastingdesk-640.webp 640w, ../assets/img/photos/whinetastingdesk-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="427" alt="Wine tasting">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/afterpartydj-640.webp" srcset="../assets/img/photos/afterpartydj-640.webp 640w, ../assets/img/photos/afterpartydj-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="427" alt="Afterparty DJ">
+                </div>
+
+                <div class="gallery-item portrait">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/moderator-640.webp" srcset="../assets/img/photos/moderator-640.webp 640w, ../assets/img/photos/moderator-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="960" alt="Moderator">
+                </div>
+                <div class="gallery-item portrait">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/christianduerrspeaking-640.webp" srcset="../assets/img/photos/christianduerrspeaking-640.webp 640w, ../assets/img/photos/christianduerrspeaking-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="960" alt="Keynote">
+                </div>
+
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/crowd_clapping-640.webp" srcset="../assets/img/photos/crowd_clapping-640.webp 640w, ../assets/img/photos/crowd_clapping-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="427" alt="Audience">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/happycrowed-640.webp" srcset="../assets/img/photos/happycrowed-640.webp 640w, ../assets/img/photos/happycrowed-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="427" alt="Happy crowd">
+                </div>
+
+                <div class="gallery-item featured">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/alexanderdoll_profstieglitz_andreaorcelpicture-640.webp" srcset="../assets/img/photos/alexanderdoll_profstieglitz_andreaorcelpicture-640.webp 640w, ../assets/img/photos/alexanderdoll_profstieglitz_andreaorcelpicture-1280.webp 1280w" sizes="(min-width: 769px) 50vw, 100vw" width="640" height="427" alt="CEO event">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/thyssenkrupp_ceo_with_adnreas_grassl-640.webp" srcset="../assets/img/photos/thyssenkrupp_ceo_with_adnreas_grassl-640.webp 640w, ../assets/img/photos/thyssenkrupp_ceo_with_adnreas_grassl-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="427" alt="CEO meeting">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/guests_oplaying_kicker-640.webp" srcset="../assets/img/photos/guests_oplaying_kicker-640.webp 640w, ../assets/img/photos/guests_oplaying_kicker-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="427" alt="Recreation">
+                </div>
+
+                <div class="gallery-item portrait">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/coffebike-640.webp" srcset="../assets/img/photos/coffebike-640.webp 640w, ../assets/img/photos/coffebike-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="960" alt="Coffee">
+                </div>
+                <div class="gallery-item portrait">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/companyworkshop-640.webp" srcset="../assets/img/photos/companyworkshop-640.webp 640w, ../assets/img/photos/companyworkshop-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="960" alt="Workshop">
+                </div>
+
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/defensepanelmoderator-640.webp" srcset="../assets/img/photos/defensepanelmoderator-640.webp 640w, ../assets/img/photos/defensepanelmoderator-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="427" alt="Panel moderator">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/the_3_chairmen_and_moderator-640.webp" srcset="../assets/img/photos/the_3_chairmen_and_moderator-640.webp 640w, ../assets/img/photos/the_3_chairmen_and_moderator-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="427" alt="Organisers">
+                </div>
+
+                <div class="gallery-item featured">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/guest_locked_in-640.webp" srcset="../assets/img/photos/guest_locked_in-640.webp 640w, ../assets/img/photos/guest_locked_in-1280.webp 1280w" sizes="(min-width: 769px) 50vw, 100vw" width="640" height="427" alt="Engaged guest">
+                </div>
+
+                <div class="gallery-item portrait">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/dj-640.webp" srcset="../assets/img/photos/dj-640.webp 640w, ../assets/img/photos/dj-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="960" alt="DJ">
+                </div>
+                <div class="gallery-item portrait">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/thyssenkrupp_ceo_receives_present-640.webp" srcset="../assets/img/photos/thyssenkrupp_ceo_receives_present-640.webp 640w, ../assets/img/photos/thyssenkrupp_ceo_receives_present-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="960" alt="CEO gift">
+                </div>
+
+                <div class="gallery-item portrait">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/g1-640.webp" srcset="../assets/img/photos/g1-640.webp 640w, ../assets/img/photos/g1-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="960" alt="Guest">
+                </div>
+                <div class="gallery-item portrait">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/g2-640.webp" srcset="../assets/img/photos/g2-640.webp 640w, ../assets/img/photos/g2-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="960" alt="Guest">
+                </div>
+
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/moderatorandsittingcrowd-640.webp" srcset="../assets/img/photos/moderatorandsittingcrowd-640.webp 640w, ../assets/img/photos/moderatorandsittingcrowd-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="427" alt="Forum session">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" decoding="async" src="../assets/img/photos/g3-640.webp" srcset="../assets/img/photos/g3-640.webp 640w, ../assets/img/photos/g3-1280.webp 1280w" sizes="(min-width: 769px) 25vw, 50vw" width="640" height="427" alt="Guest">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- P2-13: inline ticket CTA -->
+    <div class="ar-inline-cta">
+        <p class="ar-inline-cta-inner">
+            <span class="ar-inline-cta-text">This was 2025. Be there in 2026</span>
+            <a href="../tickets.html" class="ar-inline-cta-link" data-ticket-link data-cta="archive-inline-experience">Get Tickets <span aria-hidden="true">→</span></a>
+        </p>
+    </div>
+
+    <!-- Partners Section -->
+    <section id="partners" class="partners luxury-section" aria-labelledby="partners-title">
+        <!-- Luxury Decorative Elements -->
+        <div class="section-watermark center" aria-hidden="true">PARTNERS</div>
+        <div class="ambient-glow center"></div>
+        <div class="ambient-glow top-right"></div>
+        <div class="dots-pattern top-left"></div>
+        <div class="dots-pattern bottom-right"></div>
+
+        <div class="partners-container">
+            <!-- Luxury Divider - Above Section Header -->
+            <div class="luxury-divider" aria-hidden="true">
+                <div class="luxury-divider-icon"></div>
+            </div>
+
+            <div class="section-header center">
+                <span class="section-tag">Corporate Partners 2025</span>
+                <h2 class="section-title" id="partners-title">
+                    <span class="title-reveal">Partners</span>
+                </h2>
+                <p class="section-subtitle">These partners made FS Business Forum 2025 possible</p>
+                <div class="diamond-line" aria-hidden="true"><span></span></div>
+            </div>
+
+            <!-- P3-14: logos as WebP (1:1 from assets/img/logos), intrinsic size -->
+            <ul class="partners-grid">
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/About_You_Logo.webp" width="400" height="400" alt="About You"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Accenture_Logo.webp" width="400" height="400" alt="Accenture"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Accuracy_Logo.webp" width="400" height="400" alt="Accuracy"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Bakertilly_Logo.webp" width="400" height="400" alt="Baker Tilly"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/BASF_Logo.webp" width="400" height="400" alt="BASF"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/BearingPoint_Logo.webp" width="400" height="400" alt="BearingPoint"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Berenberg_Logo.webp" width="400" height="400" alt="Berenberg"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/BlackRock.webp" width="480" height="480" alt="BlackRock"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/BNP_Paribas_Logo.webp" width="400" height="400" alt="BNP Paribas"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Carl_Finance_Logo.webp" width="400" height="400" alt="Carl Finance"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Deloitte.webp" width="480" height="480" alt="Deloitte"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Dr._Oetker.webp" width="480" height="480" alt="Dr. Oetker"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/DTE_Consult_Logo.webp" width="400" height="400" alt="DTE Consult"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/DWS_Logo.webp" width="400" height="400" alt="DWS"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/DZ_Bank.webp" width="480" height="480" alt="DZ Bank"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Enpal_Logo.webp" width="400" height="400" alt="Enpal"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/EY_Logo.webp" width="400" height="400" alt="EY"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Frankfurt_School_of_Finance_and_Management.webp" width="480" height="480" alt="Frankfurt School"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Frankfurter_Sparkasse.webp" width="480" height="480" alt="Frankfurter Sparkasse"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/FTI_Andersch_Logo.webp" width="400" height="400" alt="FTI Andersch"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Futury_Logo.webp" width="400" height="400" alt="Futury"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/ING.webp" width="480" height="480" alt="ING"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Lime.webp" width="480" height="480" alt="Lime"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Longines.webp" width="480" height="480" alt="Longines"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Metzler_Logo.webp" width="400" height="400" alt="Metzler"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Nivea.webp" width="480" height="480" alt="Nivea"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/ODDO_BHF.webp" width="480" height="480" alt="ODDO BHF"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Pfungstaedter.webp" width="480" height="480" alt="Pfungstädter"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/picnic_Logo.webp" width="400" height="400" alt="Picnic"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/PwC.webp" width="480" height="480" alt="PwC"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Roland_Berger_Logo.webp" width="400" height="400" alt="Roland Berger"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Upsters.webp" width="480" height="480" alt="Upsters"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/Verival.webp" width="480" height="480" alt="Verival"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/WTS_Logo.webp" width="400" height="400" alt="WTS"></li>
+                <li class="partner-logo"><img loading="lazy" decoding="async" src="../assets/img/logos/XTP_Logo.webp" width="400" height="400" alt="XTP"></li>
+            </ul>
+            <!-- P2-2: partnership request as a secondary text link, not a second gold button -->
+            <p class="ar-b2b-line">Interested in partnering with FS Business Forum 2026? <a href="mailto:corporate@fs-businessforum.com?subject=Partnership%20Inquiry%20%E2%80%94%20FS%20Business%20Forum%202026&amp;body=Hello%20FS%20Business%20Forum%20team%2C%0D%0A%0D%0Awe%20are%20interested%20in%20partnering%20with%20the%20FS%20Business%20Forum%202026.%0D%0A%0D%0ACompany%3A%0D%0AContact%20person%20%26%20position%3A%0D%0AArea%20of%20interest%20%28sponsoring%20%2F%20booth%20%2F%20workshop%20%2F%20other%29%3A%0D%0APhone%20%2F%20email%3A%0D%0A%0D%0ABest%20regards%2C%0D%0A" data-cta="archive-partner-mail">corporate@fs-businessforum.com <span aria-hidden="true">→</span></a></p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team luxury-section" aria-labelledby="team-title">
+        <!-- Luxury Decorative Elements -->
+        <div class="section-watermark center" aria-hidden="true">TEAM</div>
+        <div class="ambient-glow top-right"></div>
+        <div class="ambient-glow bottom-left"></div>
+        <div class="dots-pattern top-left"></div>
+        <div class="dots-pattern bottom-right"></div>
+
+        <div class="team-container">
+            <div class="section-header center">
+                <span class="section-tag">Leadership</span>
+                <h2 class="section-title" id="team-title">
+                    <span class="title-reveal">Meet Our Team</span>
+                </h2>
+                <div class="diamond-line" aria-hidden="true"><span></span></div>
+            </div>
+
+            <!-- P3-6: unique link texts (visually unchanged), new tab announced -->
+            <div class="chairmen-grid chairmen-grid--pair">
+                <div class="chairman-card">
+                    <div class="chairman-avatar"><img loading="lazy" decoding="async" src="../assets/img/team/jakob-280.webp" width="280" height="280" alt="Jakob Brötz"></div>
+                    <h3>Jakob Brötz</h3>
+                    <p>Chairman</p>
+                    <div class="chairman-social">
+                        <a href="https://www.linkedin.com/in/jakob-broetz/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn<span class="ar-sr"> profile of Jakob Brötz (opens in a new tab)</span></a>
+                        <a href="mailto:jakob.broetz@fs-businessforum.com" class="social-link">Email<span class="ar-sr"> Jakob Brötz</span></a>
+                    </div>
+                </div>
+
+                <div class="chairman-card">
+                    <div class="chairman-avatar"><img loading="lazy" decoding="async" src="../assets/img/team/sarah-280.webp" width="280" height="280" alt="Sarah Münker"></div>
+                    <h3>Sarah Münker</h3>
+                    <p>Chairwoman</p>
+                    <div class="chairman-social">
+                        <a href="https://www.linkedin.com/in/sarah-münker/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn<span class="ar-sr"> profile of Sarah Münker (opens in a new tab)</span></a>
+                        <a href="mailto:sarah.muenker@fs-businessforum.com" class="social-link">Email<span class="ar-sr"> Sarah Münker</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="diamond-line team-divider" aria-hidden="true"><span></span></div>
+
+            <div class="chairmen-grid chairmen-grid--trio">
+                <div class="chairman-card">
+                    <div class="chairman-avatar"><img loading="lazy" decoding="async" src="../assets/img/team/cedrik-280.webp" width="280" height="280" alt="Cedrik Eggers"></div>
+                    <h3>Cedrik Eggers</h3>
+                    <p>Head of Corporate Relations &amp; IT</p>
+                    <div class="chairman-social">
+                        <a href="https://www.linkedin.com/in/cedrikeggers/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn<span class="ar-sr"> profile of Cedrik Eggers (opens in a new tab)</span></a>
+                        <a href="mailto:cedrik.eggers@fs-businessforum.com" class="social-link">Email<span class="ar-sr"> Cedrik Eggers</span></a>
+                    </div>
+                </div>
+
+                <div class="chairman-card">
+                    <div class="chairman-avatar"><img loading="lazy" decoding="async" src="../assets/img/team/jakub-280.webp" width="280" height="280" alt="Jakub Sommer"></div>
+                    <h3>Jakub Sommer</h3>
+                    <p>Head of Speaker Relations</p>
+                    <div class="chairman-social">
+                        <a href="https://www.linkedin.com/in/jakub-sommer-6949b7204/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn<span class="ar-sr"> profile of Jakub Sommer (opens in a new tab)</span></a>
+                        <a href="mailto:jakub.sommer@fs-businessforum.com" class="social-link">Email<span class="ar-sr"> Jakub Sommer</span></a>
+                    </div>
+                </div>
+
+                <div class="chairman-card">
+                    <div class="chairman-avatar"><img loading="lazy" decoding="async" src="../assets/img/team/nele-280.webp" width="280" height="280" alt="Nele Noelani Weber"></div>
+                    <h3>Nele Noelani Weber</h3>
+                    <p>Head of Event Management</p>
+                    <div class="chairman-social">
+                        <a href="https://www.linkedin.com/in/nele-noelani-weber-268bb132a/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn<span class="ar-sr"> profile of Nele Noelani Weber (opens in a new tab)</span></a>
+                        <a href="mailto:nele.weber@fs-businessforum.com" class="social-link">Email<span class="ar-sr"> Nele Noelani Weber</span></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" aria-label="FS Business Forum at a glance">
+        <div class="stats-container">
+            <div class="stats-bg-text" aria-hidden="true">FSBF</div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number-large">2019</span>
+                    <span class="stat-label-large">Founded</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number-large" data-count="30">30</span>
+                    <span class="stat-label-large">Student Organisers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number-large" data-count="2">2</span>
+                    <span class="stat-label-large">Days of Content</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number-large" data-count="10">10</span><span class="stat-plus-large">+</span>
+                    <span class="stat-label-large">Universities</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / 2026 bridge. P2-13: no 2026 date on the archive (the facts of the next edition live on the home page). -->
+    <section id="contact" class="contact luxury-section" aria-labelledby="contact-title">
+        <!-- Luxury Decorative Elements -->
+        <div class="ambient-glow center"></div>
+        <div class="gold-ring"></div>
+        <div class="gold-ring"></div>
+        <div class="gold-ring"></div>
+
+        <div class="contact-container">
+            <div class="contact-content">
+                <span class="section-tag light">Next edition</span>
+                <h2 class="contact-title" id="contact-title">
+                    Be Part of Something<br>
+                    <span class="title-gradient">Extraordinary</span>
+                </h2>
+                <p class="contact-description">
+                    This was 2025. In 2026 the forum returns to Frankfurt School &ndash; network, learn and shape the future of business together with students and industry leaders.
+                </p>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <span class="info-label">Next edition</span>
+                        <span class="info-value">FS Business Forum 2026</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Location</span>
+                        <span class="info-value">Frankfurt School of Finance &amp; Management</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">City</span>
+                        <span class="info-value">Frankfurt am Main, Germany</span>
+                    </div>
+                </div>
+                <div class="contact-cta">
+                    <a href="../tickets.html" class="btn btn-primary btn-large ar-btn-ticket" data-ticket-link data-cta="archive-contact">
+                        <span>Get your 2026 ticket</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="../" class="ar-text-link">All details on the 2026 edition <span aria-hidden="true">→</span></a>
+                </div>
+
+                <!-- P2-18: visible labels, privacy note, confirmation page, honeypot -->
+                <div class="contact-form-wrapper">
+                    <h3 class="contact-form-title">Questions? Contact us</h3>
+                    <form class="contact-form" action="https://formsubmit.co/info@fs-businessforum.com" method="POST">
+                        <!-- FormSubmit config: CC to Sarah & Jakob, table layout, spam honeypot.
+                             TODO(Team): FormSubmit-Aktivierung (einmalige Bestaetigungsmail an info@fs-businessforum.com, ggf. Spam-Ordner)
+                             und Captcha-Verhalten nach dem Deploy mit einer Testadresse pruefen (Aktivierung, Captcha-Zwischenseite, Redirect).
+                             Zeigt FormSubmit reCAPTCHA: in der Datenschutzerklaerung nennen ODER _captcha=false setzen (Honeypot bleibt). -->
+                        <input type="hidden" name="_subject" value="Contact form — fs-businessforum.com">
+                        <input type="hidden" name="_cc" value="sarah.muenker@fs-businessforum.com,jakob.broetz@fs-businessforum.com">
+                        <input type="hidden" name="_template" value="table">
+                        <!-- TODO(Launch): thanks.html (Track SUBPAGES) muss unter dieser URL live sein -->
+                        <input type="hidden" name="_next" value="https://fs-businessforum.com/thanks.html">
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                        <div class="form-row">
+                            <div class="ar-field">
+                                <label for="cf-name">Name</label>
+                                <input type="text" id="cf-name" name="name" autocomplete="name" required>
+                            </div>
+                            <div class="ar-field">
+                                <label for="cf-email">Email</label>
+                                <input type="email" id="cf-email" name="email" autocomplete="email" inputmode="email" spellcheck="false" required>
+                            </div>
+                        </div>
+                        <div class="ar-field">
+                            <label for="cf-message">Message</label>
+                            <textarea id="cf-message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send message</button>
+                        <p class="ar-form-note">We use your details only to answer your request. More in our <a href="../privacy.html">Privacy Policy</a> (<a href="../datenschutz.html" lang="de" hreflang="de">Datenschutz</a>).</p>
+                    </form>
+                </div>
+            </div>
+            <div class="contact-visual" aria-hidden="true">
+                <div class="visual-circle"></div>
+                <div class="visual-circle"></div>
+                <div class="visual-circle"></div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer (Abschnitt 6 / P2-16 / P3-5 / P3-10): event links to the 2026 home, recap anchors, contact, legal -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <p class="footer-logo">FS Business Forum</p>
+                    <p class="footer-tagline">Connecting Minds, Creating Future</p>
+                    <a href="../tickets.html" class="btn btn-primary ar-footer-cta" data-ticket-link data-cta="archive-footer">Get Tickets <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="footer-links">
+                    <nav class="footer-col" aria-labelledby="f-event">
+                        <h2 class="ar-footer-h" id="f-event">Event 2026</h2>
+                        <a href="../">Home</a>
+                        <a href="../#speakers">Speakers</a>
+                        <a href="../#programme">Programme</a>
+                        <a href="../#tickets">Tickets</a>
+                        <a href="../#faq">FAQ</a>
+                    </nav>
+                    <nav class="footer-col" aria-labelledby="f-recap">
+                        <h2 class="ar-footer-h" id="f-recap">2025 Recap</h2>
+                        <a href="#speakers">Speakers 2025</a>
+                        <a href="#panels">Panels</a>
+                        <a href="#experience">Experience</a>
+                        <a href="#partners">Partners 2025</a>
+                        <a href="#team">Team</a>
+                    </nav>
+                    <div class="footer-col">
+                        <h2 class="ar-footer-h">Contact</h2>
+                        <!-- TODO(Team): Instagram- und LinkedIn-Links ergaenzen, sobald die Handles bestaetigt sind (P2-16) -->
+                        <a href="mailto:info@fs-businessforum.com">info@fs-businessforum.com</a>
+                        <a href="mailto:speaker@fs-businessforum.com">Speaker enquiries</a>
+                        <a href="mailto:corporate@fs-businessforum.com">Partnership enquiries</a>
+                        <a href="https://www.frankfurt-school.de" target="_blank" rel="noopener noreferrer">Frankfurt School<span class="ar-sr"> (opens in a new tab)</span></a>
+                    </div>
+                    <nav class="footer-col" aria-labelledby="f-legal">
+                        <h2 class="ar-footer-h" id="f-legal">Legal</h2>
+                        <a href="../imprint.html">Imprint (EN)</a>
+                        <a href="../impressum.html" lang="de" hreflang="de">Impressum (DE)</a>
+                        <a href="../privacy.html">Privacy Policy (EN)</a>
+                        <a href="../datenschutz.html" lang="de" hreflang="de">Datenschutz (DE)</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FS Business Forum. A student initiative of Frankfurt School of Finance &amp; Management.</p>
+                <a href="#main" class="ar-top-link">Back to top <span aria-hidden="true">↑</span></a>
+                <!-- Website developed by Maximilian Enzinger -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button (archive.js hides it over contact/footer so it never covers content) -->
+    <button class="back-to-top" type="button" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+</body>
+</html>

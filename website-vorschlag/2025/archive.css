@@ -1,0 +1,1030 @@
+/* ================================
+   FS Business Forum – 2025 archive (/2025/)
+   Loaded AFTER ../styles.css. Every rule is scoped to body.archive2025 (or to the
+   html state classes set by the inline script) so the shared stylesheet – owned by
+   the 2026 home page – stays untouched. Audit IDs in the comments.
+   ================================ */
+
+:root {
+    --ar-banner-h: 44px;
+    --ar-gold: var(--color-accent, #c9a962);
+    --ar-gold-light: var(--color-accent-light, #e8d5a3);
+    --ar-bg: var(--color-bg, #040810);
+    --ar-bg-2: var(--color-bg-secondary, #0a1018);
+    --ar-line: rgba(201, 169, 98, 0.28);
+}
+
+/* ---------- Utilities ---------- */
+body.archive2025 .ar-sr {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* P3-5: skip link, visible on keyboard focus */
+body.archive2025 .ar-skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100px;
+    z-index: 10001;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    background: var(--ar-gold);
+    color: var(--ar-bg);
+    font: 600 0.9375rem/1 var(--font-body);
+    transition: top 0.2s;
+}
+
+body.archive2025 .ar-skip-link:focus {
+    top: 0.5rem;
+}
+
+body.archive2025 #main:focus,
+body.archive2025 [tabindex="-1"]:focus {
+    outline: none;
+}
+
+/* P2-4: anchor targets clear the sticky header (also for deep links from the home page) */
+html {
+    scroll-padding-top: calc(var(--nav-height) + 16px);
+}
+
+/* Placeholder convention (same look as assets/css/subpage.css) */
+body.archive2025 .todo {
+    border-bottom: 1px dashed var(--ar-gold);
+    background: rgba(201, 169, 98, 0.1);
+    border-radius: 2px;
+    padding: 0 0.15em;
+}
+
+body.archive2025 .todo::after {
+    content: 'TODO';
+    display: inline-block;
+    margin-left: 0.4em;
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+    background: var(--ar-gold);
+    color: var(--ar-bg);
+    font: 700 0.625rem/1.3 var(--font-body);
+    letter-spacing: 0.08em;
+    vertical-align: 0.15em;
+    text-transform: uppercase;
+    font-style: normal;
+}
+
+/* ---------- P2-13: archive banner – one line, 44 px, in the flow (not fixed) ---------- */
+body.archive2025 .ar-banner {
+    position: relative;
+    z-index: 1001;
+    height: var(--ar-banner-h);
+    background: var(--ar-bg-2);
+    border-bottom: 1px solid var(--ar-line);
+}
+
+body.archive2025 .ar-banner-inner {
+    height: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 3vw, 3rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    white-space: nowrap;
+    font: 500 0.8125rem/1 var(--font-body);
+    color: var(--color-text-secondary);
+}
+
+body.archive2025 .ar-banner-tag {
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ar-gold);
+}
+
+body.archive2025 .ar-banner-sep {
+    color: var(--color-text-secondary);
+}
+
+body.archive2025 .ar-banner-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    min-height: var(--ar-banner-h);
+    color: var(--color-text);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(201, 169, 98, 0.55);
+    text-underline-offset: 0.25em;
+}
+
+/* ---------- Header: sticky below the banner, same nav as the 2026 home ---------- */
+/* The banner scrolls away, the header then sticks at the top. The negative margin lets
+   the hero continue underneath the (transparent) header exactly as before. The border is
+   always 1px (transparent at the top) so toggling .scrolled never shifts the layout. */
+body.archive2025 .nav {
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid transparent;
+    margin-bottom: calc(-1 * (var(--nav-height) + 1px));
+}
+
+/* P3-4: the header (and with it "Get Tickets") always stays visible – script.js' hide-on-scroll
+   class was only masked by the entrance animation, which the archive no longer runs without intro */
+body.archive2025 .nav.nav-hidden {
+    transform: none;
+}
+
+/* P2-6: legible nav over the hero image before the scrolled background kicks in */
+body.archive2025 .nav:not(.scrolled) {
+    background: linear-gradient(180deg, rgba(4, 8, 16, 0.78) 0%, rgba(4, 8, 16, 0) 100%);
+    background-origin: border-box; /* no repeated gradient strip in the transparent border */
+}
+
+body.archive2025 .nav-link {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+body.archive2025 .nav-link.nav-link-cta {
+    color: var(--ar-bg);
+    font-weight: 600;
+}
+
+/* P3-3: undistorted logo (362×96 / 724×192 source, 3.77:1) – no inline hack */
+body.archive2025 .nav-logo {
+    align-items: center;
+}
+
+body.archive2025 .nav-logo img {
+    display: block;
+    height: 48px;
+    width: auto;
+}
+
+body.archive2025 .ar-nav-pill {
+    display: none;
+}
+
+/* Full navigation from 900 px (like the home page), logo + ticket pill + menu below */
+@media (min-width: 900px) {
+    body.archive2025 .nav-links {
+        display: flex;
+    }
+
+    body.archive2025 .nav-menu-btn {
+        display: none;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1180px) {
+    body.archive2025 .nav-links {
+        gap: 1.6rem;
+    }
+}
+
+@media (max-width: 899px) {
+    body.archive2025 .nav-links {
+        display: none;
+    }
+
+    body.archive2025 .nav-menu-btn {
+        display: flex;
+    }
+
+    body.archive2025 .nav-logo img {
+        height: 40px;
+    }
+
+    /* P1-1 / Abschnitt 6: persistent ticket entry next to the menu button */
+    body.archive2025 .ar-nav-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        margin-left: auto;
+        margin-right: 0.5rem;
+        padding: 0 1.1rem;
+        border-radius: 999px;
+        background: var(--ar-gold);
+        color: var(--ar-bg);
+        font: 600 0.875rem/1 var(--font-body);
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 360px) {
+    body.archive2025 .nav-logo img {
+        height: 34px;
+    }
+
+    body.archive2025 .ar-nav-pill {
+        padding: 0 0.85rem;
+        font-size: 0.8125rem;
+    }
+}
+
+/* P3-10: 44×44 menu button */
+body.archive2025 .nav-menu-btn {
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* P3-17: without JavaScript the menu button can't work – hide it, keep a solid header */
+html.no-js body.archive2025 .nav-menu-btn {
+    display: none;
+}
+
+html.no-js body.archive2025 .nav {
+    background: rgba(4, 8, 16, 0.94);
+}
+
+html.no-js body.archive2025 .ar-nav-pill {
+    margin-right: 0;
+}
+
+/* A-5 / P3-17: "Show More Speakers" needs JS -> without JS show all 2025 speakers and drop the dead button.
+   Mirrors what script.js does on click (removes .speaker-card-hidden), incl. the mobile !important rules. */
+html.no-js body.archive2025 .speaker-card-hidden {
+    display: block !important;
+    height: auto !important;
+    opacity: 1;
+    transform: none;
+}
+
+html.no-js body.archive2025 .speakers-buttons-container {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    html.no-js body.archive2025 .speaker-card-hidden {
+        display: flex !important;
+        min-height: 90px !important;
+    }
+}
+
+/* ---------- Mobile menu (identical entries to the desktop nav) ---------- */
+body.archive2025 .ar-menu-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.25rem, 1.4vh, 1rem);
+    width: 100%;
+}
+
+body.archive2025 .ar-menu-list li {
+    width: 100%;
+    text-align: center;
+}
+
+/* P2-5 side note / P3-10: long entries wrap instead of overflowing at 320 px; 48 px targets */
+body.archive2025 .mobile-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+body.archive2025 .mobile-link-cta {
+    margin-top: 1.25rem;
+    min-height: 52px;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+/* Decorative glows/watermarks must not create horizontal overflow (not even programmatically) */
+body.archive2025 main,
+body.archive2025 .footer {
+    overflow-x: clip;
+}
+
+/* ---------- Hero ---------- */
+/* P2-10: without the intro there is nothing to fade in – the entrance animations script.js
+   triggers with body.intro-complete would only make the already painted hero flicker. */
+html.archive-no-intro body.archive2025.intro-complete .nav,
+html.archive-no-intro body.archive2025.intro-complete .hero-video-container,
+html.archive-no-intro body.archive2025.intro-complete .hero-content {
+    animation: none;
+}
+
+/* The scroll cue collided with the stats row; the in-page navigation follows right below */
+body.archive2025 .hero-scroll {
+    display: none;
+}
+
+body.archive2025 .ar-hero {
+    min-height: calc(100vh - var(--ar-banner-h));
+    min-height: calc(100svh - var(--ar-banner-h));
+}
+
+body.archive2025 .hero-video-container picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+body.archive2025 .ar-hero-poster {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+/* Hero elements wait for the GSAP intro timeline ONLY while the intro plays. Without the
+   intro (repeat visit, reduced motion, deep link) and without JS they are simply visible. */
+html:not(.archive-intro) body.archive2025 .title-line,
+html:not(.archive-intro) body.archive2025 .hero-date,
+html:not(.archive-intro) body.archive2025 .hero-description,
+html:not(.archive-intro) body.archive2025 .hero-stats,
+html:not(.archive-intro) body.archive2025 .hero-cta,
+html:not(.archive-intro) body.archive2025 .hero-scroll {
+    opacity: 1;
+    transform: none;
+}
+
+body.archive2025 .ar-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 1.1rem;
+    border: 1px solid rgba(201, 169, 98, 0.5);
+    border-radius: 999px;
+    background: rgba(4, 8, 16, 0.5);
+    font: 600 0.8125rem/1.3 var(--font-body);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ar-gold-light);
+}
+
+body.archive2025 .hero-date {
+    letter-spacing: 0.16em;
+    text-wrap: balance;
+}
+
+body.archive2025 .hero-description {
+    max-width: 640px;
+    color: rgba(255, 255, 255, 0.82);
+    text-wrap: balance;
+}
+
+body.archive2025 .hero-cta {
+    margin-bottom: 3rem;
+}
+
+body.archive2025 .ar-btn-ticket {
+    min-height: 52px;
+    padding: 0 1.9rem;
+    font: 600 1rem/1 var(--font-body);
+    justify-content: center;
+}
+
+body.archive2025 .hero-cta .btn-secondary {
+    min-height: 52px;
+    padding: 0 1.75rem;
+    font: 500 1rem/1 var(--font-body);
+    justify-content: center;
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+body.archive2025 .hero-stats {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+body.archive2025 .stat-label {
+    color: var(--color-text-secondary);
+}
+
+/* P2-7: limit the decorative shimmer on primary buttons to three runs */
+body.archive2025 .btn-primary::before,
+body.archive2025 .btn-shimmer::before {
+    animation-iteration-count: 3;
+}
+
+/* P2-7: pause/play all decorative motion */
+body.archive2025 .ar-motion-toggle {
+    position: absolute;
+    right: clamp(1rem, 3vw, 3rem);
+    bottom: 2.25rem;
+    z-index: 11;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 44px;
+    padding: 0 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    background: rgba(4, 8, 16, 0.6);
+    color: rgba(255, 255, 255, 0.88);
+    font: 500 0.8125rem/1 var(--font-body);
+    letter-spacing: 0.02em;
+    cursor: pointer;
+}
+
+body.archive2025 .ar-motion-icon {
+    position: relative;
+    width: 10px;
+    height: 12px;
+    border-left: 3px solid currentColor;
+    border-right: 3px solid currentColor;
+}
+
+body.archive2025 .ar-motion-toggle[aria-pressed="true"] .ar-motion-icon {
+    width: 0;
+    height: 0;
+    border-left: 10px solid currentColor;
+    border-right: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+}
+
+html.no-js body.archive2025 .ar-motion-toggle {
+    display: none;
+}
+
+body.archive2025 .ar-motion-toggle[hidden] {
+    display: none;
+}
+
+/* Paused = every decorative CSS loop stops. One-shot entrance animations are switched off
+   instead of frozen (a paused navFadeIn/heroContentFadeIn would keep nav/hero at opacity 0). */
+html.motion-paused body.archive2025 *,
+html.motion-paused body.archive2025 *::before,
+html.motion-paused body.archive2025 *::after {
+    animation-play-state: paused !important;
+}
+
+html.motion-paused body.archive2025 .nav,
+html.motion-paused body.archive2025 .hero-video-container,
+html.motion-paused body.archive2025 .hero-content,
+html.motion-paused body.archive2025 .hero-scroll,
+html.motion-paused body.archive2025 .speaker-card-visible {
+    animation: none !important;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    body.archive2025 .ar-hero {
+        min-height: 0;
+        padding-bottom: 5rem;
+    }
+
+    body.archive2025 .ar-eyebrow {
+        margin-bottom: 1rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+    }
+
+    body.archive2025 .hero-title {
+        margin-bottom: 0.75rem;
+    }
+
+    body.archive2025 .hero-date {
+        font-size: 0.8125rem;
+        letter-spacing: 0.1em;
+        margin: 0.25rem auto 1rem;
+    }
+
+    body.archive2025 .ar-hide-sm {
+        display: none;
+    }
+
+    body.archive2025 .hero-description {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+
+    body.archive2025 .hero-cta {
+        margin-bottom: 1.75rem;
+    }
+
+    body.archive2025 .hero-cta .btn {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    body.archive2025 .hero-stats .stat-label {
+        font-size: 0.75rem;
+    }
+
+    body.archive2025 .ar-motion-toggle {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 1.25rem;
+    }
+}
+
+/* ---------- In-page navigation (replaces the text marquee) ---------- */
+body.archive2025 .ar-jump {
+    position: relative;
+    z-index: 2;
+    background: var(--ar-bg-2);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+body.archive2025 .ar-jump-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem clamp(1rem, 3vw, 3rem);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+body.archive2025 .ar-jump-inner::-webkit-scrollbar {
+    display: none;
+}
+
+/* centred when it fits, scrollable from the start when it does not */
+body.archive2025 .ar-jump-inner > :first-child { margin-left: auto; }
+body.archive2025 .ar-jump-inner > :last-child { margin-right: auto; }
+
+body.archive2025 .ar-jump-label {
+    flex: 0 0 auto;
+    margin-right: 0.5rem;
+    font: 600 0.75rem/1 var(--font-body);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ar-gold);
+    white-space: nowrap;
+}
+
+body.archive2025 .ar-jump a {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 1rem;
+    border: 1px solid var(--color-border-light);
+    border-radius: 999px;
+    color: var(--color-text-secondary);
+    font: 500 0.875rem/1 var(--font-body);
+    white-space: nowrap;
+    transition: color 0.25s, border-color 0.25s;
+}
+
+@media (max-width: 768px) {
+    body.archive2025 .ar-jump-inner {
+        -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent);
+        mask-image: linear-gradient(90deg, #000 88%, transparent);
+    }
+}
+
+/* ---------- P2-13: inline ticket CTA between large sections ---------- */
+body.archive2025 .ar-inline-cta {
+    position: relative;
+    z-index: 2;
+    background: var(--ar-bg);
+    border-top: 1px solid var(--ar-line);
+    border-bottom: 1px solid var(--ar-line);
+}
+
+body.archive2025 .ar-inline-cta-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.4rem clamp(1rem, 4vw, 3rem);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem 1.5rem;
+    text-align: center;
+}
+
+body.archive2025 .ar-inline-cta-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+    line-height: 1.3;
+    color: var(--color-text);
+}
+
+body.archive2025 .ar-inline-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 48px;
+    padding: 0 1.5rem;
+    border-radius: 999px;
+    background: var(--ar-gold);
+    color: var(--ar-bg);
+    font: 600 0.9375rem/1 var(--font-body);
+    white-space: nowrap;
+    transition: background 0.25s;
+}
+
+/* ---------- P2-2: B2B requests as secondary text links ---------- */
+body.archive2025 .speakers-buttons-container {
+    justify-content: center;
+}
+
+body.archive2025 .ar-b2b-line {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+
+body.archive2025 .ar-b2b-line a,
+body.archive2025 .ar-text-link {
+    display: inline-block;
+    padding: 0.55rem 0;
+    color: var(--ar-gold);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: rgba(201, 169, 98, 0.45);
+    text-underline-offset: 0.25em;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Lists that used to be divs ---------- */
+body.archive2025 .partners-grid {
+    list-style: none;
+}
+
+/* ---------- P2-11: sane mobile type scale (H2 above H3, labels >= 12 px) ---------- */
+@media (max-width: 768px) {
+    body.archive2025 .section-title {
+        font-size: clamp(1.75rem, 1.2rem + 3vw, 2.25rem);
+        line-height: 1.15;
+    }
+
+    body.archive2025 .section-tag,
+    body.archive2025 .panel-tag,
+    body.archive2025 .stat-label-large {
+        font-size: 0.75rem;
+    }
+
+    body.archive2025 .section-subtitle {
+        font-size: 1rem;
+    }
+
+    body.archive2025 .panel-content h2 {
+        font-size: 1.625rem;
+    }
+
+    body.archive2025 .panel-content p {
+        font-size: 0.9375rem;
+    }
+
+    body.archive2025 .highlight-card-company,
+    body.archive2025 .speaker-company,
+    body.archive2025 .chairman-card p {
+        font-size: 0.8125rem;
+    }
+}
+
+/* ---------- P2-13: shorter page on phones (was ~23,000 px at 390 px width) ---------- */
+@media (max-width: 768px) {
+    /* portrait photos side by side (they come in pairs), landscapes full width */
+    body.archive2025 .experience-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+    }
+
+    body.archive2025 .gallery-item,
+    body.archive2025 .gallery-item.featured {
+        grid-column: span 2;
+        grid-row: auto;
+    }
+
+    body.archive2025 .gallery-item.portrait {
+        grid-column: span 1;
+    }
+
+    body.archive2025 .gallery-item.portrait img {
+        aspect-ratio: 2 / 3;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* 35 partner logos: compact 3-column wall instead of 18 rows */
+    body.archive2025 .partners-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.625rem;
+    }
+
+    body.archive2025 .partner-logo {
+        min-height: 0;
+        padding: 0.5rem 0.75rem;
+        border-radius: 10px;
+    }
+
+    body.archive2025 .partner-logo img {
+        max-height: 64px;
+        max-width: 100%;
+    }
+}
+
+/* Team: compact horizontal cards on phones (five 500 px cards before) */
+@media (max-width: 600px) {
+    body.archive2025 .chairmen-grid,
+    body.archive2025 .chairmen-grid--pair {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.75rem;
+    }
+
+    body.archive2025 .chairman-card {
+        display: grid;
+        grid-template-columns: 84px minmax(0, 1fr);
+        column-gap: 1rem;
+        align-items: center;
+        padding: 1rem 1.1rem;
+        text-align: left;
+    }
+
+    body.archive2025 .chairman-avatar {
+        grid-row: span 3;
+        width: 84px;
+        height: 84px;
+        margin: 0;
+    }
+
+    body.archive2025 .chairman-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.1rem;
+    }
+
+    body.archive2025 .chairman-card p {
+        margin-bottom: 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    body.archive2025 .chairman-social {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    body.archive2025 .chairman-social .social-link {
+        padding: 0 0.8rem;
+    }
+
+    body.archive2025 .team-divider {
+        margin: 0.75rem 0;
+    }
+}
+
+body.archive2025 .chairman-social .social-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+    body.archive2025 .partners-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* Team links: same uppercase look as before, readable text for screen readers ("LinkedIn") */
+body.archive2025 .chairman-social .social-link {
+    text-transform: uppercase;
+}
+
+/* ---------- Contact / 2026 bridge ---------- */
+body.archive2025 .contact-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.75rem;
+}
+
+/* ---------- P2-18: contact form with visible labels ---------- */
+body.archive2025 .ar-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 0;
+}
+
+body.archive2025 .contact-form > .ar-field {
+    margin-bottom: 0;
+}
+
+body.archive2025 .ar-field label {
+    font: 600 0.8125rem/1.3 var(--font-body);
+    letter-spacing: 0.04em;
+    color: var(--color-text);
+}
+
+body.archive2025 .contact-form input:focus-visible,
+body.archive2025 .contact-form textarea:focus-visible {
+    outline: 2px solid var(--ar-gold-light);
+    outline-offset: 2px;
+}
+
+body.archive2025 .contact-form .btn-primary {
+    min-height: 52px;
+    font: 600 1rem/1 var(--font-body);
+}
+
+body.archive2025 .ar-form-note {
+    margin-top: 1rem;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+
+body.archive2025 .ar-form-note a {
+    color: var(--ar-gold);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+/* ---------- Footer (P3-5 headings, P3-10 touch targets) ---------- */
+body.archive2025 .footer-links {
+    flex-wrap: wrap;
+    gap: 2.5rem 4rem;
+}
+
+body.archive2025 .ar-footer-h {
+    font: 600 0.75rem/1.4 var(--font-body);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+}
+
+body.archive2025 .footer-col a {
+    padding: 0.3rem 0;
+    margin-bottom: 0.35rem;
+}
+
+body.archive2025 .ar-footer-cta {
+    margin-top: 1.5rem;
+    min-height: 44px;
+    padding: 0 1.4rem;
+    font: 600 0.875rem/1 var(--font-body);
+}
+
+@media (max-width: 1200px) {
+    body.archive2025 .footer-main {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body.archive2025 .footer-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem 1.5rem;
+    }
+
+    body.archive2025 .footer-col a {
+        padding: 0.6rem 0;
+        margin-bottom: 0;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 380px) {
+    body.archive2025 .footer-links {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Back to top: smaller, not gold (P2-2), never over contact/footer (archive.js) ---------- */
+body.archive2025 .back-to-top {
+    width: 44px;
+    height: 44px;
+    right: 1.25rem;
+    bottom: calc(1.25rem + env(safe-area-inset-bottom));
+    z-index: 900;
+    background: rgba(4, 8, 16, 0.78);
+    border: 1px solid rgba(201, 169, 98, 0.6);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+body.archive2025 .back-to-top svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--ar-gold);
+}
+
+/* Below 900 px the header carries menu + ticket pill; a floating button would cover card text
+   on narrow screens -> the footer's "Back to top" link replaces it there */
+@media (max-width: 899px) {
+    body.archive2025 .back-to-top {
+        display: none;
+    }
+}
+
+body.archive2025 .ar-top-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 44px;
+    margin-top: 0.5rem;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+}
+
+body.archive2025 .back-to-top.ar-btt-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+/* ---------- Intro: "Skip" is a real button now ---------- */
+body.archive2025 .intro-skip {
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: var(--font-body);
+    line-height: 1;
+    min-height: 44px;
+}
+
+body.archive2025 .intro-skip:focus-visible {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    outline: 2px solid var(--ar-gold-light);
+    outline-offset: 3px;
+}
+
+/* ---------- Focus (keyboard) for the new elements ---------- */
+body.archive2025 .ar-banner-link:focus-visible,
+body.archive2025 .ar-nav-pill:focus-visible,
+body.archive2025 .ar-jump a:focus-visible,
+body.archive2025 .ar-inline-cta-link:focus-visible,
+body.archive2025 .ar-motion-toggle:focus-visible,
+body.archive2025 .back-to-top:focus-visible,
+body.archive2025 .ar-b2b-line a:focus-visible,
+body.archive2025 .ar-text-link:focus-visible,
+body.archive2025 .ar-top-link:focus-visible {
+    outline: 2px solid var(--ar-gold-light);
+    outline-offset: 3px;
+}
+
+/* ---------- P3-18: hover feedback only for real pointers ---------- */
+@media (hover: hover) and (pointer: fine) {
+    body.archive2025 .ar-banner-link:hover {
+        color: var(--ar-gold-light);
+        text-decoration-color: currentColor;
+    }
+
+    body.archive2025 .ar-nav-pill:hover,
+    body.archive2025 .ar-inline-cta-link:hover {
+        background: var(--ar-gold-light);
+    }
+
+    body.archive2025 .ar-jump a:hover {
+        color: var(--ar-gold-light);
+        border-color: var(--ar-gold);
+    }
+
+    body.archive2025 .ar-motion-toggle:hover {
+        border-color: var(--ar-gold);
+        color: #fff;
+    }
+
+    body.archive2025 .ar-b2b-line a:hover,
+    body.archive2025 .ar-text-link:hover,
+    body.archive2025 .ar-top-link:hover {
+        color: var(--ar-gold-light);
+        text-decoration-color: currentColor;
+    }
+
+    body.archive2025 .back-to-top:hover {
+        background: rgba(4, 8, 16, 0.92);
+        border-color: var(--ar-gold);
+    }
+}
+
+/* Touch devices: no sticky-hover transforms on the new CTAs */
+body.archive2025 .ar-inline-cta-link:active,
+body.archive2025 .ar-nav-pill:active {
+    transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.archive2025 .ar-skip-link,
+    body.archive2025 .ar-jump a,
+    body.archive2025 .ar-inline-cta-link {
+        transition: none;
+    }
+}

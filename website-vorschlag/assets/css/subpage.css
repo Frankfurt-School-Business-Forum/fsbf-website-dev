@@ -1,0 +1,647 @@
+/* ================================
+   FS Business Forum 2026 – Unterseiten
+   (tickets.html, Rechtsseiten, 404.html, thanks.html, previous-speakers.html)
+
+   Gemeinsamer Mini-Header, Footer mit Legal-Zeile, Skip-Link, Fokus, Buttons,
+   .todo-Platzhalter, .sr-only, Inhaltsverzeichnis der Rechtsseiten (P1-10, P3-5, P3-19).
+
+   - Rechtsseiten/previous-speakers laden zusaetzlich styles.css (Schriften kommen von dort).
+   - tickets/404/thanks laden stattdessen assets/css/fonts.css.
+   - Eigene --sp-*-Tokens: Aenderungen an styles.css (Track HOME) werden nicht ueberschrieben.
+   ================================ */
+
+:root {
+    --sp-bg: #040810;
+    --sp-bg-2: #0a1018;
+    --sp-bg-3: #121a24;
+    --sp-gold: #c9a962;
+    --sp-gold-light: #e8d5a3;
+    --sp-text: #ffffff;
+    --sp-text-2: #a0a0a5;             /* 7,7:1 auf Navy */
+    --sp-muted: #8e8e94;              /* P3-7: 6,2:1 statt #6b6b70 (3,8:1) */
+    --sp-border: rgba(255, 255, 255, 0.08);
+    --sp-border-gold: rgba(201, 169, 98, 0.45);
+    --sp-header-h: 72px;
+    --sp-gutter: clamp(1rem, 4vw, 3rem);
+    --sp-max: 1200px;
+    --sp-font-display: var(--font-display, 'Playfair Display', Georgia, 'Times New Roman', serif);
+    --sp-font-body: var(--font-body, 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif);
+}
+
+@media (max-width: 600px) {
+    :root { --sp-header-h: 64px; }
+}
+
+/* ---------- Basis (auch ohne styles.css tragfaehig) ---------- */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Anker (Inhaltsverzeichnis, Skip-Link) landen nicht unter dem Sticky-Header */
+    scroll-padding-top: calc(var(--sp-header-h) + 16px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
+
+.sp,
+.sp *,
+.sp *::before,
+.sp *::after {
+    box-sizing: border-box;
+}
+
+body.sp {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    background: var(--sp-bg);
+    color: var(--sp-text);
+    font-family: var(--sp-font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body.sp > main {
+    flex: 1 0 auto;
+    width: 100%;
+}
+
+.sp img {
+    max-width: 100%;
+}
+
+/* ---------- Fokus (P3-5 / WCAG 2.4.7): 2px Gold mit Abstand, wie Startseite ---------- */
+.sp a:focus-visible,
+.sp button:focus-visible,
+.sp summary:focus-visible,
+.sp [tabindex]:not([tabindex="-1"]):focus-visible {
+    outline: 2px solid var(--sp-gold);
+    outline-offset: 3px;
+}
+
+/* Programmatisch fokussierte Ziele (Skip-Link -> main) ohne Rahmen um die ganze Seite */
+.sp main:focus,
+.sp [tabindex="-1"]:focus {
+    outline: none;
+}
+
+/* ---------- Skip-Link (P3-5 / WCAG 2.4.1) ---------- */
+.sp-skip {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    z-index: 2000;
+    padding: 0.8rem 1.25rem;
+    border-radius: 100px;
+    background: var(--sp-gold);
+    color: var(--sp-bg);
+    font: 600 0.9375rem/1.2 var(--sp-font-body);
+    text-decoration: none;
+    transform: translateY(-150%);
+    transition: transform 0.2s ease;
+}
+
+.sp-skip:focus,
+.sp-skip:focus-visible {
+    transform: translateY(0.75rem);
+    outline: 2px solid var(--sp-gold-light);
+    outline-offset: 3px;
+}
+
+/* ---------- Utilities ---------- */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Platzhalter fuer Inhalte, die nur das Team kennt (Konvention: data-todo="…").
+   Klar erkennbar, aber layoutneutral. */
+.todo {
+    border-bottom: 1px dashed var(--sp-gold);
+    background: rgba(201, 169, 98, 0.08);
+    border-radius: 2px;
+    padding: 0 0.15em;
+}
+
+.todo::after {
+    content: 'TODO';
+    display: inline-block;
+    margin-left: 0.4em;
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+    background: var(--sp-gold);
+    color: var(--sp-bg);
+    font: 700 0.625rem/1.3 var(--sp-font-body);
+    letter-spacing: 0.08em;
+    vertical-align: 0.15em;
+    text-transform: uppercase;
+    font-style: normal;
+}
+
+:is(div, section, article, aside, ul, ol, p, figure).todo {
+    position: relative;
+    border: 1px dashed var(--sp-gold);
+    border-radius: 8px;
+    padding: 0.75rem;
+}
+
+:is(div, section, article, aside, ul, ol, p, figure).todo::after {
+    position: absolute;
+    top: -0.7em;
+    right: 0.75rem;
+    margin: 0;
+}
+
+/* ---------- Buttons ---------- */
+.sp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;                  /* P3-10: Touch-Ziel */
+    padding: 0.7rem 1.5rem;
+    border: 1px solid var(--sp-gold);
+    border-radius: 100px;
+    background: var(--sp-gold);
+    color: var(--sp-bg);
+    font: 600 0.9375rem/1.2 var(--sp-font-body);
+    letter-spacing: 0.01em;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sp-btn--lg {
+    min-height: 52px;
+    padding: 0.95rem 2.25rem;
+    font-size: 1rem;
+}
+
+.sp-btn--sm {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.875rem;
+}
+
+.sp-btn--ghost {
+    background: transparent;
+    color: var(--sp-gold);
+    border-color: var(--sp-border-gold);
+}
+
+.sp-btn:active {
+    transform: scale(0.98);
+}
+
+/* P3-18: Hover nur fuer Zeigergeraete (kein "klebendes" Gold nach Tap) */
+@media (hover: hover) and (pointer: fine) {
+    .sp-btn:hover {
+        background: var(--sp-gold-light);
+        border-color: var(--sp-gold-light);
+        color: var(--sp-bg);
+        transform: translateY(-1px);
+        box-shadow: 0 10px 28px rgba(201, 169, 98, 0.28);
+    }
+
+    .sp-btn--ghost:hover {
+        background: rgba(201, 169, 98, 0.12);
+        border-color: var(--sp-gold);
+        color: var(--sp-gold-light);
+        box-shadow: none;
+    }
+}
+
+/* ---------- Mini-Header ---------- */
+.sp-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(4, 8, 16, 0.92);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(16px) saturate(140%);
+    border-bottom: 1px solid var(--sp-border);
+}
+
+/* A-4: Padding sitzt hier im Inneren (border-box) – daher Breite + 2x Gutter,
+   damit Header- und Footer-Inhalt dieselbe 1200-px-Kante haben (Footer paddet aussen). */
+.sp-header__inner {
+    max-width: calc(var(--sp-max) + 2 * var(--sp-gutter));
+    height: var(--sp-header-h);
+    margin: 0 auto;
+    padding: 0 var(--sp-gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.sp-logo {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+/* Logo 362x96 (3,77:1) – unverzerrt (P3-3) */
+.sp-logo img {
+    display: block;
+    width: auto;
+    height: 48px;
+    max-width: none;
+}
+
+.sp-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.sp-header__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--sp-text-2);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .sp-header__link:hover { color: var(--sp-gold-light); }
+}
+
+@media (max-width: 600px) {
+    .sp-logo img { height: 40px; }           /* ≈ 151 px breit */
+    .sp-header__actions { gap: 0.75rem; }
+    .sp-header__link--wide { display: none; }
+}
+
+@media (max-width: 340px) {
+    .sp-logo img { height: 34px; }
+    .sp-header .sp-btn--sm { padding: 0.6rem 1rem; }
+}
+
+/* ---------- Footer mit Legal-Zeile (P3-19, P3-8) ---------- */
+.sp-footer {
+    border-top: 1px solid var(--sp-border);
+    background: var(--sp-bg);
+    color: var(--sp-muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding: 1.5rem var(--sp-gutter) calc(1.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+.sp-footer__inner {
+    max-width: var(--sp-max);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem 2rem;
+}
+
+.sp-footer__brand {
+    margin: 0;
+    color: var(--sp-muted);
+}
+
+.sp-footer__brand strong {
+    color: var(--sp-text);
+    font-family: var(--sp-font-display);
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+}
+
+.sp-footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.sp-footer li {
+    display: inline-flex;
+    align-items: center;
+}
+
+.sp-footer li + li::before {
+    content: '\00b7';
+    content: '\00b7' / '';
+    padding: 0 0.6rem;
+    color: var(--sp-muted);
+}
+
+.sp-footer a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;                  /* P3-10 */
+    color: var(--sp-text-2);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.sp-footer a[aria-current="page"] {
+    color: var(--sp-gold);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .sp-footer a:hover {
+        color: var(--sp-gold-light);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+}
+
+/* Optionale Seiten-Navigation im Footer (previous-speakers.html) */
+.sp-footer__nav {
+    flex-basis: 100%;
+    margin-bottom: 0.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--sp-border);
+}
+
+.sp-footer__nav a {
+    color: var(--sp-text);
+}
+
+@media (max-width: 700px) {
+    .sp-footer__inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sp-footer__nav { order: -2; align-self: stretch; }
+    .sp-footer__legal { order: -1; }
+
+    /* Umbrueche: keine Trennpunkte am Zeilenanfang – Abstand statt Punkt */
+    .sp-footer ul { column-gap: 1.25rem; }
+    .sp-footer li + li::before { display: none; }
+}
+
+/* ---------- Rechtsseiten (P3-19) ---------- */
+.sp-legal .legal-page {
+    min-height: 0;
+    padding: clamp(2rem, 6vw, 4.5rem) var(--sp-gutter) clamp(3rem, 8vw, 5rem);
+    background: var(--sp-bg);
+}
+
+.sp-legal .legal-header h1 {
+    font-family: var(--sp-font-display);
+    font-weight: 500;
+    line-height: 1.15;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.sp-legal .back-link,
+.sp-legal .legal-header .lang-switch a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.sp-legal .back-link {
+    margin-bottom: 1rem;
+}
+
+.sp-legal .legal-header .lang-switch {
+    align-items: center;
+    color: var(--sp-muted);
+    font-size: 0.875rem;
+}
+
+.sp-legal .legal-header .lang-switch [aria-current] {
+    color: var(--sp-text);
+}
+
+.legal-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 1.5rem;
+    margin: 0.5rem 0 0;
+    color: var(--sp-muted);
+    font-size: 0.875rem;
+}
+
+.legal-meta a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--sp-gold);
+    text-decoration: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .legal-meta a:hover { text-decoration: underline; }
+}
+
+/* Inhaltsverzeichnis Datenschutz/Privacy */
+.legal-toc {
+    margin: 0 0 2.5rem;
+    padding: 1.25rem 1.5rem 1rem;
+    background: var(--sp-bg-2);
+    border: 1px solid var(--sp-border);
+    border-left: 3px solid var(--sp-gold);
+    border-radius: 0 12px 12px 0;
+}
+
+.sp .legal-toc__title {
+    margin: 0 0 0.5rem;
+    font: 600 0.75rem/1.4 var(--sp-font-body);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sp-gold);
+}
+
+.legal-toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.legal-toc ol ol {
+    margin: 0 0 0.25rem;
+    padding-left: 1.1rem;
+    border-left: 1px solid var(--sp-border);
+}
+
+.legal-toc a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0.2rem 0;
+    color: var(--sp-text);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.legal-toc ol ol a {
+    min-height: 36px;
+    color: var(--sp-text-2);
+    font-size: 0.9rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .legal-toc a:hover {
+        color: var(--sp-gold-light);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+}
+
+/* WCAG 1.4.1 (axe link-in-text-block): Links im Fliesstext nicht nur ueber Farbe erkennbar */
+.sp-legal .legal-content a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    overflow-wrap: anywhere;
+}
+
+.to-toc {
+    margin: 2rem 0 0;
+    font-size: 0.875rem;
+}
+
+.to-toc a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--sp-gold);
+    text-decoration: none;
+}
+
+/* ---------- Status-Seiten (404, thanks) ---------- */
+.sp-status {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(3rem, 10vw, 7rem) var(--sp-gutter);
+    text-align: center;
+    overflow: hidden;
+}
+
+.sp-status::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(201, 169, 98, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.sp-status__inner {
+    position: relative;
+    max-width: 640px;
+}
+
+.sp-eyebrow {
+    display: inline-block;
+    margin: 0 0 1.25rem;
+    color: var(--sp-gold);
+    font: 600 0.8125rem/1.4 var(--sp-font-body);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.sp-status h1 {
+    margin: 0 0 1.25rem;
+    font-family: var(--sp-font-display);
+    font-weight: 500;
+    font-size: clamp(2.25rem, 6vw, 3.75rem);
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+.sp-status h1 em {
+    font-style: italic;
+    color: var(--sp-gold-light);
+}
+
+.sp-status p {
+    margin: 0 auto 2rem;
+    max-width: 34rem;
+    color: var(--sp-text-2);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    text-wrap: pretty;
+}
+
+.sp-status p a {
+    color: var(--sp-gold);
+}
+
+.sp-status p a[href^="mailto:"] {
+    white-space: nowrap;
+}
+
+.sp-status .sp-eyebrow {
+    margin: 0 0 1.25rem;
+    color: var(--sp-gold);
+    font-size: 0.8125rem;
+}
+
+.sp-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1rem;
+}
+
+.sp-status .sp-small {
+    margin: 2rem auto 0;
+    font-size: 0.875rem;
+    color: var(--sp-muted);
+}
+
+@media (max-width: 480px) {
+    .sp-actions { flex-direction: column; align-items: stretch; }
+    .sp-actions .sp-btn { width: 100%; }
+}
+
+/* ---------- Zustaende abhaengig von TICKET_URL (assets/js/ticket-link.js) ---------- */
+html:not([data-tickets-live="true"]) .when-live,
+html[data-tickets-live="true"] .when-soon {
+    display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sp *,
+    .sp *::before,
+    .sp *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+@media print {
+    .sp-header,
+    .sp-footer,
+    .sp-skip,
+    .legal-toc,
+    .to-toc { display: none !important; }
+    body.sp,
+    .sp .legal-page { background: #fff !important; }
+    .sp * { color: #000 !important; background: transparent !important; box-shadow: none !important; }
+    .todo::after { border: 1px solid #000; }
+}

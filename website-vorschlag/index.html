@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <!-- P2-19: Datum + Ort im Titel. TODO(Launch): ab Verkaufsstart "FS Business Forum 2026 · 13–14 Nov, Frankfurt | Tickets" -->
+    <title>FS Business Forum 2026 · 13–14 Nov · Frankfurt School</title>
+    <!-- P3-8: belegbare Beschreibung ohne Superlativ, <= 160 Zeichen (Datum + Ort zuerst, wird in Treffern abgeschnitten) -->
+    <meta name="description" content="13–14 Nov 2026 at Frankfurt School: two days of keynotes, panels and workshops with leaders from business, finance and politics. Theme: Edge of Equilibrium.">
+    <meta name="theme-color" content="#040810">
+
+    <!-- P1-9: Canonical, Open Graph, Twitter Card -->
+    <link rel="canonical" href="https://fs-businessforum.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:site_name" content="FS Business Forum">
+    <meta property="og:title" content="FS Business Forum 2026 · 13–14 Nov, Frankfurt">
+    <meta property="og:description" content="Edge of Equilibrium – two days of keynotes, panels and workshops with leaders from business, finance and politics at Frankfurt School.">
+    <meta property="og:url" content="https://fs-businessforum.com/">
+    <meta property="og:image" content="https://fs-businessforum.com/assets/og/fsbf-2026-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="FS Business Forum 2026 – 13–14 November, Frankfurt am Main">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="FS Business Forum 2026 – 13–14 November, Frankfurt am Main">
+
+    <!-- P3-17 / P2-9: no-js -> js before first paint. [data-reveal] content is only hidden while
+         script.js can reveal it: if it has not started after 2.5 s or a script fails first, the
+         page falls back to the no-JS state (content visible, ticket pill instead of the menu button).
+         P2-7: a remembered "Pause motion" choice is applied before the first frame (key shared with /2025/). -->
+    <script>
+    (function (d, w) {
+        var r = d.documentElement;
+        r.classList.replace('no-js', 'js');
+        try { if (w.localStorage.getItem('fsbf-motion') === 'paused') r.classList.add('motion-paused'); } catch (e) {}
+        r.classList.add('has-js-reveal');
+        function failsafe() {
+            if (w.__revealReady) return;
+            r.classList.remove('has-js-reveal');
+            r.classList.replace('js', 'no-js');
+        }
+        w.setTimeout(failsafe, 2500);
+        w.addEventListener('error', function (e) {
+            var t = e.target;
+            if (t === w || (t && t.tagName === 'SCRIPT')) failsafe();
+        }, true);
+    })(document, window);
+    </script>
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- P1-7: brand display font for the hero H1 (LCP) -->
+    <link rel="preload" href="assets/fonts/PlayfairDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/PlayfairDisplay-Italic-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- P1-8: hero poster per viewport (it is the container background; the <video> has no poster attribute) -->
+    <link rel="preload" href="assets/img/hero/poster-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
+    <link rel="preload" href="assets/img/hero/poster-1280.webp" as="image" type="image/webp" media="(min-width: 768px)">
+    <link rel="stylesheet" href="styles.css?v=20260928f">
+
+    <!-- P1-9: Event schema (Google Event rich result).
+         TODO(Team): Uhrzeiten bestaetigen – startDate 09:00 und endDate 18:00 sind Annahmen (Offset +01:00 = MEZ im November);
+         bei Aenderung auch data-event-start an .days-to-go (Tickets-Sektion) anpassen.
+         TODO(Launch): "offers" ergaenzen, sobald der Eventbrite-Shop live ist – je Ticketart
+         {"@type":"Offer","url":"<Eventbrite-URL>","price":"<Zahl>","priceCurrency":"EUR","availability":"https://schema.org/InStock","validFrom":"<Verkaufsstart ISO 8601>"}
+         (price nur als Zahl, keine Platzhalter) und danach im Rich Results Test pruefen. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "FS Business Forum 2026 – Edge of Equilibrium",
+        "description": "Student-run business congress at Frankfurt School: two days of keynotes, panels and workshops with leaders from business, finance and politics.",
+        "url": "https://fs-businessforum.com/",
+        "startDate": "2026-11-13T09:00:00+01:00",
+        "endDate": "2026-11-14T18:00:00+01:00",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "image": ["https://fs-businessforum.com/assets/og/fsbf-2026-og.jpg"],
+        "location": {
+            "@type": "Place",
+            "name": "Frankfurt School of Finance & Management",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Adickesallee 32-34",
+                "postalCode": "60322",
+                "addressLocality": "Frankfurt am Main",
+                "addressRegion": "Hessen",
+                "addressCountry": "DE"
+            }
+        },
+        "organizer": {
+            "@type": "Organization",
+            "name": "FS Business Forum",
+            "url": "https://fs-businessforum.com/",
+            "email": "info@fs-businessforum.com"
+        }
+    }
+    </script>
+
+    <!-- P2-9: the home page needs no GSAP/ScrollTrigger/SplitType (≈ 52 KB gz) – script.js runs without them.
+         (/2025/ still loads them for its legacy effects.) -->
+    <script defer src="assets/js/ticket-link.js?v=20260928a"></script>
+    <script defer src="script.js?v=20260928a"></script>
+</head>
+<body class="home2026 va">
+
+    <!-- P3-5: skip link -->
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Scroll progress + premium overlays -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="grain-overlay" aria-hidden="true"></div>
+    <!-- P2-8: no custom cursor ring any more – the native pointer stays -->
+
+    <!-- Header (Abschnitt 6 / P1-1 / P3-3 / P3-11): full nav from 900 px, logo + menu button below -->
+    <header class="nav">
+        <div class="nav-container">
+            <a href="./" class="nav-logo">
+                <!-- P3-14: WebP (1x lossless 7 KB, 2x 14 KB) with the PNG as fallback; above the fold, so not lazy -->
+                <picture>
+                    <source type="image/webp" srcset="assets/img/logo-362.webp 1x, assets/img/logo-724.webp 2x">
+                    <img src="assets/img/logo-362.png" srcset="assets/img/logo-362.png 1x, assets/img/logo-724.png 2x" width="181" height="48" alt="FS Business Forum – home" decoding="async">
+                </picture>
+            </a>
+            <nav class="nav-links" aria-label="Main">
+                <a href="#speakers" class="nav-link">Speakers</a>
+                <a href="#programme" class="nav-link">Theme</a>
+                <a href="#tickets" class="nav-link">Tickets</a>
+                <a href="#partners" class="nav-link">Partners</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="tickets.html" class="nav-link nav-link-cta" data-ticket-link data-cta="nav">Get Tickets</a>
+            </nav>
+            <button class="nav-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile menu (P2-3). P2-5: modal in script.js – background inert, focus in/out, Escape closes -->
+    <nav id="mobileMenu" class="mobile-menu" aria-label="Menu">
+        <div class="mobile-menu-content">
+            <ul class="mobile-menu-list">
+                <li><a href="#speakers" class="mobile-link">Speakers</a></li>
+                <li><a href="#programme" class="mobile-link">Theme 2026</a></li>
+                <li><a href="#tickets" class="mobile-link">Tickets &amp; Pricing</a></li>
+                <li><a href="#venue" class="mobile-link">Venue &amp; Travel</a></li>
+                <li><a href="#partners" class="mobile-link">Partners</a></li>
+                <li><a href="#faq" class="mobile-link">FAQ</a></li>
+                <li><a href="2025/" class="mobile-link">2025 Recap</a></li>
+                <li><a href="#contact" class="mobile-link">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-foot">
+                <a href="tickets.html" class="btn btn--primary btn--block mobile-menu-cta" data-ticket-link data-cta="menu">Get Tickets <span aria-hidden="true">→</span></a>
+                <p class="mobile-menu-meta">13–14&nbsp;Nov&nbsp;2026 · Frankfurt&nbsp;School</p>
+                <!-- TODO(Team): Instagram- und LinkedIn-URL eintragen und die Platzhalter durch Links ersetzen (P2-16) -->
+                <p class="mobile-menu-social">
+                    <span class="todo" data-todo="Instagram-Profil-URL eintragen (Handle unbekannt)">Instagram</span>
+                    <span class="todo" data-todo="LinkedIn-Seiten-URL eintragen (Handle unbekannt)">LinkedIn</span>
+                </p>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main" tabindex="-1">
+
+    <!-- 1 · HERO (P2-1, P2-6, P1-8 markup, P2-7 toggle) -->
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+        <div class="hero-video-container" aria-hidden="true">
+            <!-- P1-8: re-encoded sources, preload="none", no autoplay: script.js calls play() after load/idle and only
+                 without reduced motion, Save-Data/2G or "Pause motion". The poster is the container background
+                 (mobile/desktop WebP via CSS) – without data the <video> is transparent. -->
+            <video class="hero-video" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture disableremoteplayback>
+                <source media="(max-width: 767px)" src="assets/hero/hero-mobile.mp4" type="video/mp4">
+                <source src="assets/hero/hero-720p.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <p class="hero-eyebrow"><span class="hero-eyebrow-date">13–14&nbsp;Nov&nbsp;2026</span> <span class="hero-eyebrow-sep" aria-hidden="true">·</span> <span>Frankfurt&nbsp;School,</span> <span>Frankfurt&nbsp;am&nbsp;Main</span></p>
+            <h1 class="hero-title" id="hero-title">
+                <span class="title-line">Edge of</span>
+                <span class="title-line title-accent">Equilibrium</span>
+                <span class="sr-only"> – FS Business Forum 2026, 13–14 November, Frankfurt</span>
+            </h1>
+            <p class="hero-description">
+                <span class="hero-desc-long">Balancing freedom, growth &amp; security: two days of keynotes, panels and workshops with leaders from business, finance and politics.</span>
+                <span class="hero-desc-short">Balancing freedom, growth &amp; security: two days of keynotes, panels and workshops.</span>
+            </p>
+            <p class="hero-proof">Last year: 700+ participants from 10+ universities.</p>
+            <div class="hero-cta">
+                <a href="tickets.html" class="btn btn--primary btn-shimmer" data-ticket-link data-cta="hero">Get Tickets <span aria-hidden="true">→</span></a>
+                <a href="#programme" class="btn btn--secondary">Explore the theme</a>
+            </div>
+            <p class="hero-trust"><span class="hero-trust-label">Previous speakers from</span> UniCredit · Morgan&nbsp;Stanley · thyssenkrupp · BNP&nbsp;Paribas</p>
+        </div>
+        <!-- P2-7: pauses the video and all CSS animations (html.motion-paused), remembered per browser; logic in script.js -->
+        <button class="motion-toggle" type="button" aria-pressed="false"><span class="motion-toggle-icon" aria-hidden="true"></span><span class="motion-toggle-label">Pause motion</span></button>
+    </section>
+
+    <!-- 2 · PROOF (P1-2) + running partner band -->
+    <section class="proof" aria-labelledby="proof-title">
+        <div class="container">
+            <h2 class="sr-only" id="proof-title">FS Business Forum in numbers</h2>
+            <!-- Zahlen aus 2025/index.html (Ausgabe 2025). TODO(Team): 2026 = 8. Ausgabe? Dann "8th edition" ergaenzen. -->
+            <ul class="proof-stats">
+                <li><span class="proof-num">700+</span><span class="proof-label">participants in 2025</span></li>
+                <li><span class="proof-num">40+</span><span class="proof-label">speakers in 2025</span></li>
+                <li><span class="proof-num">10+</span><span class="proof-label">universities in 2025</span></li>
+                <li><span class="proof-num">7</span><span class="proof-label">editions so far</span></li>
+            </ul>
+        </div>
+            <!-- Laufendes Partner-Band (Feedback): pausiert bei Hover/Fokus, mit "Pause motion" und bei reduzierter Bewegung (dann statische Reihe) -->
+            <div class="logo-marquee proof-marquee">
+                <p class="logo-marquee-label">Partners 2026</p>
+                <div class="logo-marquee-viewport">
+                    <div class="logo-marquee-track">
+                    <ul class="lm-list" aria-label="Partners 2026">
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/frankfurter-sparkasse.webp" width="480" height="167" alt="Frankfurter Sparkasse" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img src="assets/img/partners/dvag.webp" width="480" height="107" alt="Deutsche Vermögensberatung (DVAG)" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/schwarz-gruppe.webp" width="438" height="191" alt="Unternehmen der Schwarz Gruppe" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/oddo-bhf.webp" width="480" height="260" alt="ODDO BHF" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/privatize.webp" width="480" height="88" alt="Privatize" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><span class="va-plogo-word" role="img" aria-label="KeSolutions">KeSolutions</span></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/goenrgy.webp" width="480" height="160" alt="GÖNRGY" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/hi-nuts.webp" width="138" height="200" alt="Hi Nuts" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/mbg.webp" width="194" height="194" alt="MBG" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/orthomol.webp" width="480" height="105" alt="Orthomol" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/longines.webp" width="329" height="163" alt="Longines" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/verival.webp" width="321" height="113" alt="Verival" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/red-bull.webp" width="314" height="200" alt="Red Bull" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/frankfurter-schuss.webp" width="184" height="200" alt="Frankfurter Schuss" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/emmi-caffe-latte.webp" width="190" height="200" alt="Emmi Caffè Latte" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/upsters.webp" width="165" height="200" alt="Upsters" loading="lazy" decoding="async"></li>
+                    </ul>
+                    <ul class="lm-list" aria-hidden="true">
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/frankfurter-sparkasse.webp" width="480" height="167" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img src="assets/img/partners/dvag.webp" width="480" height="107" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/schwarz-gruppe.webp" width="438" height="191" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/oddo-bhf.webp" width="480" height="260" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/privatize.webp" width="480" height="88" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><span class="va-plogo-word">KeSolutions</span></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/goenrgy.webp" width="480" height="160" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/hi-nuts.webp" width="138" height="200" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/mbg.webp" width="194" height="194" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/orthomol.webp" width="480" height="105" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/longines.webp" width="329" height="163" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/verival.webp" width="321" height="113" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/red-bull.webp" width="314" height="200" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/frankfurter-schuss.webp" width="184" height="200" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/emmi-caffe-latte.webp" width="190" height="200" alt="" loading="lazy" decoding="async"></li>
+                        <li class="lm-item"><img class="plogo-img" src="assets/img/partners/upsters.webp" width="165" height="200" alt="" loading="lazy" decoding="async"></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- 3 · WHY ATTEND (P1-2, reuses .va-why / .va-feature) -->
+    <section id="why" class="sec va-why" aria-labelledby="why-title">
+        <div class="container">
+            <header class="sec-head" data-reveal>
+                <p class="label-lg sec-eyebrow">Why attend</p>
+                <h2 class="sec-title" id="why-title">Two days that open doors</h2>
+                <p class="sec-lead">Hear from decision-makers, get hands-on with partner companies and build your network – two days at Frankfurt School.</p>
+            </header>
+            <ul class="va-why-grid" data-reveal>
+                <li class="va-feature">
+                    <figure class="va-feature-media"><img src="assets/img/photos/financepanel-640.webp" srcset="assets/img/photos/financepanel-640.webp 640w, assets/img/photos/financepanel-1280.webp 1280w" sizes="(min-width: 1024px) 280px, (min-width: 600px) 45vw, 112px" width="640" height="427" alt="Panel discussion on stage at FS Business Forum 2025" loading="lazy" decoding="async"></figure>
+                    <div class="va-feature-body">
+                        <span class="va-feature-k" aria-hidden="true">01</span>
+                        <h3>Keynotes &amp; panels</h3>
+                        <p>Leaders from business, finance and politics on stage, debating this year’s theme.</p>
+                    </div>
+                </li>
+                <li class="va-feature">
+                    <figure class="va-feature-media"><img src="assets/img/photos/companyworkshop-640.webp" srcset="assets/img/photos/companyworkshop-640.webp 640w, assets/img/photos/companyworkshop-1280.webp 1280w" sizes="(min-width: 1024px) 280px, (min-width: 600px) 45vw, 112px" width="640" height="960" alt="Participants working together in a company workshop" loading="lazy" decoding="async"></figure>
+                    <div class="va-feature-body">
+                        <span class="va-feature-k" aria-hidden="true">02</span>
+                        <h3>Workshops</h3>
+                        <p>Hands-on sessions with our partner companies – small groups, real cases.</p>
+                    </div>
+                </li>
+                <li class="va-feature">
+                    <figure class="va-feature-media"><img src="assets/img/photos/3womencoffedrinkingfyeur-640.webp" srcset="assets/img/photos/3womencoffedrinkingfyeur-640.webp 640w, assets/img/photos/3womencoffedrinkingfyeur-1280.webp 1280w" sizes="(min-width: 1024px) 280px, (min-width: 600px) 45vw, 112px" width="640" height="427" alt="Participants talking over coffee during a break" loading="lazy" decoding="async"></figure>
+                    <div class="va-feature-body">
+                        <span class="va-feature-k" aria-hidden="true">03</span>
+                        <h3>Networking &amp; recruiting</h3>
+                        <p>Get to know partner companies and their teams, and connect with speakers and fellow students.</p>
+                    </div>
+                </li>
+                <li class="va-feature">
+                    <figure class="va-feature-media"><img src="assets/img/photos/afterparty_fomo_social_wineglasseds-640.webp" srcset="assets/img/photos/afterparty_fomo_social_wineglasseds-640.webp 640w, assets/img/photos/afterparty_fomo_social_wineglasseds-1280.webp 1280w" sizes="(min-width: 1024px) 280px, (min-width: 600px) 45vw, 112px" width="640" height="427" alt="Participants toasting at the 2025 evening event" loading="lazy" decoding="async"></figure>
+                    <div class="va-feature-body">
+                        <span class="va-feature-k" aria-hidden="true">04</span>
+                        <h3>Evening programme</h3>
+                        <p><span class="todo" data-todo="Abendprogramm 2026 bestaetigen: Format, Tag, im Ticket enthalten?">An evening get-together with drinks and music – details to follow.</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 4 · SPEAKERS 2026 (P1-6, P0-3 copy, P1-5) -->
+    <section id="speakers" class="sec sec--alt" aria-labelledby="speakers-title">
+        <div class="container">
+            <header class="sec-head" data-reveal>
+                <p class="label-lg sec-eyebrow">Line-up</p>
+                <h2 class="sec-title" id="speakers-title">Speakers 2026</h2>
+                <p class="sec-lead">The first speakers are confirmed. More names from business, finance and politics follow in waves.</p>
+            </header>
+
+            <!-- Speaker-Wellen: 4er-Reihen. Welle 1 = Neske, Wintels, Brzeski (+ Countdown-Karte an Platz 4).
+                 Quelle Namen/Positionen: Canva "Speakers - Pictures". Firmenlogo als Badge auf dem Foto. -->
+            <div class="spk-grid" data-reveal>
+                <article class="spk-card">
+                    <figure class="spk-photo">
+                        <img src="assets/img/speakers2026/rainer_neske.webp" width="900" height="888" alt="Portrait of Rainer Neske" loading="lazy" decoding="async">
+                        <span class="spk-logo spk-logo--square"><img src="assets/img/logos/lbbw.webp" width="360" height="360" alt="LBBW" loading="lazy" decoding="async"></span>
+                    </figure>
+                    <div class="spk-body">
+                        <p class="spk-format">Keynote</p>
+                        <h3 class="spk-name">Rainer Neske</h3>
+                        <p class="spk-role">CEO</p>
+                        <p class="spk-company">LBBW</p>
+                    </div>
+                </article>
+                <article class="spk-card">
+                    <figure class="spk-photo">
+                        <img src="assets/img/speakers2026/stefan_wintels.webp" width="759" height="1200" alt="Portrait of Stefan Wintels" loading="lazy" decoding="async">
+                        <span class="spk-logo"><img src="assets/img/logos/kfw.webp" width="480" height="168" alt="KfW" loading="lazy" decoding="async"></span>
+                    </figure>
+                    <div class="spk-body">
+                        <p class="spk-format">Speech</p>
+                        <h3 class="spk-name">Stefan Wintels</h3>
+                        <p class="spk-role">CEO</p>
+                        <p class="spk-company">KfW Bankengruppe</p>
+                        <p class="spk-talk" lang="de">„Zukunftsmärkte finanzieren: Wie öffentliche Finanzierung privates Kapital mobilisiert“</p>
+                    </div>
+                </article>
+                <article class="spk-card">
+                    <figure class="spk-photo">
+                        <img src="assets/img/speakers2026/carsten_brzeski.webp" width="471" height="516" alt="Portrait of Carsten Brzeski" loading="lazy" decoding="async">
+                        <span class="spk-logo"><img src="assets/img/logos/ing.webp" width="432" height="108" alt="ING" loading="lazy" decoding="async"></span>
+                    </figure>
+                    <div class="spk-body">
+                        <h3 class="spk-name">Carsten Brzeski</h3>
+                        <p class="spk-role">Global Head of Macro Research &amp; Chief Eurozone Economist</p>
+                        <p class="spk-company">ING</p>
+                    </div>
+                </article>
+
+                <!-- Platz 4: Countdown bis zur naechsten Welle (Logik in script.js). Bei Ablauf wird der Timer ausgeblendet.
+                     TODO(Team): data-target = echter Reveal-Termin MIT Zeitzone (hier PLATZHALTER 05.10.2026 12:00 MESZ). -->
+                <article class="spk-card spk-card--timer" aria-labelledby="next-wave-title">
+                    <div class="spk-timer-inner">
+                        <p class="spk-reveal-k">Next wave</p>
+                        <h3 class="spk-timer-title" id="next-wave-title">More speakers coming</h3>
+                        <div class="speaker-countdown">
+                            <div class="countdown-live" hidden>
+                                <p class="countdown-label" aria-hidden="true">Revealed in <span class="todo" data-todo="Reveal-Termin der naechsten Welle bestaetigen (Platzhalter 05.10.2026, 12:00)">·</span></p>
+                                <p class="sr-only countdown-sr" role="timer" aria-live="off">Next speaker reveal soon</p>
+                                <div class="countdown-timer" id="speakerCountdown" data-target="2026-10-05T12:00:00+02:00" aria-hidden="true">
+                                    <div class="countdown-unit"><span class="countdown-num" data-cd="days">00</span><span class="countdown-cap">Days</span></div>
+                                    <div class="countdown-unit"><span class="countdown-num" data-cd="hours">00</span><span class="countdown-cap">Hrs</span></div>
+                                    <div class="countdown-unit"><span class="countdown-num" data-cd="minutes">00</span><span class="countdown-cap">Min</span></div>
+                                    <div class="countdown-unit"><span class="countdown-num" data-cd="seconds">00</span><span class="countdown-cap">Sec</span></div>
+                                </div>
+                            </div>
+                            <p class="countdown-fallback">More speakers will be announced soon.</p>
+                        </div>
+                        <p class="spk-follow">Follow the reveal on
+                            <span class="todo" data-todo="Instagram-Profil-URL eintragen (Handle unbekannt)">Instagram</span> and
+                            <span class="todo" data-todo="LinkedIn-Seiten-URL eintragen (Handle unbekannt)">LinkedIn</span>.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- NAECHSTE WELLEN (vorbereitet, noch nicht veroeffentlicht). Quelle: Canva "Speakers - Pictures" + interner Zeitplan
+                 (ohne Uhrzeiten – Timetable wird noch nicht veroeffentlicht). Zum Reveal: bis zu 4 Karten in .spk-grid kopieren
+                 (neue 4er-Reihe, Countdown-Karte ans Ende), Kommentar-Platzhalter "&#45;&#45;" wieder zu "--" machen und data-target
+                 auf den naechsten Termin setzen. Reihenfolge/Wellen-Zuordnung entscheidet das Team.
+                 Weitere Programmpunkte laut Zeitplan: Opening Speech (Chairs), Finance Panel.
+                <article class="spk-card">
+                    <figure class="spk-photo">
+                        <img src="assets/img/speakers2026/tim_henning.webp" width="900" height="833" alt="Portrait of Tim Henning" loading="lazy" decoding="async">
+                        <span class="spk-logo"><img src="assets/img/logos/../partners/privatize.webp" width="480" height="88" alt="Privatize" loading="lazy" decoding="async"></span>
+                    </figure>
+                    <div class="spk-body">
+                        <p class="spk-format">Speech</p>
+                        <h3 class="spk-name">Tim Henning</h3>
+                        <p class="spk-role">CEO &amp; Founder</p>
+                        <p class="spk-company">Privatize</p>
+                        <p class="spk-talk">Forbes 30 Under 30</p>
+                        <p class="spk-talk">„Private Markets at Scale: The Future of European Capital Formation“</p>
+                    </div>
+                </article>
+                <article class="spk-card">
+                    <figure class="spk-photo">
+                        # TODO(Team): Portraetfoto von Katharina Nickel fehlt (assets/img/speakers2026/…webp)
+                        <span class="spk-logo"><img src="assets/img/logos/BNP_Paribas_Logo.webp" width="480" height="480" alt="BNP Paribas" loading="lazy" decoding="async"></span>
+                    </figure>
+                    <div class="spk-body">
+                        <p class="spk-format">Fireside chat</p>
+                        <h3 class="spk-name">Katharina Nickel</h3>
+                        <p class="spk-role">CSO &amp; Member of the Management Board</p>
+                        <p class="spk-company">BNP Paribas</p>
+                    </div>
+                </article>
+                <article class="spk-card">
+                    <figure class="spk-photo">
+                        <img src="assets/img/speakers2026/stefan_ruehl.webp" width="700" height="466" alt="Portrait of Stefan Rühl" loading="lazy" decoding="async">
+                        <span class="spk-logo"><img src="assets/img/logos/dvag.webp" width="480" height="107" alt="DVAG" loading="lazy" decoding="async"></span>
+                    </figure>
+                    <div class="spk-body">
+                        <p class="spk-format">Speech</p>
+                        <h3 class="spk-name">Stefan Rühl</h3>
+                        <p class="spk-role">Managing Director Banken &amp; Investment</p>
+                        <p class="spk-company">Deutsche Vermögensberatung (DVAG)</p>
+                        <p class="spk-talk" lang="de">„50 Jahre Marktführerschaft: Einblick in Deutschlands größte eigenständige Finanzberatung“</p>
+                    </div>
+                </article>
+                <article class="spk-card">
+                    <figure class="spk-photo">
+                        <img src="assets/img/speakers2026/kevin_kantert.webp" width="700" height="685" alt="Portrait of Kevin Kantert" loading="lazy" decoding="async">
+                        <span class="spk-logo"><img src="assets/img/logos/dvag.webp" width="480" height="107" alt="DVAG" loading="lazy" decoding="async"></span>
+                    </figure>
+                    <div class="spk-body">
+                        <p class="spk-format">Speech</p>
+                        <h3 class="spk-name">Kevin Kantert</h3>
+                        <p class="spk-role">Direktionsleiter</p>
+                        <p class="spk-company">Deutsche Vermögensberatung (DVAG)</p>
+                        <p class="spk-talk">Joint session with Stefan Rühl</p>
+                    </div>
+                </article>
+                # TODO(Team): BlackRock erst veroeffentlichen, wenn freigegeben (aktuell auch nicht als Partner gelistet)
+                <article class="spk-card">
+                    <figure class="spk-photo">
+                        # TODO(Team): Portraetfoto von Suria Bartell fehlt (assets/img/speakers2026/…webp)
+                        <span class="spk-logo"><img src="assets/img/logos/BlackRock.webp" width="480" height="98" alt="BlackRock" loading="lazy" decoding="async"></span>
+                    </figure>
+                    <div class="spk-body">
+                        <p class="spk-format">Fireside chat</p>
+                        <h3 class="spk-name">Suria Bartell</h3>
+                        <p class="spk-role">Managing Director, Head of Sales Pensions &amp; Endowments</p>
+                        <p class="spk-company">BlackRock</p>
+                    </div>
+                </article>
+                <article class="spk-card">
+                    <figure class="spk-photo">
+                        # TODO(Team): Portraetfoto von Marc Billeb fehlt (assets/img/speakers2026/…webp)
+                        <span class="spk-logo"><img src="assets/img/logos/PwC.webp" width="480" height="480" alt="PwC" loading="lazy" decoding="async"></span>
+                    </figure>
+                    <div class="spk-body">
+                        <p class="spk-format">Keynote</p>
+                        <h3 class="spk-name">Marc Billeb</h3>
+                        <p class="spk-role">CEO</p>
+                        <p class="spk-company">PwC Deutschland</p>
+                    </div>
+                </article>
+                <article class="spk-card">
+                    <figure class="spk-photo">
+                        # TODO(Team): Portraetfoto von Stefan Hafke fehlt (assets/img/speakers2026/…webp)
+                        <span class="spk-logo"><img src="assets/img/logos/citi_Logo.webp" width="480" height="480" alt="Citi" loading="lazy" decoding="async"></span>
+                    </figure>
+                    <div class="spk-body">
+                        <p class="spk-format">Keynote</p>
+                        <h3 class="spk-name">Stefan Hafke</h3>
+                        <p class="spk-role">CEO</p>
+                        <p class="spk-company">Citi Deutschland</p>
+                    </div>
+                </article>
+            ======== Ende vorbereitete Karten ======== -->
+
+            <div class="inline-cta" data-reveal>
+                <p class="inline-cta-text">Want to hear them live?</p>
+                <a href="tickets.html" class="btn btn--primary" data-ticket-link data-cta="speakers">Get Tickets <span aria-hidden="true">→</span></a>
+            </div>
+
+            <!-- Previously on our stage (P1-2): titles exactly as on 2025/index.html (British spelling "Defence").
+                 P3-14: 160w/240w thumbnails (assets/img/alumni/, from assets/img/speakers2025/) instead of the 480 px files. -->
+            <div class="alumni" data-reveal>
+                <div class="alumni-head">
+                    <h3 class="alumni-title">Previously on our stage</h3>
+                    <a class="btn--link" href="2025/#speakers">See all 2025 speakers <span aria-hidden="true">→</span></a>
+                </div>
+                <ul class="alumni-grid">
+                    <li class="alumni-item"><img src="assets/img/alumni/01_andrea_orcel_ceo_unicredit-240.webp" srcset="assets/img/alumni/01_andrea_orcel_ceo_unicredit-160.webp 160w, assets/img/alumni/01_andrea_orcel_ceo_unicredit-240.webp 240w" sizes="(max-width: 599px) 56px, 72px" width="240" height="240" alt="" loading="lazy" decoding="async"><p><strong>Andrea Orcel</strong><span>CEO, UniCredit</span></p></li>
+                    <li class="alumni-item"><img src="assets/img/alumni/02_andre_munkelt_ceo_morganstanley-240.webp" srcset="assets/img/alumni/02_andre_munkelt_ceo_morganstanley-160.webp 160w, assets/img/alumni/02_andre_munkelt_ceo_morganstanley-240.webp 240w" sizes="(max-width: 599px) 56px, 72px" width="240" height="240" alt="" loading="lazy" decoding="async"><p><strong>André Munkelt</strong><span>CEO, Morgan Stanley Europe</span></p></li>
+                    <li class="alumni-item"><img src="assets/img/alumni/04_miguel_borrego_ceo_thyssenkrupp-240.webp" srcset="assets/img/alumni/04_miguel_borrego_ceo_thyssenkrupp-160.webp 160w, assets/img/alumni/04_miguel_borrego_ceo_thyssenkrupp-240.webp 240w" sizes="(max-width: 599px) 56px, 72px" width="240" height="240" alt="" loading="lazy" decoding="async"><p><strong>Miguel Ángel López Borrego</strong><span>CEO, thyssenkrupp</span></p></li>
+                    <li class="alumni-item"><img src="assets/img/alumni/18_Maika_Jahn_COO_Member_of_management_board_BlackRocksvg-240.webp" srcset="assets/img/alumni/18_Maika_Jahn_COO_Member_of_management_board_BlackRocksvg-160.webp 160w, assets/img/alumni/18_Maika_Jahn_COO_Member_of_management_board_BlackRocksvg-240.webp 240w" sizes="(max-width: 599px) 56px, 72px" width="240" height="240" alt="" loading="lazy" decoding="async"><p><strong>Maika Jahn</strong><span>COO, Member of Management Board, BlackRock</span></p></li>
+                    <li class="alumni-item"><img src="assets/img/alumni/12_thomas_de_maiziere_former_federal_minister_cdu-240.webp" srcset="assets/img/alumni/12_thomas_de_maiziere_former_federal_minister_cdu-160.webp 160w, assets/img/alumni/12_thomas_de_maiziere_former_federal_minister_cdu-240.webp 240w" sizes="(max-width: 599px) 56px, 72px" width="240" height="240" alt="" loading="lazy" decoding="async"><p><strong>Thomas de Maizière</strong><span>Former Federal Minister of the Interior and Defence (CDU)</span></p></li>
+                    <li class="alumni-item"><img src="assets/img/alumni/11Bettina_Stark-Watzinger_Former_Federal_Minister_for_Education_and_Research_FDP-240.webp" srcset="assets/img/alumni/11Bettina_Stark-Watzinger_Former_Federal_Minister_for_Education_and_Research_FDP-160.webp 160w, assets/img/alumni/11Bettina_Stark-Watzinger_Former_Federal_Minister_for_Education_and_Research_FDP-240.webp 240w" sizes="(max-width: 599px) 56px, 72px" width="240" height="240" alt="" loading="lazy" decoding="async"><p><strong>Bettina Stark-Watzinger</strong><span>Former Federal Minister for Education and Research (FDP)</span></p></li>
+                    <li class="alumni-item"><img src="assets/img/alumni/13Marco_Buschmann_Former_Federal_Minister_of_Justice_of_Germany_FDP-240.webp" srcset="assets/img/alumni/13Marco_Buschmann_Former_Federal_Minister_of_Justice_of_Germany_FDP-160.webp 160w, assets/img/alumni/13Marco_Buschmann_Former_Federal_Minister_of_Justice_of_Germany_FDP-240.webp 240w" sizes="(max-width: 599px) 56px, 72px" width="240" height="240" alt="" loading="lazy" decoding="async"><p><strong>Marco Buschmann</strong><span>Former Federal Minister of Justice (FDP)</span></p></li>
+                    <li class="alumni-item"><img src="assets/img/alumni/06_brian_heath_generalconsul_usa-240.webp" srcset="assets/img/alumni/06_brian_heath_generalconsul_usa-160.webp 160w, assets/img/alumni/06_brian_heath_generalconsul_usa-240.webp 240w" sizes="(max-width: 599px) 56px, 72px" width="240" height="240" alt="" loading="lazy" decoding="async"><p><strong>Brian Heath</strong><span>Consul General, United States, Frankfurt</span></p></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5 · THEME 2026 (Timetable wird noch nicht veroeffentlicht – nur Thema + Formate). Anker #programme bleibt fuer alte Links. -->
+    <section id="programme" class="sec" aria-labelledby="programme-title">
+        <div class="container">
+            <header class="sec-head" data-reveal>
+                <p class="label-lg sec-eyebrow">Theme 2026</p>
+                <h2 class="sec-title" id="programme-title">Edge of Equilibrium</h2>
+                <p class="sec-lead">Balancing freedom, growth and security – three forces that often pull in different directions. Two days of keynotes, panels and workshops around one question: where is the balance?</p>
+            </header>
+
+            <ol class="pillars" data-reveal>
+                <li class="pillar">
+                    <span class="pillar-k" aria-hidden="true">I</span>
+                    <h3 class="pillar-title">Freedom</h3>
+                    <p><span class="todo" data-todo="Text Saeule Freedom vom Programm-Team bestaetigen">Open markets, free societies and individual choice – where freedom creates value, and where it reaches its limits.</span></p>
+                </li>
+                <li class="pillar">
+                    <span class="pillar-k" aria-hidden="true">II</span>
+                    <h3 class="pillar-title">Growth</h3>
+                    <p><span class="todo" data-todo="Text Saeule Growth vom Programm-Team bestaetigen">Innovation, capital and competitiveness – what it takes to grow in a changing economy.</span></p>
+                </li>
+                <li class="pillar">
+                    <span class="pillar-k" aria-hidden="true">III</span>
+                    <h3 class="pillar-title">Security</h3>
+                    <p><span class="todo" data-todo="Text Saeule Security vom Programm-Team bestaetigen">Geopolitics, defence and resilience – how economies and societies stay secure.</span></p>
+                </li>
+            </ol>
+
+            <ul class="formats" data-reveal aria-label="Formats">
+                <li>Keynotes</li>
+                <li>Panel discussions</li>
+                <li>Fireside chats</li>
+                <li>Workshops</li>
+                <li>Networking</li>
+            </ul>
+            <p class="sec-note">The full programme will be published closer to the event.</p>
+        </div>
+    </section>
+
+    <!-- 6 · TICKETS & PRICING (P1-3, P2-15, P3-5; exit link to the archive removed, P2-3) -->
+    <section id="tickets" class="sec sec--photo" aria-labelledby="tickets-title">
+        <!-- P3-14: band photo as lazy <img> (1280w WebP q45 under the overlay) instead of an eagerly loaded inline background -->
+        <img class="sec-photo" src="assets/img/photos/happycrowed-bg.webp" width="1280" height="854" alt="" loading="lazy" decoding="async">
+        <div class="container">
+            <header class="sec-head" data-reveal>
+                <p class="label-lg sec-eyebrow">Tickets &amp; pricing</p>
+                <h2 class="sec-title" id="tickets-title">Tickets 2026</h2>
+                <p class="sec-lead">Secure your seat for 13–14 November at Frankfurt School.</p>
+            </header>
+
+            <div class="ticket-grid" data-reveal>
+                <!-- Ein Ticket, mehrere Preisstufen. TODO(Team): Stufen, Preise und Zeitraeume eintragen; die aktuelle Stufe
+                     bekommt class="is-current" (und aria-current="true"), abgelaufene class="is-past". -->
+                <article class="ticket-card ticket-card--single">
+                    <p class="label-sm ticket-kicker">One ticket · several price stages</p>
+                    <h3 class="ticket-name">FS Business Forum 2026 Ticket</h3>
+                    <ul class="ticket-features">
+                        <li>Access to all keynotes and panel discussions</li>
+                        <li><span class="todo" data-todo="Leistung bestaetigen: Workshops im Ticket enthalten?">Workshops with partner companies</span></li>
+                        <li><span class="todo" data-todo="Leistung bestaetigen: Catering?">Catering during the event</span></li>
+                        <li><span class="todo" data-todo="Leistung bestaetigen: Abendprogramm im Ticket?">Evening programme</span></li>
+                    </ul>
+                    <ol class="price-stages" aria-label="Price stages">
+                        <li class="price-stage is-current" aria-current="true">
+                            <span class="price-stage-name"><span class="todo" data-todo="Name Preisstufe 1 (z. B. Early Bird)">Early Bird</span></span>
+                            <span class="price-stage-until"><span class="todo" data-todo="Zeitraum/Ende Preisstufe 1">until [date]</span></span>
+                            <span class="price-stage-price"><span class="todo" data-todo="Preis Preisstufe 1 (inkl. MwSt.)">€&nbsp;–</span></span>
+                        </li>
+                        <li class="price-stage">
+                            <span class="price-stage-name"><span class="todo" data-todo="Name Preisstufe 2">Regular</span></span>
+                            <span class="price-stage-until"><span class="todo" data-todo="Zeitraum/Ende Preisstufe 2">until [date]</span></span>
+                            <span class="price-stage-price"><span class="todo" data-todo="Preis Preisstufe 2 (inkl. MwSt.)">€&nbsp;–</span></span>
+                        </li>
+                        <li class="price-stage">
+                            <span class="price-stage-name"><span class="todo" data-todo="Name Preisstufe 3 (falls vorhanden)">Last Minute</span></span>
+                            <span class="price-stage-until"><span class="todo" data-todo="Zeitraum Preisstufe 3">from [date]</span></span>
+                            <span class="price-stage-price"><span class="todo" data-todo="Preis Preisstufe 3 (inkl. MwSt.)">€&nbsp;–</span></span>
+                        </li>
+                    </ol>
+                    <p class="ticket-stage-note">The earlier you book, the lower the price.</p>
+                    <a href="tickets.html" class="btn btn--primary btn--block" data-ticket-link data-cta="pricing">Get Tickets <span aria-hidden="true">→</span></a>
+                </article>
+                <aside class="ticket-info" aria-label="Event details">
+                    <!-- P2-15: script.js turns this into "46 days to go · 13–14 November 2026" (Frankfurt calendar days) and hides it
+                         once the event has started; the static text is the no-JS fallback.
+                         TODO(Team): Startzeit bestaetigen (hier 09:00 angenommen). -->
+                    <p class="days-to-go" data-event-start="2026-11-13T09:00:00+01:00">13–14 November 2026</p>
+                    <dl class="ticket-facts">
+                        <div><dt>When</dt><dd>Fri 13 – Sat 14 November 2026</dd></div>
+                        <div><dt>Where</dt><dd>Frankfurt School of Finance &amp; Management, Frankfurt am Main</dd></div>
+                    </dl>
+                    <p class="ticket-note">Tickets are sold via Eventbrite. Secure checkout, e-ticket by email.</p>
+                    <a class="btn--link" href="#faq">Questions? Read the FAQ <span aria-hidden="true">→</span></a>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7 · 2025 HIGHLIGHTS (P1-2). TODO(Team): echte Teilnehmer-Zitate (Name, Hochschule, Freigabe) ergaenzen – keine erfundenen Zitate. -->
+    <section id="highlights" class="sec" aria-labelledby="highlights-title">
+        <div class="container">
+            <header class="sec-head sec-head--split" data-reveal>
+                <div>
+                    <p class="label-lg sec-eyebrow">Looking back</p>
+                    <h2 class="sec-title" id="highlights-title">2025 Highlights</h2>
+                    <p class="sec-lead">Impressions from last year’s edition at Frankfurt School.</p>
+                </div>
+                <a class="btn--link" href="2025/">See the 2025 recap <span aria-hidden="true">→</span></a>
+            </header>
+            <ul class="gallery" data-reveal>
+                <li class="gallery-tile gallery-tile--wide"><img src="assets/img/photos/crowd_clapping-640.webp" srcset="assets/img/photos/crowd_clapping-640.webp 640w, assets/img/photos/crowd_clapping-1280.webp 1280w" sizes="(min-width: 1024px) 590px, (min-width: 600px) 66vw, 100vw" width="640" height="427" alt="A full hall applauding at FS Business Forum 2025" loading="lazy" decoding="async"></li>
+                <li class="gallery-tile"><img src="assets/img/photos/alexanderdoll_profstieglitz_andreaorcelpicture-640.webp" srcset="assets/img/photos/alexanderdoll_profstieglitz_andreaorcelpicture-640.webp 640w, assets/img/photos/alexanderdoll_profstieglitz_andreaorcelpicture-1280.webp 1280w" sizes="(min-width: 1024px) 290px, (min-width: 600px) 33vw, 50vw" width="640" height="427" alt="UniCredit CEO Andrea Orcel with guests at FS Business Forum 2025" loading="lazy" decoding="async"></li>
+                <li class="gallery-tile"><img src="assets/img/photos/defensepanelmoderator-640.webp" srcset="assets/img/photos/defensepanelmoderator-640.webp 640w, assets/img/photos/defensepanelmoderator-1280.webp 1280w" sizes="(min-width: 1024px) 290px, (min-width: 600px) 33vw, 50vw" width="640" height="427" alt="A student moderator leading a panel on security" loading="lazy" decoding="async"></li>
+                <li class="gallery-tile"><img src="assets/img/photos/thyssenkrupp_ceo_with_adnreas_grassl-640.webp" srcset="assets/img/photos/thyssenkrupp_ceo_with_adnreas_grassl-640.webp 640w, assets/img/photos/thyssenkrupp_ceo_with_adnreas_grassl-1280.webp 1280w" sizes="(min-width: 1024px) 290px, (min-width: 600px) 33vw, 50vw" width="640" height="427" alt="thyssenkrupp CEO Miguel Ángel López Borrego in conversation in front of the partner wall" loading="lazy" decoding="async"></li>
+                <li class="gallery-tile"><img src="assets/img/photos/guests_oplaying_kicker-640.webp" srcset="assets/img/photos/guests_oplaying_kicker-640.webp 640w, assets/img/photos/guests_oplaying_kicker-1280.webp 1280w" sizes="(min-width: 1024px) 290px, (min-width: 600px) 33vw, 50vw" width="640" height="427" alt="Participants playing table football during a break" loading="lazy" decoding="async"></li>
+                <li class="gallery-tile gallery-tile--wide"><img src="assets/img/photos/moderatorandsittingcrowd-640.webp" srcset="assets/img/photos/moderatorandsittingcrowd-640.webp 640w, assets/img/photos/moderatorandsittingcrowd-1280.webp 1280w" sizes="(min-width: 1024px) 590px, (min-width: 600px) 66vw, 100vw" width="640" height="427" alt="The moderator opening a session in front of a seated audience" loading="lazy" decoding="async"></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 8 · PARTNERS 2026 (P1-4, P1-5, P3-6, P2-2) – one section, old anchors kept -->
+    <section id="partners" class="sec sec--alt" aria-labelledby="partners-title">
+        <div class="container">
+            <header class="sec-head" data-reveal>
+                <p class="label-lg sec-eyebrow">With the support of</p>
+                <h2 class="sec-title" id="partners-title">Partners 2026</h2>
+                <p class="sec-lead">The companies that make FS Business Forum 2026 possible.</p>
+            </header>
+
+            <!-- Partner-Tiers untereinander (Feedback). Karten mit Website sind komplett klickbar (neuer Tab).
+                 TODO(Team): Darstellung mit den gebuchten Sponsoring-Paketen abgleichen. -->
+            <div class="ptiers" data-reveal>
+                <div id="corporates" class="ptier ptier--platinum">
+                    <h3 class="ptier-label">Platinum · Industry Partners</h3>
+                    <ul class="pcards pcards--lg">
+                        <li><a class="pcard pcard--lg" href="https://www.frankfurter-sparkasse.de" target="_blank" rel="noopener noreferrer">
+                            <span class="plogo"><img src="assets/img/partners/frankfurter-sparkasse.webp" width="480" height="167" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pinfo"><span class="pname">Frankfurter Sparkasse</span><span class="pdesc">One of Germany’s largest savings banks, rooted in Frankfurt.</span></span>
+                            <span class="sr-only"> – website (opens in a new tab)</span><span class="parrow" aria-hidden="true">↗</span>
+                        </a></li>
+                        <li><a class="pcard pcard--lg" href="https://www.dvag.de" target="_blank" rel="noopener noreferrer">
+                            <span class="plogo"><img src="assets/img/partners/dvag.webp" width="480" height="107" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pinfo"><span class="pname">Deutsche Vermögensberatung (DVAG)</span><span class="pdesc">Germany’s largest independent financial advisory firm.</span></span>
+                            <span class="sr-only"> – website (opens in a new tab)</span><span class="parrow" aria-hidden="true">↗</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div class="ptier ptier--gold">
+                    <h3 class="ptier-label">Gold Partner</h3>
+                    <ul class="pcards pcards--md">
+                        <li><a class="pcard pcard--md" href="https://gruppe.schwarz" target="_blank" rel="noopener noreferrer">
+                            <span class="plogo"><img src="assets/img/partners/schwarz-gruppe.webp" width="438" height="191" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pinfo"><span class="pname">Unternehmen der Schwarz Gruppe</span><span class="pdesc">From retail and production to recycling.</span></span>
+                            <span class="sr-only"> – website (opens in a new tab)</span><span class="parrow" aria-hidden="true">↗</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div class="ptier ptier--silver">
+                    <h3 class="ptier-label">Silver Partner</h3>
+                    <ul class="pcards pcards--md">
+                        <li><a class="pcard pcard--md" href="https://www.oddo-bhf.com" target="_blank" rel="noopener noreferrer">
+                            <span class="plogo"><img src="assets/img/partners/oddo-bhf.webp" width="480" height="260" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pinfo"><span class="pname">ODDO BHF</span><span class="pdesc">Franco-German financial services group.</span></span>
+                            <span class="sr-only"> – website (opens in a new tab)</span><span class="parrow" aria-hidden="true">↗</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div class="ptier ptier--corporate">
+                    <h3 class="ptier-label">Corporate Partner</h3>
+                    <ul class="pcards pcards--md">
+                        <!-- TODO(Team): Website-URL fuer Privatize eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
+                        <li><div class="pcard pcard--md">
+                            <span class="plogo"><img src="assets/img/partners/privatize.webp" width="480" height="88" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pinfo"><span class="pname">Privatize</span></span>
+                        </div></li>
+                    </ul>
+                </div>
+
+                <div id="event-partners" class="ptier ptier--event">
+                    <h3 class="ptier-label">Event Partners</h3>
+                    <ul class="pcards pcards--tile">
+                        <!-- TODO(Team): KeSolutions-Logo anfordern -->
+                        <!-- TODO(Team): Website-URL fuer KeSolutions eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
+                        <li><div class="pcard pcard--tile">
+                            <span class="plogo"><span class="va-plogo-word">KeSolutions</span></span>
+                            <span class="pname">KeSolutions <span class="prole">IT partner</span></span>
+                        </div></li>
+                        <!-- TODO(Team): Website-URL fuer GÖNRGY eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
+                        <li><div class="pcard pcard--tile">
+                            <span class="plogo"><img src="assets/img/partners/goenrgy.webp" width="480" height="160" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pname">GÖNRGY</span>
+                        </div></li>
+                        <!-- TODO(Team): Website-URL fuer Hi Nuts eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
+                        <li><div class="pcard pcard--tile">
+                            <span class="plogo"><img src="assets/img/partners/hi-nuts.webp" width="138" height="200" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pname">Hi Nuts</span>
+                        </div></li>
+                        <!-- TODO(Team): Website-URL fuer MBG eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
+                        <li><div class="pcard pcard--tile">
+                            <span class="plogo"><img src="assets/img/partners/mbg.webp" width="194" height="194" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pname">MBG</span>
+                        </div></li>
+                        <li><a class="pcard pcard--tile" href="https://www.orthomol.com" target="_blank" rel="noopener noreferrer">
+                            <span class="plogo"><img src="assets/img/partners/orthomol.webp" width="480" height="105" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pname">Orthomol</span>
+                            <span class="sr-only"> – website (opens in a new tab)</span><span class="parrow" aria-hidden="true">↗</span>
+                        </a></li>
+                        <li><a class="pcard pcard--tile" href="https://www.longines.com" target="_blank" rel="noopener noreferrer">
+                            <span class="plogo"><img src="assets/img/partners/longines.webp" width="329" height="163" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pname">Longines</span>
+                            <span class="sr-only"> – website (opens in a new tab)</span><span class="parrow" aria-hidden="true">↗</span>
+                        </a></li>
+                        <!-- TODO(Team): Website-URL fuer Verival eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
+                        <li><div class="pcard pcard--tile">
+                            <span class="plogo"><img src="assets/img/partners/verival.webp" width="321" height="113" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pname">Verival</span>
+                        </div></li>
+                        <li><a class="pcard pcard--tile" href="https://www.redbull.com" target="_blank" rel="noopener noreferrer">
+                            <span class="plogo"><img src="assets/img/partners/red-bull.webp" width="314" height="200" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pname">Red Bull</span>
+                            <span class="sr-only"> – website (opens in a new tab)</span><span class="parrow" aria-hidden="true">↗</span>
+                        </a></li>
+                        <!-- TODO(Team): Website-URL fuer Frankfurter Schuss eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
+                        <li><div class="pcard pcard--tile">
+                            <span class="plogo"><img src="assets/img/partners/frankfurter-schuss.webp" width="184" height="200" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pname">Frankfurter Schuss</span>
+                        </div></li>
+                        <!-- TODO(Team): Website-URL fuer Emmi Caffè Latte eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
+                        <li><div class="pcard pcard--tile">
+                            <span class="plogo"><img src="assets/img/partners/emmi-caffe-latte.webp" width="190" height="200" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pname">Emmi Caffè Latte</span>
+                        </div></li>
+                        <!-- TODO(Team): Website-URL fuer Upsters eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
+                        <li><div class="pcard pcard--tile">
+                            <span class="plogo"><img src="assets/img/partners/upsters.webp" width="165" height="200" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pname">Upsters</span>
+                        </div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="partners-foot">
+                <p class="ptier-more">More partners to be announced.</p>
+                <!-- P2-2: B2B as ONE secondary line with text links (no gold buttons) -->
+                <p class="partner-with-us">
+                <span class="partner-with-us-label">Partner with us:</span>
+                <a href="mailto:corporate@fs-businessforum.com?subject=Partnership%20Inquiry%20%E2%80%94%20FS%20Business%20Forum%202026">Corporate partnership</a>
+                <span class="dot" aria-hidden="true">·</span>
+                <a href="mailto:event@fs-businessforum.com?subject=Event%20Partnership%20Inquiry%20%E2%80%94%20FS%20Business%20Forum%202026">Event partnership</a>
+                <span class="dot" aria-hidden="true">·</span>
+                <a href="mailto:speaker@fs-businessforum.com?subject=Speaker%20Inquiry%20%E2%80%94%20FS%20Business%20Forum%202026">Become a speaker</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9 · FAQ + WHEN & WHERE + CONTACT (P1-3, P2-18) -->
+    <div class="sec sec--faq">
+        <div class="container faq-layout">
+            <section id="faq" class="faq" aria-labelledby="faq-title">
+                <header class="sec-head" data-reveal>
+                    <p class="label-lg sec-eyebrow">Good to know</p>
+                    <h2 class="sec-title" id="faq-title">FAQ</h2>
+                </header>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>Who can attend?</summary>
+                        <div class="faq-a"><p><span class="todo" data-todo="Antwort: Wer darf teilnehmen? (Studierende aller Hochschulen? Young Professionals? Altersgrenze?)">[Answer to follow: who can attend]</span></p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>What does the ticket include?</summary>
+                        <div class="faq-a"><p>There is one ticket for both days, sold in price stages – the earlier you book, the lower the price. See the <a href="#tickets">ticket overview</a> for what is included.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>How do I buy tickets?</summary>
+                        <div class="faq-a">
+                            <p>Tickets are sold via Eventbrite. Choose “Get Tickets”, select your ticket and pay securely online – your e-ticket arrives by email.</p>
+                            <a href="tickets.html" class="btn btn--primary" data-ticket-link data-cta="faq">Get Tickets <span aria-hidden="true">→</span></a>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Which language is the event held in?</summary>
+                        <div class="faq-a"><p><span class="todo" data-todo="Antwort: Veranstaltungssprache (Englisch/Deutsch/gemischt?)">[Answer to follow: event language]</span></p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Is there a dress code?</summary>
+                        <div class="faq-a"><p><span class="todo" data-todo="Antwort: Dresscode (z. B. Business Attire?)">[Answer to follow: dress code]</span></p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Can I attend only one day?</summary>
+                        <div class="faq-a"><p><span class="todo" data-todo="Antwort: Tagestickets ja/nein?">[Answer to follow: day tickets]</span></p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>How do I get there?</summary>
+                        <div class="faq-a"><p>The forum takes place at Frankfurt School of Finance &amp; Management, Adickesallee 32–34, 60322 Frankfurt am Main. <span class="todo" data-todo="Oeffentliche Anbindung pruefen und eintragen (U-Bahn-Linie/Haltestelle, Fussweg)">[Public transport details to follow]</span> See <a href="#venue">When &amp; Where</a> for maps.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Can I get a refund or change the name on my ticket?</summary>
+                        <div class="faq-a"><p><span class="todo" data-todo="Antwort: Erstattung/Umschreibung gemaess Eventbrite-Einstellungen">[Answer to follow: refunds and name changes]</span></p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Do I get an invoice?</summary>
+                        <div class="faq-a"><p><span class="todo" data-todo="Antwort: Rechnung (Eventbrite-Beleg? Rechnung mit Firmenadresse?)">[Answer to follow: invoices]</span></p></div>
+                    </details>
+                </div>
+            </section>
+
+            <div class="info-stack">
+                <section id="venue" class="info-card" aria-labelledby="venue-title">
+                    <h2 class="info-title" id="venue-title">When &amp; Where</h2>
+                    <p class="info-date">Fri 13 – Sat 14 November 2026</p>
+                    <address class="info-address">
+                        Frankfurt School of Finance &amp; Management<br>
+                        Adickesallee 32–34<br>
+                        60322 Frankfurt am Main
+                    </address>
+                    <p class="info-links">
+                        <a class="btn--link" href="https://www.google.com/maps/search/?api=1&amp;query=Frankfurt+School+of+Finance+%26+Management+Adickesallee+32-34" target="_blank" rel="noopener noreferrer">Open in Google Maps<span class="sr-only"> (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a>
+                        <a class="btn--link" href="https://maps.apple.com/?q=Frankfurt+School+of+Finance+%26+Management&amp;address=Adickesallee+32-34,+60322+Frankfurt+am+Main" target="_blank" rel="noopener noreferrer">Apple Maps<span class="sr-only"> (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a>
+                    </p>
+                </section>
+                <section id="contact" class="info-card" aria-labelledby="contact-title">
+                    <h2 class="info-title" id="contact-title">Contact</h2>
+                    <p>Questions about tickets or the programme? Write to <a class="info-mail" href="mailto:info@fs-businessforum.com">info@fs-businessforum.com</a></p>
+                    <p class="info-social">Follow us:
+                        <span class="todo" data-todo="Instagram-Profil-URL eintragen (Handle unbekannt)">Instagram</span>
+                        <span class="todo" data-todo="LinkedIn-Seiten-URL eintragen (Handle unbekannt)">LinkedIn</span>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    </main>
+
+    <!-- 10 · FOOTER (P2-16, P3-5, P3-10). Klasse "site-footer" statt "footer": die GSAP-Footer-Animation in script.js greift so nicht (P2-9-Risiko). -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <p class="footer-logo">FS Business Forum</p>
+                    <p class="footer-tagline">Connecting Minds, Creating Future</p>
+                    <p class="footer-when">13–14&nbsp;Nov&nbsp;2026 · Frankfurt&nbsp;School</p>
+                    <a href="tickets.html" class="btn btn--primary btn--sm" data-ticket-link data-cta="footer">Get Tickets <span aria-hidden="true">→</span></a>
+                </div>
+                <nav class="footer-col" aria-labelledby="f-event">
+                    <h2 class="footer-h" id="f-event">Event</h2>
+                    <ul>
+                        <li><a href="#speakers">Speakers</a></li>
+                        <li><a href="#programme">Theme 2026</a></li>
+                        <li><a href="#tickets">Tickets</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#venue">Venue &amp; Travel</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-col" aria-labelledby="f-about">
+                    <h2 class="footer-h" id="f-about">About</h2>
+                    <ul>
+                        <li><a href="2025/">2025 Recap</a></li>
+                        <li><a href="2025/#team">Team</a></li>
+                        <li><a href="https://www.frankfurt-school.de" target="_blank" rel="noopener noreferrer">Frankfurt School<span class="sr-only"> (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a></li>
+                    </ul>
+                </nav>
+                <div class="footer-col">
+                    <h2 class="footer-h">Contact</h2>
+                    <ul>
+                        <li><a href="mailto:info@fs-businessforum.com">info@fs-businessforum.com</a></li>
+                        <li><span class="footer-todo todo" data-todo="Instagram-Profil-URL eintragen (Handle unbekannt)">Instagram</span></li>
+                        <li><span class="footer-todo todo" data-todo="LinkedIn-Seiten-URL eintragen (Handle unbekannt)">LinkedIn</span></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h2 class="footer-h">Partner with us</h2>
+                    <ul>
+                        <li><a href="mailto:speaker@fs-businessforum.com?subject=Speaker%20Inquiry%20%E2%80%94%20FS%20Business%20Forum%202026">Become a speaker</a></li>
+                        <li><a href="mailto:corporate@fs-businessforum.com?subject=Partnership%20Inquiry%20%E2%80%94%20FS%20Business%20Forum%202026">Corporate partnership</a></li>
+                        <li><a href="mailto:event@fs-businessforum.com?subject=Event%20Partnership%20Inquiry%20%E2%80%94%20FS%20Business%20Forum%202026">Event partnership</a></li>
+                    </ul>
+                </div>
+                <nav class="footer-col" aria-labelledby="f-legal">
+                    <h2 class="footer-h" id="f-legal">Legal</h2>
+                    <ul>
+                        <li><a href="imprint.html">Imprint</a></li>
+                        <li><a href="impressum.html" lang="de" hreflang="de">Impressum</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="datenschutz.html" lang="de" hreflang="de">Datenschutz</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 FS Business Forum. A student initiative of Frankfurt School of Finance &amp; Management.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- P1-1: sticky ticket bar < 900 px (hidden by default; script.js shows it while neither hero, #tickets nor footer is on screen) -->
+    <aside class="m-ticket" aria-label="Tickets">
+        <a class="m-ticket-bar" href="tickets.html" data-ticket-link data-cta="sticky">
+            <span class="m-ticket-bar-meta"><span class="m-ticket-bar-date">13–14 Nov 2026</span> <span class="m-ticket-bar-venue">Frankfurt School</span></span>
+            <span class="m-ticket-bar-cta">Get Tickets <span aria-hidden="true">→</span></span>
+        </a>
+    </aside>
+
+    <button class="back-to-top" type="button" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+</body>
+</html>
