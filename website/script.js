@@ -855,7 +855,14 @@ if (FINE_POINTER && !REDUCED_MOTION) {
         });
     });
 
-    document.querySelectorAll('.speaker-card').forEach(card => {
+}
+
+const initializedSpeakerCards = new WeakSet();
+function initSpeakerCards(root = document) {
+    if (!FINE_POINTER || REDUCED_MOTION) return;
+    root.querySelectorAll('.speaker-card').forEach(card => {
+        if (initializedSpeakerCards.has(card)) return;
+        initializedSpeakerCards.add(card);
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -880,6 +887,9 @@ if (FINE_POINTER && !REDUCED_MOTION) {
         });
     });
 }
+
+initSpeakerCards();
+window.initSpeakerCards = initSpeakerCards;
 
 // ================================
 // Intersection Observer for Reveals
