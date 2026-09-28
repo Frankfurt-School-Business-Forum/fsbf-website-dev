@@ -58,7 +58,7 @@
     <!-- P1-8: hero poster per viewport (it is the container background; the <video> has no poster attribute) -->
     <link rel="preload" href="assets/img/hero/poster-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
     <link rel="preload" href="assets/img/hero/poster-1280.webp" as="image" type="image/webp" media="(min-width: 768px)">
-    <link rel="stylesheet" href="styles.css?v=20260928h">
+    <link rel="stylesheet" href="styles.css?v=20260928i">
 
     <!-- P1-9: Event schema (Google Event rich result).
          TODO(Team): Uhrzeiten bestaetigen – startDate 09:00 und endDate 18:00 sind Annahmen (Offset +01:00 = MEZ im November);
@@ -223,7 +223,7 @@
                         <li class="lm-item"><img class="plogo-img" src="assets/img/partners/schwarz-gruppe.webp" width="438" height="191" alt="Unternehmen der Schwarz Gruppe" loading="lazy" decoding="async"></li>
                         <li class="lm-item"><img class="plogo-img" src="assets/img/partners/oddo-bhf.webp" width="480" height="260" alt="ODDO BHF" loading="lazy" decoding="async"></li>
                         <li class="lm-item"><img class="plogo-img" src="assets/img/partners/privatize.webp" width="480" height="88" alt="Privatize" loading="lazy" decoding="async"></li>
-                        <li class="lm-item"><span class="va-plogo-word" role="img" aria-label="KeSolutions">KeSolutions</span></li>
+                        <li class="lm-item lm-item--lockup"><img src="assets/img/partners/kesolutions.webp" width="197" height="240" alt="" loading="lazy" decoding="async"><span class="lm-word">KeSolutions</span></li>
                         <li class="lm-item"><img class="plogo-img" src="assets/img/partners/goenrgy.webp" width="480" height="160" alt="GÖNRGY" loading="lazy" decoding="async"></li>
                         <li class="lm-item"><img class="plogo-img" src="assets/img/partners/mbg.webp" width="194" height="194" alt="MBG" loading="lazy" decoding="async"></li>
                         <li class="lm-item"><img class="plogo-img" src="assets/img/partners/orthomol.webp" width="480" height="105" alt="Orthomol" loading="lazy" decoding="async"></li>
@@ -237,7 +237,7 @@
                         <li class="lm-item"><img class="plogo-img" src="assets/img/partners/schwarz-gruppe.webp" width="438" height="191" alt="" loading="lazy" decoding="async"></li>
                         <li class="lm-item"><img class="plogo-img" src="assets/img/partners/oddo-bhf.webp" width="480" height="260" alt="" loading="lazy" decoding="async"></li>
                         <li class="lm-item"><img class="plogo-img" src="assets/img/partners/privatize.webp" width="480" height="88" alt="" loading="lazy" decoding="async"></li>
-                        <li class="lm-item"><span class="va-plogo-word">KeSolutions</span></li>
+                        <li class="lm-item lm-item--lockup"><img src="assets/img/partners/kesolutions.webp" width="197" height="240" alt="" loading="lazy" decoding="async"><span class="lm-word">KeSolutions</span></li>
                         <li class="lm-item"><img class="plogo-img" src="assets/img/partners/goenrgy.webp" width="480" height="160" alt="" loading="lazy" decoding="async"></li>
                         <li class="lm-item"><img class="plogo-img" src="assets/img/partners/mbg.webp" width="194" height="194" alt="" loading="lazy" decoding="async"></li>
                         <li class="lm-item"><img class="plogo-img" src="assets/img/partners/orthomol.webp" width="480" height="105" alt="" loading="lazy" decoding="async"></li>
@@ -645,12 +645,17 @@
                 </div>
 
                 <div class="ptier ptier--corporate">
-                    <h3 class="ptier-label">Corporate Partner</h3>
+                    <h3 class="ptier-label">Corporate Partners</h3>
                     <ul class="pcards pcards--md">
                         <!-- TODO(Team): Website-URL fuer Privatize eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
                         <li><div class="pcard pcard--md">
                             <span class="plogo"><img src="assets/img/partners/privatize.webp" width="480" height="88" alt="" loading="lazy" decoding="async"></span>
                             <span class="pinfo"><span class="pname">Privatize</span></span>
+                        </div></li>
+                        <!-- TODO(Team): Website-URL fuer KeSolutions eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
+                        <li><div class="pcard pcard--md">
+                            <span class="plogo"><img src="assets/img/partners/kesolutions.webp" width="197" height="240" alt="" loading="lazy" decoding="async"></span>
+                            <span class="pinfo"><span class="pname">KeSolutions</span><span class="pdesc">IT partner – registration, event app and on-site digital experience.</span></span>
                         </div></li>
                     </ul>
                 </div>
@@ -658,12 +663,6 @@
                 <div id="event-partners" class="ptier ptier--event">
                     <h3 class="ptier-label">Event Partners</h3>
                     <ul class="pcards pcards--tile">
-                        <!-- TODO(Team): KeSolutions-Logo anfordern -->
-                        <!-- TODO(Team): Website-URL fuer KeSolutions eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
-                        <li><div class="pcard pcard--tile">
-                            <span class="plogo"><span class="va-plogo-word">KeSolutions</span></span>
-                            <span class="pname">KeSolutions <span class="prole">IT partner</span></span>
-                        </div></li>
                         <!-- TODO(Team): Website-URL fuer GÖNRGY eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
                         <li><div class="pcard pcard--tile">
                             <span class="plogo"><img src="assets/img/partners/goenrgy.webp" width="480" height="160" alt="" loading="lazy" decoding="async"></span>
