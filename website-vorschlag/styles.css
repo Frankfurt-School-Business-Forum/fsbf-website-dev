@@ -6771,3 +6771,6 @@ body.home2026 main[tabindex="-1"]:focus{outline:none}
 
 /* Eventbrite-Checkout laedt (ticket-link.js): kurzer Warte-Hinweis */
 html[data-checkout-loading] [data-ticket-link]{cursor:progress;opacity:.85}
+
+/* Social-Links (Instagram, LinkedIn) im Mobile-Menue und Kontaktbereich */
+body.home2026 .mobile-menu-social a,body.home2026 .info-social a{display:inline-flex;align-items:center;min-height:44px;color:#fff;text-decoration:underline;text-decoration-color:rgba(201,169,98,.6);text-underline-offset:.25em}

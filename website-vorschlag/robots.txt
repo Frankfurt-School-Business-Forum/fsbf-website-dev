@@ -7,8 +7,6 @@
 #
 # Rechtsseiten und 404 steuern sich per <meta name="robots" content="noindex"> –
 # sie werden hier bewusst NICHT gesperrt, damit Crawler das noindex sehen.
-# Das Archiv /2025/ ist indexierbar (Self-Canonical, steht in sitemap.xml);
-# previous-speakers.html kanonisiert auf /2025/ und fehlt deshalb in der Sitemap.
 
 User-agent: *
 Allow: /

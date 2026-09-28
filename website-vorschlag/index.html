@@ -27,7 +27,7 @@
     <!-- P3-17 / P2-9: no-js -> js before first paint. [data-reveal] content is only hidden while
          script.js can reveal it: if it has not started after 2.5 s or a script fails first, the
          page falls back to the no-JS state (content visible, ticket pill instead of the menu button).
-         P2-7: a remembered "Pause motion" choice is applied before the first frame (key shared with /2025/). -->
+         P2-7: a remembered "Pause motion" choice is applied before the first frame -->
     <script>
     (function (d, w) {
         var r = d.documentElement;
@@ -58,7 +58,7 @@
     <!-- P1-8: hero poster per viewport (it is the container background; the <video> has no poster attribute) -->
     <link rel="preload" href="assets/img/hero/poster-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
     <link rel="preload" href="assets/img/hero/poster-1280.webp" as="image" type="image/webp" media="(min-width: 768px)">
-    <link rel="stylesheet" href="styles.css?v=20260928o">
+    <link rel="stylesheet" href="styles.css?v=20260928q">
 
     <!-- P1-9: Event schema (Google Event rich result).
          Zeiten und Angebot laut Eventbrite (13.11. 09:00 bis 14.11. 22:00, 19,99 EUR, Verkauf seit 28.09.2026).
@@ -99,13 +99,14 @@
             "@type": "Organization",
             "name": "FS Business Forum",
             "url": "https://fs-businessforum.com/",
-            "email": "info@fs-businessforum.com"
+            "email": "info@fs-businessforum.com",
+            "sameAs": ["https://www.instagram.com/fs_businessforum/", "https://www.linkedin.com/company/fsbusinessforum/"]
         }
     }
     </script>
 
     <!-- P2-9: the home page needs no GSAP/ScrollTrigger/SplitType (≈ 52 KB gz) – script.js runs without them.
-         (/2025/ still loads them for its legacy effects.) -->
+         -->
     <script defer src="assets/js/ticket-link.js?v=20260928d"></script>
     <script defer src="script.js?v=20260928d"></script>
 </head>
@@ -160,10 +161,9 @@
             <div class="mobile-menu-foot">
                 <a href="tickets.html" class="btn btn--primary btn--block mobile-menu-cta" data-ticket-link data-cta="menu">Get Tickets <span aria-hidden="true">→</span></a>
                 <p class="mobile-menu-meta">13–14&nbsp;Nov&nbsp;2026 · Frankfurt&nbsp;School</p>
-                <!-- TODO(Team): Instagram- und LinkedIn-URL eintragen und die Platzhalter durch Links ersetzen (P2-16) -->
                 <p class="mobile-menu-social">
-                    <span class="todo" data-todo="Instagram-Profil-URL eintragen (Handle unbekannt)">Instagram</span>
-                    <span class="todo" data-todo="LinkedIn-Seiten-URL eintragen (Handle unbekannt)">LinkedIn</span>
+                    <a href="https://www.instagram.com/fs_businessforum/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (opens in a new tab)</span></a>
+                    <a href="https://www.linkedin.com/company/fsbusinessforum/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
                 </p>
             </div>
         </div>
@@ -209,7 +209,7 @@
     <section class="proof" aria-labelledby="proof-title">
         <div class="container">
             <h2 class="sr-only" id="proof-title">FS Business Forum in numbers</h2>
-            <!-- Zahlen aus 2025/index.html (Ausgabe 2025). TODO(Team): 2026 = 8. Ausgabe? Dann "8th edition" ergaenzen. -->
+            <!-- Zahlen der Ausgabe 2025. TODO(Team): 2026 = 8. Ausgabe? Dann "8th edition" ergaenzen. -->
             <ul class="proof-stats">
                 <li><span class="proof-num">700+</span><span class="proof-label">participants in 2025</span></li>
                 <li><span class="proof-num">40+</span><span class="proof-label">speakers in 2025</span></li>
@@ -687,7 +687,6 @@
                     <h2 class="sec-title" id="highlights-title">Impressions</h2>
                     <p class="sec-lead">A look back at previous editions of the FS Business Forum at Frankfurt School.</p>
                 </div>
-                <a class="btn--link" href="2025/">2025 recap <span aria-hidden="true">→</span></a>
             </header>
             <!-- Aftermovie 2025 (YouTube F9FS5sBDffw) als Klick-zum-Laden: Vorschaubild liegt lokal, YouTube (youtube-nocookie.com)
                  wird erst nach Klick geladen – vorher keine Daten an Google, kein Cookie-Banner noetig. Ohne JS: normaler Link zu YouTube.
@@ -713,12 +712,11 @@
                 <li class="gallery-tile gallery-tile--wide"><img src="assets/img/photos/moderatorandsittingcrowd-640.webp" srcset="assets/img/photos/moderatorandsittingcrowd-640.webp 640w, assets/img/photos/moderatorandsittingcrowd-1280.webp 1280w" sizes="(min-width: 1024px) 590px, (min-width: 600px) 66vw, 100vw" width="640" height="427" alt="The moderator opening a session in front of a seated audience" loading="lazy" decoding="async"></li>
             </ul>
 
-            <!-- Previously on our stage: Speaker frueherer Ausgaben (Titel wie auf 2025/index.html).
+            <!-- Previously on our stage: Speaker frueherer Ausgaben.
                  P3-14: 160w/240w thumbnails (assets/img/alumni/, from assets/img/speakers2025/) instead of the 480 px files. -->
             <div class="alumni" data-reveal>
                 <div class="alumni-head">
                     <h3 class="alumni-title">Previously on our stage</h3>
-                    <a class="btn--link" href="2025/#speakers">See all previous speakers <span aria-hidden="true">→</span></a>
                 </div>
                 <ul class="alumni-grid">
                     <li class="alumni-item"><img src="assets/img/speakers2025/01_andrea_orcel_ceo_unicredit.webp" srcset="assets/img/alumni/01_andrea_orcel_ceo_unicredit-240.webp 240w, assets/img/speakers2025/01_andrea_orcel_ceo_unicredit.webp 480w" sizes="(max-width: 599px) 112px, 152px" width="480" height="480" alt="" loading="lazy" decoding="async"><p><strong>Andrea Orcel</strong><span>CEO, UniCredit</span></p></li>
@@ -799,8 +797,8 @@
                     <h2 class="info-title" id="contact-title">Contact</h2>
                     <p>Questions about tickets or the programme? Write to <a class="info-mail" href="mailto:info@fs-businessforum.com">info@fs-businessforum.com</a></p>
                     <p class="info-social">Follow us:
-                        <span class="todo" data-todo="Instagram-Profil-URL eintragen (Handle unbekannt)">Instagram</span>
-                        <span class="todo" data-todo="LinkedIn-Seiten-URL eintragen (Handle unbekannt)">LinkedIn</span>
+                        <a href="https://www.instagram.com/fs_businessforum/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (opens in a new tab)</span></a>
+                        <a href="https://www.linkedin.com/company/fsbusinessforum/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
                     </p>
                 </section>
             </div>
@@ -834,8 +832,6 @@
                     <h2 class="footer-h" id="f-about">About</h2>
                     <ul>
                         <li><a href="#impressions">Impressions</a></li>
-                        <li><a href="2025/">2025 Recap</a></li>
-                        <li><a href="2025/#team">Team</a></li>
                         <li><a href="https://www.frankfurt-school.de" target="_blank" rel="noopener noreferrer">Frankfurt School<span class="sr-only"> (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a></li>
                     </ul>
                 </nav>
@@ -843,8 +839,8 @@
                     <h2 class="footer-h">Contact</h2>
                     <ul>
                         <li><a href="mailto:info@fs-businessforum.com">info@fs-businessforum.com</a></li>
-                        <li><span class="footer-todo todo" data-todo="Instagram-Profil-URL eintragen (Handle unbekannt)">Instagram</span></li>
-                        <li><span class="footer-todo todo" data-todo="LinkedIn-Seiten-URL eintragen (Handle unbekannt)">LinkedIn</span></li>
+                        <li><a href="https://www.instagram.com/fs_businessforum/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (opens in a new tab)</span></a></li>
+                        <li><a href="https://www.linkedin.com/company/fsbusinessforum/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
