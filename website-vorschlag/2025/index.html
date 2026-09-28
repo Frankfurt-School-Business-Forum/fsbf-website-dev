@@ -1199,37 +1199,10 @@
                     <a href="../" class="ar-text-link">All details on the 2026 edition <span aria-hidden="true">→</span></a>
                 </div>
 
-                <!-- P2-18: visible labels, privacy note, confirmation page, honeypot -->
-                <div class="contact-form-wrapper">
+                <!-- Kontakt per E-Mail (Kontaktformular/FormSubmit am 28.09.2026 entfernt) -->
+                <div class="contact-form-wrapper contact-mail">
                     <h3 class="contact-form-title">Questions? Contact us</h3>
-                    <form class="contact-form" action="https://formsubmit.co/info@fs-businessforum.com" method="POST">
-                        <!-- FormSubmit config: CC to Sarah & Jakob, table layout, spam honeypot.
-                             TODO(Team): FormSubmit-Aktivierung (einmalige Bestaetigungsmail an info@fs-businessforum.com, ggf. Spam-Ordner)
-                             und Captcha-Verhalten nach dem Deploy mit einer Testadresse pruefen (Aktivierung, Captcha-Zwischenseite, Redirect).
-                             Zeigt FormSubmit reCAPTCHA: in der Datenschutzerklaerung nennen ODER _captcha=false setzen (Honeypot bleibt). -->
-                        <input type="hidden" name="_subject" value="Contact form — fs-businessforum.com">
-                        <input type="hidden" name="_cc" value="sarah.muenker@fs-businessforum.com,jakob.broetz@fs-businessforum.com">
-                        <input type="hidden" name="_template" value="table">
-                        <!-- TODO(Launch): thanks.html (Track SUBPAGES) muss unter dieser URL live sein -->
-                        <input type="hidden" name="_next" value="https://fs-businessforum.com/thanks.html">
-                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                        <div class="form-row">
-                            <div class="ar-field">
-                                <label for="cf-name">Name</label>
-                                <input type="text" id="cf-name" name="name" autocomplete="name" required>
-                            </div>
-                            <div class="ar-field">
-                                <label for="cf-email">Email</label>
-                                <input type="email" id="cf-email" name="email" autocomplete="email" inputmode="email" spellcheck="false" required>
-                            </div>
-                        </div>
-                        <div class="ar-field">
-                            <label for="cf-message">Message</label>
-                            <textarea id="cf-message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send message</button>
-                        <p class="ar-form-note">We use your details only to answer your request. More in our <a href="../privacy.html">Privacy Policy</a> (<a href="../datenschutz.html" lang="de" hreflang="de">Datenschutz</a>).</p>
-                    </form>
+                    <p>Write to <a href="mailto:info@fs-businessforum.com">info@fs-businessforum.com</a> – we’ll get back to you.</p>
                 </div>
             </div>
             <div class="contact-visual" aria-hidden="true">

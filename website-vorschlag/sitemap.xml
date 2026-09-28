@@ -2,7 +2,7 @@
 <!-- P2-17: nur indexierbare, kanonische Seiten. lastmod bei inhaltlichen Aenderungen aktualisieren.
      Enthalten: Startseite, tickets.html, Archiv /2025/ (seit dem Umbau index,follow + Self-Canonical).
      Nicht enthalten: previous-speakers.html (Duplikat der Archiv-Speaker, Canonical -> /2025/),
-     Rechtsseiten (noindex), 404.html, thanks.html (noindex), variant-*.html (nicht deployen). -->
+     Rechtsseiten (noindex), 404.html (noindex), variant-*.html (nicht deployen). -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://fs-businessforum.com/</loc>

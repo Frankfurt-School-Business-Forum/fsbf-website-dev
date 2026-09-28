@@ -1,7 +1,7 @@
 /* ================================
    FS Business Forum – Markenschriften (P1-7)
    Vollstaendige Variable Fonts (Latin), selbst gehostet (DSGVO: kein Google-Fonts-Request).
-   Nur fuer Seiten, die styles.css NICHT laden: tickets.html, 404.html, thanks.html.
+   Nur fuer Seiten, die styles.css NICHT laden: tickets.html, 404.html.
    Startseite, Archiv und Rechtsseiten bekommen dieselben Schriften aus styles.css –
    dort nicht zusaetzlich einbinden (sonst doppelte @font-face-Definitionen).
    Die URLs zeigen auf dieselben Dateien wie styles.css (gleiche Cache-Eintraege).
