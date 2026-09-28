@@ -648,3 +648,10 @@ html[data-tickets-live="true"] .when-soon {
 
 /* Eventbrite-Checkout laedt (ticket-link.js): kurzer Warte-Hinweis */
 html[data-checkout-loading] [data-ticket-link]{cursor:progress;opacity:.85}
+
+/* Rechtsseiten: Entwurfs-Abschnitte deutlich markieren (vor Veroeffentlichung pruefen lassen, dann Klasse entfernen) */
+.legal-draft{position:relative;margin:2rem 0;padding:2.25rem 1.25rem 1rem;border:2px dashed #c9a962;border-radius:12px;background:rgba(201,169,98,.06)}
+.legal-draft.todo::after{content:none}
+.legal-draft::before{content:attr(data-label);position:absolute;top:-.8rem;left:1rem;padding:.2rem .6rem;border-radius:999px;
+    background:#c9a962;color:#040810;font:700 .75rem/1.2 'Inter',system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.legal-draft h3:first-child{margin-top:0}
