@@ -6631,6 +6631,34 @@ body.home2026 .pdetail-actions{margin-top:1.25rem}
     body.home2026 .pdetail-close{margin-left:auto}
 }
 
+/* Partner: statt Kurzbeschreibung zeigt jede Karte, was der Partner beim Forum macht */
+body.home2026 .ptags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem}
+body.home2026 .ptag{padding:.22rem .6rem;border:1px solid rgba(201,169,98,.45);border-radius:999px;background:rgba(201,169,98,.08);
+    font:600 .75rem/1.2 var(--font-body);letter-spacing:.02em;color:var(--color-accent-light);white-space:nowrap}
+
+/* Workshops & formats: eigener Bereich */
+body.home2026 .ws-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+body.home2026 .ws-card{display:flex;flex-direction:column;gap:.35rem;padding:1rem 1rem 1.25rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+body.home2026 .ws-logo{display:flex;align-items:center;justify-content:center;height:84px;margin:0 0 .6rem;padding:.7rem 1rem;border-radius:calc(var(--radius) - 4px);background:#fff}
+body.home2026 .ws-logo img{display:block;width:auto;height:auto;max-width:100%;max-height:52px;object-fit:contain}
+body.home2026 .ws-kind{margin:0;font:var(--label-sm);letter-spacing:var(--label-sm-track);text-transform:uppercase;color:var(--color-accent)}
+body.home2026 .ws-title{margin:0;font:500 1.2rem/1.25 var(--font-display);color:#fff}
+body.home2026 .ws-access{margin:auto 0 0;padding-top:.6rem;font-size:.875rem;color:var(--color-text-secondary)}
+body.home2026 .ws-access--open{color:#9fd8a8}
+body.home2026 .ws-access--open::before{content:'';display:inline-block;width:.5rem;height:.5rem;margin-right:.45rem;border-radius:50%;background:#6fcf7f;vertical-align:.08em}
+body.home2026 .ws-card--formats{justify-content:flex-end;border-color:rgba(201,169,98,.35);
+    background:radial-gradient(120% 100% at 0% 0%,rgba(201,169,98,.14),rgba(201,169,98,0) 60%),var(--surface)}
+body.home2026 #workshops .ws-apply{margin-top:1.5rem}
+@media (max-width:599px){ body.home2026 .ws-grid{grid-template-columns:1fr 1fr;gap:.6rem} body.home2026 .ws-card--formats{grid-column:1 / -1}
+    body.home2026 .ws-logo{height:64px;padding:.5rem .6rem} body.home2026 .ws-logo img{max-height:40px} body.home2026 .ws-title{font-size:1.05rem} }
+
+/* Speaker-Timer: schlicht – Tage / Std. / Min. in einer Reihe */
+body.home2026 .spk-card--timer .countdown-timer{display:flex;gap:1rem;justify-content:flex-start}
+body.home2026 .spk-card--timer .countdown-unit{align-items:flex-start;min-width:0}
+body.home2026 .spk-card--timer .speaker-countdown{border-top:0;padding-top:.25rem}
+body.home2026 .spk-card--timer .countdown-fallback{margin:0;color:var(--color-text-secondary)}
+@media (max-width:599px){ body.home2026 .spk-card--timer .countdown-timer{gap:.6rem} }
+
 /* Thema statt Timetable */
 body.home2026 .formats{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;list-style:none;margin:clamp(2rem,1.5rem + 2vw,3rem) 0 0;padding:0}
 body.home2026 .formats li{padding:.6rem 1.1rem;border:1px solid rgba(201,169,98,.4);border-radius:999px;font:600 .875rem/1.2 var(--font-body);
