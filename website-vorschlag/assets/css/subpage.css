@@ -645,3 +645,6 @@ html[data-tickets-live="true"] .when-soon {
     .sp * { color: #000 !important; background: transparent !important; box-shadow: none !important; }
     .todo::after { border: 1px solid #000; }
 }
+
+/* Eventbrite-Checkout laedt (ticket-link.js): kurzer Warte-Hinweis */
+html[data-checkout-loading] [data-ticket-link]{cursor:progress;opacity:.85}

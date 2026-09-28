@@ -6701,3 +6701,6 @@ html.has-m-ticket{scroll-padding-bottom:calc(72px + env(safe-area-inset-bottom))
    <main> (skip-link target) spans the whole page and gets no ring */
 body.home2026 :is(h1,h2,h3)[tabindex="-1"]:focus-visible{outline:2px solid var(--color-accent);outline-offset:6px;border-radius:4px}
 body.home2026 main[tabindex="-1"]:focus{outline:none}
+
+/* Eventbrite-Checkout laedt (ticket-link.js): kurzer Warte-Hinweis */
+html[data-checkout-loading] [data-ticket-link]{cursor:progress;opacity:.85}

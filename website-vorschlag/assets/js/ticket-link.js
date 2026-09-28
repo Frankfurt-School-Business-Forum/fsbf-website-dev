@@ -17,7 +17,12 @@
  *   - ohne href/mit aria-disabled = Zustand "kommt bald" (auch ohne JS)
  *   - ist WORKSHOP_URL gesetzt: href = WORKSHOP_URL, Text = data-label-live, <html data-workshops-live="true">
  *
- * Einbinden:  <script defer src="assets/js/ticket-link.js?v=20260928c"></script>
+ * Eventbrite-Checkout direkt auf der Seite (Modal, "Salefunktion"):
+ *   Ist CHECKOUT_MODAL aktiv, oeffnet ein Klick auf einen [data-ticket-link] das Eventbrite-Checkout-Fenster ueber der Seite.
+ *   Das Eventbrite-Skript wird ERST beim ersten Klick geladen (vorher keine Drittanbieter-Requests, kein Cookie-Banner noetig).
+ *   Fallback (kein JS, Skript blockiert/Timeout, Strg/Cmd-Klick): normaler Link auf die Eventbrite-Seite.
+ *
+ * Einbinden:  <script defer src="assets/js/ticket-link.js?v=20260928d"></script>
  * Vanilla ES5, keine Abhaengigkeiten, fehlerfrei auch ohne passende Links.
  */
 (function (window, document) {
@@ -25,6 +30,13 @@
 
     // Vollstaendige URL inkl. https:// (sonst wird sie ignoriert und alle Links bleiben bei tickets.html).
     var TICKET_URL = 'https://www.eventbrite.de/e/fs-business-forum-2026-tickets-1993516652973'; // Eventbrite, Verkauf seit 28.09.2026
+
+    // Eventbrite-Checkout als Fenster ueber der Seite (Widget "checkout", modal). false = immer auf die Eventbrite-Seite verlinken.
+    var CHECKOUT_MODAL = true;
+    var EVENTBRITE_EVENT_ID = '1993516652973';
+    var EB_WIDGET_SRC = 'https://www.eventbrite.com/static/widgets/eb_widgets.js';
+    var EB_TIMEOUT_MS = 6000; // danach Fallback auf die Eventbrite-Seite
+    // TODO(Team): Datenschutzerklaerung um "Eventbrite (Ticketkauf, Checkout-Fenster nach Klick)" ergaenzen
 
     // Bewerbungsseite fuer Workshops, Alumni Roundtable, Coffee Chats, Wine Tasting (vollstaendige URL inkl. https://).
     // Leer = "Applications open soon" auf der ganzen Site.
@@ -96,6 +108,74 @@
         for (var i = 0; i < list.length; i++) rewrite(list[i]);
     }
 
+    /* ---------- Eventbrite-Checkout (Modal), Skript erst bei Bedarf ---------- */
+    var ebState = 'idle';          // idle | loading | ready | failed
+    var ebWaiting = [];
+    var ebTrigger = null;
+
+    function loadEventbrite(done) {
+        if (ebState === 'ready') { done(true); return; }
+        if (ebState === 'failed') { done(false); return; }
+        ebWaiting.push(done);
+        if (ebState === 'loading') return;
+        ebState = 'loading';
+
+        var finished = false;
+        function finish(ok) {
+            if (finished) return;
+            finished = true;
+            ebState = ok ? 'ready' : 'failed';
+            var list = ebWaiting; ebWaiting = [];
+            for (var i = 0; i < list.length; i++) list[i](ok);
+        }
+        var timer = window.setTimeout(function () { finish(false); }, EB_TIMEOUT_MS);
+        var s = document.createElement('script');
+        s.src = EB_WIDGET_SRC;
+        s.async = true;
+        s.onload = function () {
+            window.clearTimeout(timer);
+            try {
+                ebTrigger = document.createElement('button');
+                ebTrigger.type = 'button';
+                ebTrigger.id = 'eventbrite-widget-modal-trigger-' + EVENTBRITE_EVENT_ID;
+                ebTrigger.hidden = true;
+                ebTrigger.setAttribute('aria-hidden', 'true');
+                ebTrigger.tabIndex = -1;
+                document.body.appendChild(ebTrigger);
+                window.EBWidgets.createWidget({
+                    widgetType: 'checkout',
+                    eventId: EVENTBRITE_EVENT_ID,
+                    modal: true,
+                    modalTriggerElementId: ebTrigger.id,
+                    onOrderComplete: function () {
+                        track('Ticket purchase', { event: EVENTBRITE_EVENT_ID });
+                    }
+                });
+                finish(true);
+            } catch (e) {
+                finish(false);
+            }
+        };
+        s.onerror = function () { window.clearTimeout(timer); finish(false); };
+        document.head.appendChild(s);
+    }
+
+    /** Oeffnet das Checkout-Fenster; bei Problemen normaler Seitenwechsel auf fallbackHref. */
+    function openCheckout(fallbackHref, cta) {
+        root.setAttribute('data-checkout-loading', 'true');
+        loadEventbrite(function (ok) {
+            root.removeAttribute('data-checkout-loading');
+            if (ok && ebTrigger) {
+                track('Checkout opened', { cta: cta || 'site' });
+                ebTrigger.click();
+            } else if (fallbackHref) {
+                window.location.href = fallbackHref;
+            }
+        });
+    }
+
+    var checkoutEnabled = CHECKOUT_MODAL && live && /^\d+$/.test(EVENTBRITE_EVENT_ID);
+
     /* ---------- P2-14: Mess-Hook (cookielos, optional) ----------
        window.fsbfTrack(name, props)
        - ruft Plausible bzw. Matomo nur auf, wenn eingebunden (sonst no-op)
@@ -131,7 +211,8 @@
         url: TICKET_URL,
         live: live,
         href: ticketHref,
-        refresh: rewriteAll
+        refresh: rewriteAll,
+        checkout: checkoutEnabled ? function (cta) { openCheckout(ticketHref(cta), cta); } : null
     };
     window.fsbfWorkshops = { url: WORKSHOP_URL, live: workshopsLive };
 
@@ -150,6 +231,11 @@
         if (!el) return;
         var isTicket = el.hasAttribute('data-ticket-link');
         if (isTicket) rewrite(el);
+        // Eventbrite-Checkout als Fenster – ausser bei Strg/Cmd/Shift/Mittelklick (dann normaler Link, z. B. neuer Tab)
+        if (isTicket && checkoutEnabled && !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0)) {
+            e.preventDefault();
+            openCheckout(el.getAttribute('href'), getCta(el));
+        }
         window.fsbfTrack(isTicket ? 'Ticket CTA' : 'CTA', {
             cta: getCta(el),
             href: el.getAttribute('href') || '',
