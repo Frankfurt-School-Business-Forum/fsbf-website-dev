@@ -1572,6 +1572,60 @@ if (HAS_GSAP) safeInit('gsap polish', () => {
 });
 
 // ================================
+// Corporate-Partner: Karte klappt darunter ein Detail-Panel auf (ein Panel pro Tier offen), Sprachwahl EN/DE per Flagge
+// ================================
+safeInit('partner details', () => {
+    const toggles = Array.from(document.querySelectorAll('.pcard--toggle[aria-controls]'));
+    if (!toggles.length) return;
+    const panelOf = btn => document.getElementById(btn.getAttribute('aria-controls'));
+
+    function setOpen(btn, open) {
+        const panel = panelOf(btn);
+        btn.setAttribute('aria-expanded', String(open));
+        if (panel) panel.hidden = !open;
+        if (open && window.fsbfTrack) window.fsbfTrack('Partner details', { partner: btn.id.replace(/^pb-/, '') });
+    }
+
+    toggles.forEach(btn => {
+        const panel = panelOf(btn);
+        if (!panel) return;
+        btn.addEventListener('click', () => {
+            const willOpen = btn.getAttribute('aria-expanded') !== 'true';
+            const tier = btn.closest('.ptier');
+            if (tier) tier.querySelectorAll('.pcard--toggle[aria-expanded="true"]').forEach(o => { if (o !== btn) setOpen(o, false); });
+            setOpen(btn, willOpen);
+            if (willOpen) panel.scrollIntoView({ block: 'nearest', behavior: motionOK() ? 'smooth' : 'auto' });
+        });
+        const close = panel.querySelector('.pdetail-close');
+        if (close) close.addEventListener('click', () => { setOpen(btn, false); btn.focus(); });
+        panel.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') { setOpen(btn, false); btn.focus(); }
+        });
+    });
+
+    // Links wie "the companies of Schwarz Group" im Workshop-Block oeffnen direkt das passende Panel
+    document.querySelectorAll('[data-open-partner]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const btn = document.getElementById(link.getAttribute('data-open-partner'));
+            if (!btn) return;
+            e.preventDefault();
+            if (btn.getAttribute('aria-expanded') !== 'true') btn.click();
+            btn.scrollIntoView({ block: 'start', behavior: motionOK() ? 'smooth' : 'auto' });
+            btn.focus({ preventScroll: true });
+        });
+    });
+
+    document.querySelectorAll('.pdetail').forEach(panel => {
+        const langBtns = Array.from(panel.querySelectorAll('[data-lang-btn]'));
+        langBtns.forEach(b => b.addEventListener('click', () => {
+            const lang = b.getAttribute('data-lang-btn');
+            langBtns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+            panel.querySelectorAll('.pdetail-text[data-lang]').forEach(t => { t.hidden = t.getAttribute('data-lang') !== lang; });
+        }));
+    });
+});
+
+// ================================
 // Aftermovie: YouTube erst nach Klick laden (youtube-nocookie.com), vorher nur das lokale Vorschaubild
 // ================================
 safeInit('aftermovie', () => {

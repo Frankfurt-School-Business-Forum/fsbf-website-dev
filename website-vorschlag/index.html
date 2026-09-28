@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <!-- P2-19: Datum + Ort im Titel. TODO(Launch): ab Verkaufsstart "FS Business Forum 2026 · 13–14 Nov, Frankfurt | Tickets" -->
-    <title>FS Business Forum 2026 · 13–14 Nov · Frankfurt School</title>
+    <!-- P2-19: Datum + Ort im Titel, seit Verkaufsstart mit "Tickets" -->
+    <title>FS Business Forum 2026 · 13–14 Nov, Frankfurt | Tickets</title>
     <!-- P3-8: belegbare Beschreibung ohne Superlativ, <= 160 Zeichen (Datum + Ort zuerst, wird in Treffern abgeschnitten) -->
     <meta name="description" content="13–14 Nov 2026 at Frankfurt School: two days of keynotes, panels and workshops with leaders from business, finance and politics. Theme: Edge of Equilibrium.">
     <meta name="theme-color" content="#040810">
@@ -58,14 +58,11 @@
     <!-- P1-8: hero poster per viewport (it is the container background; the <video> has no poster attribute) -->
     <link rel="preload" href="assets/img/hero/poster-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
     <link rel="preload" href="assets/img/hero/poster-1280.webp" as="image" type="image/webp" media="(min-width: 768px)">
-    <link rel="stylesheet" href="styles.css?v=20260928k">
+    <link rel="stylesheet" href="styles.css?v=20260928l">
 
     <!-- P1-9: Event schema (Google Event rich result).
-         TODO(Team): Uhrzeiten bestaetigen – startDate 09:00 und endDate 18:00 sind Annahmen (Offset +01:00 = MEZ im November);
-         bei Aenderung auch data-event-start an .days-to-go (Tickets-Sektion) anpassen.
-         TODO(Launch): "offers" ergaenzen, sobald der Eventbrite-Shop live ist – je Ticketart
-         {"@type":"Offer","url":"<Eventbrite-URL>","price":"<Zahl>","priceCurrency":"EUR","availability":"https://schema.org/InStock","validFrom":"<Verkaufsstart ISO 8601>"}
-         (price nur als Zahl, keine Platzhalter) und danach im Rich Results Test pruefen. -->
+         Zeiten und Angebot laut Eventbrite (13.11. 09:00 bis 14.11. 22:00, 19,99 EUR, Verkauf seit 28.09.2026).
+         Bei Preisaenderung "price" anpassen und im Rich Results Test pruefen. -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -74,7 +71,7 @@
         "description": "Student-run business congress at Frankfurt School: two days of keynotes, panels and workshops with leaders from business, finance and politics.",
         "url": "https://fs-businessforum.com/",
         "startDate": "2026-11-13T09:00:00+01:00",
-        "endDate": "2026-11-14T18:00:00+01:00",
+        "endDate": "2026-11-14T22:00:00+01:00",
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "image": ["https://fs-businessforum.com/assets/og/fsbf-2026-og.jpg"],
@@ -90,6 +87,14 @@
                 "addressCountry": "DE"
             }
         },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.eventbrite.de/e/fs-business-forum-2026-tickets-1993516652973",
+            "price": "19.99",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2026-09-28T09:00:00+02:00"
+        },
         "organizer": {
             "@type": "Organization",
             "name": "FS Business Forum",
@@ -101,8 +106,8 @@
 
     <!-- P2-9: the home page needs no GSAP/ScrollTrigger/SplitType (≈ 52 KB gz) – script.js runs without them.
          (/2025/ still loads them for its legacy effects.) -->
-    <script defer src="assets/js/ticket-link.js?v=20260928b"></script>
-    <script defer src="script.js?v=20260928b"></script>
+    <script defer src="assets/js/ticket-link.js?v=20260928c"></script>
+    <script defer src="script.js?v=20260928c"></script>
 </head>
 <body class="home2026 va">
 
@@ -299,9 +304,13 @@
                 <div class="ws-apply-text">
                     <p class="label-sm ws-apply-k">Workshops &amp; small-group formats</p>
                     <p class="ws-apply-title">Workshops, alumni roundtable, coffee chats and wine tasting have limited seats.</p>
-                    <p class="ws-apply-sub">Ticket holders apply separately – we’ll share all details in advance.</p>
+                    <p class="ws-apply-confirmed"><span class="ws-apply-confirmed-k">Confirmed:</span> a workshop with <a href="#pb-schwarz" data-open-partner="pb-schwarz">the companies of Schwarz Group</a></p>
+                    <p class="ws-apply-sub">Ticket holders apply separately and are notified by email as soon as applications open.</p>
                 </div>
-                <a class="btn btn--secondary ws-apply-btn" data-workshop-link data-cta="workshops" data-label-live="Apply now" aria-disabled="true"><span class="ws-label">Applications open soon</span> <span class="ws-arrow" aria-hidden="true">→</span></a>
+                <div class="ws-apply-actions">
+                    <a href="tickets.html" class="btn btn--primary" data-ticket-link data-cta="workshops">Get Tickets <span aria-hidden="true">→</span></a>
+                    <a class="btn btn--secondary ws-apply-btn" data-workshop-link data-cta="workshops" data-label-live="Apply now" aria-disabled="true"><span class="ws-label">Applications open soon</span> <span class="ws-arrow" aria-hidden="true">→</span></a>
+                </div>
             </div>
         </div>
     </section>
@@ -561,16 +570,18 @@
                         <li>Access to all keynotes and panels on both days</li>
                         <li>Catering and networking formats</li>
                         <li>Goodie bag</li>
-                        <li><a href="#workshops">Apply for workshops</a>, the alumni roundtable, coffee chats and the wine tasting (limited seats)</li>
+                        <li><span><a href="#workshops">Apply for workshops</a>, the alumni roundtable, coffee chats and the wine tasting (limited seats)</span></li>
                     </ul>
                     <!-- Entscheidung Team (27.09.): Preissteigerungen/Deadlines NICHT vorab kommunizieren – nur den aktuellen Preis zeigen. -->
-                    <p class="ticket-price"><span class="todo" data-todo="Aktuellen Ticketpreis eintragen (inkl. MwSt.)">€&nbsp;–</span></p>
+                    <!-- Aktueller Preis laut Eventbrite (28.09.2026). Bei Wechsel der Preisstufe hier und im Event-Schema anpassen. -->
+                    <p class="ticket-price">€19.99</p>
+                    <p class="ticket-price-note">Current price · booking via Eventbrite</p>
                     <a href="tickets.html" class="btn btn--primary btn--block" data-ticket-link data-cta="pricing">Get Tickets <span aria-hidden="true">→</span></a>
                 </article>
                 <aside class="ticket-info" aria-label="Event details">
                     <!-- P2-15: script.js turns this into "46 days to go · 13–14 November 2026" (Frankfurt calendar days) and hides it
                          once the event has started; the static text is the no-JS fallback.
-                         TODO(Team): Startzeit bestaetigen (hier 09:00 angenommen). -->
+                         Start 09:00 laut Eventbrite. -->
                     <p class="days-to-go" data-event-start="2026-11-13T09:00:00+01:00">13–14 November 2026</p>
                     <dl class="ticket-facts">
                         <div><dt>When</dt><dd>Fri 13 – Sat 14 November 2026</dd></div>
@@ -632,58 +643,135 @@
             <!-- Partner-Tiers untereinander (Feedback). Karten mit Website sind komplett klickbar (neuer Tab).
                  TODO(Team): Darstellung mit den gebuchten Sponsoring-Paketen abgleichen. -->
             <div class="ptiers" data-reveal>
+                <!-- Corporate-Partner: Klick auf die Karte schiebt darunter ein Detail-Panel auf (Beschreibung, bei Schwarz EN/DE per Flagge,
+                     Workshop, "Visit website"). Logik in script.js ("partner details"); ohne JS sind alle Panels sichtbar. -->
                 <div id="corporates" class="ptier ptier--platinum">
                     <h3 class="ptier-label">Platinum · Industry Partners</h3>
                     <ul class="pcards pcards--lg">
-                        <li><a class="pcard pcard--lg" href="https://www.frankfurter-sparkasse.de" target="_blank" rel="noopener noreferrer">
+                        <li><button type="button" class="pcard pcard--lg pcard--toggle" id="pb-sparkasse" aria-expanded="false" aria-controls="pd-sparkasse">
                             <span class="plogo"><img src="assets/img/partners/frankfurter-sparkasse.webp" width="480" height="167" alt="" loading="lazy" decoding="async"></span>
                             <span class="pinfo"><span class="pname">Frankfurter Sparkasse</span><span class="pdesc">One of Germany’s largest savings banks, rooted in Frankfurt.</span></span>
-                            <span class="sr-only"> – website (opens in a new tab)</span><span class="parrow" aria-hidden="true">↗</span>
-                        </a></li>
-                        <li><a class="pcard pcard--lg" href="https://www.dvag.de" target="_blank" rel="noopener noreferrer">
+                            <span class="pmore" aria-hidden="true"><span class="pmore-label">Details</span><span class="pmore-icon"></span></span>
+                        </button></li>
+                        <li><button type="button" class="pcard pcard--lg pcard--toggle" id="pb-dvag" aria-expanded="false" aria-controls="pd-dvag">
                             <span class="plogo"><img src="assets/img/partners/dvag.webp" width="480" height="107" alt="" loading="lazy" decoding="async"></span>
                             <span class="pinfo"><span class="pname">Deutsche Vermögensberatung (DVAG)</span><span class="pdesc">Germany’s largest independent financial advisory firm.</span></span>
-                            <span class="sr-only"> – website (opens in a new tab)</span><span class="parrow" aria-hidden="true">↗</span>
-                        </a></li>
+                            <span class="pmore" aria-hidden="true"><span class="pmore-label">Details</span><span class="pmore-icon"></span></span>
+                        </button></li>
                     </ul>
+                    <div class="pdetail" id="pd-sparkasse" role="region" aria-labelledby="pb-sparkasse" hidden>
+                        <div class="pdetail-inner">
+                            <div class="pdetail-head">
+                                <h4 class="pdetail-name">Frankfurter Sparkasse</h4>
+                                
+                                <button type="button" class="pdetail-close" aria-label="Close details"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="pdetail-text" lang="en" data-lang="en"><p>One of Germany’s largest savings banks, rooted in Frankfurt.</p><p><span class="todo" data-todo="Ausfuehrliche Beschreibung von Frankfurter Sparkasse (EN, optional DE) vom Partner einholen">[Longer description to follow]</span></p></div>
+                            <div class="pdetail-actions"><a class="btn--link" href="https://www.frankfurter-sparkasse.de" target="_blank" rel="noopener noreferrer">Visit website<span class="sr-only"> of Frankfurter Sparkasse (opens in a new tab)</span> <span aria-hidden="true">↗</span></a></div>
+                        </div>
+                    </div>
+                    <div class="pdetail" id="pd-dvag" role="region" aria-labelledby="pb-dvag" hidden>
+                        <div class="pdetail-inner">
+                            <div class="pdetail-head">
+                                <h4 class="pdetail-name">Deutsche Vermögensberatung (DVAG)</h4>
+                                
+                                <button type="button" class="pdetail-close" aria-label="Close details"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="pdetail-text" lang="en" data-lang="en"><p>Germany’s largest independent financial advisory firm.</p><p><span class="todo" data-todo="Ausfuehrliche Beschreibung von Deutsche Vermögensberatung (DVAG) (EN, optional DE) vom Partner einholen">[Longer description to follow]</span></p></div>
+                            <div class="pdetail-actions"><a class="btn--link" href="https://www.dvag.de" target="_blank" rel="noopener noreferrer">Visit website<span class="sr-only"> of Deutsche Vermögensberatung (DVAG) (opens in a new tab)</span> <span aria-hidden="true">↗</span></a></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="ptier ptier--gold">
                     <h3 class="ptier-label">Gold Partner</h3>
                     <ul class="pcards pcards--md">
-                        <li><a class="pcard pcard--md" href="https://gruppe.schwarz" target="_blank" rel="noopener noreferrer">
+                        <li><button type="button" class="pcard pcard--md pcard--toggle" id="pb-schwarz" aria-expanded="false" aria-controls="pd-schwarz">
                             <span class="plogo"><img src="assets/img/partners/schwarz-gruppe.webp" width="438" height="191" alt="" loading="lazy" decoding="async"></span>
-                            <span class="pinfo"><span class="pname">Unternehmen der Schwarz Gruppe</span><span class="pdesc">From retail and production to recycling.</span></span>
-                            <span class="sr-only"> – website (opens in a new tab)</span><span class="parrow" aria-hidden="true">↗</span>
-                        </a></li>
+                            <span class="pinfo"><span class="pname">Unternehmen der Schwarz Gruppe</span><span class="pdesc">From production and retail to recycling and digitisation.</span><span class="pbadge">Workshop</span></span>
+                            <span class="pmore" aria-hidden="true"><span class="pmore-label">Details</span><span class="pmore-icon"></span></span>
+                        </button></li>
                     </ul>
+                    <div class="pdetail" id="pd-schwarz" role="region" aria-labelledby="pb-schwarz" hidden>
+                        <div class="pdetail-inner">
+                            <div class="pdetail-head">
+                                <h4 class="pdetail-name">Unternehmen der Schwarz Gruppe</h4>
+                                <div class="pdetail-lang" role="group" aria-label="Language">
+                                    <button type="button" class="lang-btn lang-btn--en" data-lang-btn="en" aria-pressed="true" title="English"><span class="sr-only">English</span></button>
+                                    <button type="button" class="lang-btn lang-btn--de" data-lang-btn="de" aria-pressed="false" title="Deutsch"><span class="sr-only">Deutsch</span></button>
+                                </div>
+                                <button type="button" class="pdetail-close" aria-label="Close details"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="pdetail-text" lang="en" data-lang="en"><p>We exist to make life better – today and for generations to come. So, we don’t wait for challenges to become problems. We seize opportunities and act ahead. From production and retail to recycling and digitization, we create solutions that make life more sustainable, healthier and more secure. And we do this alongside our 604,000 employees, our stakeholders and our partners pursuing our clear vision: the leading ecosystem for a better life.</p><p><strong>Acting Ahead rather than just thinking ahead – the companies of Schwarz Group.</strong></p></div>
+                            <div class="pdetail-text" lang="de" data-lang="de" hidden><p>Von der Produktion über den Handel bis hin zu Recycling und Digitalisierung schaffen wir Lösungen, die das Leben gesünder und sicherer machen. Das tun wir gemeinsam mit unseren 604.000 Mitarbeitern, unseren Stakeholdern und Partnern – mit einer klaren Vision: das führende Ökosystem für ein besseres Leben.</p><p><strong>Voraushandeln statt nur Vorausdenken – die Unternehmen der Schwarz Gruppe.</strong></p></div>
+                            <div class="pdetail-workshop">
+                                <p class="label-sm pdetail-workshop-k">Workshop at FS Business Forum 2026</p>
+                                <p class="pdetail-workshop-text">The companies of Schwarz Group host a workshop for participants. Seats are limited – ticket holders will be notified by email as soon as applications open.</p>
+                                <a class="btn btn--secondary btn--sm ws-apply-btn" data-workshop-link data-cta="workshop-schwarz" data-label-live="Apply for the workshop" aria-disabled="true"><span class="ws-label">Applications open soon</span> <span class="ws-arrow" aria-hidden="true">→</span></a>
+                            </div>
+                            <div class="pdetail-actions"><a class="btn--link" href="https://gruppe.schwarz" target="_blank" rel="noopener noreferrer">Visit website<span class="sr-only"> of Unternehmen der Schwarz Gruppe (opens in a new tab)</span> <span aria-hidden="true">↗</span></a></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="ptier ptier--silver">
                     <h3 class="ptier-label">Silver Partner</h3>
                     <ul class="pcards pcards--md">
-                        <li><a class="pcard pcard--md" href="https://www.oddo-bhf.com" target="_blank" rel="noopener noreferrer">
+                        <li><button type="button" class="pcard pcard--md pcard--toggle" id="pb-oddo" aria-expanded="false" aria-controls="pd-oddo">
                             <span class="plogo"><img src="assets/img/partners/oddo-bhf.webp" width="480" height="260" alt="" loading="lazy" decoding="async"></span>
                             <span class="pinfo"><span class="pname">ODDO BHF</span><span class="pdesc">Franco-German financial services group.</span></span>
-                            <span class="sr-only"> – website (opens in a new tab)</span><span class="parrow" aria-hidden="true">↗</span>
-                        </a></li>
+                            <span class="pmore" aria-hidden="true"><span class="pmore-label">Details</span><span class="pmore-icon"></span></span>
+                        </button></li>
                     </ul>
+                    <div class="pdetail" id="pd-oddo" role="region" aria-labelledby="pb-oddo" hidden>
+                        <div class="pdetail-inner">
+                            <div class="pdetail-head">
+                                <h4 class="pdetail-name">ODDO BHF</h4>
+                                
+                                <button type="button" class="pdetail-close" aria-label="Close details"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="pdetail-text" lang="en" data-lang="en"><p>Franco-German financial services group.</p><p><span class="todo" data-todo="Ausfuehrliche Beschreibung von ODDO BHF (EN, optional DE) vom Partner einholen">[Longer description to follow]</span></p></div>
+                            <div class="pdetail-actions"><a class="btn--link" href="https://www.oddo-bhf.com" target="_blank" rel="noopener noreferrer">Visit website<span class="sr-only"> of ODDO BHF (opens in a new tab)</span> <span aria-hidden="true">↗</span></a></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="ptier ptier--corporate">
                     <h3 class="ptier-label">Corporate Partners</h3>
                     <ul class="pcards pcards--md">
-                        <!-- TODO(Team): Website-URL fuer Privatize eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
-                        <li><div class="pcard pcard--md">
+                        <li><button type="button" class="pcard pcard--md pcard--toggle" id="pb-privatize" aria-expanded="false" aria-controls="pd-privatize">
                             <span class="plogo"><img src="assets/img/partners/privatize.webp" width="480" height="88" alt="" loading="lazy" decoding="async"></span>
                             <span class="pinfo"><span class="pname">Privatize</span></span>
-                        </div></li>
-                        <!-- TODO(Team): Website-URL fuer KeSolutions eintragen: <div> durch <a href="…" target="_blank" rel="noopener noreferrer"> ersetzen -->
-                        <li><div class="pcard pcard--md">
+                            <span class="pmore" aria-hidden="true"><span class="pmore-label">Details</span><span class="pmore-icon"></span></span>
+                        </button></li>
+                        <li><button type="button" class="pcard pcard--md pcard--toggle" id="pb-kesolutions" aria-expanded="false" aria-controls="pd-kesolutions">
                             <span class="plogo"><img src="assets/img/partners/kesolutions.webp" width="197" height="240" alt="" loading="lazy" decoding="async"></span>
                             <span class="pinfo"><span class="pname">KeSolutions</span><span class="pdesc">IT partner – registration, event app and on-site digital experience.</span></span>
-                        </div></li>
+                            <span class="pmore" aria-hidden="true"><span class="pmore-label">Details</span><span class="pmore-icon"></span></span>
+                        </button></li>
                     </ul>
+                        <!-- TODO(Team): Website-URL fuer Privatize eintragen und hier einen "Visit website"-Link ergaenzen -->
+                    <div class="pdetail" id="pd-privatize" role="region" aria-labelledby="pb-privatize" hidden>
+                        <div class="pdetail-inner">
+                            <div class="pdetail-head">
+                                <h4 class="pdetail-name">Privatize</h4>
+                                
+                                <button type="button" class="pdetail-close" aria-label="Close details"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="pdetail-text" lang="en" data-lang="en"><p><span class="todo" data-todo="Beschreibung von Privatize (EN, optional DE) vom Partner einholen">[Description to follow]</span></p></div>
+                        </div>
+                    </div>
+                        <!-- TODO(Team): Website-URL fuer KeSolutions eintragen und hier einen "Visit website"-Link ergaenzen -->
+                    <div class="pdetail" id="pd-kesolutions" role="region" aria-labelledby="pb-kesolutions" hidden>
+                        <div class="pdetail-inner">
+                            <div class="pdetail-head">
+                                <h4 class="pdetail-name">KeSolutions</h4>
+                                
+                                <button type="button" class="pdetail-close" aria-label="Close details"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="pdetail-text" lang="en" data-lang="en"><p>IT partner – registration, event app and on-site digital experience.</p><p><span class="todo" data-todo="Ausfuehrliche Beschreibung von KeSolutions (EN, optional DE) vom Partner einholen">[Longer description to follow]</span></p></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="event-partners" class="ptier ptier--event">

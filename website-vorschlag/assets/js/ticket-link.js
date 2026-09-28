@@ -17,14 +17,14 @@
  *   - ohne href/mit aria-disabled = Zustand "kommt bald" (auch ohne JS)
  *   - ist WORKSHOP_URL gesetzt: href = WORKSHOP_URL, Text = data-label-live, <html data-workshops-live="true">
  *
- * Einbinden:  <script defer src="assets/js/ticket-link.js?v=20260928b"></script>
+ * Einbinden:  <script defer src="assets/js/ticket-link.js?v=20260928c"></script>
  * Vanilla ES5, keine Abhaengigkeiten, fehlerfrei auch ohne passende Links.
  */
 (function (window, document) {
     'use strict';
 
     // Vollstaendige URL inkl. https:// (sonst wird sie ignoriert und alle Links bleiben bei tickets.html).
-    var TICKET_URL = ''; // TODO(Launch): Eventbrite-URL eintragen
+    var TICKET_URL = 'https://www.eventbrite.de/e/fs-business-forum-2026-tickets-1993516652973'; // Eventbrite, Verkauf seit 28.09.2026
 
     // Bewerbungsseite fuer Workshops, Alumni Roundtable, Coffee Chats, Wine Tasting (vollstaendige URL inkl. https://).
     // Leer = "Applications open soon" auf der ganzen Site.

@@ -6573,6 +6573,64 @@ html[data-workshops-live="true"] body.home2026 .ws-apply-btn{opacity:1;border-co
 body.home2026 .ticket-features a,body.home2026 .faq-a a[href="#workshops"]{color:inherit;text-decoration:underline;text-decoration-color:rgba(201,169,98,.6);text-underline-offset:.2em}
 @media (max-width:599px){ body.home2026 .ws-apply-btn{width:100%;justify-content:center} }
 
+body.home2026 .ws-apply-confirmed{margin:.1rem 0 .35rem;color:#fff}
+body.home2026 .ws-apply-confirmed-k{font-weight:600;color:var(--color-accent)}
+body.home2026 .ws-apply-confirmed a{color:#fff;text-decoration:underline;text-decoration-color:rgba(201,169,98,.6);text-underline-offset:.2em}
+body.home2026 .ws-apply-actions{display:flex;flex-wrap:wrap;gap:.75rem}
+body.home2026 .ticket-price-note{margin:-.9rem 0 1.5rem;font-size:.875rem;color:var(--color-text-secondary)}
+@media (max-width:599px){ body.home2026 .ws-apply-actions{width:100%} body.home2026 .ws-apply-actions .btn{flex:1 1 100%;justify-content:center} }
+
+/* Corporate-Partner: Karte = Button, schiebt darunter ein Detail-Panel auf (script.js "partner details") */
+body.home2026 .pcard--toggle{width:100%;margin:0;font:inherit;text-align:left;cursor:pointer;-webkit-appearance:none;appearance:none}
+body.home2026 .pcard--toggle .pinfo{flex:1}
+body.home2026 .pmore{flex:0 0 auto;display:inline-flex;align-items:center;gap:.45rem;margin-left:auto;padding-left:.5rem;
+    font:600 .75rem/1 var(--font-body);letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent)}
+body.home2026 .pmore-icon{width:.55rem;height:.55rem;border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+    transform:translateY(-25%) rotate(45deg);transition:transform .25s var(--ease-out-quart)}
+body.home2026 .pcard--toggle[aria-expanded="true"]{border-color:rgba(201,169,98,.7);background:rgba(201,169,98,.07)}
+body.home2026 .pcard--toggle[aria-expanded="true"] .pmore-icon{transform:translateY(25%) rotate(225deg)}
+body.home2026 .pcard--toggle:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}
+body.home2026 .pbadge{align-self:flex-start;margin-top:.45rem;padding:.2rem .55rem;border-radius:999px;background:var(--color-accent);color:var(--color-bg);
+    font:700 .6875rem/1.2 var(--font-body);letter-spacing:.1em;text-transform:uppercase}
+body.home2026 .pdetail{margin-top:1rem;border:1px solid rgba(201,169,98,.45);border-radius:var(--radius);
+    background:radial-gradient(120% 120% at 100% 0%,rgba(201,169,98,.1),rgba(201,169,98,0) 55%),var(--surface)}
+body.home2026 .pdetail:not([hidden]){animation:pdetail-in .35s var(--ease-out-quart)}
+@keyframes pdetail-in{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){ body.home2026 .pdetail:not([hidden]){animation:none} }
+body.home2026 .pdetail-inner{padding:clamp(1.25rem,1rem + 1.2vw,2rem)}
+body.home2026 .pdetail-head{display:flex;align-items:center;gap:1rem;margin-bottom:.9rem}
+body.home2026 .pdetail-name{flex:1;margin:0;font:500 clamp(1.25rem,1.1rem + .6vw,1.6rem)/1.2 var(--font-display);color:#fff}
+body.home2026 .pdetail-lang{display:flex;gap:.4rem}
+body.home2026 .lang-btn{width:34px;height:22px;padding:0;border:2px solid transparent;border-radius:4px;cursor:pointer;opacity:.5;
+    background:center/cover no-repeat;box-shadow:0 0 0 1px rgba(255,255,255,.25);transition:opacity .2s,border-color .2s}
+body.home2026 .lang-btn[aria-pressed="true"]{opacity:1;border-color:var(--color-accent)}
+body.home2026 .lang-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+body.home2026 .lang-btn--en{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='a'%3E%3Cpath d='M0 0v30h60V0z'/%3E%3C/clipPath%3E%3CclipPath id='b'%3E%3Cpath d='M30 15h30v15zv15H0zH0V0zV0h30z'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M0 0v30h60V0z' fill='%23012169'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' clip-path='url(%23b)' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/g%3E%3C/svg%3E")}
+body.home2026 .lang-btn--de{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5 3'%3E%3Cpath d='M0 0h5v3H0z'/%3E%3Cpath fill='%23D00' d='M0 1h5v2H0z'/%3E%3Cpath fill='%23FFCE00' d='M0 2h5v1H0z'/%3E%3C/svg%3E")}
+body.home2026 .pdetail-close{flex:0 0 auto;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:transparent;color:#fff;
+    font:400 1.4rem/1 var(--font-body);cursor:pointer}
+body.home2026 .pdetail-close:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}
+body.home2026 .pdetail-text{max-width:70ch}
+body.home2026 .pdetail-text p{margin:0 0 .8rem;line-height:1.65;color:var(--color-text-secondary)}
+body.home2026 .pdetail-text strong{color:#fff;font-weight:600}
+body.home2026 .pdetail-workshop{margin:1.25rem 0 0;padding:1rem 1.25rem;border-left:3px solid var(--color-accent);border-radius:0 12px 12px 0;background:rgba(201,169,98,.08)}
+body.home2026 .pdetail-workshop-k{margin:0 0 .35rem;color:var(--color-accent)}
+body.home2026 .pdetail-workshop-text{margin:0 0 .9rem;color:#fff;line-height:1.55}
+body.home2026 .pdetail-actions{margin-top:1.25rem}
+.no-js body.home2026 .pdetail[hidden],.no-js body.home2026 .pdetail-text[hidden]{display:block}
+.no-js body.home2026 .pdetail-close,.no-js body.home2026 .pdetail-lang,.no-js body.home2026 .pmore{display:none}
+@media (hover:hover) and (pointer:fine){
+    body.home2026 .pcard--toggle:hover{border-color:rgba(201,169,98,.55)}
+    body.home2026 .lang-btn:hover{opacity:.85}
+    body.home2026 .pdetail-close:hover{border-color:var(--color-accent)}
+}
+@media (max-width:599px){
+    body.home2026 .pmore-label{display:none}
+    body.home2026 .pdetail-head{flex-wrap:wrap}
+    body.home2026 .pdetail-name{flex-basis:100%;order:-1}
+    body.home2026 .pdetail-close{margin-left:auto}
+}
+
 /* Thema statt Timetable */
 body.home2026 .formats{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;list-style:none;margin:clamp(2rem,1.5rem + 2vw,3rem) 0 0;padding:0}
 body.home2026 .formats li{padding:.6rem 1.1rem;border:1px solid rgba(201,169,98,.4);border-radius:999px;font:600 .875rem/1.2 var(--font-body);
