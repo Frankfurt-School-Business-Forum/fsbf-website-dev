@@ -759,13 +759,14 @@ safeInit('countdown', () => {
         }
     };
 
+    // Ein tickender Countdown ist keine Animation: er laeuft immer sekuendlich und mit Sekunden
+    // (vorher bei "Bewegung reduzieren"/"Pause motion" nur alle 30 s -> wirkte eingefroren).
     const schedule = () => {
-        const calm = !motionOK();
-        if (secUnit) secUnit.hidden = calm;
-        if (secSep) secSep.hidden = calm;
+        if (secUnit) secUnit.hidden = false;
+        if (secSep) secSep.hidden = false;
         if (timer) clearInterval(timer);
         tick();
-        if (target > Date.now()) timer = setInterval(tick, calm ? 30000 : 1000);
+        if (target > Date.now()) timer = setInterval(tick, 1000);
     };
 
     live.hidden = false;
