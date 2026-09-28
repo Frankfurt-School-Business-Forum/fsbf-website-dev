@@ -1571,4 +1571,28 @@ if (HAS_GSAP) safeInit('gsap polish', () => {
     }
 });
 
+// ================================
+// Aftermovie: YouTube erst nach Klick laden (youtube-nocookie.com), vorher nur das lokale Vorschaubild
+// ================================
+safeInit('aftermovie', () => {
+    document.querySelectorAll('.yt-facade[data-yt-id]').forEach(box => {
+        const link = box.querySelector('.yt-play');
+        if (!link) return;
+        link.addEventListener('click', (e) => {
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;   // new tab etc. -> normal link
+            e.preventDefault();
+            const id = encodeURIComponent(box.dataset.ytId);
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+            iframe.title = 'Aftermovie 2025 | FS Business Forum';
+            iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+            iframe.allowFullscreen = true;
+            iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+            box.classList.add('is-playing');
+            box.replaceChildren(iframe);
+            iframe.focus();
+        });
+    });
+});
+
 console.log('%c FS Business Forum — we warmly welcome you in November :) ', 'background: #c9a962; color: #040810; font-size: 12px; padding: 4px 8px; border-radius: 4px;');

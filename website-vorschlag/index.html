@@ -58,7 +58,7 @@
     <!-- P1-8: hero poster per viewport (it is the container background; the <video> has no poster attribute) -->
     <link rel="preload" href="assets/img/hero/poster-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
     <link rel="preload" href="assets/img/hero/poster-1280.webp" as="image" type="image/webp" media="(min-width: 768px)">
-    <link rel="stylesheet" href="styles.css?v=20260928i">
+    <link rel="stylesheet" href="styles.css?v=20260928j">
 
     <!-- P1-9: Event schema (Google Event rich result).
          TODO(Team): Uhrzeiten bestaetigen – startDate 09:00 und endDate 18:00 sind Annahmen (Offset +01:00 = MEZ im November);
@@ -102,7 +102,7 @@
     <!-- P2-9: the home page needs no GSAP/ScrollTrigger/SplitType (≈ 52 KB gz) – script.js runs without them.
          (/2025/ still loads them for its legacy effects.) -->
     <script defer src="assets/js/ticket-link.js?v=20260928a"></script>
-    <script defer src="script.js?v=20260928a"></script>
+    <script defer src="script.js?v=20260928b"></script>
 </head>
 <body class="home2026 va">
 
@@ -583,6 +583,21 @@
                 </div>
                 <a class="btn--link" href="2025/">See the 2025 recap <span aria-hidden="true">→</span></a>
             </header>
+            <!-- Aftermovie 2025 (YouTube F9FS5sBDffw) als Klick-zum-Laden: Vorschaubild liegt lokal, YouTube (youtube-nocookie.com)
+                 wird erst nach Klick geladen – vorher keine Daten an Google, kein Cookie-Banner noetig. Ohne JS: normaler Link zu YouTube.
+                 TODO(Team): Datenschutzerklaerung (datenschutz.html + privacy.html) um einen Abschnitt "YouTube (Klick-zum-Laden)" ergaenzen. -->
+            <figure class="aftermovie" data-reveal>
+                <div class="yt-facade" data-yt-id="F9FS5sBDffw">
+                    <img src="assets/img/aftermovie-2025.webp" srcset="assets/img/aftermovie-2025-640.webp 640w, assets/img/aftermovie-2025.webp 1280w"
+                         sizes="(min-width: 1260px) 1200px, 100vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
+                    <a class="yt-play" href="https://www.youtube.com/watch?v=F9FS5sBDffw" target="_blank" rel="noopener noreferrer">
+                        <span class="yt-play-icon" aria-hidden="true"></span>
+                        <span class="yt-play-label">Watch the 2025 aftermovie<span class="sr-only"> (plays a YouTube video)</span></span>
+                    </a>
+                </div>
+                <figcaption class="yt-note">Playing the video loads content from YouTube (Google). <a href="privacy.html">Privacy Policy</a></figcaption>
+            </figure>
+
             <ul class="gallery" data-reveal>
                 <li class="gallery-tile gallery-tile--wide"><img src="assets/img/photos/crowd_clapping-640.webp" srcset="assets/img/photos/crowd_clapping-640.webp 640w, assets/img/photos/crowd_clapping-1280.webp 1280w" sizes="(min-width: 1024px) 590px, (min-width: 600px) 66vw, 100vw" width="640" height="427" alt="A full hall applauding at FS Business Forum 2025" loading="lazy" decoding="async"></li>
                 <li class="gallery-tile"><img src="assets/img/photos/alexanderdoll_profstieglitz_andreaorcelpicture-640.webp" srcset="assets/img/photos/alexanderdoll_profstieglitz_andreaorcelpicture-640.webp 640w, assets/img/photos/alexanderdoll_profstieglitz_andreaorcelpicture-1280.webp 1280w" sizes="(min-width: 1024px) 290px, (min-width: 600px) 33vw, 50vw" width="640" height="427" alt="UniCredit CEO Andrea Orcel with guests at FS Business Forum 2025" loading="lazy" decoding="async"></li>

@@ -6534,6 +6534,30 @@ body.home2026 .alumni-item span{font-size:.9375rem;max-width:24ch}
     body.home2026 .alumni-item span{font-size:.875rem}
 }
 
+/* Aftermovie 2025: Klick-zum-Laden (keine YouTube-Requests vor dem Klick) */
+body.home2026 .aftermovie{margin:0 0 clamp(1.5rem,1rem + 1.5vw,2.25rem)}
+body.home2026 .yt-facade{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:#000}
+body.home2026 .yt-facade > img,body.home2026 .yt-facade > iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+body.home2026 .yt-facade::after{content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(4,8,16,.05) 40%,rgba(4,8,16,.7) 100%)}
+body.home2026 .yt-facade.is-playing::after{display:none}
+body.home2026 .yt-play{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;
+    color:#fff;text-decoration:none}
+body.home2026 .yt-play-icon{position:relative;width:clamp(64px,5vw + 40px,96px);aspect-ratio:1;border-radius:50%;background:var(--color-accent);
+    box-shadow:0 18px 50px -12px rgba(0,0,0,.7);transition:transform .3s var(--ease-out-quart),background-color .3s}
+body.home2026 .yt-play-icon::before{content:'';position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);
+    border-style:solid;border-width:.7em 0 .7em 1.15em;border-color:transparent transparent transparent var(--color-bg);font-size:clamp(14px,1vw + 10px,20px)}
+body.home2026 .yt-play-label{padding:.45rem .9rem;border-radius:999px;background:rgba(4,8,16,.6);font:600 .9375rem/1.2 var(--font-body);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+body.home2026 .yt-play:focus-visible{outline:none}
+body.home2026 .yt-play:focus-visible .yt-play-icon{outline:3px solid #fff;outline-offset:4px}
+body.home2026 .yt-note{margin:.65rem 0 0;font-size:.8125rem;color:var(--color-text-secondary)}
+body.home2026 .yt-note a{color:inherit;text-decoration:underline;text-underline-offset:.2em}
+@media (hover:hover) and (pointer:fine){
+    body.home2026 .yt-play:hover .yt-play-icon{transform:scale(1.07);background:var(--color-accent-light)}
+}
+@media (max-width:599px){ body.home2026 .yt-play-label{font-size:.8125rem} }
+
 /* Thema statt Timetable */
 body.home2026 .formats{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;list-style:none;margin:clamp(2rem,1.5rem + 2vw,3rem) 0 0;padding:0}
 body.home2026 .formats li{padding:.6rem 1.1rem;border:1px solid rgba(201,169,98,.4);border-radius:999px;font:600 .875rem/1.2 var(--font-body);
