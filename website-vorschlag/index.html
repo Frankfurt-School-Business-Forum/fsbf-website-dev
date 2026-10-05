@@ -58,7 +58,7 @@
     <!-- P1-8: hero poster per viewport (it is the container background; the <video> has no poster attribute) -->
     <link rel="preload" href="assets/img/hero/poster-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
     <link rel="preload" href="assets/img/hero/poster-1280.webp" as="image" type="image/webp" media="(min-width: 768px)">
-    <link rel="stylesheet" href="styles.css?v=20260928q">
+    <link rel="stylesheet" href="styles.css?v=20261005a">
 
     <!-- P1-9: Event schema (Google Event rich result).
          Zeiten und Angebot laut Eventbrite (13.11. 09:00 bis 14.11. 22:00, 19,99 EUR, Verkauf seit 28.09.2026).
@@ -366,6 +366,8 @@
                 </ul>
                 <div class="spk-more-overlay">
                     <p class="spk-more-title">More to be announced</p>
+                    <!-- Kein Reveal-Termin bekannt: "soon" statt Countdown. Fuer einen Countdown den auskommentierten Block wieder
+                         aktivieren, data-target (mit Zeitzone) setzen und die <p class="spk-soon"> entfernen.
                     <div class="speaker-countdown">
                         <div class="countdown-live" hidden>
                             <p class="countdown-label" aria-hidden="true">Next speakers in</p>
@@ -379,6 +381,8 @@
                         </div>
                         <p class="countdown-fallback">Stay tuned.</p>
                     </div>
+                    -->
+                    <p class="spk-soon">soon</p>
                 </div>
             </div>
 
@@ -513,10 +517,6 @@
                             </div>
                             <div class="pdetail-text" lang="de" data-lang="de"><p>Von der Produktion über den Handel bis hin zu Recycling und Digitalisierung schaffen wir Lösungen, die das Leben gesünder und sicherer machen. Das tun wir gemeinsam mit unseren 604.000 Mitarbeitern, unseren Stakeholdern und Partnern – mit einer klaren Vision: das führende Ökosystem für ein besseres Leben.</p><p><strong>Voraushandeln statt nur Vorausdenken – die Unternehmen der Schwarz Gruppe.</strong></p></div>
                             <div class="pdetail-text" lang="en" data-lang="en" hidden><p>We exist to make life better – today and for generations to come. So, we don’t wait for challenges to become problems. We seize opportunities and act ahead. From production and retail to recycling and digitization, we create solutions that make life more sustainable, healthier and more secure. And we do this alongside our 604,000 employees, our stakeholders and our partners pursuing our clear vision: the leading ecosystem for a better life.</p><p><strong>Acting Ahead rather than just thinking ahead – the companies of Schwarz Group.</strong></p></div>
-                            <div class="pdetail-workshop">
-                                <p class="label-sm pdetail-workshop-k">Workshop at FS Business Forum 2026</p>
-                                <p class="pdetail-workshop-text">The companies of Schwarz Group host a workshop for participants. Seats are limited – see <a href="#workshops">Workshops</a>.</p>
-                            </div>
                             <div class="pdetail-actions"><a class="btn--link" href="https://gruppe.schwarz" target="_blank" rel="noopener noreferrer">Visit website<span class="sr-only"> of Schwarz Gruppe (opens in a new tab)</span> <span aria-hidden="true">↗</span></a></div>
                         </div>
                     </div>

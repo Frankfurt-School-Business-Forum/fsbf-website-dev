@@ -6774,3 +6774,10 @@ html[data-checkout-loading] [data-ticket-link]{cursor:progress;opacity:.85}
 
 /* Social-Links (Instagram, LinkedIn) im Mobile-Menue und Kontaktbereich */
 body.home2026 .mobile-menu-social a,body.home2026 .info-social a{display:inline-flex;align-items:center;min-height:44px;color:#fff;text-decoration:underline;text-decoration-color:rgba(201,169,98,.6);text-underline-offset:.25em}
+
+/* Speaker: "soon" statt Countdown, solange kein Reveal-Termin feststeht */
+body.home2026 .spk-more .spk-soon{margin:0;padding:0 .08em .1em;font:italic 400 clamp(3.25rem,2.2rem + 4.5vw,6rem)/1 var(--font-display);
+    letter-spacing:-.01em;color:var(--color-accent);
+    background:linear-gradient(100deg,var(--color-accent) 0%,var(--color-accent-light) 48%,var(--color-accent) 75%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@media (forced-colors:active){ body.home2026 .spk-more .spk-soon{background:none;-webkit-text-fill-color:CanvasText} }
