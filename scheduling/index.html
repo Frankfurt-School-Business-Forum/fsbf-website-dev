@@ -1,0 +1,2058 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FSBF Event · Schichtplanung</title>
+<link rel="icon" href="data:image/png;base64,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">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,650&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   FSBF Event · Schichtplanung
+   Designtokens aus dem FSBF Corporate Design. Navy als Leitfarbe,
+   Gold ausschliesslich auf dunkler Chrome (Sidebar, Pitchbar).
+   ============================================================ */
+:root{
+  --brand:#35417d; --brand-ink:#ffffff; --brand-soft:#eef0f7; --brand-line:#c5cbe2;
+  --brand-deep:#28315f; --navy:#1a1a2e; --navy-2:#2b2b47;
+  --gold:#c4a35a; --nav-active:#c4a35a;
+  --side:#1a1a2e; --side-2:#24243d; --side-3:#2f2f4e;
+  --side-text:#d7d7e2; --side-muted:#8b8ba0; --side-line:rgba(255,255,255,.08);
+  --bg:#f5f5f8; --surface:#ffffff; --surface-2:#fafafb;
+  --ink:#1c1c28; --ink-2:#3d3d4e; --muted:#6b6b7b;
+  --line:#e6e6ec; --line-2:#dcdce4; --row-hover:#fcfbf7;
+  --pitch:37px;
+  --st-open:#82828f; --st-open-bg:#f1f1f4;
+  --st-wait-them:#3a4a8f; --st-wait-them-bg:#eaedf7;
+  --st-wait-us:#a8791f; --st-wait-us-bg:#fbf2dc;
+  --st-meeting:#5b4a9e; --st-meeting-bg:#efecf9;
+  --st-won:#1f8a5c; --st-won-bg:#e6f5ec;
+  --st-lost:#b2503f; --st-lost-bg:#fbe9e6;
+  --hi:#1f8a5c; --mid:#a8791f; --lo:#b2503f;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px;
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-pill:22px;
+  --shadow:0 1px 2px rgba(20,20,26,.04), 0 8px 24px rgba(20,20,26,.05);
+  --shadow-lg:0 2px 6px rgba(20,20,26,.06), 0 18px 48px rgba(20,20,26,.14);
+  --serif:'Fraunces','Iowan Old Style',Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;
+  /* Gantt: Zeit laeuft horizontal, Stationen sind Zeilen.
+     Schmale Spuren, damit ein ganzer Tag senkrecht ohne Scrollen passt. */
+  /* 196px, damit auch der laengste Stationsname („Chauffeur und Parkplatz")
+     ohne Auslassungspunkte in die Spalte passt. */
+  --hourw:100px; --laneh:26px; --lanegap:4px; --stw:196px; --rulerh:34px;
+  --rowmin:42px; --rowpad:12px;
+  /* Farben tragen jetzt den Zustand, nicht mehr die Station */
+  --bl-line:#c5cbe2; --bl-edge:#35417d;
+  --bl-warn:#a8791f; --bl-warn-bg:#fbf2dc; --bl-warn-line:#e0c481;
+  --bl-bad:#b2503f;  --bl-bad-bg:#fbe9e6;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:600;letter-spacing:-.01em}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Pitchbar (Mockup Navigation, dunkel) ---------- */
+.pitchbar{position:fixed;top:0;left:0;right:0;min-height:37px;background:var(--navy);color:#fff;
+  display:flex;align-items:center;gap:var(--s4);padding:5px var(--s4);z-index:900;
+  border-bottom:1px solid rgba(255,255,255,.1);font-size:12px;flex-wrap:wrap}
+.pitchbar b{font-family:var(--serif);font-weight:600;color:var(--gold);letter-spacing:.02em}
+.pitchnav{display:flex;gap:var(--s1);flex-wrap:wrap}
+.pitchnav button{background:transparent;border:1px solid rgba(255,255,255,.16);color:#cfcfe0;
+  border-radius:var(--r-pill);padding:3px 11px;font-size:11.5px;cursor:pointer}
+.pitchnav button:hover{background:rgba(255,255,255,.08);color:#fff}
+.pitchnav button[aria-current="true"]{background:var(--gold);border-color:var(--gold);color:#241d09;font-weight:600}
+
+/* ---------- App Shell ---------- */
+.app{display:grid;grid-template-columns:232px 1fr;min-height:100vh;padding-top:var(--pitch)}
+.side{background:var(--side);color:var(--side-text);display:flex;flex-direction:column;
+  position:sticky;top:var(--pitch);height:calc(100vh - var(--pitch))}
+.sidehead{padding:var(--s5) var(--s4) var(--s4);border-bottom:1px solid var(--side-line)}
+/* Marke wie in der Gaesteapp: runder Kreis plus gesetzter Name, nicht das
+   Hochschullogo. Das Business Forum fuehrt den Kreis, die Frankfurt School ist
+   nur Traegerin. */
+.sidehead .bmark{display:flex;align-items:center;gap:10px}
+.sidehead .bmark img{width:34px;height:34px;object-fit:contain;flex:none}
+.sidehead .bmark b{font-family:var(--sans);font-size:13.5px;font-weight:700;line-height:1.2;
+  letter-spacing:-.005em;color:#fff}
+.sidehead .sub{font-size:11px;color:var(--side-muted);margin-top:10px;letter-spacing:.08em;text-transform:uppercase}
+.nav{padding:var(--s3) var(--s2);flex:1;overflow:auto}
+.nav .grp{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--side-muted);
+  padding:var(--s3) var(--s3) var(--s1)}
+.nav a{display:flex;align-items:center;gap:10px;padding:8px var(--s3);border-radius:var(--r-sm);
+  color:var(--side-text);text-decoration:none;font-size:13.5px}
+.nav a:hover{background:var(--side-2)}
+.nav a[aria-current="page"]{background:var(--side-3);color:#fff;font-weight:600;
+  box-shadow:inset 3px 0 0 var(--nav-active)}
+.nav a svg{flex:none;opacity:.8}
+.sidefoot{border-top:1px solid var(--side-line);padding:var(--s3) var(--s4);display:flex;align-items:center;gap:10px}
+.av{width:30px;height:30px;border-radius:50%;background:var(--side-3);color:#fff;display:grid;place-items:center;
+  font-size:11.5px;font-weight:600;flex:none}
+.sidefoot .nm{font-size:12.5px;color:#fff;line-height:1.25}
+.sidefoot .ro{font-size:11px;color:var(--side-muted)}
+.main{min-width:0;min-height:0;display:flex;flex-direction:column}
+.topbar{background:var(--surface);border-bottom:1px solid var(--line);padding:var(--s4) var(--s5);
+  display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;
+  position:sticky;top:var(--pitch);z-index:60}
+.topbar h1{font-size:22px}
+.topbar .lead{color:var(--muted);font-size:13px;margin-top:3px}
+.content{padding:var(--s5);flex:1;min-width:0}
+.screen{display:none}
+.screen.on{display:block}
+
+/* ---------- Planungsboard: eine einzige Scrollflaeche ----------
+   Auf Screen 1 spannt sich die Anwendung ueber genau eine Bildschirmhoehe.
+   Gescrollt wird nur im Board selbst, das Dokument bleibt stehen. */
+@media (min-width:901px){
+  body.s1mode{overflow:hidden}
+  body.s1mode .app{height:100vh;min-height:0}
+  body.s1mode .topbar{position:static;padding:5px var(--s5);align-items:center}
+  body.s1mode .topbar h1{font-size:17px}
+  body.s1mode .topbar .btn{padding:5px 13px;font-size:12.5px}
+  body.s1mode .tbtxt{display:flex;align-items:baseline;gap:10px;min-width:0}
+  body.s1mode .topbar .lead{margin-top:0;max-width:430px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  body.s1mode .content{flex:1;min-height:0;display:flex;flex-direction:column;padding:10px var(--s5) 12px}
+  body.s1mode #s1.screen.on{display:flex;flex-direction:column;flex:1;min-height:0;gap:6px}
+}
+
+/* ---------- Bausteine ---------- */
+.btn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line-2);background:var(--surface);
+  color:var(--ink);border-radius:var(--r-pill);padding:7px 15px;font-size:13px;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--surface-2);border-color:var(--brand-line)}
+.btn.pri{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn.pri:hover{background:var(--brand-deep);border-color:var(--brand-deep)}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--brand)}
+.btn.ghost:hover{background:var(--brand-soft)}
+.btn.sm{padding:4px 11px;font-size:12px}
+.btn.ok{border-color:#bfe0cd;color:var(--hi);background:var(--st-won-bg)}
+.btn.no{border-color:#eccfc9;color:var(--lo);background:var(--st-lost-bg)}
+.btn.block{width:100%;justify-content:center}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.btn svg{flex:none}
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:var(--r-pill);padding:2px 9px;
+  font-size:11.5px;font-weight:600;white-space:nowrap}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow)}
+.panel .ph{padding:var(--s3) var(--s4);border-bottom:1px solid var(--line);display:flex;align-items:center;
+  justify-content:space-between;gap:var(--s3)}
+.panel .ph h3{font-size:14.5px}
+.panel .pb{padding:var(--s4)}
+.eyebrow{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.muted{color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 340px;gap:var(--s4);align-items:start}
+.stack{display:flex;flex-direction:column;gap:var(--s4)}
+.row{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap}
+
+/* ---------- Eine Werkzeugleiste: Tage, Rolle, Zoom ---------- */
+.s1bar{display:flex;align-items:center;gap:var(--s3);background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-md);box-shadow:var(--shadow);padding:5px var(--s3);min-height:46px;flex-wrap:wrap}
+.daytabs{display:flex;gap:var(--s1);flex-wrap:wrap}
+.daytabs button{background:transparent;border:1px solid transparent;border-radius:var(--r-sm);
+  padding:4px 10px;cursor:pointer;text-align:left;line-height:1.15;display:flex;align-items:baseline;gap:6px}
+.daytabs button .d{font-size:13px;font-weight:600}
+.daytabs button .s{font-size:11px;color:var(--muted)}
+.daytabs button:hover{border-color:var(--brand-line);background:var(--brand-soft)}
+.daytabs button[aria-selected="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+.daytabs button[aria-selected="true"] .s{color:#c9d0ea}
+.seg{display:inline-flex;background:var(--brand-soft);border-radius:var(--r-pill);padding:3px;gap:2px}
+.seg button{background:transparent;border:0;border-radius:var(--r-pill);padding:4px 13px;font-size:12.5px;cursor:pointer;color:var(--brand)}
+.seg button[aria-pressed="true"]{background:var(--brand);color:#fff;font-weight:600}
+.spacer{flex:1 1 auto}
+.rhint{font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px;cursor:help}
+.zoomg{display:flex;gap:6px;flex:none}
+
+/* ---------- Statuszeile: eine Zeile statt vier Kacheln ---------- */
+.sline{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-md);box-shadow:var(--shadow);padding:0 var(--s3);min-height:32px;font-size:12.5px;
+  color:var(--ink-2);min-width:0;flex-wrap:wrap}
+.sline .cl{font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink);font-size:13.5px;flex:none}
+.sline .sep{color:var(--line-2);flex:none}
+.sline .nx{flex:1 1 180px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sline .bs{flex:none;white-space:nowrap}
+.sline .dy{flex:none;white-space:nowrap}
+.slchip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line-2);background:var(--surface-2);
+  color:var(--ink-2);border-radius:var(--r-pill);padding:2px 10px;font-size:11.5px;font-weight:600;
+  cursor:pointer;white-space:nowrap;flex:none}
+.slchip:hover{border-color:var(--brand-line);background:var(--brand-soft);color:var(--brand)}
+.slchip.hot{border-color:#eccfc9;background:var(--bl-bad-bg);color:var(--bl-bad)}
+.slchip.hot:hover{background:#f7ddd8;border-color:var(--bl-bad);color:var(--bl-bad)}
+.scrub{display:flex;align-items:center;gap:7px;flex:none}
+.scrub input[type=range]{width:118px}
+.scrub output{font-variant-numeric:tabular-nums;font-weight:600;min-width:42px;font-size:12px}
+.iconbtn{width:26px;height:26px;border-radius:var(--r-sm);border:1px solid var(--line-2);background:var(--surface);
+  display:grid;place-items:center;cursor:pointer;color:var(--ink-2);flex:none}
+.iconbtn:hover{border-color:var(--brand-line);background:var(--brand-soft);color:var(--brand)}
+input[type=range]{-webkit-appearance:none;appearance:none;height:4px;border-radius:3px;background:
+  linear-gradient(to right,var(--brand) 0 var(--fill,40%),var(--line-2) var(--fill,40%) 100%);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;
+  background:var(--brand);border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--brand);
+  border:2px solid #fff;cursor:pointer}
+
+/* ---------- Personenleiste rechts: Filter und zugleich Ziehquelle ---------- */
+.pfilters{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.pchip{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line-2);
+  border-radius:var(--r-pill);padding:3px 11px 3px 4px;font-size:12px;cursor:pointer;user-select:none;
+  touch-action:none;white-space:nowrap}
+.pchip:hover{border-color:var(--brand-line);background:var(--brand-soft)}
+.pchip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+.pchip[aria-pressed="true"] .av{background:rgba(255,255,255,.22)}
+.pchip .av{width:21px;height:21px;font-size:9.5px;background:var(--brand-soft);color:var(--brand)}
+.pchip.drag{cursor:grab}
+.pchip.springer{border-color:#bfe0cd;background:var(--st-won-bg)}
+
+.bwrap{display:flex;gap:12px;min-height:0;min-width:0}
+body.s1mode .bwrap{flex:1}
+.prail{width:216px;flex:none;display:flex;flex-direction:column;min-height:0;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow);overflow:hidden}
+.prhead{display:flex;align-items:center;gap:6px;padding:7px 8px;border-bottom:1px solid var(--line)}
+.prhead .search{flex:1 1 auto;min-width:0}
+.prhead .search input{padding:5px 10px 5px 29px;font-size:12px}
+.prhead .search svg{left:9px}
+.plist{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;padding:7px 8px;
+  display:flex;flex-direction:column;gap:4px}
+.plist .pchip{width:100%;justify-content:flex-start;border-radius:var(--r-sm);padding:3px 8px 3px 3px}
+.plist .pchip .pn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.plist .pchip .ptag{margin-left:auto;font-size:9px;letter-spacing:.06em;text-transform:uppercase;
+  font-weight:700;color:var(--hi);background:#d8eee1;border-radius:var(--r-pill);padding:1px 6px;flex:none}
+.plist .pchip[aria-pressed="true"] .ptag{background:rgba(255,255,255,.22);color:#fff}
+.prfoot{border-top:1px solid var(--line);padding:6px 9px;font-size:11px;color:var(--muted);background:var(--surface-2)}
+.railtab{width:30px;flex:none;display:none;align-items:center;justify-content:center;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow);cursor:pointer;
+  color:var(--brand);font-size:11.5px;font-weight:600;letter-spacing:.06em;padding:0}
+.railtab span{writing-mode:vertical-rl;transform:rotate(180deg)}
+.railtab:hover{background:var(--brand-soft)}
+.bwrap.railoff .prail{display:none}
+.bwrap.railoff .railtab{display:flex}
+
+/* ---------- Gantt ---------- */
+.gwrap{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  box-shadow:var(--shadow);overflow:hidden;flex:1 1 auto;min-width:0;min-height:0;
+  display:flex;flex-direction:column}
+.gscroll{overflow:auto;position:relative;overscroll-behavior-x:contain;flex:1 1 auto;min-height:0}
+.ggrid{display:grid;grid-template-columns:var(--stw) max-content;align-items:stretch}
+.gcorner{position:sticky;left:0;top:0;z-index:46;background:var(--surface-2);
+  border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);height:var(--rulerh);
+  display:flex;align-items:center;padding:0 var(--s4);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);font-weight:600}
+.gruler{position:sticky;top:0;z-index:34;background:var(--surface-2);border-bottom:1px solid var(--line-2);
+  height:var(--rulerh);position:relative}
+.gruler .t{position:absolute;top:0;bottom:0;border-left:1px solid var(--line-2);padding:5px 0 0 5px;
+  font-size:11.5px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.gruler .t.half{border-left-style:dotted;color:var(--muted);font-size:10px}
+/* Die letzte Beschriftung nach innen klappen, sonst wuerde sie das Board breiter machen */
+.gruler .t.end{padding:5px 5px 0 0;transform:translateX(-100%);border-left:0;border-right:1px solid var(--line-2)}
+.gruler .ph{position:absolute;left:0;bottom:3px;font-size:10px;color:var(--brand);font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.gst{position:sticky;left:0;z-index:22;background:var(--surface);border-right:1px solid var(--line-2);
+  border-bottom:1px solid var(--line);padding:4px var(--s3) 4px var(--s3);display:flex;flex-direction:column;
+  justify-content:center;gap:1px;min-width:0}
+.gst .nm{font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:6px;min-width:0;line-height:1.3}
+.gst .nm span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gst .dot{width:8px;height:8px;border-radius:3px;flex:none;background:var(--tone,var(--brand))}
+.gst .note{font-size:11px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.3}
+.gst .note b{font-weight:600;color:var(--brand)}
+.gst .note.bad b{color:var(--bl-warn)}
+.gst .addb{position:absolute;top:4px;right:5px;width:22px;height:22px;border-radius:var(--r-sm);
+  border:1px solid var(--line-2);background:var(--surface);display:grid;place-items:center;cursor:pointer;
+  color:var(--muted);opacity:0}
+.gst:hover .addb,.gst:focus-within .addb{opacity:1}
+.gst .addb:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-soft)}
+/* Nur noch Stundenlinien. Die Halbstundenlinien lagen bei 53px pro Stunde alle
+   26px und haben die Flaeche zugestreift, ohne dass man sie ablesen konnte.
+   Die Viertelstunde rastet beim Ziehen trotzdem, dafuer braucht es keine Linie. */
+.grow{position:relative;border-bottom:1px solid var(--line);touch-action:pan-y;
+  background-image:
+    repeating-linear-gradient(to right,var(--line) 0 1px,transparent 1px var(--hourw))}
+/* Zebrastreifen raus. Die Zeilentrenner reichen, um die Stationen zu trennen. */
+.grow.can{cursor:crosshair}
+.grow.drop{background-color:var(--brand-soft)}
+/* Bloecke tragen den Zustand, nicht die Station. Normal bleibt navy und ruhig,
+   damit Kollision in Rot und Unbesetzt in Bernstein sofort auffallen. */
+/* Flaeche statt Umriss. 38 weiss umrandete Kaestchen auf gestreiftem Grund waren
+   der eigentliche Grund, warum das Board unruhig wirkte. Jetzt tragen die Bloecke
+   eine ruhige Flaeche, nur die Zustaende bekommen einen Rand. */
+.gb{position:absolute;border-radius:5px;padding:0 7px;overflow:hidden;cursor:pointer;text-align:left;
+  background:var(--brand-soft);border:0;border-left:3px solid var(--brand);
+  display:flex;align-items:center;gap:6px;font:inherit;color:var(--brand-deep);
+  min-width:0}
+.gb:hover{z-index:20;box-shadow:var(--shadow-lg)}
+.gb .t1{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  line-height:1.2;flex:0 1 auto;min-width:0}
+/* Kuerzel der Betreuung, bleibt auch im schmalen Block sichtbar */
+.gb .t3{font-size:9.5px;font-weight:700;letter-spacing:.03em;color:var(--brand);background:var(--brand-soft);
+  border-radius:var(--r-pill);padding:1px 5px;flex:none;line-height:1.4}
+/* Zeitspanne erst beim Zeigen, Auswaehlen oder Anspringen mit der Tastatur */
+.gb .t2{display:none;font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;
+  text-overflow:ellipsis;font-variant-numeric:tabular-nums;line-height:1.2;margin-left:auto;flex:0 1 auto;min-width:0}
+.gb:hover .t2,.gb.sel .t2,.gb:focus-visible .t2,.gb:focus .t2{display:block}
+.gb.wunsch{border:1px dashed var(--st-meeting);border-left:3px dashed var(--st-meeting);
+  background:var(--st-meeting-bg);color:var(--st-meeting)}
+.gb.wunsch .t1{color:var(--st-meeting)}
+.gb.leer{border-left-color:var(--bl-warn);background:var(--bl-warn-bg);color:var(--bl-warn)}
+.gb.leer .t1{color:var(--bl-warn)}
+.gb.leer .t3{background:#f3e2b6;color:var(--bl-warn)}
+.gb.koll{border:1.5px solid var(--bl-bad);border-left:4px solid var(--bl-bad);
+  background:var(--bl-bad-bg);color:var(--bl-bad);box-shadow:0 0 0 2px rgba(178,80,63,.17)}
+.gb.koll .t1{color:var(--bl-bad)}
+.gb.koll .t3{background:#f3d3cc;color:var(--bl-bad)}
+.gb.dim{opacity:.22}
+.gb.sel{outline:2px solid var(--brand);outline-offset:1px;z-index:21}
+.gh{position:absolute;top:0;bottom:0;width:8px;cursor:ew-resize;z-index:3}
+.gh.l{left:-1px}.gh.r{right:-1px}
+.gnow{position:absolute;top:0;bottom:0;width:2px;background:var(--brand);pointer-events:none;z-index:8}
+.gnow::before{content:"";position:absolute;top:0;left:-4px;width:10px;height:10px;border-radius:50%;background:var(--brand)}
+.gnowr{position:absolute;top:0;bottom:0;width:2px;background:var(--brand);z-index:40;pointer-events:none}
+.gnowr .lab{position:absolute;top:5px;left:5px;background:var(--brand);color:#fff;font-size:10.5px;
+  font-weight:600;border-radius:var(--r-pill);padding:1px 8px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.gghost{position:absolute;border:1.5px dashed var(--brand);background:var(--brand-soft);border-radius:7px;
+  pointer-events:none;z-index:7;display:grid;place-items:center;font-size:11px;color:var(--brand);font-weight:600}
+.pghost{position:fixed;z-index:1200;pointer-events:none;background:var(--brand);color:#fff;
+  border-radius:var(--r-pill);padding:4px 12px;font-size:12px;font-weight:600;
+  transform:translate(-50%,-150%);box-shadow:var(--shadow-lg);white-space:nowrap}
+.gfoot{border-top:1px solid var(--line);padding:3px var(--s3);display:flex;gap:var(--s3);
+  align-items:center;background:var(--surface-2);flex:none;overflow:hidden;min-height:24px}
+.lg{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;color:var(--ink-2);
+  white-space:nowrap;min-width:0}
+.lg i{width:14px;height:11px;border-radius:4px;display:block;border:1px solid var(--bl-line);
+  border-left:3px solid var(--bl-edge);background:#fff}
+.lg i.w{border-style:dashed;border-color:var(--st-meeting);background:var(--st-meeting-bg)}
+.lg i.e{border-color:var(--bl-warn-line);border-left-color:var(--bl-warn);background:var(--bl-warn-bg)}
+.lg i.k{border:2px solid var(--bl-bad);background:var(--bl-bad-bg)}
+.lg i.n{border:0;border-left:2px solid var(--brand);border-radius:0;width:2px}
+
+/* ---------- Hinweise, Warnungen, Listen ---------- */
+.warn{display:flex;gap:10px;align-items:flex-start;padding:10px var(--s3);border-radius:var(--r-sm);
+  background:var(--st-lost-bg);border:1px solid #eccfc9;font-size:12.5px;color:#7d3527}
+.warn.mid{background:var(--st-wait-us-bg);border-color:#e7d5a6;color:#6f5113}
+.warn svg{flex:none;margin-top:1px}
+.warn .go{margin-left:auto}
+.wish{border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s3);display:flex;gap:var(--s3);
+  align-items:center;flex-wrap:wrap;background:var(--surface)}
+.wish+.wish{margin-top:var(--s2)}
+.wish .who{font-weight:600;font-size:13px}
+.wish .meta{font-size:12px;color:var(--muted)}
+.wish .acts{margin-left:auto;display:flex;gap:6px}
+.wish.done{opacity:.6;background:var(--surface-2)}
+.rail{display:flex;flex-direction:column;gap:var(--s3)}
+.kvlist{display:flex;flex-direction:column;gap:7px}
+.kvrow{display:flex;gap:var(--s3);font-size:12.5px}
+.kvrow .k{color:var(--muted);min-width:84px;flex:none}
+.empty{text-align:center;color:var(--muted);font-size:12.5px;padding:var(--s5) var(--s3)}
+.oitem{border-bottom:1px solid var(--line);padding:9px 0;font-size:12.5px;display:flex;gap:var(--s3)}
+.oitem:last-child{border-bottom:0}
+.oitem .tm{color:var(--muted);font-variant-numeric:tabular-nums;flex:none}
+
+/* ---------- Tabellen (Screen 5) ---------- */
+.toolbar{display:flex;gap:var(--s3);align-items:center;flex-wrap:wrap;margin-bottom:var(--s4)}
+.search{position:relative;flex:1 1 220px;min-width:160px}
+.search input{width:100%;padding:8px 12px 8px 34px;border:1px solid var(--line-2);border-radius:var(--r-pill);
+  font:inherit;background:var(--surface)}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--muted)}
+select,input[type=text],input[type=time],textarea{font:inherit;border:1px solid var(--line-2);
+  border-radius:var(--r-sm);padding:7px 10px;background:var(--surface);color:var(--ink);max-width:100%}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  font-weight:600;padding:9px var(--s3);border-bottom:1px solid var(--line-2);white-space:nowrap}
+td{padding:10px var(--s3);border-bottom:1px solid var(--line);vertical-align:top}
+tr:hover td{background:var(--row-hover)}
+.grouprow td{background:var(--brand-soft);font-weight:600;font-size:12.5px;color:var(--brand-deep)}
+.grouprow:hover td{background:var(--brand-soft)}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);
+  box-shadow:var(--shadow)}
+.qbox{font-size:12px;color:var(--ink-2);max-width:460px}
+.qbox b{display:block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:2px;font-weight:600}
+
+/* ---------- Dialoge ---------- */
+.ovl{position:fixed;inset:0;background:rgba(20,20,35,.42);display:none;align-items:center;justify-content:center;
+  z-index:1000;padding:var(--s4)}
+.ovl.on{display:flex}
+.dlg{background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);width:min(560px,100%);
+  max-height:88vh;overflow:auto}
+.dlg .dh{padding:var(--s4) var(--s5);border-bottom:1px solid var(--line);display:flex;align-items:center;
+  justify-content:space-between;gap:var(--s3)}
+.dlg .dh h3{font-size:17px}
+.dlg .db{padding:var(--s5)}
+.dlg .df{padding:var(--s4) var(--s5);border-top:1px solid var(--line);display:flex;gap:var(--s2);
+  justify-content:flex-end;flex-wrap:wrap;background:var(--surface-2)}
+.xbtn{width:30px;height:30px;border-radius:var(--r-sm);border:1px solid var(--line-2);background:var(--surface);
+  display:grid;place-items:center;cursor:pointer;color:var(--muted);flex:none}
+.xbtn:hover{background:var(--surface-2);color:var(--ink)}
+.mailprev{border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--surface-2);overflow:hidden}
+.mailprev .mh{padding:10px var(--s3);border-bottom:1px solid var(--line);display:grid;
+  grid-template-columns:84px 1fr;gap:4px var(--s3);font-size:12.5px}
+.mailprev .mh .k{color:var(--muted)}
+.mailprev .mb{padding:var(--s3);font-size:12.5px;white-space:pre-wrap;color:var(--ink-2);background:var(--surface)}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--line-2);border-radius:var(--r-sm);
+  background:var(--surface);overflow:hidden}
+.stepper button{border:0;background:transparent;padding:6px 10px;cursor:pointer;color:var(--brand);font-size:15px;line-height:1}
+.stepper button:hover{background:var(--brand-soft)}
+.stepper .val{padding:6px 10px;font-variant-numeric:tabular-nums;font-weight:600;min-width:58px;text-align:center;
+  border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.frow{display:grid;grid-template-columns:96px 1fr;gap:var(--s3);align-items:center;margin-bottom:var(--s3)}
+.frow>label{font-size:12.5px;color:var(--muted)}
+.frow select,.frow input{width:100%}
+
+/* ---------- Toast ---------- */
+/* Im Ruhezustand vollstaendig ausgeblendet, sonst lugt der Balken unten heraus. */
+#toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,calc(100% + 34px));background:var(--navy);color:#fff;
+  padding:10px 18px;border-radius:var(--r-pill);font-size:13px;z-index:1400;box-shadow:var(--shadow-lg);
+  transition:transform .22s ease,opacity .22s ease,visibility .22s;max-width:88vw;text-align:center;
+  opacity:0;visibility:hidden}
+#toast.on{transform:translate(-50%,0);opacity:1;visibility:visible}
+
+/* ---------- Handy Ansicht ---------- */
+.mwrap{display:flex;flex-direction:column;align-items:center;gap:var(--s4)}
+.demobar{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:9px var(--s4);
+  display:flex;gap:var(--s3);align-items:center;flex-wrap:wrap;box-shadow:var(--shadow);font-size:12.5px}
+.phone{width:390px;max-width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:24px;
+  overflow:hidden;box-shadow:var(--shadow-lg);display:flex;flex-direction:column;height:748px;position:relative}
+.mcard .mm svg,.mopen svg{flex:none;width:14px;height:14px;color:var(--muted)}
+.mhead{background:var(--navy);color:#fff;padding:var(--s4) var(--s4) var(--s3)}
+.mhead .mlogo{display:flex;align-items:center;justify-content:space-between;gap:var(--s3)}
+.mhead .mlogo .mbrand{display:flex;align-items:center;gap:8px}
+.mhead .mlogo .mbrand img{width:26px;height:26px;object-fit:contain}
+.mhead .mlogo .mbrand b{font-family:var(--sans);font-size:12.5px;font-weight:700;color:#fff}
+.mhead h2{font-size:17px;margin-top:var(--s3);color:#fff}
+.mhead .msub{font-size:12px;color:#a9a9c0;margin-top:2px}
+.mtabs{display:flex;gap:var(--s1);padding:var(--s3) var(--s3) 0;background:var(--navy)}
+.mtabs button{flex:1;background:transparent;border:0;border-bottom:2px solid transparent;color:#a9a9c0;
+  padding:9px 4px;font-size:12.5px;cursor:pointer}
+.mtabs button[aria-selected="true"]{color:#fff;border-bottom-color:var(--gold);font-weight:600}
+.mbody{flex:1;overflow:auto;padding:var(--s4);display:flex;flex-direction:column;gap:var(--s3)}
+.mday{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:600;
+  margin-top:var(--s2);display:flex;align-items:center;gap:var(--s2)}
+.mday::after{content:"";flex:1;height:1px;background:var(--line)}
+.mcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s3) var(--s4);
+  box-shadow:var(--shadow);display:flex;flex-direction:column;gap:5px;border-left:4px solid var(--tone,var(--brand))}
+.mcard .mt{display:flex;align-items:baseline;gap:var(--s2);flex-wrap:wrap}
+.mcard .mt .h{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.mcard .mt .st{font-size:13px;color:var(--ink-2)}
+.mcard .mm{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.mcard .ma{display:flex;gap:6px;margin-top:5px;flex-wrap:wrap}
+.mcard.wunsch{border-style:dashed;border-left-style:solid;border-color:var(--st-meeting);
+  border-left-color:var(--st-meeting);background:var(--st-meeting-bg)}
+.mcard.koll{border-color:var(--lo);background:#fdecea}
+.mcard.now{outline:2px solid var(--brand);outline-offset:-1px}
+.mnow{background:var(--brand);color:#fff;border-radius:var(--r-md);padding:var(--s3) var(--s4)}
+.mnow .k{font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;font-weight:600}
+.mnow .v{font-family:var(--serif);font-size:19px;font-weight:600;margin-top:3px}
+.mnow .s{font-size:12px;opacity:.9;margin-top:2px}
+.mopen{background:var(--surface);border:1px dashed var(--line-2);border-radius:var(--r-md);padding:var(--s3) var(--s4);
+  display:flex;flex-direction:column;gap:4px}
+.mopen .mt{display:flex;align-items:baseline;gap:var(--s2);flex-wrap:wrap}
+.mopen .mt .h{font-weight:600;font-variant-numeric:tabular-nums}
+.mfoot{border-top:1px solid var(--line);background:var(--surface);padding:10px var(--s4);display:flex;gap:var(--s2)}
+.sheetovl{position:absolute;inset:0;background:rgba(20,20,35,.42);display:none;align-items:flex-end;z-index:20}
+.sheetovl.on{display:flex}
+.sheet{background:var(--surface);width:100%;border-radius:18px 18px 0 0;padding:var(--s4) var(--s4) var(--s5);
+  max-height:82%;overflow:auto}
+.sheet h3{font-size:16px;margin-bottom:var(--s3)}
+.sheet .kv{display:grid;grid-template-columns:92px 1fr;gap:5px var(--s3);font-size:13px;margin-bottom:var(--s4)}
+.sheet .kv .k{color:var(--muted)}
+.mstatus{font-size:11.5px;padding:2px 9px;border-radius:var(--r-pill);font-weight:600}
+.mstatus.fix{background:var(--st-won-bg);color:var(--hi)}
+.mstatus.wun{background:var(--st-meeting-bg);color:var(--st-meeting)}
+.mstatus.kol{background:var(--st-lost-bg);color:var(--lo)}
+.mstatus.ang{background:var(--st-wait-us-bg);color:var(--mid)}
+
+/* ---------- Responsiv ---------- */
+@media (max-width:1280px){
+  .grid2{grid-template-columns:1fr}
+  .app{grid-template-columns:200px 1fr}
+  /* Schmaler Bildschirm: Hinweis steckt im Titel des Rollenschalters,
+     damit die Werkzeugleiste einzeilig bleibt. */
+  .rhint{display:none}
+  .zoomg .btn.sm{padding:4px 9px}
+}
+@media (max-width:900px){
+  .app{grid-template-columns:1fr}
+  .side{position:static;height:auto;flex-direction:row;align-items:center;gap:var(--s3);padding:0 var(--s3)}
+  .sidehead{border-bottom:0;padding:var(--s3)}
+  .sidehead .sub{display:none}
+  .sidehead img{width:100px}
+  .nav{display:none}
+  .sidefoot{border-top:0;margin-left:auto}
+  .content{padding:var(--s4)}
+  .topbar{padding:var(--s4);position:static}
+  /* Schmale Fenster: Board und Personenleiste untereinander, die Seite darf scrollen */
+  .bwrap{flex-direction:column}
+  .prail{width:auto;max-height:168px}
+  .plist{flex-direction:row;flex-wrap:wrap;align-content:flex-start}
+  .plist .pchip{width:auto;border-radius:var(--r-pill)}
+  .gscroll{max-height:calc(100vh - 300px);min-height:300px}
+  .s1bar,.sline{margin-bottom:var(--s3)}
+  .sline .nx{flex-basis:100%}
+}
+@media (max-width:560px){
+  .content{padding:var(--s3)}
+  .topbar h1{font-size:19px}
+  .phone{border-radius:0;border-left:0;border-right:0;height:auto;min-height:640px}
+  .sidefoot .nm,.sidefoot .ro{display:none}
+  .scrub{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ Pitchbar: nur Mockup Navigation, nicht Teil des Produkts ============ -->
+<div class="pitchbar">
+  <b>FSBF Event</b>
+  <span class="muted" style="color:#9a9ab0">Schichtplanung, Entwurf</span>
+  <div class="pitchnav" role="tablist" aria-label="Ansichten des Entwurfs">
+    <button type="button" data-go="s1" aria-current="true">1 Planungsboard</button>
+    <button type="button" data-go="s2">2 Wünsche und Umplanung</button>
+    <button type="button" data-go="s3">3 Handy: Meine Schichten</button>
+    <button type="button" data-go="s4">4 Handy: Wunsch abgeben</button>
+    <button type="button" data-go="s5">5 Workshop Bewerbungen</button>
+  </div>
+</div>
+
+<div class="app">
+  <!-- ============ Sidebar ============ -->
+  <aside class="side">
+    <div class="sidehead">
+      <div class="bmark">
+        <img src="assets/Favicon-removebg-preview.png" alt="">
+        <b>Frankfurt School<br>Business Forum</b>
+      </div>
+      <div class="sub">Event, Schichtplanung</div>
+    </div>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <div class="grp">Planung</div>
+      <a href="#" data-go="s1" aria-current="page"><span data-ico="cal"></span>Planungsboard</a>
+      <a href="#" data-go="s2"><span data-ico="check"></span>Wünsche und Umplanung</a>
+      <a href="#" data-go="s5"><span data-ico="team"></span>Workshop Bewerbungen</a>
+      <div class="grp">Vorschau Handy</div>
+      <a href="#" data-go="s3"><span data-ico="clock"></span>Meine Schichten</a>
+      <a href="#" data-go="s4"><span data-ico="heart"></span>Wunsch abgeben</a>
+    </nav>
+    <div class="sidefoot">
+      <div class="av" aria-hidden="true">NB</div>
+      <div>
+        <div class="nm">Nele Brandt</div>
+        <div class="ro">Head of Event</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ Hauptbereich ============ -->
+  <div class="main">
+    <header class="topbar">
+      <div class="tbtxt">
+        <h1 id="pgTitle">Planungsboard</h1>
+        <div class="lead" id="pgLead">Ziehen legt einen Block an, die Kanten verschieben die Zeiten.</div>
+      </div>
+      <div class="row" id="pgActions">
+        <button type="button" class="btn" id="btnWarn"><span data-ico="info"></span>Hinweise</button>
+        <button type="button" class="btn pri" id="btnPub"><span data-ico="check"></span>Plan bestätigen</button>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <!-- ================= Screen 1: Planungsboard ================= -->
+      <section class="screen on" id="s1" aria-label="Planungsboard">
+
+        <!-- Eine Werkzeugleiste: Tage links, Rolle und Zoom rechts -->
+        <div class="s1bar">
+          <div class="daytabs" id="daytabs" role="tablist" aria-label="Veranstaltungstage"></div>
+          <span class="spacer"></span>
+          <div class="seg" id="roleSeg" role="group" aria-label="Rolle für die Vorschau wählen"
+               title="Nele darf als Einzige ändern. Alle anderen sehen denselben Plan, aber nur lesend.">
+            <button type="button" data-role="nele" aria-pressed="true">Nele, Planung</button>
+            <button type="button" data-role="helfer" aria-pressed="false">Helferin Lena</button>
+          </div>
+          <span class="muted rhint" id="roleHint"
+                title="Nele darf als Einzige ändern. Alle anderen sehen denselben Plan, aber nur lesend.">nur Nele ändert</span>
+          <div class="zoomg">
+            <button type="button" class="btn sm" id="btnZoomOut" aria-label="Zeitachse schmaler stellen">Zeit schmaler</button>
+            <button type="button" class="btn sm" id="btnZoomIn" aria-label="Zeitachse breiter stellen">Zeit breiter</button>
+          </div>
+        </div>
+
+        <!-- Statuszeile: Uhrzeit, nächster Wechsel, Besetzung, offene Punkte, Regler -->
+        <div class="sline">
+          <span class="cl" id="slClock">12:45</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span class="dy" id="slDay">Freitag 13.11.</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span class="nx" id="slNext">nächster Wechsel wird berechnet</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span class="bs" id="slBusy">0 im Einsatz</span>
+          <button type="button" class="slchip" id="btnIssues" title="Hinweise zum Plan öffnen">0 offene Punkte</button>
+          <span class="spacer"></span>
+          <div class="scrub">
+            <input type="range" id="slT" min="0" max="100" step="1" value="40" aria-label="Simulierte Uhrzeit verschieben">
+            <output id="slV">12:45</output>
+            <button type="button" class="iconbtn" id="btnPlay" aria-label="Simulierte Zeit laufen lassen"><span data-ico="clock"></span></button>
+            <button type="button" class="btn sm" id="btnNowReset" title="Simulierte Zeit auf den Veranstaltungsbeginn setzen">Beginn</button>
+          </div>
+        </div>
+
+        <div class="bwrap" id="bwrap">
+          <div class="gwrap">
+            <div class="gscroll" id="gscroll">
+              <div class="ggrid" id="ggrid"></div>
+            </div>
+            <div class="gfoot">
+              <span class="lg"><i></i> fest</span>
+              <span class="lg"><i class="w"></i> Wunsch</span>
+              <span class="lg" title="Block ohne Person oder benannter Gast ohne Betreuung"><i class="e"></i> unbesetzt</span>
+              <span class="lg" title="Person ist zur selben Zeit an zwei Stationen"><i class="k"></i> Kollision</span>
+              <span class="lg"><i class="n"></i> jetzt</span>
+              <span class="spacer"></span>
+              <span class="muted" style="font-size:10.5px;white-space:nowrap">Raster 15 Minuten · Name beim Zeigen mit Zeit</span>
+            </div>
+          </div>
+
+          <!-- Personenleiste: Filter und zugleich Ziehquelle für die Einteilung -->
+          <aside class="prail" id="prail" aria-label="Personen">
+            <div class="prhead">
+              <div class="search">
+                <span data-ico="search"></span>
+                <input type="text" id="pSearch" placeholder="Person suchen" aria-label="Personen durchsuchen">
+              </div>
+              <button type="button" class="iconbtn" id="btnRailHide" aria-label="Personenleiste einklappen"><span data-ico="arrow"></span></button>
+            </div>
+            <div class="plist" id="pfilters"></div>
+            <div class="prfoot" id="pfHint">Antippen filtert, Ziehen teilt ein.</div>
+          </aside>
+          <button type="button" class="railtab" id="btnRailShow" aria-label="Personenleiste ausklappen"><span>Personen</span></button>
+        </div>
+      </section>
+
+      <!-- ================= Screen 2: Wünsche und Umplanung ================= -->
+      <section class="screen" id="s2" aria-label="Wünsche und Umplanung">
+        <div class="grid2">
+          <div class="stack">
+            <div class="panel">
+              <div class="ph">
+                <h3>Offene Wünsche</h3>
+                <span class="muted" style="font-size:12px" id="wCnt">0 offen</span>
+              </div>
+              <div class="pb" id="wList"></div>
+            </div>
+
+            <div class="panel">
+              <div class="ph">
+                <h3>Umplanung während der Veranstaltung</h3>
+                <span class="muted" style="font-size:12px">Springer übernehmen</span>
+              </div>
+              <div class="pb" id="rList"></div>
+            </div>
+
+            <div class="panel">
+              <div class="ph"><h3>Kollisionen</h3><span class="muted" style="font-size:12px" id="kCnt">0</span></div>
+              <div class="pb" id="kList"></div>
+            </div>
+
+            <div class="panel">
+              <div class="ph"><h3>Unbetreute Gäste und leere Blöcke</h3></div>
+              <div class="pb" id="gList"></div>
+            </div>
+          </div>
+
+          <div class="rail">
+            <div class="panel">
+              <div class="ph"><h3>Outlook Protokoll</h3></div>
+              <div class="pb">
+                <p class="muted" style="font-size:12px;margin:0 0 var(--s3)">Sobald Nele eine Zuteilung bestätigt, legt das System im Hintergrund einen Termin über die Outlook Schnittstelle an. In diesem Entwurf wird nichts versendet, es wird nur protokolliert.</p>
+                <div id="oLog"></div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="ph"><h3>Springer, gerade verfügbar</h3></div>
+              <div class="pb">
+                <p class="muted" style="font-size:12px;margin:0 0 var(--s3)">Diese Personen sind als Springer eingeteilt und können auf eine andere Station gezogen werden.</p>
+                <div class="pfilters" id="sprList"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= Screen 3: Handy, meine Schichten ================= -->
+      <section class="screen" id="s3" aria-label="Handyansicht, meine Schichten">
+        <div class="mwrap">
+          <div class="demobar">
+            <span class="eyebrow">Nur für den Entwurf</span>
+            <label for="meSel">Angemeldet als</label>
+            <select id="meSel"></select>
+            <span class="muted">Auf dem Handy gibt es kein Raster und kein Ziehen, sondern eine eigene Liste.</span>
+          </div>
+          <div class="phone" id="phone3"></div>
+        </div>
+      </section>
+
+      <!-- ================= Screen 4: Handy, Wunsch abgeben ================= -->
+      <section class="screen" id="s4" aria-label="Handyansicht, Wunsch abgeben">
+        <div class="mwrap">
+          <div class="demobar">
+            <span class="eyebrow">Nur für den Entwurf</span>
+            <span class="muted">Offene Blöcke aller Tage. Antippen gibt einen Wunsch ab, den Nele annehmen oder ablehnen kann.</span>
+          </div>
+          <div class="phone" id="phone4"></div>
+        </div>
+      </section>
+
+      <!-- ================= Screen 5: Workshop Bewerbungen ================= -->
+      <section class="screen" id="s5" aria-label="Workshop Bewerbungen">
+        <div class="toolbar">
+          <div class="search">
+            <span data-ico="search"></span>
+            <input type="text" id="appSearch" placeholder="Name oder Unternehmen suchen" aria-label="Bewerbungen durchsuchen">
+          </div>
+          <select id="appFilter" aria-label="Nach Status filtern">
+            <option value="">Alle Stände</option>
+            <option value="offen">Offen</option>
+            <option value="zu">Zugesagt</option>
+            <option value="ab">Abgesagt</option>
+          </select>
+          <span class="spacer"></span>
+          <button type="button" class="btn" id="btnAppMail"><span data-ico="mail"></span>Entwürfe erzeugen</button>
+        </div>
+        <div class="tblwrap">
+          <table id="appTable">
+            <thead>
+              <tr>
+                <th style="width:26px"><span class="sr">Auswahl</span></th>
+                <th>Bewerberin oder Bewerber</th>
+                <th>Studiengang</th>
+                <th>Motivation und Verfügbarkeit</th>
+                <th>Stand</th>
+                <th style="width:120px">Aktion</th>
+              </tr>
+            </thead>
+            <tbody id="appBody"></tbody>
+          </table>
+        </div>
+        <p class="muted" style="font-size:12px;margin-top:var(--s3)">Die Workshops der Partnerunternehmen laufen parallel zum Hauptprogramm. Die Zusagen fliessen anschliessend als feste Blöcke in den Schichtplan der Station Corporates ein.</p>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- ============ Blockdetails, zugleich Tastaturweg ohne Ziehen ============ -->
+<div class="ovl" id="ovlBlock" role="dialog" aria-modal="true" aria-labelledby="obT">
+  <div class="dlg">
+    <div class="dh">
+      <div>
+        <div class="eyebrow" id="obCat">Station</div>
+        <h3 id="obT">Block bearbeiten</h3>
+      </div>
+      <button type="button" class="xbtn" data-close aria-label="Dialog schliessen"><span data-ico="x"></span></button>
+    </div>
+    <div class="db" id="obBody"></div>
+    <div class="df" id="obFoot"></div>
+  </div>
+</div>
+
+<!-- ============ Outlook Termin, reine Vorschau ============ -->
+<div class="ovl" id="ovlMail" role="dialog" aria-modal="true" aria-labelledby="omT">
+  <div class="dlg">
+    <div class="dh">
+      <div>
+        <div class="eyebrow">Outlook Schnittstelle</div>
+        <h3 id="omT">Termin wird angelegt</h3>
+      </div>
+      <button type="button" class="xbtn" data-close aria-label="Dialog schliessen"><span data-ico="x"></span></button>
+    </div>
+    <div class="db">
+      <p class="muted" style="font-size:12.5px;margin:0 0 var(--s3)">So sähe die Einladung aus, die das System nach der Bestätigung anlegt. In diesem Entwurf wird nichts versendet.</p>
+      <div class="mailprev" id="omPrev"></div>
+    </div>
+    <div class="df">
+      <button type="button" class="btn" data-close>Schliessen</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Plan bestätigen ============ -->
+<div class="ovl" id="ovlPub" role="dialog" aria-modal="true" aria-labelledby="opT">
+  <div class="dlg">
+    <div class="dh">
+      <div>
+        <div class="eyebrow">Veröffentlichen</div>
+        <h3 id="opT">Plan bestätigen</h3>
+      </div>
+      <button type="button" class="xbtn" data-close aria-label="Dialog schliessen"><span data-ico="x"></span></button>
+    </div>
+    <div class="db" id="opBody"></div>
+    <div class="df">
+      <button type="button" class="btn" data-close>Abbrechen</button>
+      <button type="button" class="btn pri" id="opGo">Bestätigen und Termine anlegen</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Hinweise ============ -->
+<div class="ovl" id="ovlWarn" role="dialog" aria-modal="true" aria-labelledby="owT">
+  <div class="dlg">
+    <div class="dh">
+      <div>
+        <div class="eyebrow">Prüfung</div>
+        <h3 id="owT">Hinweise zum Plan</h3>
+      </div>
+      <button type="button" class="xbtn" data-close aria-label="Dialog schliessen"><span data-ico="x"></span></button>
+    </div>
+    <div class="db" id="owBody"></div>
+    <div class="df"><button type="button" class="btn" data-close>Schliessen</button></div>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+/* ==================================================================
+   FSBF Event, Schichtplanung, Entwurf
+   Eine Datei, kein Framework. Anmeldung laeuft im Echtbetrieb ueber
+   Microsoft Entra ID und ist hier bewusst nicht nachgebaut.
+   ================================================================== */
+
+/* ---------- kleine Helfer ---------- */
+const $=(s,r)=>(r||document).querySelector(s);
+const $$=(s,r)=>[...(r||document).querySelectorAll(s)];
+const toMin=t=>(+t.slice(0,2))*60+(+t.slice(3,5));
+const hhmm=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(Math.round(m)%60).padStart(2,'0');
+const ini=n=>n.split(' ').map(x=>x[0]).join('').slice(0,2).toUpperCase();
+/* Kurzform fuer die Bloecke: Vorname plus Anfangsbuchstabe des Nachnamens.
+   Akademische Titel fallen weg. Ein Zweistundenblock ist rund 105px breit,
+   „Prof. Dr. Martin Sattler" passt da nie hinein, „Martin S." immer.
+   Der volle Name bleibt im title-Attribut und erscheint beim Zeigen. */
+const TITEL=/^(dr|prof|dipl|ing|mag|lic)\.?$/i;
+const short=n=>{
+  const p=String(n).trim().split(/\s+/).filter(w=>!TITEL.test(w.replace(/[.,]/g,'')));
+  if(p.length<2) return p[0]||String(n);
+  return p[0]+' '+p[p.length-1][0]+'.';
+};
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const snap=m=>Math.round(m/STEP)*STEP;
+const STEP=15;
+/* Umlaute fuer die Mailadresse aufloesen, damit nichts Unzustellbares entsteht */
+const slug=n=>n.toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue')
+  .replace(/ß/g,'ss').replace(/[^a-z ]/g,'').trim().split(/\s+/).join('.');
+const mail=n=>slug(n)+'@fs-students.de';
+
+/* ---------- Symbole, durchgezeichnet, erben die Textfarbe ---------- */
+const ICO={
+  cal:'<path d="M6 3v3M14 3v3M3.5 8h13M4.5 5.5h11a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"/>',
+  clock:'<circle cx="10" cy="10" r="7"/><path d="M10 6v4.2l2.8 1.8"/>',
+  user:'<circle cx="10" cy="7" r="3"/><path d="M4.5 16.5c.8-2.7 2.9-4 5.5-4s4.7 1.3 5.5 4"/>',
+  team:'<circle cx="7.5" cy="7.5" r="2.6"/><path d="M2.8 16c.7-2.3 2.5-3.5 4.7-3.5s4 1.2 4.7 3.5"/><path d="M13.2 6.2a2.4 2.4 0 0 1 0 4.6M14.5 12.8c1.6.4 2.5 1.5 3 3.2"/>',
+  info:'<circle cx="10" cy="10" r="7.2"/><path d="M10 9.2v4.4M10 6.6h.01"/>',
+  check:'<path d="M4.5 10.5l3.4 3.4 7.6-7.8"/>',
+  heart:'<path d="M10 15.8S3.8 12.1 3.8 8.1A3.1 3.1 0 0 1 10 6.4a3.1 3.1 0 0 1 6.2 1.7c0 4-6.2 7.7-6.2 7.7z"/>',
+  x:'<path d="M5.5 5.5l9 9M14.5 5.5l-9 9"/>',
+  plus:'<path d="M10 4.8v10.4M4.8 10h10.4"/>',
+  mail:'<rect x="3" y="5" width="14" height="10" rx="1.4"/><path d="M3.4 5.8L10 10.6l6.6-4.8"/>',
+  search:'<circle cx="9" cy="9" r="5"/><path d="M12.8 12.8L17 17"/>',
+  warn:'<path d="M10 3.4L17.2 16H2.8L10 3.4z"/><path d="M10 8.2v3.2M10 13.6h.01"/>',
+  arrow:'<path d="M4 10h11M11 6l4 4-4 4"/>',
+  drag:'<path d="M7.5 5.5h.01M7.5 10h.01M7.5 14.5h.01M12.5 5.5h.01M12.5 10h.01M12.5 14.5h.01"/>',
+  pin:'<path d="M10 17s5.2-4.9 5.2-8.4A5.2 5.2 0 0 0 4.8 8.6C4.8 12.1 10 17 10 17z"/><circle cx="10" cy="8.5" r="1.9"/>'
+};
+const svg=k=>'<svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(ICO[k]||'')+'</svg>';
+function paintIcons(root){ $$('[data-ico]',root||document).forEach(el=>{ if(!el.firstChild) el.innerHTML=svg(el.dataset.ico); }); }
+
+let toastT=null;
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('on');
+  clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('on'),2600); }
+
+/* Hoehe der Pitchbar in eine Variable schreiben, damit die Sticky Leisten passen */
+function setPitch(){ const b=$('.pitchbar'); if(!b) return;
+  document.documentElement.style.setProperty('--pitch',Math.round(b.getBoundingClientRect().height)+'px'); }
+window.addEventListener('resize',setPitch);
+
+/* ==================================================================
+   Stammdaten
+   ================================================================== */
+const DAYS={
+  1:{key:'do',lbl:'Do 12.11.',sub:'Aufbau',   lang:'Donnerstag, 12. November',s:'14:00',e:'21:00',phase:'Aufbau, keine Gäste im Haus'},
+  2:{key:'fr',lbl:'Fr 13.11.',sub:'Tag eins', lang:'Freitag, 13. November',   s:'07:00',e:'21:00',phase:'Gäste ab 09:00'},
+  3:{key:'sa',lbl:'Sa 14.11.',sub:'Tag zwei', lang:'Samstag, 14. November',   s:'09:00',e:'21:00',phase:'Gäste ab 10:00'},
+  4:{key:'so',lbl:'So 15.11.',sub:'Abbau',    lang:'Sonntag, 15. November',   s:'09:00',e:'14:00',phase:'Abbau und Rückgabe'}
+};
+const DKEYS=[1,2,3,4];
+
+/* Stationen. def ist die vorgeschlagene Schichtlaenge in Minuten,
+   immer ueberschreibbar. gast markiert die beiden Betreuungsstationen.
+   tone faerbt nur noch den kleinen Punkt in der Stationsspalte und die
+   Handykarten, die Bloecke auf dem Board tragen den Zustand als Farbe. */
+const ST={
+  bar :{n:'Bar',                     def:120,tone:'#a8791f',ort:'Foyer Nord, Ausschank'},
+  gar :{n:'Garderobe',               def:120,tone:'#5b4a9e',ort:'Foyer, Garderobentresen'},
+  emp :{n:'Empfang',                 def:180,tone:'#35417d',ort:'Haupteingang, Empfangstresen'},
+  einl:{n:'Einlass',                 def:180,tone:'#3a4a8f',ort:'Haupteingang, Einlassschleuse'},
+  spr :{n:'Springer',                def:240,tone:'#1f8a5c',ort:'Foyer, Treffpunkt unter der Uhr'},
+  cor :{n:'Corporates',              def:240,tone:'#b2503f',gast:true,ort:'Ausstellungsfläche, Erdgeschoss'},
+  spk :{n:'Speaker',                 def:180,tone:'#7a5ea8',gast:true,ort:'Green Room, erste Etage'},
+  tec :{n:'Audimax Technik',         def:360,tone:'#2f6f86',ort:'Audimax, Technikpult'},
+  tue :{n:'Audimax Türsteher',       def:240,tone:'#4a4a63',ort:'Audimax, Türen Süd und Nord'},
+  chf :{n:'Chauffeur und Parkplatz', def:180,tone:'#806a3a',ort:'Tiefgarage, Rampe Ost'}
+};
+const ORDER=['bar','gar','emp','einl','spr','cor','spk','tec','tue','chf'];
+
+/* Helferinnen und Helfer. Nele Brandt plant und steht nicht selbst im Plan. */
+const PEOPLE=['Lena Hoffmann','Clara Winkler','David Ehlers','Julian Petzold','Laura Frisch',
+  'Sarah Neumann','Emily Schuster','Greta Mohr','Jonas Kraus','Pia Lorenz','Carla Mendes',
+  'Benedikt Roth','Mia Sandberg','Robin Kühn','Hannah Reuter','Leon Bachmann','Niklas Vogt',
+  'Elias Frey','Vincent Adam','Jan Petersen','Tim Hollerbach','Fabian Wirth','Moritz Lang',
+  'Johanna Wieland','Paul Berger','Lisa Ahrens','Marie Ostermann','Anna Seibert'];
+const PLANER='Nele Brandt';
+
+/* ---------- Bloecke ----------
+   p  = fest zugeteilte Person, null heisst niemand eingeteilt
+   w  = offener Wunsch einer Person, erst nach Annahme wird daraus p
+   gast/org = benannter Gast an Corporates oder Speaker            */
+let SEQ=0;
+const BL=[];
+function B(d,st,s,e,p,x){ const b=Object.assign({id:'b'+(++SEQ),d,st,s,e,p:p||null,w:null},x||{}); BL.push(b); return b; }
+
+/* --- Donnerstag, Aufbau --- */
+B(1,'tec','14:00','20:00','Tim Hollerbach',{note:'Tonanlage und Licht einrichten'});
+B(1,'tec','17:00','21:00','Fabian Wirth',{note:'Probelauf Präsentationstechnik'});
+B(1,'bar','15:00','17:00','Benedikt Roth',{note:'Anlieferung Getränke'});
+B(1,'bar','17:00','19:00','Mia Sandberg');
+B(1,'gar','16:00','18:00','Hannah Reuter',{note:'Bügel und Nummern sortieren'});
+B(1,'emp','14:00','17:00','Lena Hoffmann',{note:'Namensschilder sortieren'});
+B(1,'emp','17:00','20:00','Clara Winkler');
+B(1,'einl','16:00','18:00',null,{w:'Vincent Adam'});
+B(1,'spr','14:00','18:00','Jonas Kraus');
+B(1,'spr','17:00','21:00','Sarah Neumann');
+B(1,'cor','15:00','19:00','Niklas Vogt',{gast:'Andreas Keller',org:'Schwarz Gruppe',note:'Standaufbau'});
+B(1,'cor','16:00','20:00','Leon Bachmann',{gast:'Sabine Lorch',org:'Deutsche Bank AG',note:'Standaufbau'});
+B(1,'spk','18:00','19:30','Johanna Wieland',{gast:'Prof. Dr. Martin Sattler',org:'Goethe Universität',note:'Technikprobe'});
+B(1,'tue','18:00','21:00','David Ehlers',{note:'Bestuhlung abnehmen'});
+B(1,'chf','14:00','17:00','Robin Kühn',{note:'Materialtransport'});
+B(1,'chf','17:00','20:00','Jan Petersen');
+
+/* --- Freitag, Tag eins --- */
+B(2,'tec','07:00','13:00','Tim Hollerbach');
+B(2,'tec','13:00','21:00','Fabian Wirth');
+B(2,'tec','09:00','12:00','Moritz Lang',{note:'Kamera und Aufzeichnung'});
+B(2,'emp','07:30','10:30','Lena Hoffmann');
+B(2,'emp','08:30','11:30','Clara Winkler');
+B(2,'emp','08:30','11:30','David Ehlers',{note:'Andrang zur Eröffnung'});
+B(2,'emp','11:00','14:00','Julian Petzold');
+B(2,'emp','14:00','17:00','Laura Frisch');
+B(2,'emp','17:00','20:00','Sarah Neumann');
+B(2,'einl','08:30','11:30','Emily Schuster');
+B(2,'einl','11:30','14:30','Greta Mohr');
+B(2,'einl','16:00','18:00','Jonas Kraus');
+B(2,'einl','19:00','21:00',null,{note:'Abendempfang'});
+B(2,'spr','09:00','13:00','Pia Lorenz');
+B(2,'spr','13:00','17:00','Jonas Kraus');
+B(2,'spr','17:00','21:00','Carla Mendes');
+B(2,'bar','11:45','13:45','Emily Schuster');
+B(2,'bar','15:45','17:45','Benedikt Roth');
+B(2,'bar','18:00','20:00','Mia Sandberg');
+B(2,'bar','18:00','20:00','Emily Schuster',{note:'Abendempfang, zweite Kraft'});
+B(2,'bar','19:00','21:00','Robin Kühn');
+B(2,'gar','08:30','10:30','Hannah Reuter');
+B(2,'gar','12:00','14:00','Leon Bachmann');
+B(2,'gar','14:00','16:00',null,{w:'Pia Lorenz'});
+B(2,'gar','18:00','20:00','Niklas Vogt');
+B(2,'gar','19:00','21:00','Hannah Reuter',{note:'Rückgabe nach dem Empfang'});
+B(2,'cor','09:00','14:00','Paul Berger',{gast:'Sabine Lorch',org:'Deutsche Bank AG'});
+B(2,'cor','09:30','16:00','Lisa Ahrens',{gast:'Andreas Keller',org:'Schwarz Gruppe'});
+B(2,'cor','13:00','18:00','Marie Ostermann',{gast:'Nadine Prinz',org:'Allianz SE'});
+B(2,'spk','10:00','13:00','Johanna Wieland',{gast:'Dr. Katharina Vogel',org:'Continental AG'});
+B(2,'spk','14:00','16:30','Anna Seibert',{gast:'Prof. Dr. Martin Sattler',org:'Goethe Universität'});
+B(2,'spk','17:00','20:00',null,{gast:'Miriam Kessler',org:'Nordlicht Ventures'});
+B(2,'tue','09:00','13:00','Niklas Vogt');
+B(2,'tue','13:00','17:00','Elias Frey');
+B(2,'tue','17:00','21:00','Vincent Adam');
+B(2,'chf','07:30','10:30','Jan Petersen',{note:'Abholungen Hauptbahnhof'});
+B(2,'chf','12:00','15:00','Robin Kühn');
+B(2,'chf','20:00','21:00','Robin Kühn',{note:'Rückfahrten Hotel'});
+
+/* --- Samstag, Tag zwei --- */
+B(3,'tec','09:00','15:00','Fabian Wirth');
+B(3,'tec','15:00','21:00','Tim Hollerbach');
+B(3,'emp','09:00','12:00','Lena Hoffmann');
+B(3,'emp','09:00','12:00','Clara Winkler');
+B(3,'emp','12:00','15:00','David Ehlers');
+B(3,'emp','16:00','19:00',null,{w:'Greta Mohr'});
+B(3,'emp','19:00','21:00','Laura Frisch',{note:'Abendveranstaltung'});
+B(3,'einl','09:00','12:00','Emily Schuster');
+B(3,'einl','12:00','15:00','Julian Petzold');
+B(3,'einl','15:00','18:00','Greta Mohr');
+B(3,'einl','18:00','21:00','Hannah Reuter');
+B(3,'spr','09:00','13:00','Carla Mendes');
+B(3,'spr','13:00','17:00','Jonas Kraus');
+B(3,'spr','17:00','21:00','Pia Lorenz');
+B(3,'bar','11:00','13:00','Benedikt Roth');
+B(3,'bar','14:30','16:30',null,{w:'Carla Mendes'});
+B(3,'bar','17:30','19:30','Mia Sandberg');
+B(3,'bar','19:00','21:00','Robin Kühn');
+B(3,'gar','09:30','11:30','Leon Bachmann');
+B(3,'gar','18:00','20:00','Niklas Vogt');
+B(3,'gar','19:00','21:00','Elias Frey');
+B(3,'cor','09:00','15:00','Paul Berger',{gast:'Felix Mertens',org:'KPMG'});
+B(3,'cor','10:00','17:00',null,{gast:'Christina Adam',org:'Roland Berger'});
+B(3,'cor','12:00','18:00','Lisa Ahrens',{gast:'Oliver Baumann',org:'Lufthansa Group'});
+B(3,'spk','09:30','12:30','Johanna Wieland',{gast:'Dr. Ansgar Behnke',org:'Landesbank Hessen'});
+B(3,'spk','13:00','16:00','Marie Ostermann',{gast:'Tobias Wendland',org:'Autor und Moderator'});
+B(3,'spk','16:00','19:00',null,{gast:'Yasmin Cetin',org:'Hanseatic Robotics'});
+B(3,'tue','09:00','13:00','Vincent Adam');
+B(3,'tue','13:00','18:00','Elias Frey');
+B(3,'tue','18:00','21:00',null,{note:'Abendveranstaltung'});
+B(3,'chf','09:00','12:00','Jan Petersen');
+B(3,'chf','16:00','19:00','Robin Kühn');
+
+/* --- Sonntag, Abbau --- */
+B(4,'tec','09:00','14:00','Tim Hollerbach',{note:'Technik abbauen und verladen'});
+B(4,'tec','10:00','13:00','Moritz Lang');
+B(4,'bar','09:00','11:00','Benedikt Roth',{note:'Leergut zählen'});
+B(4,'bar','11:00','13:00','Mia Sandberg');
+B(4,'gar','09:00','11:00','Hannah Reuter',{note:'Fundsachen erfassen'});
+B(4,'emp','09:00','12:00','Lena Hoffmann');
+B(4,'einl','09:00','12:00','David Ehlers');
+B(4,'spr','09:00','13:00','Jonas Kraus');
+B(4,'spr','10:00','14:00','Sarah Neumann');
+B(4,'cor','09:00','13:00','Niklas Vogt',{gast:'Andreas Keller',org:'Schwarz Gruppe',note:'Standabbau'});
+B(4,'spk','09:00','10:30','Johanna Wieland',{gast:'Yasmin Cetin',org:'Hanseatic Robotics',note:'Abreise begleiten'});
+B(4,'tue','09:00','12:00','Vincent Adam');
+B(4,'tue','12:00','14:00',null,{w:'Lena Hoffmann'});
+B(4,'chf','09:00','12:00','Jan Petersen');
+B(4,'chf','11:00','14:00','Robin Kühn',{note:'Rückfahrten Flughafen'});
+
+/* ---------- spontane Umplanungsanfragen waehrend der Veranstaltung ---------- */
+const REQ=[
+  {id:'r1',who:'Emily Schuster',bid:null,d:2,st:'bar',s:'18:00',e:'20:00',
+   txt:'Mir geht es nicht gut, ich schaffe die Bar heute Abend nicht.',state:'offen'},
+  {id:'r2',who:'Julian Petzold',bid:null,d:3,st:'einl',s:'12:00',e:'15:00',
+   txt:'Ich muss um 14:00 zum Bahnhof, die letzte Stunde bekomme ich nicht hin.',state:'offen'},
+  {id:'r3',who:'Leon Bachmann',bid:null,d:2,st:'gar',s:'12:00',e:'14:00',
+   txt:'Klausurbesprechung kurzfristig verschoben.',state:'erledigt',by:'Pia Lorenz'}
+];
+/* Anfragen an die passenden Bloecke haengen */
+REQ.forEach(r=>{ const b=BL.find(x=>x.d===r.d&&x.st===r.st&&x.s===r.s&&x.e===r.e&&x.p===r.who); if(b) r.bid=b.id; });
+
+/* ---------- Protokoll der Outlook Termine ---------- */
+const OUTLOG=[
+  {t:'Mi 11.11., 21:14',txt:'42 Termine für den Grundplan angelegt, alle Tage'},
+  {t:'Do 12.11., 08:02',txt:'Tim Hollerbach, Audimax Technik, Do 14:00 bis 20:00, aktualisiert'},
+  {t:'Do 12.11., 08:02',txt:'Robin Kühn, Chauffeur und Parkplatz, Do 14:00 bis 17:00, angelegt'}
+];
+
+/* ==================================================================
+   Zustand
+   ================================================================== */
+let DAY=2;                 /* aktiver Tag */
+let ROLE='nele';           /* nele darf aendern, helfer nur lesen und wuenschen */
+let PFILT=null;            /* hervorgehobene Person */
+let PQ='';                 /* Suchtext in der Personenleiste */
+let HOURW=100;             /* Breite einer Stunde in Pixeln */
+let ZOOMFIT=true;          /* solange niemand von Hand zoomt, passt sich die Breite an */
+let SEL=null;              /* ausgewaehlter Block */
+let PLAY=null;             /* Intervall fuer die laufende Simulation */
+let ME='Lena Hoffmann';    /* angemeldete Person in der Handyvorschau */
+const NOWBY={1:17*60,2:12*60+45,3:11*60+30,4:10*60+30};
+let NOW=NOWBY[DAY];
+
+const PXMIN=()=>HOURW/60;
+const dA=()=>toMin(DAYS[DAY].s), dZ=()=>toMin(DAYS[DAY].e);
+const ov=(a1,a2,b1,b2)=>a1<b2&&b1<a2;                 /* echte Ueberschneidung */
+const bs=b=>toMin(b.s), be=b=>toMin(b.e);
+const ofDay=d=>BL.filter(b=>b.d===d);
+const blocksOf=(d,st)=>ofDay(d).filter(b=>b.st===st).sort((x,y)=>bs(x)-bs(y)||be(x)-be(y));
+const who=b=>b.p||b.w||null;
+const kindOf=b=>b.p?'fix':(b.w?'wunsch':'leer');
+
+/* ---------- Spuren berechnen, damit sich nichts ueberdeckt ----------
+   Gieriges Einordnen nach Startzeit: der Block kommt in die erste Spur,
+   die zu seinem Beginn bereits frei ist. Ueberlappt etwas, waechst die Zeile. */
+function lanesFor(list){
+  const ends=[], lane={};
+  list.forEach(b=>{
+    let L=0; while(L<ends.length&&ends[L]>bs(b)) L++;
+    lane[b.id]=L; ends[L]=be(b);
+  });
+  return {lane,count:Math.max(1,ends.length)};
+}
+
+/* ---------- Kollisionen: eine Person zur gleichen Zeit an zwei Orten ---------- */
+function collisions(d){
+  const byP={}, set=new Set(), pairs=[];
+  ofDay(d).forEach(b=>{ if(!b.p) return; (byP[b.p]=byP[b.p]||[]).push(b); });
+  Object.keys(byP).forEach(p=>{
+    const l=byP[p].sort((x,y)=>bs(x)-bs(y));
+    for(let i=0;i<l.length;i++) for(let j=i+1;j<l.length;j++){
+      if(ov(bs(l[i]),be(l[i]),bs(l[j]),be(l[j]))){
+        set.add(l[i].id); set.add(l[j].id);
+        pairs.push({p,a:l[i],b:l[j],von:hhmm(Math.max(bs(l[i]),bs(l[j]))),bis:hhmm(Math.min(be(l[i]),be(l[j])))});
+      }
+    }
+  });
+  return {set,pairs};
+}
+
+/* ---------- Offene Punkte eines Tages ---------- */
+function issues(d){
+  const out=[], k=collisions(d);
+  ofDay(d).forEach(b=>{
+    const S=ST[b.st];
+    if(S.gast&&!b.p) out.push({t:'gast',b,txt:(b.st==='spk'?'Speaker ':'Corporate Gast ')+b.gast+(b.org?' ('+b.org+')':'')+' hat keine Betreuung, '+b.s+' bis '+b.e});
+    else if(!S.gast&&!b.p&&!b.w) out.push({t:'leer',b,txt:S.n+' '+b.s+' bis '+b.e+' ist niemandem zugeteilt'});
+    else if(!S.gast&&!b.p&&b.w) out.push({t:'wunsch',b,txt:S.n+' '+b.s+' bis '+b.e+': Wunsch von '+b.w+' ist noch offen'});
+  });
+  k.pairs.forEach(p=>out.push({t:'koll',b:p.a,txt:p.p+' ist '+p.von+' bis '+p.bis+' doppelt verplant, '+ST[p.a.st].n+' und '+ST[p.b.st].n}));
+  REQ.filter(r=>r.d===d&&r.state==='offen').forEach(r=>out.push({t:'req',txt:r.who+' bittet um Umplanung, '+ST[r.st].n+' '+r.s+' bis '+r.e}));
+  return out;
+}
+
+/* ==================================================================
+   Tagesreiter und Personenleiste
+   ================================================================== */
+function renderDayTabs(){
+  const h=DKEYS.map(k=>{
+    const d=DAYS[k];
+    return '<button type="button" role="tab" data-day="'+k+'" aria-selected="'+(k===DAY)+'" '
+      +'title="'+esc(d.lang)+', '+d.s+' bis '+d.e+'">'
+      +'<span class="d">'+esc(d.lbl)+'</span><span class="s">'+esc(d.sub)+'</span></button>';
+  }).join('');
+  $('#daytabs').innerHTML=h;
+}
+
+/* Personenleiste rechts. Sie filtert das Board und ist zugleich die Quelle
+   fuer das Ziehen auf einen Block. Springer sind gruen ausgezeichnet. */
+function renderPeople(){
+  const spr=new Set(ofDay(DAY).filter(b=>b.st==='spr'&&b.p&&bs(b)<=NOW&&be(b)>NOW).map(b=>b.p));
+  const base=ROLE==='helfer'?[ME]:PEOPLE;
+  const q=PQ.trim().toLowerCase();
+  const list=q?base.filter(n=>n.toLowerCase().includes(q)):base;
+  $('#pfilters').innerHTML=list.length?list.map(n=>
+    '<button type="button" class="pchip drag'+(spr.has(n)?' springer':'')+'" data-p="'+esc(n)+'" '
+    +'aria-pressed="'+(PFILT===n)+'" title="'+esc(n)+(spr.has(n)?', gerade als Springer im Dienst':'')+'">'
+    +'<span class="av" aria-hidden="true">'+ini(n)+'</span><span class="pn">'+esc(n)+'</span>'
+    +(spr.has(n)?'<span class="ptag">Springer</span>':'')+'</button>').join('')
+    :'<div class="empty" style="padding:var(--s4) var(--s2)">Niemand passt zu dieser Suche.</div>';
+  $('#pfHint').textContent = ROLE==='helfer'
+    ? 'Auf einen freien Block ziehen gibt einen Wunsch ab.'
+    : 'Antippen filtert, Ziehen teilt ein.';
+}
+
+/* ==================================================================
+   Das Board: Zeit waagerecht, Stationen untereinander
+   ================================================================== */
+/* Spurhoehe. Bewusst knapp, damit ein ganzer Veranstaltungstag senkrecht
+   in eine Bildschirmhoehe passt und nirgends nachgescrollt werden muss. */
+const LANEH=25, LANEGAP=4, ROWPAD=12, ROWMIN=42;
+
+function renderBoard(){
+  const keep=$('#gscroll')?$('#gscroll').scrollLeft:0;
+  const A=dA(), Z=dZ(), W=Math.round((Z-A)*PXMIN()), k=collisions(DAY);
+  document.documentElement.style.setProperty('--hourw',HOURW+'px');
+
+  /* Stundenlineal */
+  let ruler='';
+  for(let m=A;m<=Z;m+=60){
+    /* Die letzte Marke wird nach innen geklappt und nur gezeigt, wenn daneben
+       genug Platz ist, sonst ueberdeckt sie die vorherige Stunde. */
+    const last=m+60>Z;
+    if(!last||HOURW>=80) ruler+='<div class="t'+(last?' end':'')+'" style="left:'+Math.round((m-A)*PXMIN())+'px">'+hhmm(m)+'</div>';
+    else ruler+='<div class="t end noleg" style="left:'+Math.round((m-A)*PXMIN())+'px"></div>';
+    if(m+30<Z&&HOURW>=88) ruler+='<div class="t half" style="left:'+Math.round((m+30-A)*PXMIN())+'px">'+hhmm(m+30)+'</div>';
+  }
+  let h='<div class="gcorner">Station</div>'
+       +'<div class="gruler" style="width:'+W+'px">'+ruler+'<div class="gnowr" id="nowR"><span class="lab" id="nowRL">'+hhmm(NOW)+'</span></div></div>';
+
+  ORDER.forEach((st,i)=>{
+    const S=ST[st], list=blocksOf(DAY,st), L=lanesFor(list);
+    const inner=L.count*LANEH+(L.count-1)*LANEGAP;
+    const H=Math.max(ROWMIN,inner+ROWPAD);
+    const top0=Math.round((H-inner)/2);
+
+    h+='<div class="gst" style="--tone:'+S.tone+'">'
+      +'<div class="nm"><i class="dot" aria-hidden="true"></i><span>'+esc(S.n)+'</span></div>'
+      +'<div class="note" id="note-'+st+'">&nbsp;</div>'
+      +'<button type="button" class="addb" data-add="'+st+'" aria-label="Neuen Block an der Station '+esc(S.n)+' anlegen">'+svg('plus')+'</button>'
+      +'</div>';
+
+    h+='<div class="grow'+(ROLE==='nele'?' can':'')+'" data-st="'+st+'" style="width:'+W+'px;height:'+H+'px">';
+    list.forEach(b=>{
+      const x=Math.round((bs(b)-A)*PXMIN()), w=Math.max(22,Math.round((be(b)-bs(b))*PXMIN())-2);
+      const y=top0+L.lane[b.id]*(LANEH+LANEGAP);
+      const kind=kindOf(b);
+      const koll=k.set.has(b.id);
+      let cls='gb', t1, t2, t3='', lab;
+      if(S.gast){
+        /* Benannter Gast: Name des Gastes plus Kuerzel der Betreuung in einer Zeile.
+           Die volle Angabe steht im Titel und erscheint beim Zeigen in der Zeitspanne. */
+        /* Beim Gast frisst die Betreuungspille rund 30px, deshalb hier die
+           hoehere Schwelle als bei den uebrigen Stationen. */
+        t1=esc(w<100?ini(b.gast):short(b.gast));
+        t3='<span class="t3">'+(b.p?ini(b.p):'offen')+'</span>';
+        t2=b.s+' bis '+b.e+' · '+(b.p?esc(b.p):'ohne Betreuung');
+        lab=S.n+', Gast '+b.gast+', '+b.s+' bis '+b.e+', '+(b.p?'betreut von '+b.p:'ohne Betreuung');
+        if(!b.p) cls+=' leer';
+      }else{
+        /* Ganz kurze Bloecke, etwa eine Viertel- oder halbe Stunde, tragen nur noch
+           das Kuerzel. „Robin K." passte dort nicht, „RK" immer. */
+        /* Beim Wunsch steht kein Wort „Wunsch" mehr im Block. Der gestrichelte Rand,
+           die Farbe und die Legende sagen das bereits, der Platz gehoert dem Namen. */
+        t1=b.p?esc(w<66?ini(b.p):short(b.p)):(b.w?esc(w<66?ini(b.w):short(b.w)):(w<66?'leer':'unbesetzt'));
+        t2=b.s+' bis '+b.e+(b.note?' · '+esc(b.note):'');
+        lab=S.n+', '+b.s+' bis '+b.e+', '+(b.p?b.p:(b.w?'Wunsch von '+b.w:'niemand eingeteilt'));
+        if(kind==='leer') cls+=' leer'; else if(kind==='wunsch') cls+=' wunsch';
+      }
+      if(koll){ cls+=' koll'; lab+=', Kollision'; }
+      if(PFILT&&who(b)!==PFILT) cls+=' dim';
+      if(SEL===b.id) cls+=' sel';
+      h+='<button type="button" class="'+cls+'" data-b="'+b.id+'" aria-label="'+esc(lab)+'" title="'+esc(lab)+(b.org?' · '+b.org:'')+'" '
+        +'style="left:'+x+'px;width:'+w+'px;top:'+y+'px;height:'+LANEH+'px">'
+        +'<span class="t1">'+t1+'</span>'+t3+'<span class="t2">'+t2+'</span>'
+        +(ROLE==='nele'?'<span class="gh l" data-rz="l"></span><span class="gh r" data-rz="r"></span>':'')
+        +'</button>';
+    });
+    h+='<div class="gnow"></div></div>';
+  });
+
+  $('#ggrid').innerHTML=h;
+  $('#gscroll').scrollLeft=keep;
+  updateNow();
+}
+
+/* ---------- Standardzoom: der breiteste Tag passt in die sichtbare Breite ----------
+   Gerechnet wird gegen den laengsten Tag, damit die Skala beim Wechseln des
+   Tages gleich bleibt und jeder Tag ohne Querscrollen hineinpasst. */
+const HMIN=40, HMAX=200;
+function fitHourW(){
+  const gs=$('#gscroll'); if(!gs||!gs.clientWidth) return HOURW;
+  const stw=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--stw'),10)||186;
+  const avail=gs.clientWidth-stw-2;
+  let hrs=1; DKEYS.forEach(d=>{ hrs=Math.max(hrs,(toMin(DAYS[d].e)-toMin(DAYS[d].s))/60); });
+  return clamp(Math.floor(avail/hrs),HMIN,HMAX);
+}
+function applyFit(force){
+  if(!ZOOMFIT&&!force) return;
+  const w=fitHourW();
+  if(w!==HOURW){ HOURW=w; renderBoard(); }
+}
+
+/* ---------- alles, was an der simulierten Uhrzeit haengt ---------- */
+function updateNow(){
+  const A=dA(), Z=dZ(), d=DAYS[DAY];
+  NOW=clamp(NOW,A,Z);
+  const x=Math.round((NOW-A)*PXMIN());
+  $$('#ggrid .gnow').forEach(e=>e.style.left=x+'px');
+  const r=$('#nowR'); if(r){ r.style.left=x+'px'; $('#nowRL').textContent=hhmm(NOW); }
+
+  $('#slClock').textContent=hhmm(NOW);
+  const dyEl=$('#slDay');
+  dyEl.textContent=d.lang.split(',')[0]+' '+d.lbl.split(' ')[1];
+  dyEl.title=d.lang+', '+d.phase;
+  const sl=$('#slT'); sl.min=A; sl.max=Z; sl.step=STEP; sl.value=NOW;
+  sl.style.setProperty('--fill',((NOW-A)/(Z-A)*100).toFixed(1)+'%');
+  $('#slV').textContent=hhmm(NOW);
+
+  /* Notiz je Station: was steht hier als Naechstes an */
+  let best=null;
+  ORDER.forEach(st=>{
+    const el=$('#note-'+st); if(!el) return;
+    const list=blocksOf(DAY,st);
+    let n=null;
+    list.forEach(b=>{
+      if(bs(b)>NOW&&(!n||bs(b)<n.m)) n={m:bs(b),kind:'start',b};
+      if(be(b)>NOW&&bs(b)<=NOW&&(!n||be(b)<n.m)) n={m:be(b),kind:'ende',b};
+    });
+    if(!n){ el.innerHTML='<span class="muted">heute nichts mehr</span>'; el.classList.remove('bad'); }
+    else{
+      const nm=ST[st].gast?(n.b.gast+(n.b.p?'':' , ohne Betreuung')):(n.b.p||(n.b.w?'Wunsch '+n.b.w:'niemand eingeteilt'));
+      el.innerHTML=(n.kind==='start'?'<b>ab '+hhmm(n.m)+'</b> ':'<b>bis '+hhmm(n.m)+'</b> ')+esc(nm);
+      el.classList.toggle('bad',!n.b.p);
+      if(!best||n.m<best.m) best={m:n.m,st,kind:n.kind,b:n.b};
+    }
+  });
+
+  const nxEl=$('#slNext');
+  if(best){
+    const nm=ST[best.st].gast?best.b.gast:(best.b.p||(best.b.w?'Wunsch von '+best.b.w:'niemand eingeteilt'));
+    const lang=ST[best.st].n+', '+(best.kind==='start'?nm+' beginnt um '+hhmm(best.m):nm+' ist bis '+hhmm(best.m)+' eingeteilt');
+    nxEl.textContent='nächster Wechsel in '+(best.m-NOW)+' min, '+ST[best.st].n+' '
+      +(best.kind==='start'?'ab ':'bis ')+hhmm(best.m)+' '+nm;
+    nxEl.title=lang;
+  }else{ nxEl.textContent='kein Wechsel mehr, der Tag ist durchgeplant'; nxEl.title='Der Tag ist durchgeplant.'; }
+
+  const busy=new Set(ofDay(DAY).filter(b=>b.p&&bs(b)<=NOW&&be(b)>NOW).map(b=>b.p));
+  const sprN=[...new Set(ofDay(DAY).filter(b=>b.st==='spr'&&b.p&&bs(b)<=NOW&&be(b)>NOW).map(b=>b.p))];
+  const bsEl=$('#slBusy');
+  bsEl.textContent=busy.size+' im Einsatz';
+  bsEl.title=sprN.length?('davon Springer: '+sprN.join(', ')):'gerade kein Springer im Dienst';
+
+  renderIssueChip();
+}
+
+/* ---------- Offene Punkte: eine einzige Zahl, ein einziger Rechenweg ----------
+   Der Chip in der Statuszeile ist die einzige Stelle, an der die Zahl steht.
+   Der Knopf Hinweise oben traegt bewusst keinen zweiten Zaehler mehr. */
+function renderIssueChip(){
+  const n=issues(DAY).length, c=$('#btnIssues');
+  c.textContent=n+(n===1?' offener Punkt':' offene Punkte');
+  c.classList.toggle('hot',n>0);
+  c.title=n?('Hinweise zum Plan öffnen, '+DAYS[DAY].lbl+' hat '+n+(n===1?' offenen Punkt':' offene Punkte')):'Hinweise zum Plan öffnen';
+}
+
+/* ==================================================================
+   Ziehen: Block anlegen, Kanten verschieben, Person absetzen
+   ================================================================== */
+let DRAG=null, PDRAG=null, NOCLICK=false;
+
+function minFromX(row,clientX){
+  const r=row.getBoundingClientRect();
+  return clamp(dA()+(clientX-r.left)/PXMIN(),dA(),dZ());
+}
+function ghostBox(row,a,b){
+  let g=$('.gghost',row);
+  if(!g){ g=document.createElement('div'); g.className='gghost'; row.appendChild(g); }
+  const A=dA();
+  g.style.left=Math.round((Math.min(a,b)-A)*PXMIN())+'px';
+  g.style.width=Math.max(2,Math.round(Math.abs(b-a)*PXMIN()))+'px';
+  g.style.top='5px'; g.style.bottom='5px';
+  g.textContent=hhmm(Math.min(a,b))+' bis '+hhmm(Math.max(a,b));
+  return g;
+}
+function killGhost(){ $$('.gghost').forEach(g=>g.remove()); }
+
+document.addEventListener('pointerdown',e=>{
+  /* 1) Person aus der Leiste aufnehmen */
+  const chip=e.target.closest('.pchip.drag');
+  if(chip){
+    PDRAG={name:chip.dataset.p,x:e.clientX,y:e.clientY,moved:false,chip};
+    return;   /* ein reiner Klick bleibt Filter, das entscheidet pointerup */
+  }
+  if(ROLE!=='nele') return;
+
+  /* 2) Kante eines Blocks fassen */
+  const hd=e.target.closest('.gh');
+  if(hd){
+    const el=hd.closest('.gb'), b=BL.find(x=>x.id===el.dataset.b);
+    DRAG={mode:'resize',side:hd.dataset.rz,b,el,row:el.parentElement};
+    el.classList.add('sel');            /* waehrend des Ziehens die Zeitspanne zeigen */
+    try{ hd.setPointerCapture(e.pointerId); }catch(_){ }
+    e.preventDefault(); return;
+  }
+  /* 3) auf freier Flaeche einen neuen Block aufziehen */
+  const row=e.target.closest('.grow');
+  if(row&&!e.target.closest('.gb')){
+    const m=snap(minFromX(row,e.clientX));
+    DRAG={mode:'create',st:row.dataset.st,row,a:m,b:m};
+    ghostBox(row,m,m);
+    try{ row.setPointerCapture(e.pointerId); }catch(_){ }
+    e.preventDefault();
+  }
+},true);
+
+document.addEventListener('pointermove',e=>{
+  if(PDRAG){
+    if(!PDRAG.moved&&Math.abs(e.clientX-PDRAG.x)+Math.abs(e.clientY-PDRAG.y)<6) return;
+    if(!PDRAG.moved){
+      PDRAG.moved=true;
+      const g=document.createElement('div'); g.className='pghost'; g.id='pghost';
+      g.textContent=PDRAG.name; document.body.appendChild(g);
+    }
+    const g=$('#pghost'); if(g){ g.style.left=e.clientX+'px'; g.style.top=e.clientY+'px'; }
+    const el=document.elementFromPoint(e.clientX,e.clientY);
+    $$('.gb.sel').forEach(x=>{ if(x.dataset.b!==SEL) x.classList.remove('sel'); });
+    $$('.grow.drop').forEach(x=>x.classList.remove('drop'));
+    const tgt=el&&el.closest?el.closest('.gb'):null;
+    if(tgt){ tgt.classList.add('sel'); tgt.parentElement.classList.add('drop'); }
+    return;
+  }
+  if(!DRAG) return;
+  if(DRAG.mode==='create'){
+    DRAG.b=snap(minFromX(DRAG.row,e.clientX));
+    ghostBox(DRAG.row,DRAG.a,DRAG.b);
+  }else{
+    const m=snap(minFromX(DRAG.row,e.clientX));
+    if(DRAG.side==='l') DRAG.b.s=hhmm(clamp(m,dA(),be(DRAG.b)-STEP));
+    else                DRAG.b.e=hhmm(clamp(m,bs(DRAG.b)+STEP,dZ()));
+    const A=dA();
+    DRAG.el.style.left=Math.round((bs(DRAG.b)-A)*PXMIN())+'px';
+    DRAG.el.style.width=Math.max(22,Math.round((be(DRAG.b)-bs(DRAG.b))*PXMIN())-2)+'px';
+    const t2=$('.t2',DRAG.el);
+    if(t2) t2.textContent=DRAG.b.s+' bis '+DRAG.b.e;
+  }
+});
+
+document.addEventListener('pointerup',e=>{
+  if(PDRAG){
+    const P=PDRAG; PDRAG=null;
+    const g=$('#pghost'); if(g) g.remove();
+    $$('.grow.drop').forEach(x=>x.classList.remove('drop'));
+    if(!P.moved) return;              /* reiner Klick, das erledigt der Klickverteiler */
+    NOCLICK=true;                     /* der Klick nach dem Ziehen darf nicht filtern */
+    const el=document.elementFromPoint(e.clientX,e.clientY);
+    const tgt=el&&el.closest?el.closest('.gb'):null;
+    if(!tgt){ renderBoard(); return; }
+    dropPerson(P.name,tgt.dataset.b);
+    return;
+  }
+  if(!DRAG) return;
+  const D=DRAG; DRAG=null; killGhost();
+  if(D.mode==='create'){
+    let a=Math.min(D.a,D.b), b=Math.max(D.a,D.b);
+    if(b-a<STEP){ a=D.a; b=Math.min(dZ(),a+ST[D.st].def); }   /* kurzer Klick nimmt die Vorgabelaenge */
+    if(b-a<STEP){ renderBoard(); return; }
+    const nb=B(DAY,D.st,hhmm(a),hhmm(b),null,{});
+    renderBoard(); openBlock(nb.id,true);
+  }else{
+    renderBoard();
+    toast(ST[D.b.st].n+' jetzt '+D.b.s+' bis '+D.b.e);
+  }
+});
+
+/* Person auf einen Block setzen */
+function dropPerson(name,bid){
+  const b=BL.find(x=>x.id===bid); if(!b) return;
+  if(ROLE==='helfer'){
+    if(name!==ME){ toast('Du kannst nur dich selbst eintragen.'); return; }
+    if(b.p){ toast('Dieser Block ist schon vergeben.'); renderBoard(); return; }
+    b.w=ME; renderBoard(); renderWishes();
+    toast('Wunsch abgegeben, '+ST[b.st].n+' '+b.s+' bis '+b.e); return;
+  }
+  /* Springer, der gerade laeuft, wird beim Wechsel gekuerzt */
+  const sp=ofDay(b.d).find(x=>x.st==='spr'&&x.p===name&&ov(bs(x),be(x),bs(b),be(b)));
+  b.p=name; b.w=null;
+  let extra='';
+  if(sp&&sp.id!==b.id){
+    if(bs(sp)<bs(b)){ sp.e=b.s; extra=' Springerschicht auf '+sp.s+' bis '+sp.e+' gekürzt.'; }
+    else { BL.splice(BL.indexOf(sp),1); extra=' Springerschicht aufgelöst.'; }
+  }
+  renderBoard(); renderWishes(); renderReqs(); renderSpringer();
+  const k=collisions(b.d);
+  if(k.set.has(b.id)) toast(name+' ist jetzt doppelt verplant, beide Blöcke sind rot markiert.');
+  else { logOut(b); toast(name+' eingeteilt.'+extra+' Outlook Termin angelegt.'); }
+}
+
+/* ==================================================================
+   Blockdetails. Zugleich der Weg ohne Ziehen, allein mit Tastatur.
+   ================================================================== */
+let EDIT=null;
+function openBlock(id,isNew){
+  const b=BL.find(x=>x.id===id); if(!b) return;
+  EDIT={id,s:bs(b),e:be(b),p:b.p,isNew:!!isNew};
+  SEL=id; drawBlockDlg(); openOvl('#ovlBlock');
+}
+function drawBlockDlg(){
+  const b=BL.find(x=>x.id===EDIT.id); if(!b) return;
+  const S=ST[b.st], ro=ROLE!=='nele';
+  $('#obCat').textContent=S.n+' · '+DAYS[b.d].lbl;
+  $('#obT').textContent=S.gast?('Gast '+b.gast):(EDIT.isNew?'Neuer Block':'Block bearbeiten');
+
+  let h='';
+  if(S.gast){
+    h+='<div class="kvlist" style="margin-bottom:var(--s4)">'
+      +'<div class="kvrow"><span class="k">Gast</span><span>'+esc(b.gast)+'</span></div>'
+      +'<div class="kvrow"><span class="k">Organisation</span><span>'+esc(b.org||'ohne Angabe')+'</span></div>'
+      +'<div class="kvrow"><span class="k">Ort</span><span>'+esc(S.ort)+'</span></div></div>';
+  }else{
+    h+='<div class="kvlist" style="margin-bottom:var(--s4)">'
+      +'<div class="kvrow"><span class="k">Ort</span><span>'+esc(S.ort)+'</span></div>'
+      +'<div class="kvrow"><span class="k">Vorgabelänge</span><span>'+(S.def/60).toString().replace('.5',',5')+' Stunden, jederzeit überschreibbar</span></div></div>';
+  }
+  if(ro){
+    h+='<div class="kvlist">'
+      +'<div class="kvrow"><span class="k">Zeit</span><span>'+hhmm(EDIT.s)+' bis '+hhmm(EDIT.e)+'</span></div>'
+      +'<div class="kvrow"><span class="k">'+(S.gast?'Betreuung':'Person')+'</span><span>'+esc(b.p||(b.w?'Wunsch von '+b.w:'niemand eingeteilt'))+'</span></div></div>'
+      +'<p class="muted" style="font-size:12.5px;margin-top:var(--s3)">Ändern darf nur Nele Brandt. Du siehst den Plan mit.</p>';
+  }else{
+    h+='<div class="frow"><label id="lbS">Beginn</label><div class="row">'
+      +'<span class="stepper"><button type="button" data-step="s-" aria-label="Beginn 15 Minuten früher">&minus;</button>'
+      +'<span class="val" id="vS">'+hhmm(EDIT.s)+'</span>'
+      +'<button type="button" data-step="s+" aria-label="Beginn 15 Minuten später">+</button></span></div></div>'
+      +'<div class="frow"><label id="lbE">Ende</label><div class="row">'
+      +'<span class="stepper"><button type="button" data-step="e-" aria-label="Ende 15 Minuten früher">&minus;</button>'
+      +'<span class="val" id="vE">'+hhmm(EDIT.e)+'</span>'
+      +'<button type="button" data-step="e+" aria-label="Ende 15 Minuten später">+</button></span>'
+      +'<span class="muted" style="font-size:12px" id="vD">'+durTxt(EDIT.e-EDIT.s)+'</span></div></div>'
+      +'<div class="frow"><label for="selP">'+(S.gast?'Betreuung':'Person')+'</label>'
+      +'<select id="selP"><option value="">niemand eingeteilt</option>'
+      +PEOPLE.map(n=>'<option value="'+esc(n)+'"'+(EDIT.p===n?' selected':'')+'>'+esc(n)+'</option>').join('')
+      +'</select></div>';
+    if(b.w) h+='<div class="warn mid" style="margin-top:var(--s3)">'+svg('heart')
+      +'<div><b>'+esc(b.w)+'</b> hat sich für diesen Block gemeldet.'
+      +'<div class="row" style="margin-top:6px"><button type="button" class="btn sm ok" data-wok="'+b.id+'">Annehmen</button>'
+      +'<button type="button" class="btn sm no" data-wno="'+b.id+'">Ablehnen</button></div></div></div>';
+    const k=collisions(b.d);
+    if(k.set.has(b.id)) h+='<div class="warn" style="margin-top:var(--s3)">'+svg('warn')
+      +'<div>'+esc(b.p)+' ist zu dieser Zeit noch an einer zweiten Station eingeteilt. Der Plan lässt das zu, markiert aber beide Blöcke rot.</div></div>';
+  }
+  $('#obBody').innerHTML=h;
+  $('#obFoot').innerHTML = ro
+    ? '<button type="button" class="btn" data-close>Schliessen</button>'
+    : '<button type="button" class="btn no" id="obDel">Block löschen</button>'
+      +'<span class="spacer"></span>'
+      +'<button type="button" class="btn" data-close>Abbrechen</button>'
+      +'<button type="button" class="btn pri" id="obSave">Übernehmen</button>';
+  paintIcons($('#ovlBlock'));
+}
+const durTxt=m=>{const h=Math.floor(m/60),r=m%60;return (h?h+' h':'')+(h&&r?' ':'')+(r?r+' min':'')||'0 min';};
+
+function stepEdit(cmd){
+  const b=BL.find(x=>x.id===EDIT.id);
+  if(cmd==='s-') EDIT.s=Math.max(dA(),EDIT.s-STEP);
+  if(cmd==='s+') EDIT.s=Math.min(EDIT.e-STEP,EDIT.s+STEP);
+  if(cmd==='e-') EDIT.e=Math.max(EDIT.s+STEP,EDIT.e-STEP);
+  if(cmd==='e+') EDIT.e=Math.min(toMin(DAYS[b.d].e),EDIT.e+STEP);
+  $('#vS').textContent=hhmm(EDIT.s); $('#vE').textContent=hhmm(EDIT.e);
+  $('#vD').textContent=durTxt(EDIT.e-EDIT.s);
+}
+function saveEdit(){
+  const b=BL.find(x=>x.id===EDIT.id); if(!b) return;
+  const sel=$('#selP'); const np=sel?sel.value:b.p;
+  const changed=(b.p!==np)||(b.s!==hhmm(EDIT.s))||(b.e!==hhmm(EDIT.e));
+  b.s=hhmm(EDIT.s); b.e=hhmm(EDIT.e);
+  if(np){ b.p=np; b.w=null; } else b.p=null;
+  closeOvl('#ovlBlock'); SEL=null;
+  renderAll();
+  if(b.p&&changed){
+    const k=collisions(b.d);
+    if(k.set.has(b.id)) toast(b.p+' ist doppelt verplant, beide Blöcke sind rot markiert.');
+    else { logOut(b); mailPreview(b); }
+  } else toast('Block gespeichert.');
+}
+function delBlock(){
+  const i=BL.findIndex(x=>x.id===EDIT.id);
+  if(i>=0){ const b=BL[i]; BL.splice(i,1); closeOvl('#ovlBlock'); SEL=null; renderAll();
+    toast(ST[b.st].n+' '+b.s+' bis '+b.e+' gelöscht.'); }
+}
+
+/* ==================================================================
+   Outlook: Vorschau und Protokoll. Es wird nichts versendet.
+   ================================================================== */
+function inviteOf(b){
+  const S=ST[b.st], d=DAYS[b.d];
+  return {
+    an:b.p?mail(b.p):'noch niemand',
+    betreff:'FSBF Event, '+S.n+(S.gast&&b.gast?', Betreuung '+b.gast:''),
+    beginn:d.lang+', '+b.s,
+    ende:d.lang+', '+b.e,
+    ort:S.ort,
+    text:'Hallo '+(b.p?b.p.split(' ')[0]:'')+',\n\n'
+      +'du bist am '+d.lang+' von '+b.s+' bis '+b.e+' an der Station '+S.n+' eingeteilt.\n'
+      +'Treffpunkt: '+S.ort+'.\n'
+      +(S.gast&&b.gast?'Du betreust '+b.gast+(b.org?' ('+b.org+')':'')+'.\n':'')
+      +(b.note?'Hinweis: '+b.note+'.\n':'')
+      +'\nÄndert sich etwas, aktualisiert sich dieser Termin automatisch.\n\n'
+      +'Viele Grüsse\nNele Brandt, Head of Event'
+  };
+}
+function mailPreview(b){
+  const v=inviteOf(b);
+  $('#omPrev').innerHTML='<div class="mh">'
+    +'<span class="k">An</span><span>'+esc(v.an)+'</span>'
+    +'<span class="k">Betreff</span><span>'+esc(v.betreff)+'</span>'
+    +'<span class="k">Beginn</span><span>'+esc(v.beginn)+'</span>'
+    +'<span class="k">Ende</span><span>'+esc(v.ende)+'</span>'
+    +'<span class="k">Ort</span><span>'+esc(v.ort)+'</span></div>'
+    +'<div class="mb">'+esc(v.text)+'</div>';
+  openOvl('#ovlMail');
+}
+function stamp(){ const d=DAYS[DAY]; return d.lbl+', '+hhmm(NOW); }
+function logOut(b){
+  OUTLOG.unshift({t:stamp(),txt:(b.p||'niemand')+', '+ST[b.st].n+', '+DAYS[b.d].lbl+' '+b.s+' bis '+b.e+', Termin angelegt'});
+  renderOut();
+}
+
+/* ==================================================================
+   Screen 2: Wünsche, Umplanung, Kollisionen, Lücken, Protokoll
+   ================================================================== */
+function renderWishes(){
+  const list=BL.filter(b=>b.w&&!b.p).sort((a,b)=>a.d-b.d||bs(a)-bs(b));
+  $('#wCnt').textContent=list.length+(list.length===1?' offen':' offen');
+  $('#wList').innerHTML=list.length?list.map(b=>
+    '<div class="wish"><span class="av" aria-hidden="true" style="background:var(--brand-soft);color:var(--brand)">'+ini(b.w)+'</span>'
+    +'<div><div class="who">'+esc(b.w)+'</div>'
+    +'<div class="meta">'+esc(ST[b.st].n)+' · '+DAYS[b.d].lbl+' '+b.s+' bis '+b.e+' · '+durTxt(be(b)-bs(b))+'</div></div>'
+    +'<div class="acts"><button type="button" class="btn sm ok" data-wok="'+b.id+'">Annehmen</button>'
+    +'<button type="button" class="btn sm no" data-wno="'+b.id+'">Ablehnen</button></div></div>').join('')
+    :'<div class="empty">Gerade keine offenen Wünsche.</div>';
+}
+function acceptWish(id){
+  const b=BL.find(x=>x.id===id); if(!b||!b.w) return;
+  b.p=b.w; b.w=null; renderAll();
+  const k=collisions(b.d);
+  if(k.set.has(b.id)) toast(b.p+' ist damit doppelt verplant, beide Blöcke sind rot markiert.');
+  else { logOut(b); toast('Wunsch angenommen, Outlook Termin angelegt.'); }
+}
+function rejectWish(id){
+  const b=BL.find(x=>x.id===id); if(!b||!b.w) return;
+  const n=b.w; b.w=null; renderAll(); toast('Wunsch von '+n+' abgelehnt.');
+}
+
+function renderReqs(){
+  const list=REQ.slice().sort((a,b)=>(a.state==='offen'?0:1)-(b.state==='offen'?0:1)||a.d-b.d);
+  $('#rList').innerHTML=list.map(r=>{
+    const done=r.state!=='offen';
+    return '<div class="wish'+(done?' done':'')+'">'
+      +'<span class="av" aria-hidden="true" style="background:var(--st-wait-us-bg);color:var(--mid)">'+ini(r.who)+'</span>'
+      +'<div style="flex:1 1 200px;min-width:0"><div class="who">'+esc(r.who)+'</div>'
+      +'<div class="meta">'+esc(ST[r.st].n)+' · '+DAYS[r.d].lbl+' '+r.s+' bis '+r.e+'</div>'
+      +'<div class="meta" style="color:var(--ink-2);margin-top:3px">&bdquo;'+esc(r.txt)+'&ldquo;</div></div>'
+      +'<div class="acts">'+(done
+        ? '<span class="pill" style="background:var(--st-won-bg);color:var(--hi)">übernommen von '+esc(r.by)+'</span>'
+        : '<button type="button" class="btn sm pri" data-req="'+r.id+'">Springer einsetzen</button>'
+          +'<button type="button" class="btn sm" data-reqx="'+r.id+'">Ablehnen</button>')
+      +'</div></div>';
+  }).join('');
+}
+function openReq(id){
+  const r=REQ.find(x=>x.id===id); if(!r) return;
+  const b=BL.find(x=>x.id===r.bid);
+  if(!b){ toast('Der zugehörige Block existiert nicht mehr.'); return; }
+  /* Springer, die im fraglichen Zeitfenster im Dienst sind */
+  const cands=[...new Set(ofDay(r.d).filter(x=>x.st==='spr'&&x.p&&ov(bs(x),be(x),bs(b),be(b))).map(x=>x.p))];
+  const t=clamp(snap(r.d===DAY?Math.max(NOW,bs(b)):bs(b)),bs(b),be(b));
+  EDIT=null;
+  $('#obCat').textContent='Umplanung · '+ST[r.st].n+' · '+DAYS[r.d].lbl;
+  $('#obT').textContent=r.who+' bittet um Ablösung';
+  $('#obBody').innerHTML='<p style="margin:0 0 var(--s3);font-size:13px">&bdquo;'+esc(r.txt)+'&ldquo;</p>'
+    +'<div class="kvlist" style="margin-bottom:var(--s4)">'
+    +'<div class="kvrow"><span class="k">Block</span><span>'+esc(ST[r.st].n)+', '+b.s+' bis '+b.e+'</span></div>'
+    +'<div class="kvrow"><span class="k">Übergabe</span><span>'+(t>bs(b)&&t<be(b)?hhmm(t)+', davor bleibt '+esc(r.who):'sofort, komplett')+'</span></div></div>'
+    +(cands.length
+      ? '<div class="frow"><label for="reqSel">Springer</label><select id="reqSel">'
+        +cands.map(n=>'<option value="'+esc(n)+'">'+esc(n)+'</option>').join('')+'</select></div>'
+      : '<div class="warn">'+svg('warn')+'<div>In diesem Zeitfenster ist kein Springer im Dienst. Trage zuerst jemanden an der Station Springer ein.</div></div>');
+  $('#obFoot').innerHTML='<button type="button" class="btn" data-close>Abbrechen</button>'
+    +(cands.length?'<button type="button" class="btn pri" data-reqgo="'+r.id+'" data-t="'+t+'">Übergabe eintragen</button>':'');
+  paintIcons($('#ovlBlock')); openOvl('#ovlBlock');
+}
+function doReq(id,t){
+  const r=REQ.find(x=>x.id===id), b=BL.find(x=>x.id===r.bid), sp=$('#reqSel').value;
+  t=clamp(snap(+t),bs(b),be(b));
+  let nb=b;
+  if(t>bs(b)&&t<be(b)){ const alt=b.e; b.e=hhmm(t); nb=B(b.d,b.st,hhmm(t),alt,sp,{note:'Übernahme von '+r.who}); }
+  else { b.p=sp; b.note='Übernahme von '+r.who; }
+  /* laufende Springerschicht kuerzen */
+  const s2=ofDay(b.d).find(x=>x.st==='spr'&&x.p===sp&&ov(bs(x),be(x),bs(nb),be(nb)));
+  if(s2){ if(bs(s2)<bs(nb)) s2.e=nb.s; else BL.splice(BL.indexOf(s2),1); }
+  r.state='erledigt'; r.by=sp;
+  closeOvl('#ovlBlock'); renderAll(); logOut(nb);
+  toast(sp+' übernimmt '+ST[nb.st].n+' ab '+nb.s+'. Outlook Termin angelegt.');
+}
+
+function renderColl(){
+  const all=[]; DKEYS.forEach(d=>collisions(d).pairs.forEach(p=>all.push({d,p})));
+  $('#kCnt').textContent=all.length?all.length+' offen':'keine';
+  $('#kList').innerHTML=all.length?all.map(o=>
+    '<div class="warn" style="margin-bottom:var(--s2)">'+svg('warn')
+    +'<div><b>'+esc(o.p.p)+'</b> ist am '+DAYS[o.d].lbl+' von '+o.p.von+' bis '+o.p.bis+' doppelt verplant.'
+    +'<div class="meta muted" style="font-size:12px;margin-top:2px">'+esc(ST[o.p.a.st].n)+' '+o.p.a.s+' bis '+o.p.a.e
+    +' und '+esc(ST[o.p.b.st].n)+' '+o.p.b.s+' bis '+o.p.b.e+'</div></div>'
+    +'<button type="button" class="btn sm go" data-open="'+o.p.b.id+'">Öffnen</button></div>').join('')
+    :'<div class="empty">Keine Person ist doppelt verplant.</div>';
+}
+function renderGaps(){
+  const g=[],l=[];
+  DKEYS.forEach(d=>ofDay(d).forEach(b=>{
+    if(ST[b.st].gast&&!b.p) g.push(b);
+    else if(!ST[b.st].gast&&!b.p&&!b.w) l.push(b);
+  }));
+  let h='';
+  h+=g.length?g.map(b=>'<div class="warn" style="margin-bottom:var(--s2)">'+svg('warn')
+    +'<div><b>'+(b.st==='spk'?'Speaker ':'Corporate ')+esc(b.gast)+'</b> hat keine Betreuung.'
+    +'<div class="muted" style="font-size:12px;margin-top:2px">'+esc(b.org||'')+' · '+DAYS[b.d].lbl+' '+b.s+' bis '+b.e+'</div></div>'
+    +'<button type="button" class="btn sm go" data-open="'+b.id+'">Zuteilen</button></div>').join('')
+    :'<div class="warn mid" style="margin-bottom:var(--s2)">'+svg('check')+'<div>Alle benannten Gäste sind betreut.</div></div>';
+  h+=l.length?l.map(b=>'<div class="warn mid" style="margin-bottom:var(--s2)">'+svg('info')
+    +'<div><b>'+esc(ST[b.st].n)+'</b> '+DAYS[b.d].lbl+' '+b.s+' bis '+b.e+' ist niemandem zugeteilt.</div>'
+    +'<button type="button" class="btn sm go" data-open="'+b.id+'">Zuteilen</button></div>').join('')
+    :'<div class="warn mid">'+svg('check')+'<div>Jeder angelegte Block hat jemanden.</div></div>';
+  $('#gList').innerHTML=h;
+}
+function renderOut(){
+  $('#oLog').innerHTML=OUTLOG.slice(0,14).map(o=>
+    '<div class="oitem"><span class="tm">'+esc(o.t)+'</span><span>'+esc(o.txt)+'</span></div>').join('');
+}
+function renderSpringer(){
+  const nowSpr=ofDay(DAY).filter(b=>b.st==='spr'&&b.p&&bs(b)<=NOW&&be(b)>NOW);
+  const later=ofDay(DAY).filter(b=>b.st==='spr'&&b.p&&bs(b)>NOW).sort((a,b)=>bs(a)-bs(b));
+  const rows=nowSpr.map(b=>({n:b.p,t:'im Dienst bis '+b.e})).concat(later.slice(0,3).map(b=>({n:b.p,t:'ab '+b.s})));
+  $('#sprList').innerHTML=rows.length?rows.map(r=>
+    '<span class="pchip springer" style="cursor:default"><span class="av" aria-hidden="true">'+ini(r.n)+'</span>'
+    +esc(r.n)+' <span class="muted" style="font-size:11px">'+esc(r.t)+'</span></span>').join('')
+    :'<div class="empty">Am '+DAYS[DAY].lbl+' ist gerade kein Springer eingeteilt.</div>';
+}
+
+/* ---------- Hinweise und Veröffentlichen ---------- */
+/* Hinweise aller Tage, der gerade gewaehlte Tag steht oben. Die Zahl in der
+   Statuszeile zaehlt genau die Eintraege der ersten Gruppe. */
+function openWarn(){
+  const days=[DAY].concat(DKEYS.filter(d=>d!==DAY));
+  let h='', total=0;
+  days.forEach(d=>{
+    const list=issues(d); total+=list.length;
+    if(!list.length) return;
+    h+='<div class="eyebrow" style="margin:var(--s3) 0 var(--s2)">'+esc(DAYS[d].lbl)+' '+esc(DAYS[d].sub)+'</div>';
+    h+=list.map(i=>{
+      const cls=i.t==='koll'||i.t==='gast'||i.t==='leer'?'warn':'warn mid';
+      return '<div class="'+cls+'" style="margin-bottom:var(--s2)">'+svg(i.t==='wunsch'?'heart':i.t==='req'?'info':'warn')
+        +'<div>'+esc(i.txt)+'</div>'
+        +(i.b?'<button type="button" class="btn sm go" data-open="'+i.b.id+'">Öffnen</button>':'')+'</div>';
+    }).join('');
+  });
+  $('#owBody').innerHTML=total?h:'<div class="empty">Der Plan ist sauber.</div>';
+  openOvl('#ovlWarn');
+}
+function openPub(){
+  const cnt={}; let total=0, ppl=new Set();
+  DKEYS.forEach(d=>{ const n=ofDay(d).filter(b=>b.p).length; cnt[d]=n; total+=n; ofDay(d).forEach(b=>b.p&&ppl.add(b.p)); });
+  const iss=[]; DKEYS.forEach(d=>issues(d).forEach(i=>iss.push(i)));
+  const hart=iss.filter(i=>i.t==='koll'||i.t==='gast'||i.t==='leer').length;
+  $('#opBody').innerHTML='<div class="kvlist" style="margin-bottom:var(--s4)">'
+    +DKEYS.map(d=>'<div class="kvrow"><span class="k">'+DAYS[d].lbl+'</span><span>'+cnt[d]+' besetzte Blöcke</span></div>').join('')
+    +'<div class="kvrow"><span class="k">Gesamt</span><span>'+total+' Blöcke, '+ppl.size+' Personen</span></div></div>'
+    +(hart?'<div class="warn">'+svg('warn')+'<div>'+hart+' Punkte sind noch offen. Du kannst trotzdem bestätigen, die Lücken bleiben dann sichtbar.</div></div>'
+          :'<div class="warn mid">'+svg('check')+'<div>Keine harten Konflikte offen.</div></div>')
+    +'<p class="muted" style="font-size:12.5px;margin-top:var(--s4)">Mit der Bestätigung legt das System für jeden besetzten Block einen Outlook Termin an, mit genau diesen Zeiten, der Station als Inhalt und dem Treffpunkt als Ort. In diesem Entwurf wird nur protokolliert.</p>';
+  paintIcons($('#ovlPub')); openOvl('#ovlPub');
+}
+
+/* ==================================================================
+   Handyansicht. Bewusst keine Rasteransicht, sondern eine eigene Liste.
+   Kein Ziehen, alles laeuft ueber Antippen.
+   ================================================================== */
+let MT3='mine', MD4=2;
+const mHead=(titel,sub,rechts)=>
+  '<div class="mhead"><div class="mlogo">'
+  +'<span class="mbrand"><img src="assets/Favicon-removebg-preview.png" alt="">'
+  +'<b>Business Forum</b></span>'
+  +(rechts||'')+'</div><h2>'+esc(titel)+'</h2><div class="msub">'+esc(sub)+'</div></div>';
+
+function myBlocks(){ return BL.filter(b=>b.p===ME||b.w===ME).sort((a,b)=>a.d-b.d||bs(a)-bs(b)); }
+
+function renderPhone3(){
+  const mine=myBlocks();
+  const run=mine.find(b=>b.d===DAY&&bs(b)<=NOW&&be(b)>NOW&&b.p===ME);
+  const nxt=mine.find(b=>b.p===ME&&(b.d>DAY||(b.d===DAY&&bs(b)>NOW)));
+  let body='';
+  if(MT3==='mine'){
+    body+= run
+      ? '<div class="mnow"><div class="k">Gerade im Dienst</div><div class="v">'+esc(ST[run.st].n)+'</div>'
+        +'<div class="s">noch bis '+run.e+' · '+esc(ST[run.st].ort)+'</div></div>'
+      : '<div class="mnow"><div class="k">Gerade frei</div><div class="v">'+(nxt?esc(ST[nxt.st].n):'nichts offen')+'</div>'
+        +'<div class="s">'+(nxt?'nächste Schicht '+DAYS[nxt.d].lbl+' '+nxt.s:'Für dich ist nichts mehr eingeplant.')+'</div></div>';
+    if(!mine.length) body+='<div class="empty">Für dich ist noch nichts eingeplant. Gib im Reiter Wunsch abgeben eine Schicht an.</div>';
+    let cur=null;
+    mine.forEach(b=>{
+      if(b.d!==cur){ cur=b.d; body+='<div class="mday">'+esc(DAYS[b.d].lbl)+' '+esc(DAYS[b.d].sub)+'</div>'; }
+      const k=collisions(b.d), koll=k.set.has(b.id), wu=b.w===ME&&!b.p;
+      const req=REQ.find(r=>r.bid===b.id&&r.state==='offen');
+      body+='<div class="mcard'+(wu?' wunsch':'')+(koll?' koll':'')+(b===run?' now':'')+'" style="--tone:'+ST[b.st].tone+'">'
+        +'<div class="mt"><span class="h">'+b.s+' bis '+b.e+'</span><span class="st">'+esc(ST[b.st].n)+'</span>'
+        +'<span class="spacer" style="flex:1"></span><span class="mstatus '+(koll?'kol':wu?'wun':req?'ang':'fix')+'">'
+        +(koll?'Kollision':wu?'Wunsch offen':req?'Abmeldung läuft':'fest')+'</span></div>'
+        +'<div class="mm">'+svg('pin')+esc(ST[b.st].ort)+'</div>'
+        +(b.gast?'<div class="mm">Gast: '+esc(b.gast)+(b.org?', '+esc(b.org):'')+'</div>':'')
+        +(b.note?'<div class="mm">'+esc(b.note)+'</div>':'')
+        +'<div class="ma"><button type="button" class="btn sm" data-m3="'+b.id+'">Details</button>'
+        +(wu?'<button type="button" class="btn sm no" data-mwx="'+b.id+'">Wunsch zurückziehen</button>'
+            :req?'':'<button type="button" class="btn sm no" data-mab="'+b.id+'">Abmelden</button>')
+        +'</div></div>';
+    });
+  }else{
+    body+='<div class="mday">'+esc(DAYS[DAY].lbl)+', '+hhmm(NOW)+'</div>';
+    ORDER.forEach(st=>{
+      const list=blocksOf(DAY,st);
+      const on=list.filter(b=>bs(b)<=NOW&&be(b)>NOW);
+      const next=list.find(b=>bs(b)>NOW);
+      body+='<div class="mcard" style="--tone:'+ST[st].tone+'">'
+        +'<div class="mt"><span class="st" style="font-weight:600">'+esc(ST[st].n)+'</span></div>'
+        +'<div class="mm">'+(on.length
+          ? esc(on.map(b=>(ST[st].gast?b.gast+' bei '+(b.p||'niemandem'):(b.p||'niemand eingeteilt'))).join(', '))+' · bis '+hhmm(Math.min.apply(null,on.map(be)))
+          : 'gerade niemand')+'</div>'
+        +(next?'<div class="mm">ab '+next.s+': '+esc(ST[st].gast?next.gast:(next.p||next.w||'noch offen'))+'</div>':'')
+        +'</div>';
+    });
+  }
+  $('#phone3').innerHTML=
+    mHead('Meine Schichten',ME+' · Helferin','<span class="mstatus fix" style="background:rgba(255,255,255,.14);color:#fff">nur lesen</span>')
+    +'<div class="mtabs" role="tablist">'
+    +'<button type="button" role="tab" data-mt="mine" aria-selected="'+(MT3==='mine')+'">Meine Schichten</button>'
+    +'<button type="button" role="tab" data-mt="team" aria-selected="'+(MT3==='team')+'">Wer ist wo</button></div>'
+    +'<div class="mbody">'+body+'</div>'
+    +'<div class="mfoot"><button type="button" class="btn block" data-go="s4">Freie Schicht suchen</button></div>'
+    +'<div class="sheetovl" id="sh3"><div class="sheet" role="dialog" aria-modal="true" aria-label="Schichtdetails"><div id="sh3b"></div></div></div>';
+  paintIcons($('#phone3'));
+}
+
+function renderPhone4(){
+  const open=ofDay(MD4).filter(b=>!b.p&&!ST[b.st].gast).sort((a,b)=>bs(a)-bs(b));
+  const frei=open.filter(b=>!b.w), meins=BL.filter(b=>b.w===ME).sort((a,b)=>a.d-b.d||bs(a)-bs(b));
+  let body='';
+  body+='<div class="mday">Freie Schichten am '+esc(DAYS[MD4].lbl)+'</div>';
+  body+=frei.length?frei.map(b=>
+    '<div class="mopen"><div class="mt"><span class="h">'+b.s+' bis '+b.e+'</span>'
+    +'<span>'+esc(ST[b.st].n)+'</span></div>'
+    +'<div class="mm muted" style="font-size:12px">'+esc(ST[b.st].ort)+' · '+durTxt(be(b)-bs(b))+'</div>'
+    +'<button type="button" class="btn sm pri" style="margin-top:6px;align-self:flex-start" data-m4="'+b.id+'">Wunsch abgeben</button></div>').join('')
+    :'<div class="empty">Am '+esc(DAYS[MD4].lbl)+' ist gerade nichts frei.</div>';
+  body+='<div class="mday">Meine offenen Wünsche</div>';
+  body+=meins.length?meins.map(b=>
+    '<div class="mcard wunsch" style="--tone:'+ST[b.st].tone+'"><div class="mt">'
+    +'<span class="h">'+b.s+' bis '+b.e+'</span><span class="st">'+esc(ST[b.st].n)+'</span>'
+    +'<span style="flex:1"></span><span class="mstatus wun">wartet auf Nele</span></div>'
+    +'<div class="mm">'+esc(DAYS[b.d].lang)+'</div>'
+    +'<div class="ma"><button type="button" class="btn sm no" data-mwx="'+b.id+'">Zurückziehen</button></div></div>').join('')
+    :'<div class="empty">Du hast gerade keinen offenen Wunsch.</div>';
+
+  $('#phone4').innerHTML=
+    mHead('Wunsch abgeben',ME+' · freie Schichten','')
+    +'<div class="mtabs" role="tablist">'+DKEYS.map(d=>
+      '<button type="button" role="tab" data-md="'+d+'" aria-selected="'+(d===MD4)+'">'+esc(DAYS[d].lbl)+'</button>').join('')+'</div>'
+    +'<div class="mbody">'+body+'</div>'
+    +'<div class="mfoot"><button type="button" class="btn block" data-go="s3">Zu meinen Schichten</button></div>'
+    +'<div class="sheetovl" id="sh4"><div class="sheet" role="dialog" aria-modal="true" aria-label="Schicht übernehmen"><div id="sh4b"></div></div></div>';
+  paintIcons($('#phone4'));
+}
+
+function sheet3(id){
+  const b=BL.find(x=>x.id===id); if(!b) return;
+  const S=ST[b.st];
+  $('#sh3b').innerHTML='<h3>'+esc(S.n)+'</h3><div class="kv">'
+    +'<span class="k">Tag</span><span>'+esc(DAYS[b.d].lang)+'</span>'
+    +'<span class="k">Zeit</span><span>'+b.s+' bis '+b.e+', '+durTxt(be(b)-bs(b))+'</span>'
+    +'<span class="k">Treffpunkt</span><span>'+esc(S.ort)+'</span>'
+    +(b.gast?'<span class="k">Gast</span><span>'+esc(b.gast)+(b.org?', '+esc(b.org):'')+'</span>':'')
+    +(b.note?'<span class="k">Hinweis</span><span>'+esc(b.note)+'</span>':'')
+    +'<span class="k">Termin</span><span>liegt in deinem Outlook Kalender</span></div>'
+    +'<button type="button" class="btn block" data-msheet="close">Schliessen</button>';
+  $('#sh3').classList.add('on');
+}
+function sheet4(id){
+  const b=BL.find(x=>x.id===id); if(!b) return;
+  const S=ST[b.st];
+  $('#sh4b').innerHTML='<h3>'+esc(S.n)+' übernehmen</h3><div class="kv">'
+    +'<span class="k">Tag</span><span>'+esc(DAYS[b.d].lang)+'</span>'
+    +'<span class="k">Zeit</span><span>'+b.s+' bis '+b.e+', '+durTxt(be(b)-bs(b))+'</span>'
+    +'<span class="k">Treffpunkt</span><span>'+esc(S.ort)+'</span></div>'
+    +'<p class="muted" style="font-size:12.5px">Dein Wunsch geht an Nele. Erst wenn sie ihn annimmt, wird daraus eine feste Schicht und du bekommst den Termin.</p>'
+    +'<div class="row" style="margin-top:var(--s3)"><button type="button" class="btn" data-msheet="close">Abbrechen</button>'
+    +'<button type="button" class="btn pri" style="flex:1;justify-content:center" data-m4go="'+b.id+'">Wunsch abgeben</button></div>';
+  $('#sh4').classList.add('on');
+}
+
+/* ==================================================================
+   Screen 5: Bewerbungen auf die Workshops der Partnerunternehmen
+   ================================================================== */
+const APPS=[
+ {org:'Deutsche Bank AG',slot:'Fr 13.11., 11:00 bis 13:00, Raum HQ 2.11',rows:[
+  {n:'Merle Achterberg',sg:'MSc Finance, 3. Semester',m:'Praktikum im Corporate Banking, möchte die Fallstudie zur Unternehmensfinanzierung mitmachen.',v:'Fr ganztägig',s:'zu'},
+  {n:'Yannick Orth',sg:'BSc BWL, 5. Semester',m:'Schreibt seine Bachelorarbeit über Kreditrisiken und sucht den Austausch mit der Praxis.',v:'Fr ab 10:00',s:'offen'},
+  {n:'Svenja Tillmann',sg:'MSc Management, 1. Semester',m:'Erster Kontakt zur Bankenbranche, besonderes Interesse am Nachhaltigkeitsteil.',v:'Fr bis 14:00',s:'offen'}]},
+ {org:'Schwarz Gruppe',slot:'Fr 13.11., 15:00 bis 17:00, Raum HQ 3.04',rows:[
+  {n:'Philipp Damm',sg:'MSc Management, 3. Semester',m:'Werkstudent im Einkauf, möchte die Lieferkettenübung mitmachen.',v:'Fr ab 14:00',s:'zu'},
+  {n:'Amelie Storch',sg:'BSc BWL, 3. Semester',m:'Interessiert sich für Handel und Eigenmarken, war letztes Jahr schon dabei.',v:'Fr ganztägig',s:'zu'},
+  {n:'Konstantin Reiff',sg:'MSc Finance, 1. Semester',m:'Sucht ein Praktikum im Controlling und möchte Kontakte knüpfen.',v:'Fr ab 16:00',s:'ab'}]},
+ {org:'Allianz SE',slot:'Sa 14.11., 10:00 bis 12:00, Raum HQ 2.03',rows:[
+  {n:'Franziska Bode',sg:'MSc Management, 3. Semester',m:'Schwerpunkt Versicherungswirtschaft, möchte die Schadensfallanalyse mitmachen.',v:'Sa ganztägig',s:'zu'},
+  {n:'Henri Lampe',sg:'BSc BWL, 5. Semester',m:'Interesse an Aktuariat und Datenanalyse, bringt Vorkenntnisse in Statistik mit.',v:'Sa ab 09:00',s:'offen'},
+  {n:'Malte Wiegand',sg:'MSc Finance, 3. Semester',m:'Möchte den Wechsel von Investmentbanking zu Versicherung verstehen.',v:'Sa bis 13:00',s:'offen'}]}
+];
+const SLBL={offen:['Offen','var(--st-open-bg)','var(--st-open)'],zu:['Zugesagt','var(--st-won-bg)','var(--hi)'],ab:['Abgesagt','var(--st-lost-bg)','var(--lo)']};
+function renderApps(){
+  const q=($('#appSearch').value||'').toLowerCase().trim(), f=$('#appFilter').value;
+  let h='';
+  APPS.forEach(g=>{
+    const rows=g.rows.filter(r=>(!f||r.s===f)&&(!q||r.n.toLowerCase().includes(q)||g.org.toLowerCase().includes(q)));
+    if(!rows.length) return;
+    h+='<tr class="grouprow"><td colspan="6">'+esc(g.org)+' · '+esc(g.slot)+'</td></tr>';
+    rows.forEach(r=>{
+      const S=SLBL[r.s];
+      h+='<tr><td><input type="checkbox" aria-label="'+esc(r.n)+' auswählen"></td>'
+        +'<td><b>'+esc(r.n)+'</b><div class="muted" style="font-size:12px">'+esc(mail(r.n))+'</div></td>'
+        +'<td>'+esc(r.sg)+'</td>'
+        +'<td><div class="qbox"><b>Motivation</b>'+esc(r.m)+'<div style="margin-top:4px"><b>Verfügbarkeit</b>'+esc(r.v)+'</div></div></td>'
+        +'<td><span class="pill" style="background:'+S[1]+';color:'+S[2]+'">'+S[0]+'</span></td>'
+        +'<td>'+(r.s==='offen'
+          ? '<button type="button" class="btn sm ok" data-app="zu" data-n="'+esc(r.n)+'">Zusagen</button> '
+            +'<button type="button" class="btn sm no" data-app="ab" data-n="'+esc(r.n)+'">Absagen</button>'
+          : '<button type="button" class="btn sm" data-app="offen" data-n="'+esc(r.n)+'">Zurücksetzen</button>')+'</td></tr>';
+    });
+  });
+  $('#appBody').innerHTML=h||'<tr><td colspan="6"><div class="empty">Keine Bewerbung passt zu dieser Suche.</div></td></tr>';
+}
+
+/* ==================================================================
+   Dialoge, Navigation, Ereignisse
+   ================================================================== */
+let LASTFOCUS=null;
+function openOvl(sel){ LASTFOCUS=document.activeElement; const o=$(sel); o.classList.add('on');
+  const f=o.querySelector('button,select,input'); if(f) f.focus(); }
+function closeOvl(sel){ const o=sel?$(sel):null;
+  (o?[o]:$$('.ovl.on')).forEach(x=>x.classList.remove('on'));
+  $$('.sheetovl.on').forEach(x=>x.classList.remove('on'));
+  if(LASTFOCUS&&LASTFOCUS.focus) try{ LASTFOCUS.focus(); }catch(_){ }
+}
+
+const TITLES={
+  s1:['Planungsboard','Ziehen legt einen Block an, die Kanten verschieben die Zeiten.'],
+  s2:['Wünsche und Umplanung','Offene Wünsche annehmen oder ablehnen, spontane Ablösungen mit Springern lösen, Kollisionen und Lücken sehen.'],
+  s3:['Handy, meine Schichten','Auf dem Handy gibt es kein Raster und kein Ziehen, sondern eine Liste der eigenen Schichten.'],
+  s4:['Handy, Wunsch abgeben','Freie Schichten antippen und einen Wunsch abgeben. Nele entscheidet darüber.'],
+  s5:['Workshop Bewerbungen','Bewerbungen auf die Workshops der Partnerunternehmen. Zusagen fliessen als Blöcke in die Station Corporates.']
+};
+function go(id){
+  $$('.screen').forEach(s=>s.classList.toggle('on',s.id===id));
+  $$('.pitchnav button').forEach(b=>b.setAttribute('aria-current',String(b.dataset.go===id)));
+  $$('.nav a').forEach(a=>{ if(a.dataset.go===id) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  $('#pgTitle').textContent=TITLES[id][0];
+  $('#pgLead').textContent=TITLES[id][1];
+  $('#pgActions').style.display=(id==='s1'||id==='s2')?'':'none';
+  /* Nur das Planungsboard spannt sich auf eine Bildschirmhoehe. Die uebrigen
+     Ansichten sind lange Seiten und duerfen weiterhin scrollen. */
+  document.body.classList.toggle('s1mode',id==='s1');
+  window.scrollTo(0,0);
+  /* Direkt nach dem Umschalten steht die neue Breite fest, der Zoom wird sofort
+     nachgezogen und zur Sicherheit im naechsten Frame noch einmal. */
+  if(id==='s1'){ applyFit(); requestAnimationFrame(()=>applyFit()); }
+}
+
+function renderAll(){
+  renderDayTabs(); renderBoard(); renderPeople();
+  renderWishes(); renderReqs(); renderColl(); renderGaps(); renderOut(); renderSpringer();
+  renderPhone3(); renderPhone4();
+}
+
+/* ---------- ein zentraler Klickverteiler ---------- */
+document.addEventListener('click',e=>{
+  const t=e.target;
+  if(t.closest('.gh')) return;                 /* Kante ziehen, kein Klick */
+  const pc=t.closest('.pchip[data-p]');
+  if(pc){ if(NOCLICK){ NOCLICK=false; return; }
+    PFILT=(PFILT===pc.dataset.p?null:pc.dataset.p); renderBoard(); renderPeople(); return; }
+  if(NOCLICK) NOCLICK=false;
+  const g=t.closest('[data-go]'); if(g){ e.preventDefault(); go(g.dataset.go); return; }
+  const d=t.closest('[data-day]'); if(d){ DAY=+d.dataset.day; NOW=clamp(NOWBY[DAY],dA(),dZ()); MD4=DAY;
+    renderAll(); applyFit(); return; }
+  const r=t.closest('[data-role]'); if(r){
+    ROLE=r.dataset.role; PFILT=null;
+    $$('#roleSeg button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.role===ROLE)));
+    const hint = ROLE==='nele'
+      ? 'Nele darf als Einzige ändern. Alle anderen sehen denselben Plan, aber nur lesend.'
+      : 'Als Helferin kannst du nichts verschieben. Du siehst alles und kannst dich auf freie Blöcke wünschen.';
+    $('#roleHint').textContent = ROLE==='nele'?'nur Nele ändert':'Helferin, nur lesend';
+    $('#roleHint').title=hint; $('#roleSeg').title=hint;
+    $('#btnPub').style.display=ROLE==='nele'?'':'none';
+    renderAll(); return; }
+  const b=t.closest('.gb'); if(b){ openBlock(b.dataset.b); return; }
+  const ad=t.closest('[data-add]'); if(ad){ addAt(ad.dataset.add); return; }
+  const op=t.closest('[data-open]'); if(op){ const bl=BL.find(x=>x.id===op.dataset.open);
+    if(bl){ closeOvl(); if(bl.d!==DAY){ DAY=bl.d; NOW=clamp(NOWBY[DAY],dA(),dZ()); renderAll(); } go('s1'); openBlock(bl.id); } return; }
+  const wk=t.closest('[data-wok]'); if(wk){ closeOvl('#ovlBlock'); acceptWish(wk.dataset.wok); return; }
+  const wn=t.closest('[data-wno]'); if(wn){ closeOvl('#ovlBlock'); rejectWish(wn.dataset.wno); return; }
+  const rq=t.closest('[data-req]'); if(rq){ openReq(rq.dataset.req); return; }
+  const rx=t.closest('[data-reqx]'); if(rx){ const R=REQ.find(x=>x.id===rx.dataset.reqx);
+    R.state='erledigt'; R.by='Nele Brandt, abgelehnt'; renderReqs(); toast('Anfrage abgelehnt, '+R.who+' bleibt eingeteilt.'); return; }
+  const rg=t.closest('[data-reqgo]'); if(rg){ doReq(rg.dataset.reqgo,rg.dataset.t); return; }
+  const st=t.closest('[data-step]'); if(st){ stepEdit(st.dataset.step); return; }
+  if(t.closest('#obSave')){ saveEdit(); return; }
+  if(t.closest('#obDel')){ delBlock(); return; }
+  if(t.closest('#btnWarn')||t.closest('#btnIssues')){ openWarn(); return; }
+  if(t.closest('#btnPub')){ openPub(); return; }
+  if(t.closest('#btnRailHide')){ $('#bwrap').classList.add('railoff'); applyFit(); $('#btnRailShow').focus(); return; }
+  if(t.closest('#btnRailShow')){ $('#bwrap').classList.remove('railoff'); applyFit();
+    $('#pSearch').focus(); return; }
+  if(t.closest('#opGo')){
+    let n=0; DKEYS.forEach(x=>ofDay(x).forEach(y=>{ if(y.p) n++; }));
+    OUTLOG.unshift({t:stamp(),txt:'Plan bestätigt, '+n+' Termine über die Outlook Schnittstelle aktualisiert'});
+    renderOut(); closeOvl('#ovlPub'); go('s2'); toast('Plan bestätigt, '+n+' Termine angelegt.'); return; }
+  /* Zoom von Hand schaltet die automatische Anpassung ab. Wer wieder auf die
+     Passbreite herunterzoomt, bekommt sie zurueck. */
+  if(t.closest('#btnZoomIn')){ ZOOMFIT=false; HOURW=Math.min(HMAX,HOURW+24); renderBoard(); return; }
+  if(t.closest('#btnZoomOut')){ const f=fitHourW();
+    HOURW=Math.max(HMIN,HOURW-24);
+    if(HOURW<=f){ HOURW=f; ZOOMFIT=true; } else ZOOMFIT=false;
+    renderBoard(); return; }
+  if(t.closest('#btnNowReset')){ NOW=dA(); updateNow(); renderPeople(); renderSpringer(); renderPhone3(); return; }
+  if(t.closest('#btnPlay')){ togglePlay(); return; }
+  if(t.closest('[data-close]')){ closeOvl(); return; }
+  if(t.classList&&t.classList.contains('ovl')){ closeOvl(); return; }
+
+  /* Handy */
+  const mt=t.closest('[data-mt]'); if(mt){ MT3=mt.dataset.mt; renderPhone3(); return; }
+  const md=t.closest('[data-md]'); if(md){ MD4=+md.dataset.md; renderPhone4(); return; }
+  const m3=t.closest('[data-m3]'); if(m3){ sheet3(m3.dataset.m3); return; }
+  const m4=t.closest('[data-m4]'); if(m4){ sheet4(m4.dataset.m4); return; }
+  if(t.closest('[data-msheet]')){ $$('.sheetovl.on').forEach(x=>x.classList.remove('on')); return; }
+  const m4g=t.closest('[data-m4go]'); if(m4g){ const bl=BL.find(x=>x.id===m4g.dataset.m4go);
+    if(bl&&!bl.p){ bl.w=ME; renderAll(); toast('Wunsch abgegeben, Nele bekommt ihn angezeigt.'); } return; }
+  const mwx=t.closest('[data-mwx]'); if(mwx){ const bl=BL.find(x=>x.id===mwx.dataset.mwx);
+    if(bl){ bl.w=null; renderAll(); toast('Wunsch zurückgezogen.'); } return; }
+  const mab=t.closest('[data-mab]'); if(mab){ signOff(mab.dataset.mab); return; }
+  if(t.closest('.sheetovl')&&t.classList.contains('sheetovl')){ t.classList.remove('on'); return; }
+
+  const ap=t.closest('[data-app]'); if(ap){
+    const n=ap.dataset.n; APPS.forEach(g=>g.rows.forEach(x=>{ if(x.n===n) x.s=ap.dataset.app; }));
+    renderApps(); toast(n+(ap.dataset.app==='zu'?' hat einen Platz im Workshop.':ap.dataset.app==='ab'?' wurde abgesagt.':' wurde zurückgesetzt.')); return; }
+  if(t.closest('#btnAppMail')){ toast('Für jede Zusage wird ein Outlook Entwurf erzeugt, versendet wird nichts.'); return; }
+});
+
+/* Block an einer Station anlegen, ohne Ziehen */
+function addAt(st){
+  if(ROLE!=='nele'){ toast('Nur Nele kann Blöcke anlegen.'); return; }
+  const list=blocksOf(DAY,st), A=dA(), Z=dZ();
+  let s=A;
+  list.forEach(b=>{ if(bs(b)<=s&&be(b)>s) s=be(b); });
+  s=clamp(snap(s),A,Z-STEP);
+  const b=B(DAY,st,hhmm(s),hhmm(Math.min(Z,s+ST[st].def)),null,{});
+  renderAll(); openBlock(b.id,true);
+}
+/* Helferin meldet sich von einer Schicht ab */
+function signOff(id){
+  const b=BL.find(x=>x.id===id); if(!b) return;
+  if(REQ.some(r=>r.bid===id&&r.state==='offen')){ toast('Die Abmeldung liegt schon bei Nele.'); return; }
+  REQ.push({id:'r'+(REQ.length+1)+'m',who:b.p||ME,bid:id,d:b.d,st:b.st,s:b.s,e:b.e,
+    txt:'Ich kann diese Schicht leider nicht übernehmen.',state:'offen'});
+  renderAll(); toast('Abmeldung an Nele geschickt. Bis sie jemanden findet, bleibst du eingeteilt.');
+}
+
+/* ---------- Regler, Auswahlfelder ---------- */
+document.addEventListener('input',e=>{
+  if(e.target.id==='slT'){ NOW=snap(+e.target.value); updateNow(); renderPeople(); renderSpringer(); renderPhone3(); return; }
+  if(e.target.id==='pSearch'){ PQ=e.target.value; renderPeople(); return; }
+  if(e.target.id==='meSel'){ ME=e.target.value; renderPhone3(); renderPhone4(); return; }
+  if(e.target.id==='appSearch'||e.target.id==='appFilter'){ renderApps(); return; }
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    if($$('.sheetovl.on').length){ $$('.sheetovl.on').forEach(x=>x.classList.remove('on')); return; }
+    if($$('.ovl.on').length){ closeOvl(); }
+  }
+});
+
+function togglePlay(){
+  const btn=$('#btnPlay');
+  if(PLAY){ clearInterval(PLAY); PLAY=null;
+    btn.innerHTML=svg('clock'); btn.setAttribute('aria-label','Simulierte Zeit laufen lassen'); return; }
+  PLAY=setInterval(()=>{
+    NOW+=STEP;
+    if(NOW>=dZ()){ NOW=dZ(); togglePlay(); }
+    updateNow(); renderPeople(); renderSpringer(); renderPhone3();
+  },900);
+  btn.innerHTML=svg('x'); btn.setAttribute('aria-label','Simulierte Zeit anhalten');
+}
+
+/* ---------- Groesse des Fensters: Passbreite neu rechnen ---------- */
+let RSZ=null;
+window.addEventListener('resize',()=>{ clearTimeout(RSZ); RSZ=setTimeout(()=>applyFit(),120); });
+
+/* ---------- Start ---------- */
+$('#meSel').innerHTML=PEOPLE.map(n=>'<option value="'+esc(n)+'"'+(n===ME?' selected':'')+'>'+esc(n)+'</option>').join('');
+paintIcons();
+setPitch();
+renderAll();
+renderApps();
+go('s1');
+applyFit(true);
+</script>
+</body>
+</html>
